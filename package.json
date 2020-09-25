@@ -1,0 +1,24 @@
+{
+  "name": "proyecto-equipo-9",
+  "version": "1.0.0",
+  "description": "El proyecto versará sobre el diseño de una plataforma de e-commerce del rubro tecnología. La misma estará avocada a venta de productos informáticos como computadoras ya armadas, periféricos, accesorios de conectividad, balanzas comerciales, lectores de código de barra, comanderas, etc.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielsaucedo/proyecto-equipo-9.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arielsaucedo/proyecto-equipo-9/issues"
+  },
+  "homepage": "https://github.com/arielsaucedo/proyecto-equipo-9#readme"
+}
