@@ -1,4 +1,4 @@
-# proyecto-equipo-9
+# Proyecto: Gama Desarrollos
 
 ## <u>Proyecto integrador de Digital House</u>
 
@@ -33,3 +33,6 @@ https://www.mgmstore.com.ar/ - Elegimos también MGM Store por ser un sitio muy 
 
 https://redcx.com/ - Cx Computación es una de las principales casas de computación en Rosario, con sucursales en todo el país, por eso la tomamos como referencia. Tiene una página web funcional, con mapa de sucursales, blog y soporte, además de la parte de productos a la venta. Por eso nos pareció una buena opción a tener en cuenta.
 
+## <u>Link a tablero de trabajo</u>
+
+- https://trello.com/b/kRUUlit3/equipo-9-dh
