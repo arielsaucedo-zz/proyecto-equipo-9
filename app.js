@@ -9,6 +9,12 @@ app.get("/", function (req, res) {
     res.sendFile(rutafile)
 })
 
+/* Ruta login */
+app.get("/login", function (req, res) {
+    let rutafile = path.resolve('view/login.html')
+    res.sendFile(rutafile)
+})
+
 /* Ruta productos */
 app.get("/products", function (req, res) {
     let rutafile = path.resolve('view/products.html')
