@@ -5,7 +5,7 @@ const path = require("path")
 
 /* Ruta raiz */
 app.get("/", function (req, res) {
-    let rutafile = path.resolve('scr/index.html')
+    let rutafile = path.resolve('view/index.html')
     res.sendFile(rutafile)
 })
 
