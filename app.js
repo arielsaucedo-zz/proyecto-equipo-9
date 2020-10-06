@@ -15,9 +15,9 @@ app.get("/login", function (req, res) {
     res.sendFile(rutafile)
 })
 
-/* Ruta productos */
-app.get("/products", function (req, res) {
-    let rutafile = path.resolve('view/products.html')
+/* Ruta detalle de producto */
+app.get("/productDetail", function (req, res) {
+    let rutafile = path.resolve('view/productDetail.html')
     res.sendFile(rutafile)
 })
 
