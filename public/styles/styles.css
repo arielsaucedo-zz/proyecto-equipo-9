@@ -286,6 +286,70 @@ hr {
 }
 
 .imagen-mediana {
-    width: 40%;
-    height: 70%;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.title-product {
+    align-items: center;
+    margin-top: 30px;
+    font-size: 34px;
+    font-family: system-ui;
+}
+
+.subtitle-product {
+    align-items: center;
+    font-size: 30px;
+    font-family: system-ui;
+}
+
+.sale {
+    align-items: center;
+    font-size: 30px;
+    color: springgreen;
+}
+
+.description {
+    text-align: center;
+    font-size: 24px;
+    font-family: monospace;
+    margin-top: 27px;
+}
+
+.detail {
+    text-align: center;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-top: 15px;
+}
+
+.text {
+    padding: 4%;
+}
+
+.too {
+    text-align: center;
+    font-size: 26px;
+    font-family: sans-serif;
+    margin-top: 40px;
+}
+
+.parecidos {
+    text-align: center;
+    color: dimgray;
+    margin-bottom: 25px;
+}
+
+.sub-producto {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 15px;
+}
+
+.sub-precio {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
