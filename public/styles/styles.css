@@ -274,7 +274,8 @@ hr {
 }
 
 .imagen-chica {
-    width: 100%;
+    width: 50%;
+    display: inline;
 }
 
 .wrap {
@@ -282,7 +283,7 @@ hr {
 }
 
 .f-grow {
-    width: 33%;
+    text-align: center;
 }
 
 .imagen-mediana {
