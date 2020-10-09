@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/kalitero-favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <title>Bienvenidos</title>
@@ -20,6 +21,9 @@
                 <div class="logo">
                     <img class="img-logo" src="/images/kalitero-logo.png" alt="Logo - Kalítero">
                 </div>
+                <div class="user">
+                    <i class="fas fa-user"></i>
+                </div>
                 <div class="shop-cart">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
@@ -31,47 +35,86 @@
             <input class="input-search" type="search" placeholder="Buscar productos" name="" id="">
             <i class="search-icon fas fa-search"></i>
         </div>
+        <nav class="nav-menu">
+            <a href="">PC ARMADAS</a>
+            <a href="">BALANZAS</a>
+            <a href="">LECTORES</a>
+            <a href="">COMANDERAS</a>
+            <a href="">COMBOS</a>
+            <a href="">PROMOCIONES</a>
+        </nav>
+
+        <nav class="nav-sub-menu">
+            <a href="">QUIENES SOMOS <i class="fas fa-handshake"></i></a>
+            <a href="">CONTACTO <i class="far fa-envelope"></i></a>
+            <a href="">FACEBOOK <i class="fab fa-facebook-square"></i></a>
+            <a href="">INSTAGRAM <i class="fab fa-instagram"></i></a>
+        </nav>
     </header>
 
     <main>
         <div class="carousel">
             <img class="w-100" src="/images/foto-carrusel.jpg" alt="foto-carrusel">
         </div>
-        <div class="products d-flex f-wrap margin-b-20">
-            <div class="product-1 w-50">
-                <img class="w-100" src="/images/product-1.jpg" alt="">
-                <p class="text-al-center">$250.000</p>
-            </div>
-            <div class="product-2 w-50">
-                <img class="w-100" src="/images/product-2.jpg" alt="">
-                <p class="text-al-center">$250.000</p>
-            </div>
-            <div class="product-3 w-50">
-                <img class="w-100" src="/images/product-3.jpg" alt="">
-                <p class="text-al-center">$250.000</p>
-            </div>
-            <div class="product-4 w-50">
-                <img class="w-100" src="/images/product-4.jpg" alt="">
-                <p class="text-al-center">$250.000</p>
-            </div>
+        <div class="products d-flex f-wrap">
+            <article class="product-1 w-42">
+                <div>
+                    <img class="w-100" src="/images/product-1.jpg" alt="">
+                </div>
+                <div class="text-al-center">
+                    <p class="device">iPhone 11 Pro 64 Gb - Space Gray</p>
+                    <p class="price">$250.000</p>
+                </div>
+            </article>
+            
+            <article class="product-2 w-42">
+                <div>
+                    <img class="w-100" src="/images/product-2.jpg" alt="">
+                </div>
+                <div class="text-al-center">
+                    <p class="device">iPhone 11 Pro 64 Gb - Silver</p>
+                    <p class="price">$250.000</p>
+                </div>
+            </article>
+            
+            <article class="product-3 w-42">
+                <div>
+                    <img class="w-100" src="/images/product-3.jpg" alt="">
+                </div>
+                <div class="text-al-center">
+                    <p class="device">iPhone 11 Pro 64 Gb - Midnight Green</p>
+                    <p class="price">$250.000</p>
+                </div>
+            </article>
+            
+            <article class="product-4 w-42">
+                <div>
+                    <img class="w-100" src="/images/product-4.jpg" alt="">
+                </div>
+                <div class="text-al-center">
+                    <p class="device">iPhone 11 Pro 64 Gb - Gold</p>
+                    <p class="price">$250.000</p>
+                </div>
+            </article>  
         </div>
     </main>
-    <hr>
-    <footer>
-        <div class="footer">
-            <div class="card">
-                <p class="text-al-center fz-15 margin-b-10 margin-t-10">PAGA EN CUOTAS</p>
-                <img src="/images/visa-debito.png" alt="">
-                <img src="/images/visa-credito.png" alt="">
-                <img src="/images/american-express.png" alt="">
-                <img src="/images/mastercard.png" alt="">
+    <footer class="footer">
+        <div class="foot-text d-flex f-wrap">
+            <div>
+                <h4 class="text-al-center fz-15 margin-b-10 margin-t-10">PAGA EN CUOTAS</h4>
+                <div class="payment d-flex justify-center">
+                    <img class="card w-20" src="/images/visa-debito.png" alt="">
+                    <img class="card w-20" src="/images/visa-credito.png" alt="">
+                    <img class="card w-20" src="/images/american-express.png" alt="">
+                    <img class="card w-20" src="/images/mastercard.png" alt="">
+                </div>
             </div>
             <p class="margin-b-20 fz-10">Los precios expresados corresponden a PRECIO CONTADO: Efectivo, Tarjeta de Débito ó Tarjeta de Crédito en 1 Pago</p>
             <p class="margin-b-20 fz-10">© KALITERO 2020 | Todos los derechos reservados</p>
             <div class="copyright d-flex f-wrap">
                 <p class="fz-10 w-50">Los precios expresados incluyen IVA. Las fotos son a modo ilustrativo. La venta de cualquiera de los productos publicados está sujeta a la verificación de stock. Las especificaciones técnicas y descripciones están sujetas a cambios sin previo aviso.</p>
-                <img class="w-20 margin-l-10" src="/images/logo-cace.png" alt="">
-                <img class="w-13 margin-l-55 margin-b-4" src="/images/data-fiscal.png" alt="">
+                <img class="w-30" src="/images/logo-cace.png" alt="">
+                <img class="w-19 margin-b-4" src="/images/data-fiscal.png" alt="">
             </div>
         </div>
     </footer>
