@@ -1,7 +1,7 @@
 /*************************************************************/
 /*************** Estilos para toda la pagina *****************/
 /*************************************************************/
-* {
+body {
     background-color: whitesmoke;
     padding: 0px;
     margin: 0px;
@@ -18,6 +18,10 @@ p {
     font-family: 'Open Sans';
 }
 
+a {
+    text-decoration: none;
+}
+
 /*************************************************************/
 /****************** Estilos de uso general *******************/
 /*************************************************************/
@@ -29,8 +33,8 @@ p {
     width: 10%;
 }
 
-.w-13 {
-    width: 13%;
+.w-19 {
+    width: 19%;
 }
 
 .w-20 {
@@ -39,6 +43,10 @@ p {
 
 .w-30 {
     width: 30%;
+}
+
+.w-42 {
+    width: 42%;
 }
 
 .w-50 {
@@ -97,6 +105,8 @@ p {
     font-size: 15px;
 }
 
+.justify-center {justify-content: center;}
+
 /*************************************************************/
 /**************************** HEADER *************************/
 /*************************************************************/
@@ -113,9 +123,7 @@ p {
     width: 100%;
 }
 
-.hamburger-menu,
-.shop-cart,
-.sub-menu {
+.hamburger-menu {
     flex-grow: 0.1;
     text-align: center;
     width: 40px;
@@ -129,6 +137,22 @@ p {
     box-sizing: border-box;
     margin-left: 1%;
     margin-right: 1%;
+}
+
+.shop-cart,
+.user,
+.sub-menu {
+    flex-grow: 0.1;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    color: black;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -153,21 +177,59 @@ p {
 .search-icon {
     flex-grow: 0.1;
     margin-left: 1.5%;
+    align-self: center;
+}
+
+.nav-menu, .nav-sub-menu {
+    display: none;
 }
 
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
 /*************************************************************/
-.products p {
+.device {
     font-size: 12px;
     font-weight: bold;
+    color: white;
 }
 
-/******************* Estilo de lineas divisorios hr **********/
-hr {
-    height: 1px;
+.price {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.product-1, .product-2, .product-3, .product-4 {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-image: url(/images/fondo-productos.jpg);
+}
+
+
+/*************************************************************/
+/********************* Estilos del footer (index.html)**********/
+/*************************************************************/
+
+.footer {
     background-color: black;
 }
+
+.foot-text {
+    padding: 2%;
+    color: white;
+}
+
+.payment {
+    margin-bottom: 2%;
+}
+
+.card {
+    background-color: white;
+}
+
+ 
 
 
 /*************************************************************/
@@ -299,7 +361,7 @@ hr {
 }
 
 .f-grow {
-    width: 33%;
+    text-align: center;
 }
 
 .imagen-mediana {
