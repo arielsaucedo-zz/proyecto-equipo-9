@@ -141,6 +141,7 @@ a {
     box-sizing: border-box;
     margin-left: 1%;
     margin-right: 1%;
+    z-index: 4;
 }
 
 .hamburger-menu:hover .nav-menu {
@@ -217,17 +218,51 @@ a {
 }
 
 .input-search {
-    flex-grow: 0.9;
+    flex-grow: 1.95;
     border-radius: 5px;
     border: 1px lightgrey solid;
     padding: 1.5%;
 }
 
 .search-icon {
-    flex-grow: 0.1;
-    margin-left: 1.5%;
+    flex-grow: 0.05;
+    margin-left: 1%;
+    margin-right: 1%;
     align-self: center;
+    background-color: white;
 }
+
+.form-control {
+    background: #fff none repeat scroll 0 0;
+    box-shadow: none;
+    color: #000;
+    display: inline-block;
+    height: 45px;
+    line-height: 33px;
+    margin: 0 -34px 0 0!important;
+    padding: 0px 34px 0px 15px;
+    width: 97%;
+    z-index: 2;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px lightgrey solid;
+}
+
+.search_submit {
+    background: #0044AA none repeat scroll 0 0!important;
+    border: 0 none!important;
+    box-shadow: none;
+    border-top-right-radius: 23px;
+    color: #fff;
+    border-bottom-right-radius: 23px;
+    display: inline;
+    height: 45px;
+    padding: 0;
+    text-align: center;
+    top: 0;
+    width: 33px;
+    z-index: 3;
+}   
 
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
@@ -310,7 +345,7 @@ a {
 
 .login-container {
     border: 1px lightgrey solid;
-    background-color: lightgrey;
+    background-color: #ffffff;
 }
 
 .inputs-login {
@@ -321,13 +356,27 @@ a {
     text-align: center;
 }
 
+.inputs-format{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .login-input-style-border {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 15px 0px 15px 0px;
     border-radius: 5px;
     border: 1px lightgrey solid;
-    padding: 1.5%;
+    height: 45px;
+    padding: 0px 34px 0px 15px;
+}
+
+.login-btn{
+    width: 100%;
+    margin: 15px 0px 15px 0px;
+    border-radius: 5px;
+    border: 1px lightgrey solid;
+    height: 45px;
+    padding: 0px 34px 0px 15px;
 }
 
 .title-login {
@@ -345,7 +394,7 @@ a {
 }
 
 .inputs-registro {
-    margin-top: 20px;
+    margin-top: 1%;
 }
 
 .register-container {
@@ -355,11 +404,25 @@ a {
 
 .register-input-style-border {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 15px 0px 15px 0px;
     border-radius: 5px;
     border: 1px lightgrey solid;
-    padding: 1.5%;
+    height: 45px;
+    padding: 0px 34px 0px 15px;
+}
+
+.register-h2{
+    flex-grow: 0.1;
+}
+
+hr {
+    flex-grow: 0.9;
+    height: 5%;
+    width: 90%;
+    background-color: #0044AA;
+    align-self: flex-end;
+    margin-left: 8px;
+    margin-bottom: 23px;
 }
 
 #enviar:hover {
@@ -383,6 +446,10 @@ a {
 .register-d-flex {
     display: flex;
     flex-wrap: wrap;
+}
+
+.boton-enviar{
+    width: 100%;
 }
 
 /*************************************************************/
@@ -502,4 +569,62 @@ a {
     border-radius: 5px;
     border: 1px lightgrey solid;
     padding: 1.5%;
+}
+
+
+@media (min-width: 361px){
+}
+
+@media (min-width: 769px){
+
+/*************************************************************/
+/******************* Estilos para login **********************/
+/*************************************************************/
+    
+    .login-input-style-border{
+        width: 40%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    .opciones-login{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .boton-enviar{
+        width: 100%;
+    }
+    .olvide-contra{
+        width: 100%;
+    }
+    .login-btn{
+        width: 25%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+/*************************************************************/
+/************ Estilos para formulario de registro ************/
+/*************************************************************/
+    .register-d-flex{
+        display: flex;
+    }
+    .register-input-style-border{
+        flex-grow: 0.5;
+    }
+    #inputNombreUsuario{
+        width: 100%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    #password-inicial
+    ,#password-confirmacion{
+        width: 40%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+    #enviar
+    ,#borrar{
+        width: 30%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
 }
