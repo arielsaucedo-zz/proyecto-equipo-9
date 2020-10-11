@@ -232,6 +232,11 @@ a {
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
 /*************************************************************/
+.delivery img {
+    background-color:cadetblue;
+    margin-top: -1%;
+}
+
 .device {
     font-size: 12px;
     font-weight: bold;
@@ -289,6 +294,7 @@ a {
 
 .card {
     background-color: white;
+    margin: 1%;
 }
 
  
