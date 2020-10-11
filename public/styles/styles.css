@@ -159,6 +159,7 @@ a {
     border-radius: 5%;
     padding: 4%;
     border: 1px solid lightblue;
+    z-index: 4;
 }
 
 .sub-menu:hover .nav-sub-menu {
@@ -179,7 +180,7 @@ a {
     border-radius: 5%;
     padding: 4%;
     border: 1px solid lightblue;
-
+    z-index: 4;
 }
 
 .nav-menu li, .sub-menu li {
@@ -576,6 +577,51 @@ hr {
 }
 
 @media (min-width: 769px){
+    .hamburger-menu i{
+        display: none;
+    }
+    .sub-menu i{
+        display: none;
+    }
+    .hamburger-menu .i{
+        display: flex;
+    }
+    .nav-menu{
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 4.5%;
+        margin-left: 0%;
+        white-space: nowrap;
+    }
+
+    .nav-sub-menu{
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: -49%;
+        white-space: nowrap;
+    }
+/*
+    .nav-sub-menu{
+        display: flex;
+        align-self: flex-end;
+        padding: 1%;
+        top: 65%;
+        right: 5.5%;
+        white-space: nowrap;
+        width: 20%;
+    }
+*/
+    #navegation-sub-menu {
+        margin-left: 0%;
+    }
+    .nav-menu li,
+    .nav-sub-menu li{
+        margin: 0%;
+        padding: 2% 0.2%;
+    }
 
 /*************************************************************/
 /******************* Estilos para login **********************/
@@ -626,5 +672,36 @@ hr {
         width: 30%;
         margin-left: 1%;
         margin-right: 1%;
+    }
+}
+
+@media (min-width: 1400px){
+    .nav-menu{
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: 0%;
+        white-space: nowrap;
+    }
+
+    .nav-sub-menu{
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 6.7%;
+        margin-left: -25%;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 1559px){
+    .nav-sub-menu{
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: -13.5%;
+        white-space: nowrap;
     }
 }
