@@ -305,11 +305,13 @@ a {
 .promo-1:hover .img-promo-1 {
     -webkit-transform:scale(1.1);
     transform:scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
 }
 .img-promo-2 {overflow:hidden;}
 .promo-2:hover .img-promo-2 {
     -webkit-transform:scale(1.1);
     transform:scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA
 }
 
 /*************************************************************/
