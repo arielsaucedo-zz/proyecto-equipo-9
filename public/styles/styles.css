@@ -109,7 +109,9 @@ a {
     font-size: 15px;
 }
 
-.justify-center {justify-content: center;}
+.justify-center {
+    justify-content: center;
+}
 
 /*************************************************************/
 /**************************** HEADER *************************/
@@ -265,6 +267,17 @@ a {
     z-index: 3;
 }   
 
+@media (min-width: 769px) {
+    .user i {
+        font-size: 30px;
+    }
+
+    .shop-cart i {
+        font-size: 30px;
+    }
+
+}
+
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
 /*************************************************************/
@@ -294,7 +307,7 @@ a {
     background-repeat: no-repeat;
 }
 
-.promo-1, .promo-2 {
+.promo-1, .promo-2, .promo-3, .promo-4 {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
@@ -307,11 +320,47 @@ a {
     transform:scale(1.1);
     box-shadow: 3px 3px 3px #0044AA;
 }
+
 .img-promo-2 {overflow:hidden;}
 .promo-2:hover .img-promo-2 {
     -webkit-transform:scale(1.1);
     transform:scale(1.1);
-    box-shadow: 3px 3px 3px #0044AA
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+.img-promo-3 {overflow:hidden;}
+.promo-3:hover .img-promo-2 {
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+.img-promo-4 {overflow:hidden;}
+.promo-4:hover .img-promo-2 {
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+@media (min-width: 769px){
+    .products article {
+        width: 21%;
+    }
+
+    .titulo-promo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .promo {
+        margin-bottom: 1%;
+    }
+
+    .promo-1, .promo-2, .promo-3, .promo-4 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 22%;
+    }
 }
 
 /*************************************************************/
@@ -333,6 +382,38 @@ a {
 .card {
     background-color: white;
     margin: 1%;
+}
+
+@media (min-width: 769px) {
+    .payment-card {
+        width: 100%;
+    }
+    
+    .footer p {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .card {
+        width: 15%;
+    }
+
+    .copyright {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .terms {
+        width: 70%;
+    }
+
+    .logo-cace {
+        width: 15%;
+    }
+
+    .data-fiscal {
+        width: 7%;
+    }
 }
 
  
