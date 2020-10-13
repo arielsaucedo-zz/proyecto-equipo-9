@@ -764,194 +764,194 @@ hr {
             align-self: center;
         }
     }
+}
+@media (min-width: 769px) {
 
-    @media (min-width: 769px) {
+    /*************************************************************/
+    /******************* Estilos para login **********************/
+    /*************************************************************/
 
-        /*************************************************************/
-        /******************* Estilos para login **********************/
-        /*************************************************************/
-
-        .login-input-style-border {
-            width: 40%;
-            margin-left: 1%;
-            margin-right: 1%;
-        }
-
-        .opciones-login {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .boton-enviar {
-            width: 100%;
-        }
-
-        .olvide-contra {
-            width: 100%;
-        }
-
-        .login-btn {
-            width: 25%;
-            margin-left: 1%;
-            margin-right: 1%;
-        }
-
-        /*************************************************************/
-        /************ Estilos para formulario de registro ************/
-        /*************************************************************/
-        .register-d-flex {
-            display: flex;
-        }
-
-        .register-input-style-border {
-            flex-grow: 0.5;
-        }
-
-        #inputNombreUsuario {
-            width: 100%;
-            margin-left: 1%;
-            margin-right: 1%;
-        }
-
-        #password-inicial,
-        #password-confirmacion {
-            width: 40%;
-            margin-left: 1%;
-            margin-right: 1%;
-        }
-
-        #enviar,
-        #borrar {
-            width: 30%;
-            margin-left: 1%;
-            margin-right: 1%;
-        }
+    .login-input-style-border {
+        width: 40%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 
-    @media (min-width: 1400px) {
-        .nav-menu {
-            display: flex;
-            padding: 1%;
-            border: none;
-            margin-top: 7%;
-            margin-left: 0%;
-            white-space: nowrap;
-        }
-
-        .nav-sub-menu {
-            display: flex;
-            padding: 1%;
-            border: none;
-            margin-top: 6.7%;
-            margin-left: -25%;
-            white-space: nowrap;
-        }
+    .opciones-login {
+        display: flex;
+        flex-wrap: wrap;
     }
 
-    @media (min-width: 1559px) {
-        .nav-sub-menu {
-            display: flex;
-            padding: 1%;
-            border: none;
-            margin-top: 7%;
-            margin-left: -13.5%;
-            white-space: nowrap;
-        }
+    .boton-enviar {
+        width: 100%;
+    }
+
+    .olvide-contra {
+        width: 100%;
+    }
+
+    .login-btn {
+        width: 25%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 
     /*************************************************************/
-    /******** Estilos carrito(productCart) *********/
+    /************ Estilos para formulario de registro ************/
     /*************************************************************/
-    .julius {
-        font-family: 'Julius Sans One'
+    .register-d-flex {
+        display: flex;
     }
 
-    .f-dir-row {
-        flex-direction: row;
+    .register-input-style-border {
+        flex-grow: 0.5;
     }
 
-    .space-between {
-        justify-content: space-between;
+    #inputNombreUsuario {
+        width: 100%;
+        margin-left: 1%;
+        margin-right: 1%;
     }
 
-    .center {
+    #password-inicial,
+    #password-confirmacion {
+        width: 40%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    #enviar,
+    #borrar {
+        width: 30%;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .nav-menu {
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: 0%;
+        white-space: nowrap;
+    }
+
+    .nav-sub-menu {
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 6.7%;
+        margin-left: -25%;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 1559px) {
+    .nav-sub-menu {
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: -13.5%;
+        white-space: nowrap;
+    }
+}
+
+/*************************************************************/
+/******** Estilos carrito(productCart) *********/
+/*************************************************************/
+.julius {
+    font-family: 'Julius Sans One'
+}
+
+.f-dir-row {
+    flex-direction: row;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
+}
+
+.c-darkblue {
+    color: darkblue;
+}
+
+#cart-main {
+    margin: 3%;
+    background-color: darkgray;
+    color: rgb(30, 90, 180);
+    padding: 3px;
+}
+
+.linea {
+    border-bottom: 1px solid rgb(30, 90, 180);
+    width: 30%;
+}
+
+.item-carrito {
+    background-color: darkgray;
+    color: rgb(30, 90, 180);
+    display: flex;
+    border-bottom: 2px dotted rgb(30, 90, 180);
+}
+
+.bg-c-lg {
+    background-color: lightgray;
+}
+
+.bg-c-lb {
+    background-color: lightblue;
+}
+
+.hover {
+    transition: background-color 0.9s linear;
+}
+
+.hover:hover {
+    cursor: pointer;
+    cursor: hand;
+    background-color: rgb(30, 90, 180);
+}
+
+.envio-btn {
+    border-radius: 5px;
+}
+
+.comprar-btn {
+    text-align: center;
+    width: 50%;
+    height: 50px;
+}
+
+@media (min-width: 770px) {
+    .cart-main {
+        display: flex;
+
+    }
+
+    .cart-body {
+        display: flex;
         justify-content: center;
     }
 
-    .c-darkblue {
-        color: darkblue;
-    }
-
-    #cart-main {
-        margin: 3%;
-        background-color: darkgray;
-        color: rgb(30, 90, 180);
-        padding: 3px;
-    }
-
-    .linea {
-        border-bottom: 1px solid rgb(30, 90, 180);
-        width: 30%;
-    }
-
     .item-carrito {
-        background-color: darkgray;
-        color: rgb(30, 90, 180);
-        display: flex;
-        border-bottom: 2px dotted rgb(30, 90, 180);
+        border-bottom: none;
+        border-right: 1px dotted darkblue;
+        width: 20%;
+        flex-wrap: wrap;
     }
 
-    .bg-c-lg {
-        background-color: lightgray;
+    .space-between {
+        justify-content: center;
     }
 
-    .bg-c-lb {
-        background-color: lightblue;
+    .envio {
+        justify-content: center;
     }
-
-    .hover {
-        transition: background-color 0.9s linear;
-    }
-
-    .hover:hover {
-        cursor: pointer;
-        cursor: hand;
-        background-color: rgb(30, 90, 180);
-    }
-
-    .envio-btn {
-        border-radius: 5px;
-    }
-
-    .comprar-btn {
-        text-align: center;
-        width: 50%;
-        height: 50px;
-    }
-
-    @media (min-width: 770px) {
-        .cart-main {
-            display: flex;
-
-        }
-
-        .cart-body {
-            display: flex;
-            justify-content: center;
-        }
-
-        .item-carrito {
-            border-bottom: none;
-            border-right: 1px dotted darkblue;
-            width: 20%;
-            flex-wrap: wrap;
-        }
-
-        .space-between {
-            justify-content: center;
-        }
-
-        .envio {
-            justify-content: center;
-        }
-    }
+}
