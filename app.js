@@ -27,6 +27,11 @@ app.get("/register", function (req, res) {
     res.sendFile(rutafile)
 })
 
+app.get("/productcart", function (req, res) {
+    let rutafile = path.resolve('view/productcart.html')
+    res.sendFile(rutafile)
+})
+
 /* resuelve ruta de estilos e imagenes */
 app.get('*', function (req, res) {
     if (req.url.includes('.')) {

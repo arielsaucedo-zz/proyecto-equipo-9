@@ -708,3 +708,80 @@ hr {
         white-space: nowrap;
     }
 }
+/*************************************************************/
+/******** Estilos carrito(productCart) *********/
+/*************************************************************/
+.julius{
+    font-family:'Julius Sans One'
+}
+.f-dir-row{
+    flex-direction: row;
+}
+.space-between{
+    justify-content: space-between;
+}
+.center{
+    justify-content: center;
+}
+.c-darkblue{
+    color:darkblue;
+}
+#cart-main{
+    margin: 3%;
+    background-color: darkgray;
+    color:rgb(30,90,180);
+    padding:3px;
+}
+.linea{
+    border-bottom: 1px solid rgb(30, 90, 180);
+    width: 30%;
+}
+.item-carrito{
+    background-color: darkgray;
+    color:rgb(30, 90, 180);
+    display: flex;
+    border-bottom: 2px dotted rgb(30,90,180);
+}
+.bg-c-lg{
+    background-color: lightgray;
+}
+.bg-c-lb{
+    background-color: lightblue;
+}
+.hover{
+    transition: background-color 0.9s linear;
+}
+.hover:hover{
+    cursor:pointer;
+    cursor:hand;
+    background-color: rgb(30, 90, 180);
+}
+.envio-btn{
+    border-radius: 5px;
+}
+.comprar-btn{
+    text-align: center;
+    width: 50%;
+    height: 50px;
+}
+
+@media (min-width: 770px){
+    .cart-main{
+        display: flex;
+
+    }
+    .cart-body{
+        display: flex;
+    }
+    .item-carrito{ 
+        border-bottom: none;
+        border-right: 1px dotted darkblue;
+        min-width: 35%;
+    }
+    .space-between{
+        justify-content: center;
+    }
+    .envio{
+        justify-content: center;
+    }
+}
