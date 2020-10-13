@@ -9,7 +9,12 @@ body {
     box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Julius Sans One';
     font-weight: bold;
 }
@@ -99,7 +104,7 @@ a {
 
 .fz-10 {
     font-size: 10px;
-} 
+}
 
 .fz-12 {
     font-size: 12px;
@@ -168,6 +173,7 @@ a {
     display: block;
     background-color: white;
 }
+
 #navegation-sub-menu {
     margin-left: -600%;
 }
@@ -185,7 +191,8 @@ a {
     z-index: 4;
 }
 
-.nav-menu li, .sub-menu li {
+.nav-menu li,
+.sub-menu li {
     padding: 6%;
     font-family: 'Open Sans';
     color: black;
@@ -242,7 +249,7 @@ a {
     display: inline-block;
     height: 45px;
     line-height: 33px;
-    margin: 0 -34px 0 0!important;
+    margin: 0 -34px 0 0 !important;
     padding: 0px 34px 0px 15px;
     width: 97%;
     z-index: 2;
@@ -252,8 +259,8 @@ a {
 }
 
 .search_submit {
-    background: #0044AA none repeat scroll 0 0!important;
-    border: 0 none!important;
+    background: #0044AA none repeat scroll 0 0 !important;
+    border: 0 none !important;
     box-shadow: none;
     border-top-right-radius: 23px;
     color: #fff;
@@ -265,7 +272,7 @@ a {
     top: 0;
     width: 33px;
     z-index: 3;
-}   
+}
 
 @media (min-width: 769px) {
     .user i {
@@ -282,7 +289,7 @@ a {
 /********************* Estilos del main (index.html)**********/
 /*************************************************************/
 .delivery img {
-    background-color:cadetblue;
+    background-color: cadetblue;
     margin-top: -1%;
 }
 
@@ -298,7 +305,10 @@ a {
     color: white;
 }
 
-.product-1, .product-2, .product-3, .product-4 {
+.product-1,
+.product-2,
+.product-3,
+.product-4 {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 20px;
@@ -307,42 +317,57 @@ a {
     background-repeat: no-repeat;
 }
 
-.promo-1, .promo-2, .promo-3, .promo-4 {
+.promo-1,
+.promo-2,
+.promo-3,
+.promo-4 {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.img-promo-1 {overflow:hidden;}
+.img-promo-1 {
+    overflow: hidden;
+}
+
 .promo-1:hover .img-promo-1 {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     box-shadow: 3px 3px 3px #0044AA;
 }
 
-.img-promo-2 {overflow:hidden;}
+.img-promo-2 {
+    overflow: hidden;
+}
+
 .promo-2:hover .img-promo-2 {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     box-shadow: 3px 3px 3px #0044AA;
 }
 
-.img-promo-3 {overflow:hidden;}
+.img-promo-3 {
+    overflow: hidden;
+}
+
 .promo-3:hover .img-promo-2 {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     box-shadow: 3px 3px 3px #0044AA;
 }
 
-.img-promo-4 {overflow:hidden;}
+.img-promo-4 {
+    overflow: hidden;
+}
+
 .promo-4:hover .img-promo-2 {
-    -webkit-transform:scale(1.1);
-    transform:scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
     box-shadow: 3px 3px 3px #0044AA;
 }
 
-@media (min-width: 769px){
+@media (min-width: 769px) {
     .products article {
         width: 21%;
     }
@@ -356,7 +381,14 @@ a {
         margin-bottom: 1%;
     }
 
-    .promo-1, .promo-2, .promo-3, .promo-4 {
+    .promo-1,
+    .promo-2,
+    .promo-3,
+    .promo-4,
+    .promo-5,
+    .promo-6,
+    .promo-7,
+    .promo-8 {
         margin-left: 10px;
         margin-right: 10px;
         width: 22%;
@@ -388,7 +420,7 @@ a {
     .payment-card {
         width: 100%;
     }
-    
+
     .footer p {
         font-size: 14px;
         margin-bottom: 0px;
@@ -416,7 +448,7 @@ a {
     }
 }
 
- 
+
 /*************************************************************/
 /************ Estilos para formulario de registro ************/
 /*************************************************************/
@@ -440,7 +472,7 @@ a {
     text-align: center;
 }
 
-.inputs-format{
+.inputs-format {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -455,7 +487,7 @@ a {
     padding: 0px 34px 0px 15px;
 }
 
-.login-btn{
+.login-btn {
     width: 100%;
     margin: 15px 0px 15px 0px;
     border-radius: 5px;
@@ -496,7 +528,7 @@ a {
     padding: 0px 34px 0px 15px;
 }
 
-.register-h2{
+.register-h2 {
     flex-grow: 0.1;
 }
 
@@ -533,7 +565,7 @@ hr {
     flex-wrap: wrap;
 }
 
-.boton-enviar{
+.boton-enviar {
     width: 100%;
 }
 
@@ -647,7 +679,7 @@ hr {
     margin-bottom: 30px;
 }
 
-.product-info{
+.product-info {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -656,21 +688,34 @@ hr {
     padding: 1.5%;
 }
 
-
-@media (min-width: 361px){
+.boton {
+    color: #fff;
+    font-size: larger;
+    background-color: blue;
+    border-radius: 50%;
+    font-weight: bolder;
+    padding: 1.5%;
 }
 
-@media (min-width: 769px){
-    .hamburger-menu i{
+.numero {
+    padding: 1%;
+    width: 1%;
+}
+
+@media (min-width: 769px) {
+    .hamburger-menu i {
         display: none;
     }
-    .sub-menu i{
+
+    .sub-menu i {
         display: none;
     }
-    .hamburger-menu .i{
+
+    .hamburger-menu .i {
         display: flex;
     }
-    .nav-menu{
+
+    .nav-menu {
         display: flex;
         padding: 1%;
         border: none;
@@ -679,7 +724,7 @@ hr {
         white-space: nowrap;
     }
 
-    .nav-sub-menu{
+    .nav-sub-menu {
         display: flex;
         padding: 1%;
         border: none;
@@ -687,7 +732,8 @@ hr {
         margin-left: -49%;
         white-space: nowrap;
     }
-/*
+
+    /*
     .nav-sub-menu{
         display: flex;
         align-self: flex-end;
@@ -701,91 +747,207 @@ hr {
     #navegation-sub-menu {
         margin-left: 0%;
     }
+
     .nav-menu li,
-    .nav-sub-menu li{
+    .nav-sub-menu li {
         margin: 0%;
         padding: 2% 0.2%;
     }
 
-/*************************************************************/
-/******************* Estilos para login **********************/
-/*************************************************************/
-    
-    .login-input-style-border{
-        width: 40%;
-        margin-left: 1%;
-        margin-right: 1%;
+    @media (min-width: 361px) {
+        .ult-productos {
+            flex-direction: column;
+            align-self: center;
+        }
     }
-    .opciones-login{
-        display: flex;
-        flex-wrap: wrap;
+
+    @media (min-width: 769px) {
+
+        /*************************************************************/
+        /******************* Estilos para login **********************/
+        /*************************************************************/
+
+        .login-input-style-border {
+            width: 40%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        .opciones-login {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .boton-enviar {
+            width: 100%;
+        }
+
+        .olvide-contra {
+            width: 100%;
+        }
+
+        .login-btn {
+            width: 25%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        /*************************************************************/
+        /************ Estilos para formulario de registro ************/
+        /*************************************************************/
+        .register-d-flex {
+            display: flex;
+        }
+
+        .register-input-style-border {
+            flex-grow: 0.5;
+        }
+
+        #inputNombreUsuario {
+            width: 100%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        #password-inicial,
+        #password-confirmacion {
+            width: 40%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        #enviar,
+        #borrar {
+            width: 30%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
     }
-    .boton-enviar{
-        width: 100%;
+
+    @media (min-width: 1400px) {
+        .nav-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 7%;
+            margin-left: 0%;
+            white-space: nowrap;
+        }
+
+        .nav-sub-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 6.7%;
+            margin-left: -25%;
+            white-space: nowrap;
+        }
     }
-    .olvide-contra{
-        width: 100%;
+
+    @media (min-width: 1559px) {
+        .nav-sub-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 7%;
+            margin-left: -13.5%;
+            white-space: nowrap;
+        }
     }
-    .login-btn{
-        width: 25%;
-        margin-left: 1%;
-        margin-right: 1%;
+
+    /*************************************************************/
+    /******** Estilos carrito(productCart) *********/
+    /*************************************************************/
+    .julius {
+        font-family: 'Julius Sans One'
     }
-/*************************************************************/
-/************ Estilos para formulario de registro ************/
-/*************************************************************/
-    .register-d-flex{
-        display: flex;
+
+    .f-dir-row {
+        flex-direction: row;
     }
-    .register-input-style-border{
-        flex-grow: 0.5;
+
+    .space-between {
+        justify-content: space-between;
     }
-    #inputNombreUsuario{
-        width: 100%;
-        margin-left: 1%;
-        margin-right: 1%;
+
+    .center {
+        justify-content: center;
     }
-    #password-inicial
-    ,#password-confirmacion{
-        width: 40%;
-        margin-left: 1%;
-        margin-right: 1%;
+
+    .c-darkblue {
+        color: darkblue;
     }
-    #enviar
-    ,#borrar{
+
+    #cart-main {
+        margin: 3%;
+        background-color: darkgray;
+        color: rgb(30, 90, 180);
+        padding: 3px;
+    }
+
+    .linea {
+        border-bottom: 1px solid rgb(30, 90, 180);
         width: 30%;
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-}
-
-@media (min-width: 1400px){
-    .nav-menu{
-        display: flex;
-        padding: 1%;
-        border: none;
-        margin-top: 7%;
-        margin-left: 0%;
-        white-space: nowrap;
     }
 
-    .nav-sub-menu{
+    .item-carrito {
+        background-color: darkgray;
+        color: rgb(30, 90, 180);
         display: flex;
-        padding: 1%;
-        border: none;
-        margin-top: 6.7%;
-        margin-left: -25%;
-        white-space: nowrap;
+        border-bottom: 2px dotted rgb(30, 90, 180);
     }
-}
 
-@media (min-width: 1559px){
-    .nav-sub-menu{
-        display: flex;
-        padding: 1%;
-        border: none;
-        margin-top: 7%;
-        margin-left: -13.5%;
-        white-space: nowrap;
+    .bg-c-lg {
+        background-color: lightgray;
     }
-}
+
+    .bg-c-lb {
+        background-color: lightblue;
+    }
+
+    .hover {
+        transition: background-color 0.9s linear;
+    }
+
+    .hover:hover {
+        cursor: pointer;
+        cursor: hand;
+        background-color: rgb(30, 90, 180);
+    }
+
+    .envio-btn {
+        border-radius: 5px;
+    }
+
+    .comprar-btn {
+        text-align: center;
+        width: 50%;
+        height: 50px;
+    }
+
+    @media (min-width: 770px) {
+        .cart-main {
+            display: flex;
+
+        }
+
+        .cart-body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item-carrito {
+            border-bottom: none;
+            border-right: 1px dotted darkblue;
+            width: 20%;
+            flex-wrap: wrap;
+        }
+
+        .space-between {
+            justify-content: center;
+        }
+
+        .envio {
+            justify-content: center;
+        }
+    }
