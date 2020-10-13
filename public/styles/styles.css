@@ -702,6 +702,10 @@ hr {
     width: 1%;
 }
 
+.bg-image {
+    background-image: url(/images/hi-tech.jpg);
+}
+
 @media (min-width: 769px) {
     .hamburger-menu i {
         display: none;
