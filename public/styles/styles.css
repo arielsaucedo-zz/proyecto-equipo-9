@@ -166,6 +166,7 @@ a {
     border-radius: 5%;
     padding: 4%;
     border: 1px solid lightblue;
+    z-index: 4;
 }
 
 .sub-menu:hover .nav-sub-menu {
@@ -187,7 +188,7 @@ a {
     border-radius: 5%;
     padding: 4%;
     border: 1px solid lightblue;
-
+    z-index: 4;
 }
 
 .nav-menu li,
@@ -273,6 +274,17 @@ a {
     z-index: 3;
 }
 
+@media (min-width: 769px) {
+    .user i {
+        font-size: 30px;
+    }
+
+    .shop-cart i {
+        font-size: 30px;
+    }
+
+}
+
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
 /*************************************************************/
@@ -306,7 +318,9 @@ a {
 }
 
 .promo-1,
-.promo-2 {
+.promo-2,
+.promo-3,
+.promo-4 {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 10px;
@@ -320,6 +334,7 @@ a {
 .promo-1:hover .img-promo-1 {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
 }
 
 .img-promo-2 {
@@ -329,6 +344,51 @@ a {
 .promo-2:hover .img-promo-2 {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+.img-promo-3 {
+    overflow: hidden;
+}
+
+.promo-3:hover .img-promo-2 {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+.img-promo-4 {
+    overflow: hidden;
+}
+
+.promo-4:hover .img-promo-2 {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    box-shadow: 3px 3px 3px #0044AA;
+}
+
+@media (min-width: 769px) {
+    .products article {
+        width: 21%;
+    }
+
+    .titulo-promo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .promo {
+        margin-bottom: 1%;
+    }
+
+    .promo-1,
+    .promo-2,
+    .promo-3,
+    .promo-4 {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 22%;
+    }
 }
 
 /*************************************************************/
@@ -350,6 +410,38 @@ a {
 .card {
     background-color: white;
     margin: 1%;
+}
+
+@media (min-width: 769px) {
+    .payment-card {
+        width: 100%;
+    }
+
+    .footer p {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    .card {
+        width: 15%;
+    }
+
+    .copyright {
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .terms {
+        width: 70%;
+    }
+
+    .logo-cace {
+        width: 15%;
+    }
+
+    .data-fiscal {
+        width: 7%;
+    }
 }
 
 
@@ -379,6 +471,7 @@ a {
 .inputs-format {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .login-input-style-border {
@@ -605,73 +698,252 @@ hr {
     width: 1%;
 }
 
-
-@media (min-width: 361px) {
-    .ult-productos {
-        flex-direction: column;
-        align-self: center;
-    }
-}
-
 @media (min-width: 769px) {
-
-    /*************************************************************/
-    /******************* Estilos para login **********************/
-    /*************************************************************/
-
-    .login-input-style-border {
-        width: 40%;
-        margin-left: 1%;
-        margin-right: 1%;
+    .hamburger-menu i {
+        display: none;
     }
 
-    .opciones-login {
-        display: flex;
-        flex-wrap: wrap;
+    .sub-menu i {
+        display: none;
     }
 
-    .boton-enviar {
-        width: 100%;
-    }
-
-    .olvide-contra {
-        width: 100%;
-    }
-
-    .login-btn {
-        width: 25%;
-        margin-left: 1%;
-        margin-right: 1%;
-    }
-
-    /*************************************************************/
-    /************ Estilos para formulario de registro ************/
-    /*************************************************************/
-    .register-d-flex {
+    .hamburger-menu .i {
         display: flex;
     }
 
-    .register-input-style-border {
-        flex-grow: 0.5;
+    .nav-menu {
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 4.5%;
+        margin-left: 0%;
+        white-space: nowrap;
     }
 
-    #inputNombreUsuario {
-        width: 100%;
-        margin-left: 1%;
-        margin-right: 1%;
+    .nav-sub-menu {
+        display: flex;
+        padding: 1%;
+        border: none;
+        margin-top: 7%;
+        margin-left: -49%;
+        white-space: nowrap;
     }
 
-    #password-inicial,
-    #password-confirmacion {
-        width: 40%;
-        margin-left: 1%;
-        margin-right: 1%;
+    /*
+    .nav-sub-menu{
+        display: flex;
+        align-self: flex-end;
+        padding: 1%;
+        top: 65%;
+        right: 5.5%;
+        white-space: nowrap;
+        width: 20%;
+    }
+*/
+    #navegation-sub-menu {
+        margin-left: 0%;
     }
 
-    #enviar,
-    #borrar {
+    .nav-menu li,
+    .nav-sub-menu li {
+        margin: 0%;
+        padding: 2% 0.2%;
+    }
+
+    @media (min-width: 361px) {
+        .ult-productos {
+            flex-direction: column;
+            align-self: center;
+        }
+    }
+
+    @media (min-width: 769px) {
+
+        /*************************************************************/
+        /******************* Estilos para login **********************/
+        /*************************************************************/
+
+        .login-input-style-border {
+            width: 40%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        .opciones-login {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .boton-enviar {
+            width: 100%;
+        }
+
+        .olvide-contra {
+            width: 100%;
+        }
+
+        .login-btn {
+            width: 25%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        /*************************************************************/
+        /************ Estilos para formulario de registro ************/
+        /*************************************************************/
+        .register-d-flex {
+            display: flex;
+        }
+
+        .register-input-style-border {
+            flex-grow: 0.5;
+        }
+
+        #inputNombreUsuario {
+            width: 100%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        #password-inicial,
+        #password-confirmacion {
+            width: 40%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+
+        #enviar,
+        #borrar {
+            width: 30%;
+            margin-left: 1%;
+            margin-right: 1%;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .nav-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 7%;
+            margin-left: 0%;
+            white-space: nowrap;
+        }
+
+        .nav-sub-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 6.7%;
+            margin-left: -25%;
+            white-space: nowrap;
+        }
+    }
+
+    @media (min-width: 1559px) {
+        .nav-sub-menu {
+            display: flex;
+            padding: 1%;
+            border: none;
+            margin-top: 7%;
+            margin-left: -13.5%;
+            white-space: nowrap;
+        }
+    }
+
+    /*************************************************************/
+    /******** Estilos carrito(productCart) *********/
+    /*************************************************************/
+    .julius {
+        font-family: 'Julius Sans One'
+    }
+
+    .f-dir-row {
+        flex-direction: row;
+    }
+
+    .space-between {
+        justify-content: space-between;
+    }
+
+    .center {
+        justify-content: center;
+    }
+
+    .c-darkblue {
+        color: darkblue;
+    }
+
+    #cart-main {
+        margin: 3%;
+        background-color: darkgray;
+        color: rgb(30, 90, 180);
+        padding: 3px;
+    }
+
+    .linea {
+        border-bottom: 1px solid rgb(30, 90, 180);
         width: 30%;
-        margin-left: 1%;
-        margin-right: 1%;
     }
-}
+
+    .item-carrito {
+        background-color: darkgray;
+        color: rgb(30, 90, 180);
+        display: flex;
+        border-bottom: 2px dotted rgb(30, 90, 180);
+    }
+
+    .bg-c-lg {
+        background-color: lightgray;
+    }
+
+    .bg-c-lb {
+        background-color: lightblue;
+    }
+
+    .hover {
+        transition: background-color 0.9s linear;
+    }
+
+    .hover:hover {
+        cursor: pointer;
+        cursor: hand;
+        background-color: rgb(30, 90, 180);
+    }
+
+    .envio-btn {
+        border-radius: 5px;
+    }
+
+    .comprar-btn {
+        text-align: center;
+        width: 50%;
+        height: 50px;
+    }
+
+    @media (min-width: 770px) {
+        .cart-main {
+            display: flex;
+
+        }
+
+        .cart-body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .item-carrito {
+            border-bottom: none;
+            border-right: 1px dotted darkblue;
+            width: 20%;
+            flex-wrap: wrap;
+        }
+
+        .space-between {
+            justify-content: center;
+        }
+
+        .envio {
+            justify-content: center;
+        }
+    }
