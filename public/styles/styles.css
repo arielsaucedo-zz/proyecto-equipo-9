@@ -853,11 +853,13 @@ hr {
     }
     .cart-body{
         display: flex;
+        justify-content: center;
     }
     .item-carrito{ 
         border-bottom: none;
         border-right: 1px dotted darkblue;
-        min-width: 35%;
+        width: 20%;
+        flex-wrap: wrap;
     }
     .space-between{
         justify-content: center;
