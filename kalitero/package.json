@@ -1,0 +1,17 @@
+{
+  "name": "kalitero",
+  "version": "1.0.0",
+  "description": "El proyecto versará sobre el diseño de una plataforma de e-commerce del rubro tecnología. La misma estará avocada a venta de productos informáticos como computadoras ya armadas, periféricos, accesorios de conectividad, balanzas comerciales, lectores de código de barra, comanderas, etc.",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  }
+}
