@@ -1,40 +1,43 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+// ************ Require's ************
+const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
+const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+// ************ express() - (don't touch) ************
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var newProductRouter = require('./routes/newProduct');
-
-var app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
+// ************ Middlewares - (don't touch) ************
+app.use(express.static(path.join(__dirname, 'public'))); // Necesario para los archivos estáticos en el folder /public
+app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+
+// ************ Template Engine - (don't touch) ************
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
+
+
+// ************ Route System require and use() ************
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const newProductRouter = require('./routes/newProduct');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
 app.use('/nuevo-producto', newProductRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// ************ catch 404 and forward to error handler ************
+app.use((req, res, next) => next(createError(404)));
 
-// error handler
+// ************ error handler ************
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  res.locals.path = req.path;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
@@ -42,4 +45,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// ************ exports app - dont'touch ************
 module.exports = app;
