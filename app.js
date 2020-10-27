@@ -24,11 +24,12 @@ app.set('views', path.join(__dirname, 'src', 'views')); // Define la ubicación 
 // ************ Route System require and use() ************
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const newProductRouter = require('./routes/newProduct');
+const productsRouter = require('./routes/products');
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/nuevo-producto', newProductRouter);
+app.use('/products', productsRouter);
+
 
 // ************ catch 404 and forward to error handler ************
 app.use((req, res, next) => next(createError(404)));
