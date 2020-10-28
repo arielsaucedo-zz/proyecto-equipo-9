@@ -137,7 +137,6 @@ a {
 }
 
 .hamburger-menu {
-  display: none;
   flex-grow: 0.1;
   text-align: center;
   color: black;
@@ -149,14 +148,14 @@ a {
   z-index: 4;
 }
 
-.hamburger-menu:hover ~ .navegation-menu {
+.hamburger-menu:hover + nav ul {
   display: inline-block;
   background-color: white;
 }
 
 .nav-menu {
+  display: none;
   float: left;
-  display: inherit;
   text-align: left;
   font-size: 1.5em;
   position: absolute;
@@ -280,10 +279,7 @@ a {
 
 }
 
-@media (max-width:769px){
-  .hamburger-menu {
-    display:inline-block;
-}
+
 
 
 /*************************************************************/
@@ -711,7 +707,7 @@ hr {
 
 @media (min-width: 769px) {
   .hamburger-menu i {
-      display: none;
+      display: flex;
   }
 
   .sub-menu i {
