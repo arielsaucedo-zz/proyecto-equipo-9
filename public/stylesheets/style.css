@@ -131,10 +131,12 @@ a {
 }
 
 .img-logo {
-  width: 100%;
+  width: 515px;
+  align-items: center;
 }
 
 .hamburger-menu {
+  display: none;
   flex-grow: 0.1;
   text-align: center;
   width: 40px;
@@ -151,7 +153,7 @@ a {
   z-index: 4;
 }
 
-.hamburger-menu:hover .nav-menu {
+.hamburger-menu:hover ~ .navegation-menu {
   display: inline-block;
   background-color: white;
 }
@@ -284,6 +286,12 @@ a {
   }
 
 }
+
+@media (max-width:769px){
+  .hamburger-menu {
+    display:inline-block;
+}
+
 
 /*************************************************************/
 /********************* Estilos del main (index.html)**********/
@@ -929,6 +937,39 @@ hr {
   height: 50px;
 }
 
+/*************************************************************/
+/******** Products - Create and Edit *********/
+/*************************************************************/
+
+
+.inputs-productForm {
+  margin-top: 1%;
+}
+
+.productForm-container {
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+.productForm-input-style-border {
+  width: 100%;
+  margin: 15px 0px 15px 0px;
+  border-radius: 5px;
+  border: 1px lightgrey solid;
+  height: 45px;
+  padding: 0px 34px 0px 15px;
+}
+
+.productForm-h2 {
+  flex-grow: 0.1;
+}
+
+
+/*************************************************************/
+/******** media - queries *********/
+/*************************************************************/
+
+
 @media (min-width: 770px) {
   .cart-main {
       display: flex;
@@ -955,3 +996,5 @@ hr {
       justify-content: center;
   }
 }
+
+
