@@ -137,6 +137,7 @@ a {
 }
 
 .hamburger-menu {
+  display: flex;
   flex-grow: 0.1;
   text-align: center;
   color: black;
@@ -157,49 +158,44 @@ a {
   display: none;
   float: left;
   text-align: left;
-  font-size: 1.5em;
+  font-size: 1.18em;
   position: absolute;
   list-style: none;
   border-radius: 5%;
   padding: 4%;
   border: 1px solid lightblue;
   z-index: 4;
+  left: 5px;
 }
 
-.sub-menu:hover .nav-sub-menu {
+.sub-menu:hover + nav ul {
   display: block;
   background-color: white;
-}
-
-#navegation-sub-menu {
-  margin-left: -600%;
 }
 
 .nav-sub-menu {
   float: right;
   display: none;
   text-align: right;
-  font-size: 1.5em;
+  font-size: 1.18em;
   position: absolute;
   list-style: none;
   border-radius: 5%;
   padding: 4%;
   border: 1px solid lightblue;
   z-index: 4;
+  right: 0px;
 }
 
 .nav-menu li,
 .sub-menu li {
-  padding: 6%;
-  font-family: 'Open Sans';
   color: black;
-  margin: -6%
 }
 
 .shop-cart,
 .user,
 .sub-menu {
-  flex-grow: 0.1;
+  display: flex;
   text-align: center;
   color: black;
   font-size: 1.5em;
@@ -210,10 +206,11 @@ a {
   box-sizing: border-box;
 }
 
+.sub-menu {margin-right: -20px;}
+
 .header-search {
   width: 100%;
-  margin-left: 1.5%;
-  margin-right: 1.5%;
+  margin: 0px 20px;
 }
 
 .input-search {
@@ -238,9 +235,9 @@ a {
   display: inline-block;
   height: 45px;
   line-height: 33px;
-  margin: 0 -34px 0 0 !important;
+  margin: 0 -34px 0 -5px !important;
   padding: 0px 34px 0px 15px;
-  width: 97%;
+  width: 98%;
   z-index: 2;
   border-radius: 100px;
   overflow: hidden;
@@ -262,24 +259,6 @@ a {
   width: 33px;
   z-index: 3;
 }
-
-@media (min-width: 769px) {
-  .user i {
-      font-size: 30px;
-  }
-
-  .shop-cart i {
-      font-size: 30px;
-  }
-
-  .img-logo{
-    width: 500px;
-    align-items: center;
-  }
-
-}
-
-
 
 
 /*************************************************************/
@@ -364,36 +343,6 @@ a {
   box-shadow: 3px 3px 3px #0044AA;
 }
 
-@media (min-width: 769px) {
-  .products article {
-      width: 21%;
-  }
-
-  .titulo-promo {
-      width: 100%;
-      text-align: center;
-  }
-
-  .promo {
-      margin-bottom: 1%;
-  }
-
-  .promo-1,
-  .promo-2,
-  .promo-3,
-  .promo-4,
-  .promo-5,
-  .promo-6,
-  .promo-7,
-  .promo-8 {
-      margin-left: 10px;
-      margin-right: 10px;
-      width: 22%;
-  }
-  
-
-}
-
 /*************************************************************/
 /********************* Estilos del footer (index.html)**********/
 /*************************************************************/
@@ -415,37 +364,6 @@ a {
   margin: 1%;
 }
 
-@media (min-width: 769px) {
-  .payment-card {
-      width: 100%;
-  }
-
-  .footer p {
-      font-size: 14px;
-      margin-bottom: 0px;
-  }
-
-  .card {
-      width: 15%;
-  }
-
-  .copyright {
-      align-items: center;
-      justify-content: space-between;
-  }
-
-  .terms {
-      width: 70%;
-  }
-
-  .logo-cace {
-      width: 15%;
-  }
-
-  .data-fiscal {
-      width: 7%;
-  }
-}
 
 
 /*************************************************************/
@@ -705,159 +623,6 @@ hr {
   background-image: url(/images/hi-tech.jpg);
 }
 
-@media (min-width: 769px) {
-  .hamburger-menu i {
-      display: flex;
-  }
-
-  .sub-menu i {
-      display: none;
-  }
-
-  .hamburger-menu .i {
-      display: flex;
-  }
-
-  .nav-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: 4.5%;
-      margin-left: 0%;
-      white-space: nowrap;
-  }
-
-  .nav-sub-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: 7%;
-      margin-left: -49%;
-      white-space: nowrap;
-  }
-
-  /*
-  .nav-sub-menu{
-      display: flex;
-      align-self: flex-end;
-      padding: 1%;
-      top: 65%;
-      right: 5.5%;
-      white-space: nowrap;
-      width: 20%;
-  }
-*/
-  #navegation-sub-menu {
-      margin-left: 0%;
-  }
-
-  .nav-menu li,
-  .nav-sub-menu li {
-      margin: 0%;
-      padding: 2% 0.2%;
-  }
-
-  @media (min-width: 361px) {
-      .ult-productos {
-          flex-direction: column;
-          align-self: center;
-      }
-  }
-}
-@media (min-width: 769px) {
-
-  /*************************************************************/
-  /******************* Estilos para login **********************/
-  /*************************************************************/
-
-  .login-input-style-border {
-      width: 40%;
-      margin-left: 1%;
-      margin-right: 1%;
-  }
-
-  .opciones-login {
-      display: flex;
-      flex-wrap: wrap;
-  }
-
-  .boton-enviar {
-      width: 100%;
-  }
-
-  .olvide-contra {
-      width: 100%;
-  }
-
-  .login-btn {
-      width: 25%;
-      margin-left: 1%;
-      margin-right: 1%;
-  }
-
-  /*************************************************************/
-  /************ Estilos para formulario de registro ************/
-  /*************************************************************/
-  .register-d-flex {
-      display: flex;
-  }
-
-  .register-input-style-border {
-      flex-grow: 0.5;
-  }
-
-  #inputNombreUsuario {
-      width: 100%;
-      margin-left: 1%;
-      margin-right: 1%;
-  }
-
-  #password-inicial,
-  #password-confirmacion {
-      width: 40%;
-      margin-left: 1%;
-      margin-right: 1%;
-  }
-
-  #enviar,
-  #borrar {
-      width: 30%;
-      margin-left: 1%;
-      margin-right: 1%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .nav-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: 7%;
-      margin-left: 0%;
-      white-space: nowrap;
-  }
-
-  .nav-sub-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: 6.7%;
-      margin-left: -25%;
-      white-space: nowrap;
-  }
-}
-
-@media (min-width: 1559px) {
-  .nav-sub-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: 7%;
-      margin-left: -13.5%;
-      white-space: nowrap;
-  }
-}
-
 /*************************************************************/
 /******** Estilos carrito(productCart) *********/
 /*************************************************************/
@@ -960,32 +725,244 @@ hr {
 /******** media - queries *********/
 /*************************************************************/
 
+@media (min-width: 769px) {
 
-@media (min-width: 770px) {
-  .cart-main {
+/*************************************************************/
+/********* INICIO - Estilos del main (index.html) ************/
+/*************************************************************/
+
+  .user i {
+      font-size: 30px;
+  }
+
+  .shop-cart i {
+      font-size: 30px;
+  }
+
+  .img-logo{
+    width: 500px;
+    align-items: center;
+  }
+
+/*************************************************************/
+/********* FIN - Estilos del main (index.html) ***************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos Product **************************/
+/*************************************************************/
+  .products article {
+      width: 21%;
+  }
+
+  .titulo-promo {
+      width: 100%;
+      text-align: center;
+  }
+
+  .promo {
+      margin-bottom: 1%;
+  }
+
+  .promo-1,
+  .promo-2,
+  .promo-3,
+  .promo-4,
+  .promo-5,
+  .promo-6,
+  .promo-7,
+  .promo-8 {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 22%;
+  }
+/*************************************************************/
+/********* FIN - Estilos Product *****************************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos del footer (index.html) **********/
+/*************************************************************/
+
+  .payment-card {
+      width: 100%;
+  }
+
+  .footer p {
+      font-size: 14px;
+      margin-bottom: 0px;
+  }
+
+  .card {
+      width: 15%;
+  }
+
+  .copyright {
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .terms {
+      width: 70%;
+  }
+
+  .logo-cace {
+      width: 15%;
+  }
+
+  .data-fiscal {
+      width: 7%;
+  }
+/*************************************************************/
+/********* FIN - Estilos del footer (index.html) *************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos del HEADER ***********************/
+/*************************************************************/
+  .header-container{
+    height: 300px;
+  }
+
+  .hamburger-menu{
+      display: none;
+  }
+
+  .sub-menu{
+    display: none;
+  }
+
+  .nav-menu {
       display: flex;
+      padding: 10px;
+      border: none;
+      margin-top: 65px;
+      white-space: nowrap;
+  }
+
+  .nav-sub-menu {
+      display: flex;
+      padding: 1%;
+      border: none;
+      margin-top: -110px;
+      margin-right: 5px;
+      white-space: nowrap;
+  }
+
+  .nav-menu li,
+  .nav-sub-menu li {
+      margin: 0%;
+      padding: 10px 5px;
+  }
+
+  .header-epigraph{
+    height: 250px;
+  }
+  .navegation-menu{
+    margin-top: -30px;
+    margin-left: -86px;
+  }
+
+  /*****cris*/
+  .header-epigraph{
+    height: 250px;
+  }
+
+/*************************************************************/
+/********* FIN - Estilos del HEADER **************************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos para login ***********************/
+/*************************************************************/
+
+  .login-input-style-border {
+    width: 40%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .opciones-login {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .boton-enviar {
+      width: 100%;
+  }
+
+  .olvide-contra {
+      width: 100%;
+  }
+
+  .login-btn {
+      width: 25%;
+      margin-left: 1%;
+      margin-right: 1%;
+  }
+
+/*************************************************************/
+/********* FIN - Estilos para login **************************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos formulario registro **************/
+/*************************************************************/
+  .register-d-flex {
+      display: flex;
+  }
+
+  .register-input-style-border {
+      flex-grow: 0.5;
+  }
+
+  #inputNombreUsuario {
+      width: 100%;
+      margin-left: 1%;
+      margin-right: 1%;
+  }
+
+  #password-inicial,
+  #password-confirmacion {
+      width: 40%;
+      margin-left: 1%;
+      margin-right: 1%;
+  }
+
+  #enviar,
+  #borrar {
+      width: 30%;
+      margin-left: 1%;
+      margin-right: 1%;
+  }
+
+/*************************************************************/
+/********* FIN - Estilos formulario registro *****************/
+/*************************************************************/
+/*************************************************************/
+/********* INICIO - Estilos Product Cart *********************/
+/*************************************************************/
+  .cart-main {
+    display: flex;
 
   }
 
   .cart-body {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
   }
 
   .item-carrito {
-      border-bottom: none;
-      border-right: 1px dotted darkblue;
-      width: 20%;
-      flex-wrap: wrap;
+    border-bottom: none;
+    border-right: 1px dotted darkblue;
+    width: 20%;
+    flex-wrap: wrap;
   }
 
   .space-between {
-      justify-content: center;
+    justify-content: center;
   }
 
   .envio {
-      justify-content: center;
+    justify-content: center;
   }
+
+/*************************************************************/
+/********* FIN - Estilos Product Cart ************************/
+/*************************************************************/  
 }
-
-
