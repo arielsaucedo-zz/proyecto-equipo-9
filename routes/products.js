@@ -17,4 +17,7 @@ router.get('/productDetail', productsController.detail);
 /*** PRODUCT LIST ***/
 router.get('/productList', productsController.list);
 
+/*** PRODUCT CART ***/
+router.get('/productCart', productsController.cart);
+
 module.exports = router;
