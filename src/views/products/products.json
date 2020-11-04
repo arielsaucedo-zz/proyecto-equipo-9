@@ -1,0 +1,76 @@
+{
+    "productos": [{
+            "name": "iPhone 11 Pro 64 Gb - Space Gray",
+            "detail": "La pantalla del iPhone 11 tiene esquinas redondeadas que siguen el elegante diseño curvo del teléfono, y las esquinas se encuentran dentro de un rectángulo estándar. Si se mide en forma de rectángulo estándar, la pantalla tiene 6.06 pulgadas en diagonal (el área real de visualización es menor).",
+            "price": "",
+            "image": "/images/product-1.jpg"
+        },
+        {
+            "name": "rojo",
+            "detail": "La pantalla del iPhone 11 tiene esquinas redondeadas que siguen el elegante diseño curvo del teléfono, y las esquinas se encuentran dentro de un rectángulo estándar. Si se mide en forma de rectángulo estándar, la pantalla tiene 6.06 pulgadas en diagonal (el área real de visualización es menor).",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "La pantalla del iPhone 11 tiene esquinas redondeadas que siguen el elegante diseño curvo del teléfono, y las esquinas se encuentran dentro de un rectángulo estándar. Si se mide en forma de rectángulo estándar, la pantalla tiene 6.06 pulgadas en diagonal (el área real de visualización es menor).",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "La pantalla del iPhone 11 tiene esquinas redondeadas que siguen el elegante diseño curvo del teléfono, y las esquinas se encuentran dentro de un rectángulo estándar. Si se mide en forma de rectángulo estándar, la pantalla tiene 6.06 pulgadas en diagonal (el área real de visualización es menor).",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        },
+        {
+            "name": "rojo",
+            "detail": "#f00",
+            "price": "",
+            "image": ""
+        }
+
+    ]
+}

@@ -149,7 +149,7 @@ a {
   z-index: 4;
 }
 
-.hamburger-menu:hover + nav ul {
+.hamburger-menu:hover+nav ul {
   display: inline-block;
   background-color: white;
 }
@@ -168,7 +168,7 @@ a {
   left: 5px;
 }
 
-.sub-menu:hover + nav ul {
+.sub-menu:hover+nav ul {
   display: block;
   background-color: white;
 }
@@ -206,7 +206,9 @@ a {
   box-sizing: border-box;
 }
 
-.sub-menu {margin-right: -20px;}
+.sub-menu {
+  margin-right: -20px;
+}
 
 .header-search {
   width: 100%;
@@ -623,6 +625,10 @@ hr {
   background-image: url(/images/hi-tech.jpg);
 }
 
+.bg-white {
+  background-color: white;
+}
+
 /*************************************************************/
 /******** Estilos carrito(productCart) *********/
 /*************************************************************/
@@ -727,40 +733,40 @@ hr {
 
 @media (min-width: 769px) {
 
-/*************************************************************/
-/********* INICIO - Estilos del main (index.html) ************/
-/*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos del main (index.html) ************/
+  /*************************************************************/
 
   .user i {
-      font-size: 30px;
+    font-size: 30px;
   }
 
   .shop-cart i {
-      font-size: 30px;
+    font-size: 30px;
   }
 
-  .img-logo{
+  .img-logo {
     width: 500px;
     align-items: center;
   }
 
-/*************************************************************/
-/********* FIN - Estilos del main (index.html) ***************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos Product **************************/
-/*************************************************************/
+  /*************************************************************/
+  /********* FIN - Estilos del main (index.html) ***************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos Product **************************/
+  /*************************************************************/
   .products article {
-      width: 21%;
+    width: 21%;
   }
 
   .titulo-promo {
-      width: 100%;
-      text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   .promo {
-      margin-bottom: 1%;
+    margin-bottom: 1%;
   }
 
   .promo-1,
@@ -771,106 +777,109 @@ hr {
   .promo-6,
   .promo-7,
   .promo-8 {
-      margin-left: 10px;
-      margin-right: 10px;
-      width: 22%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 22%;
   }
-/*************************************************************/
-/********* FIN - Estilos Product *****************************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos del footer (index.html) **********/
-/*************************************************************/
+
+  /*************************************************************/
+  /********* FIN - Estilos Product *****************************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos del footer (index.html) **********/
+  /*************************************************************/
 
   .payment-card {
-      width: 100%;
+    width: 100%;
   }
 
   .footer p {
-      font-size: 14px;
-      margin-bottom: 0px;
+    font-size: 14px;
+    margin-bottom: 0px;
   }
 
   .card {
-      width: 15%;
+    width: 15%;
   }
 
   .copyright {
-      align-items: center;
-      justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .terms {
-      width: 70%;
+    width: 70%;
   }
 
   .logo-cace {
-      width: 15%;
+    width: 15%;
   }
 
   .data-fiscal {
-      width: 7%;
+    width: 7%;
   }
-/*************************************************************/
-/********* FIN - Estilos del footer (index.html) *************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos del HEADER ***********************/
-/*************************************************************/
-  .header-container{
+
+  /*************************************************************/
+  /********* FIN - Estilos del footer (index.html) *************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos del HEADER ***********************/
+  /*************************************************************/
+  .header-container {
     height: 300px;
   }
 
-  .hamburger-menu{
-      display: none;
+  .hamburger-menu {
+    display: none;
   }
 
-  .sub-menu{
+  .sub-menu {
     display: none;
   }
 
   .nav-menu {
-      display: flex;
-      padding: 10px;
-      border: none;
-      margin-top: 65px;
-      white-space: nowrap;
+    display: flex;
+    padding: 10px;
+    border: none;
+    margin-top: 65px;
+    white-space: nowrap;
   }
 
   .nav-sub-menu {
-      display: flex;
-      padding: 1%;
-      border: none;
-      margin-top: -110px;
-      margin-right: 5px;
-      white-space: nowrap;
+    display: flex;
+    padding: 1%;
+    border: none;
+    margin-top: -110px;
+    margin-right: 5px;
+    white-space: nowrap;
   }
 
   .nav-menu li,
   .nav-sub-menu li {
-      margin: 0%;
-      padding: 10px 5px;
+    margin: 0%;
+    padding: 10px 5px;
   }
 
-  .header-epigraph{
+  .header-epigraph {
     height: 250px;
   }
-  .navegation-menu{
+
+  .navegation-menu {
     margin-top: -30px;
     margin-left: -86px;
   }
 
   /*****cris*/
-  .header-epigraph{
+  .header-epigraph {
     height: 250px;
   }
 
-/*************************************************************/
-/********* FIN - Estilos del HEADER **************************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos para login ***********************/
-/*************************************************************/
+  /*************************************************************/
+  /********* FIN - Estilos del HEADER **************************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos para login ***********************/
+  /*************************************************************/
 
   .login-input-style-border {
     width: 40%;
@@ -879,64 +888,64 @@ hr {
   }
 
   .opciones-login {
-      display: flex;
-      flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .boton-enviar {
-      width: 100%;
+    width: 100%;
   }
 
   .olvide-contra {
-      width: 100%;
+    width: 100%;
   }
 
   .login-btn {
-      width: 25%;
-      margin-left: 1%;
-      margin-right: 1%;
+    width: 25%;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
-/*************************************************************/
-/********* FIN - Estilos para login **************************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos formulario registro **************/
-/*************************************************************/
+  /*************************************************************/
+  /********* FIN - Estilos para login **************************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos formulario registro **************/
+  /*************************************************************/
   .register-d-flex {
-      display: flex;
+    display: flex;
   }
 
   .register-input-style-border {
-      flex-grow: 0.5;
+    flex-grow: 0.5;
   }
 
   #inputNombreUsuario {
-      width: 100%;
-      margin-left: 1%;
-      margin-right: 1%;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
   #password-inicial,
   #password-confirmacion {
-      width: 40%;
-      margin-left: 1%;
-      margin-right: 1%;
+    width: 40%;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
   #enviar,
   #borrar {
-      width: 30%;
-      margin-left: 1%;
-      margin-right: 1%;
+    width: 30%;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
-/*************************************************************/
-/********* FIN - Estilos formulario registro *****************/
-/*************************************************************/
-/*************************************************************/
-/********* INICIO - Estilos Product Cart *********************/
-/*************************************************************/
+  /*************************************************************/
+  /********* FIN - Estilos formulario registro *****************/
+  /*************************************************************/
+  /*************************************************************/
+  /********* INICIO - Estilos Product Cart *********************/
+  /*************************************************************/
   .cart-main {
     display: flex;
 
@@ -962,7 +971,7 @@ hr {
     justify-content: center;
   }
 
-/*************************************************************/
-/********* FIN - Estilos Product Cart ************************/
-/*************************************************************/  
+  /*************************************************************/
+  /********* FIN - Estilos Product Cart ************************/
+  /*************************************************************/
 }
