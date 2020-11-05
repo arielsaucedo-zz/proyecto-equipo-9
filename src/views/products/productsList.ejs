@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/kalitero-favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <title>Listado de Productos</title>
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main>
+
+        <div class="delivery">
+            <img class="w-100" src="/images/covid-entrega.png" alt="delivery">
+        </div>
+        <div class="titulo-promo fz-12">
+            <h2>LISTADO DE PRODUCTOS</h2>
+        </div>
+        <section class="products d-flex f-wrap justify-center">
+
+
+            <% for (let i = 0; i < productsList.length; i++) { %>
+            <article class="promo-1 w-42">
+                <div>
+                    <img class="img-promo-1 w-100 bg-white" src=" <%= productsList[i].image %> " alt="">
+                    <div class="text-al-center">
+                        <p class="device"><%= productsList[i].name %> </p>
+                        <p class="price"><%= productsList[i].price %> </p>
+                    </div>
+            </article>
+            <% } %>
+
+
+
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>

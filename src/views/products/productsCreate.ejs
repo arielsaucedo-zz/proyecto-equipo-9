@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <div class="productForm-container productForm-d-flex margin-b-20">
+        <form class="w-100" action="/" method="POST"></form>
+        <div class="w-100 d-flex">
+            <h2 class="register-h2">Creacion de productos</h2>
+            <hr>
+        </div>
+        <div class="inputs-productForm d-flex f-wrap">
+            <label for="">Nombre del producto</label>
+            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+
+            <label for="">Categoria</label>
+            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+
+            <label for="">Descripcion</label>
+            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+
+            <label for="">Imagen del producto</label>
+            <input class="w-100 inputs-productForm" type="file" name="newProduct" id="inputNewProduct">
+
+            <label class="inputs-productForm" for="">Cantidad</label>
+            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+
+            <label for="">Precio</label>
+            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+
+            <button class="productForm-input-style-border class-btn">CREAR</button>
+
+            <button class="productForm-input-style-border class-rst">BORRAR</button>
+        </div>
+
+        </form>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+</body>
+
+</html>

@@ -1,6 +1,9 @@
- let productsCoontroller = {
+ let productsList = require('../data/products.json');
+
+
+ let productsController = {
      create: function (req, res, next) {
-         res.render('products/newProduct')
+         res.render('products/productsCreate')
      },
 
      /*store: function (req, res) {
@@ -8,11 +11,13 @@
      },*/
 
      edit: function (req, res, next) {
-         res.render('products/editProduct')
+         res.render('products/productsEdit')
      },
 
      list: function (req, res) {
-         res.render('products/productList')
+         res.render('products/productsList', {
+             productsList: productsList
+         });
      },
 
 

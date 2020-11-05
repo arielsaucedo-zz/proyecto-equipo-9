@@ -4,10 +4,10 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 
 /*** Listado de productos ***/
-router.get('/products', productsController.list);
+router.get('/productsList', productsController.list);
 
 /*** Formulario de creación de productos ***/
-router.get('/create', productsController.create);
+router.get('/productsCreate', productsController.create);
 //router.post('/', productsController.store);
 
 /*** Detalle de un producto particular ***/
@@ -15,7 +15,7 @@ router.get('/products/:id', productsController.edit);
 //router.put('/', productsController.store);
 
 /*** Acción de creación (a donde se envía el formulario) ***/
-router.post('/create', productsController.create);
+router.post('/productsCreate', productsController.create);
 //router.post('/', productsController.store);
 
 /*** PRODUCT DETAIL ***/
