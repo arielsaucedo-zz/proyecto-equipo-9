@@ -1,27 +1,30 @@
-module.exports = {
-    create: function (req, res, next) {
-        res.render('products/newProduct')
-    },
+ let productsCoontroller = {
+     create: function (req, res, next) {
+         res.render('products/newProduct')
+     },
 
-    /*store: function (req, res) {
-        res.redirect('products/productDetail')
-    },*/
+     /*store: function (req, res) {
+         res.redirect('products/productDetail')
+     },*/
 
-    edit: function (req, res, next) {
-        res.render('products/editProduct')
-    },
+     edit: function (req, res, next) {
+         res.render('products/editProduct')
+     },
 
-    list: function (req, res) {
-        res.render('products/productList')
-    },
+     list: function (req, res) {
+         res.render('products/productList')
+     },
 
 
-    detail: function (req, res) {
-        res.render('products/productDetail')
-    },
+     detail: function (req, res) {
+         res.render('products/productDetail')
+     },
 
-    cart: function (req, res) {
-        res.render('products/productCart')
-    }
+     cart: function (req, res) {
+         res.render('products/productCart')
+     }
 
-}
+ }
+
+
+ module.exports = productsController;

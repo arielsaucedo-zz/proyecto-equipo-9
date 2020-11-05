@@ -3,21 +3,34 @@ const router = express.Router();
 
 const productsController = require('../controllers/productsController');
 
-/*** CREATE ONE PRODUCT ***/
-router.get('/new-product', productsController.create);
+/*** Listado de productos ***/
+router.get('/products', productsController.list);
+
+/*** Formulario de creación de productos ***/
+router.get('/create', productsController.create);
 //router.post('/', productsController.store);
 
-/*** EDIT ONE PRODUCT ***/
-router.get('/edit-product', productsController.edit);
+/*** Detalle de un producto particular ***/
+router.get('/products/:id', productsController.edit);
 //router.put('/', productsController.store);
 
-/*** PRODUCT DETAIL ***/
-router.get('/productDetail', productsController.detail);
+/*** Acción de creación (a donde se envía el formulario) ***/
+router.post('/create', productsController.create);
+//router.post('/', productsController.store);
 
-/*** PRODUCT LIST ***/
-router.get('/productList', productsController.list);
+/*** PRODUCT DETAIL ***/
+//router.get('/productDetail', productsController.detail);
 
 /*** PRODUCT CART ***/
-router.get('/productCart', productsController.cart);
+//router.get('/productCart', productsController.cart);
+
+/*** Formulario de edición de productos ***/
+router.get('products/:id/edit', );
+
+/*** Acción de edición (a donde se envía el formulario):***/
+
+
+/*** Acción de borrado ***/
+
 
 module.exports = router;
