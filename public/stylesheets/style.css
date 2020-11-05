@@ -50,6 +50,10 @@ a {
   width: 30%;
 }
 
+.w-40 {
+  width: 40%;
+}
+
 .w-42 {
   width: 42%;
 }
@@ -96,6 +100,10 @@ a {
 
 .text-al-center {
   text-align: center;
+}
+
+.text-al-right {
+  text-align: right;
 }
 
 .f-wrap {
@@ -449,6 +457,12 @@ a {
 
 .register-h2 {
   flex-grow: 0.1;
+}
+
+.span_errors{
+  color: red;
+  font-size: 0.75em;
+  margin-left: 20px;
 }
 
 hr {
@@ -920,19 +934,6 @@ hr {
     flex-grow: 0.5;
   }
 
-<<<<<<< HEAD
-  #inputNombreUsuario {
-    width: 100%;
-    margin-left: 1%;
-    margin-right: 1%;
-  }
-
-  #password-inicial,
-  #password-confirmacion {
-    width: 40%;
-    margin-left: 1%;
-    margin-right: 1%;
-=======
   .input_xl {
       width: 100%;
       margin-left: 1%;
@@ -943,7 +944,6 @@ hr {
       width: 40%;
       margin-left: 1%;
       margin-right: 1%;
->>>>>>> 4867b203fea59e9d6c39402d06fb58e426a40a44
   }
 
   #enviar,

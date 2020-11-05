@@ -9,17 +9,51 @@
 
     <main>
         <div class="register-container register-d-flex margin-b-20">
-            <form class="w-100" action="/">
+            <form class="w-100" action="/users" method="POST">
                 <div class="w-100 d-flex">
                     <h2 class="register-h2">Registro</h2>
                     <hr>
                 </div>
                 <div class="inputs-registro register-d-flex">
+                    <% errors.forEach(error => { %>
+                        <% if(error.param == "first_name") { %>
+                            <span class="span_errors">* <%= error.msg %></span>
+                        <% } else { "" } %>
+                    <% }) %>
                     <input class="register-input-style-border input_xl" type="text" name="first_name" placeholder="Nombre">
+                    <% errors.forEach(error => { %>
+                        <% if(error.param == "last_name") { %>
+                            <span class="span_errors">* <%= error.msg %></span>
+                        <% } else { "" } %>
+                    <% }) %>
                     <input class="register-input-style-border input_xl" type="text" name="last_name" placeholder="Apellido">
+                    <% errors.forEach(error => { %>
+                        <% if(error.param == "user_name") { %>
+                            <span class="span_errors">* <%= error.msg %></span>
+                        <% } else { "" } %>
+                    <% }) %>
                     <input class="register-input-style-border input_xl" type="text" name="user_name" placeholder="Nombre de usuario">
+                    <% errors.forEach(error => { %>
+                        <% if(error.param == "password_initial") { %>
+                            <div class="w-50">
+                                <span class="span_errors">
+                                    * <%= error.msg %>                            
+                                </span>
+                            </div>
+                        <% } else { "" } %>
+                    <% }) %>
+                    <% errors.forEach(error => { %>
+                        <% if(error.param == "password_confirmation") { %>
+                            <div class="w-50">
+                                <span class="span_errors">
+                                    * <%= error.msg %>                            
+                                </span>
+                            </div>
+                        <% } else { "" } %>
+                    <% }) %>
                     <input class="register-input-style-border input_pass" type="password" name="password_initial" placeholder="Elegí tu contraseña">
                     <input class="register-input-style-border input_pass" type="password" name="password_confirmation" placeholder="Confirmá tu contraseña">
+
                     <button class="register-input-style-border class-btn" type="submit" id="enviar" target="">Enviar</button>
                     <button class="register-input-style-border class-rst" type="reset" id="borrar">Borrar</button>
                 </div>
