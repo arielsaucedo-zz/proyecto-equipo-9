@@ -7,30 +7,20 @@ const productsController = require('../controllers/productsController');
 router.get('/productsList', productsController.list);
 
 /*** Formulario de creación de productos ***/
-router.get('/productsCreate', productsController.create);
+router.get('/productCreate', productsController.create);
 //router.post('/', productsController.store);
 
-/*** Detalle de un producto particular ***/
-router.get('/products/:id', productsController.edit);
-//router.put('/', productsController.store);
+/*** ONE PRODUCT DETAIL ***/
+router.get('/productDetail/:id', productsController.detail);
 
-/*** Acción de creación (a donde se envía el formulario) ***/
-router.post('/productsCreate', productsController.create);
-//router.post('/', productsController.store);
+/*** Formulario de edición de producto ***/
+router.get('/:id/edit', productsController.edit);
+//router.put('/:id', productsController.update);
 
-/*** PRODUCT DETAIL ***/
-//router.get('/productDetail', productsController.detail);
+/*** DELETE ONE PRODUCT***/ 
+//router.delete('/:id/delete', productsController.destroy);
 
 /*** PRODUCT CART ***/
-//router.get('/productCart', productsController.cart);
-
-/*** Formulario de edición de productos ***/
-router.get('products/:id/edit', );
-
-/*** Acción de edición (a donde se envía el formulario):***/
-
-
-/*** Acción de borrado ***/
-
+router.get('/productCart', productsController.cart);
 
 module.exports = router;

@@ -2,12 +2,21 @@
 const express = require('express');
 const { check } = require('express-validator');
 const router = express.Router();
+let userValidator = require('../middlewares/user-validator')
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController')
 
 /*** LOGIN ***/
-router.get('/login', usersController.login);
+router.get('/login', usersController.login)
+router.post('/login', [
+    check('user_name')
+        .isEmail()
+        .withMessage('Por favor, ingrese una dirección de correo electrónico válida'),
+],
+usersController.processLogin);
+
+router.post('/users/logout', usersController.logout)
 
 /*** CREATE ONE USER - REGISTER ***/
 router.get('/register', usersController.register);
@@ -25,8 +34,8 @@ router.post('/', [
         .isLength( {min: 8})
         .withMessage('La contrase debe contener al menos 8 caracteres'),
     check('password_confirmation')
-        .isLength( {min: 8})
+        .isLength( {min: 8}),
 // agregar validación de comparación password_initial vs password_confirmation
-], usersController.store); 
+], userValidator, usersController.store); 
 
 module.exports = router;

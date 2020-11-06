@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": 1,
     "first_name": "Maxine",
     "last_name": "Danelutti",
@@ -179,12 +180,12 @@
     "image": "user_20.jpg"
   },
   {
-    "id": 21,
     "first_name": "Cristian",
     "last_name": "Peralta",
     "user_name": "cristian.r.peralta@gmail.com",
-    "password": "Cristian",
-    "rol": "admin",
-    "image": "user_20.jpg"
+    "password": "$2a$10$FATuF1SzbpVm7cFIxJqDAOQ619dhg/8Kg.7Gg.KNj8o2t.0hjp0Ga",
+    "rol": "user",
+    "image": "user_3.jpg",
+    "id": 21
   }
 ]

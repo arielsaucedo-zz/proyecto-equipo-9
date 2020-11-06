@@ -3,7 +3,7 @@
 
  let productsController = {
      create: function (req, res, next) {
-         res.render('products/productsCreate')
+         res.render('products/productCreate')
      },
 
      /*store: function (req, res) {
@@ -11,7 +11,7 @@
      },*/
 
      edit: function (req, res, next) {
-         res.render('products/productsEdit')
+         res.render('products/productEdit')
      },
 
      list: function (req, res) {

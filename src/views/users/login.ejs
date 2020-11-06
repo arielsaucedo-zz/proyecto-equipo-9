@@ -10,7 +10,7 @@
     <main>
         <div class="login">
             <div class="login-container">
-                <form action="/">
+                <form action="/users/login" method="POST">
                     <div class="inputs-login">
                         <div class="title-login texts-login">
                             <a>MI CUENTA</a>
@@ -18,9 +18,14 @@
                         <div class="sub-title-login texts-login">
                             <a>INGRESA CON TUS DATOS:</a>
                         </div>
+                        <% errors.forEach(error => { %>
+                            <% if(error.param == "user_name") { %>
+                                <span class="span_errors">* <%= error.msg %></span>
+                            <% } else { "" } %>
+                        <% }) %>
                         <div class="inputs-format">
-                            <input class="login-input-style-border" type="text" name="usr" placeholder="Usuario">
-                            <input class="login-input-style-border" type="password" name="psw" placeholder="Contraseña">
+                            <input class="login-input-style-border" type="text" name="user_name" placeholder="Usuario">
+                            <input class="login-input-style-border" type="password" name="password" placeholder="Contraseña">
                         </div>
                         <div class="opciones-login">
                             <div class="boton-enviar">

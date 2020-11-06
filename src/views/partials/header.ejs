@@ -14,13 +14,21 @@
             </ul>
         </nav>
         <div class="logo d-flex">
-            <img class="img-logo" src="/images/kalitero-logo.png" alt="Logo - Kalítero">
+            <a href="/"><img class="img-logo" src="/images/kalitero-logo.png" alt="Logo - Kalítero"></a>
         </div>
         <div class="user">
-            <i class="fas fa-user"></i>
+            <% if ( locals.user ) { %>
+                <span>Bienvenido <%= locals.user %></span>
+                <form action="/users/logout" method="POST">
+                    <i class="fas fa-sign-out-alt"></i>
+                </form>
+            <% } else { %>
+                <a title="Log-In" href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
+                <a title="Register" href="/users/register"><i class="fas fa-user"></i></a>
+            <% } %>
         </div>
         <div class="shop-cart">
-            <i class="fas fa-shopping-cart"></i>
+            <a href="/products/productCart"><i class="fas fa-shopping-cart"></i></a>
         </div>
         <div class="sub-menu">
             <i class="fas fa-ellipsis-v"></i>
