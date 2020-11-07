@@ -18,7 +18,7 @@
         </div>
         <div class="user">
             <% if ( locals.user ) { %>
-                <span>Bienvenido <%= locals.user %></span>
+                <span>Bienvenido <%= locals.first_name + " " + locals.last_name + " " %></span>
                 <form action="/users/logout" method="POST">
                     <i class="fas fa-sign-out-alt"></i>
                 </form>

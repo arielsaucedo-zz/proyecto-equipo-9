@@ -187,5 +187,14 @@
     "rol": "user",
     "image": "user_3.jpg",
     "id": 21
+  },
+  {
+    "first_name": "Ariel",
+    "last_name": "Saucedo",
+    "user_name": "arielsaucedo@gmail.com",
+    "password": "$2a$10$32ne7xaJJEvsb.YZFlSpYut56DezDeJAdKFKLT5IWTKch6Ji3./2.",
+    "rol": "user",
+    "image": "user_3.jpg",
+    "id": 22
   }
 ]

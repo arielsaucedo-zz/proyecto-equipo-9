@@ -25,9 +25,10 @@ app.use(session(
 ))
 
 app.use(function(req, res, next){
-  console.log(req.session.user)
   if(req.session.user != undefined){
     res.locals.user = req.session.user
+    res.locals.first_name = req.session.first_name
+    res.locals.last_name = req.session.last_name
   }
   return next()
 })
