@@ -24,7 +24,7 @@
         <div class="titulo-promo fz-12">
             <h2>LISTADO DE PRODUCTOS</h2>
         </div>
-        <section class="products d-flex f-wrap justify-center">
+        <section class="products d-flex f-wrap justify-center bg-hit">
 
 
             <% for (let i = 0; i < productsList.length; i++) { %>
@@ -32,8 +32,8 @@
                 <div>
                     <img class="img-promo-1 w-100 bg-white" src=" <%= productsList[i].image %> " alt="">
                     <div class="text-al-center">
-                        <p class="device"><%= productsList[i].name %> </p>
-                        <p class="price"><%= productsList[i].price %> </p>
+                        <p class="device bg-blue"><%= productsList[i].name %> </p>
+                        <p class="price bg-blue"><%= productsList[i].price %> </p>
                     </div>
             </article>
             <% } %>

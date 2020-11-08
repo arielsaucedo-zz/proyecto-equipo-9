@@ -2,114 +2,114 @@
         "id": 1,
         "name": "Balanza Kretz Report NX TCP/IP WiFi",
         "detail": "Descripción de Balanza Kretz Report NX TCP/IP WiFi",
-        "price": 86.500,
+        "price": 86500,
         "category": "Balanzas",
         "image": "/images/product-1.jpg"
     }, {
         "id": 2,
         "name": "Balanza Kretz Report NX USB",
         "detail": "Descripción de Balanza Kretz Report NX USB",
-        "price": 66.000,
+        "price": 66000,
         "category": "Balanzas",
-        "image": "/images/product-1.jpg"
+        "image": "/images/product-2.jpg"
     }, {
         "id": 3,
         "name": "Balanza Kretz Report LT USB",
         "detail": "Descripción de Balanza Kretz Report LT USB",
-        "price": 54.000,
+        "price": 54000,
         "category": "Balanzas",
-        "image": "/images/product-1.jpg"
+        "image": "/images/product-3.jpg"
     }, {
         "id": 4,
         "name": "Lector Kretz M-10 Omnidireccional",
         "detail": "Descripción de Lector Kretz M-10 Omnidireccional",
-        "price": 23.700,
+        "price": 23700,
         "category": "Lectores",
-        "image": "/images/product-2.jpg"
+        "image": "/images/product-4.jpg"
     }, {
         "id": 5,
         "name": "Lector Kretz OPR-3201Z Lineal",
         "detail": "Descripción de Lector Kretz OPR-3201Z Lineal",
-        "price": 8.200,
+        "price": 8200,
         "category": "Lectores",
-        "image": "/images/product-2.jpg"
+        "image": "/images/Net-1.jpg"
     }, {
         "id": 6,
         "name": "Lector 3nSTAR SC150 Lineal",
         "detail": "Descripción de Lector 3nSTAR SC150 Lineal",
-        "price": 6.000,
+        "price": 6000,
         "category": "Lectores",
-        "image": "/images/product-2.jpg"
+        "image": "/images/Net-2.jpg"
     }, {
         "id": 7,
         "name": "Impresora Térmica Kretz Lexa",
         "detail": "Descripción de Impresora Térmica Kretz Lexa",
-        "price": 13.500,
+        "price": 13500,
         "category": "Impresoras",
-        "image": "/images/product-3.jpg"
+        "image": "/images/Net-3.jpeg"
     }, {
         "id": 8,
         "name": "Impresora Térmica 3nSTAR RPT006",
         "detail": "Descripción de Impresora Térmica 3nSTAR RPT006",
-        "price": 12.000,
+        "price": 12000,
         "category": "Impresoras",
-        "image": "/images/product-3.jpg"
+        "image": "/images/Net-4.jpg"
     }, {
         "id": 9,
         "name": "Impresora Térmica Hasar 180",
         "detail": "Descripción de Impresora Térmica Hasar 180",
-        "price": 12.000,
+        "price": 12000,
         "category": "Impresoras",
-        "image": "/images/product-3.jpg"
+        "image": "/images/Net-5.jpg"
     }, {
         "id": 10,
         "name": "Impresora Fiscal Hasar 250",
         "detail": "Descripción de Impresora Fiscal Hasar 250",
-        "price": 70.000,
+        "price": 70000,
         "category": "Impresoras",
-        "image": "/images/product-3.jpg"
+        "image": "/images/Net-6.jpeg"
     }, {
         "id": 11,
         "name": "PC de Escritorio (Servidor)",
         "detail": "Descripción de PC de Escritorio (Servidor)",
-        "price": 56.000,
+        "price": 56000,
         "category": "PC Armadas",
-        "image": "/images/product-4.jpg"
+        "image": "/images/Net-7.jpg"
     }, {
         "id": 12,
         "name": "PC de Escritorio (Punto de Venta)",
         "detail": "Descripción de PC de Escritorio (Punto de Venta)",
-        "price": 42.700,
+        "price": 4700,
         "category": "PC Armadas",
-        "image": "/images/product-4.jpg"
+        "image": "/images/Net-8.jpg"
     }, {
         "id": 13,
         "name": "Complementos de PC",
         "detail": "Descripción de Complementos de PC",
-        "price": 17.000,
+        "price": 17000,
         "category": "Combos",
-        "image": "/images/hi-tech.jpg"
+        "image": "/images/Net-1.jpg"
     }, {
         "id": 14,
         "name": "Comandera + Lector Kretz",
         "detail": "Descripción de Comandera + Lector Kretz",
-        "price": 21.700,
+        "price": 21700,
         "category": "Combos",
-        "image": "/images/hi-tech.jpg"
+        "image": "/images/Net-2.jpg"
     }, {
-        "id": 14,
+        "id": 15,
         "name": "Comandera + Lector 3nSTAR",
         "detail": "Descripción de Comandera + Lector 3nSTAR",
-        "price": 18.000,
+        "price": 18000,
         "category": "Combos",
-        "image": "/images/hi-tech.jpg"
+        "image": "/images/Net-3.jpeg"
     }, {
         "id": 16,
         "name": "Kit Completo",
         "detail": "Descripción de Kit Completo",
-        "price": 77.700,
+        "price": 77700,
         "category": "Combos",
-        "image": "/images/hi-tech.jpg"
+        "image": "/images/Net-4.jpg"
     }
 
 ]
