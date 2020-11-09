@@ -30,9 +30,11 @@
             <% for (let i = 0; i < productsList.length; i++) { %>
             <article class="promo-1 w-42">
                 <div>
-                    <img class="img-promo-1 w-100 bg-white" src=" <%= productsList[i].image %> " alt="">
+                    <img class="device w-100 bg-white" src=" <%= productsList[i].image %> " alt="">
                     <div class="text-al-center">
-                        <p class="device bg-blue"><%= productsList[i].name %> </p>
+
+                        <a href="/src/views/products/productDetail.ejs" class="bg-blue"><%= productsList[i].name %> </p>
+                        </a>
                         <p class="price bg-blue"><%= productsList[i].price %> </p>
                     </div>
             </article>
