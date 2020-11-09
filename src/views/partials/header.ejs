@@ -19,14 +19,22 @@
         <div class="user">
             <% if ( locals.user ) { %>
                 <span>Bienvenido <%= locals.first_name + " " + locals.last_name + " " %></span>
+                <div>
+                    <a title="Mi Cuenta" href="/users/userDetail"><i class="fas fa-user"></i></a>
+                </div>
                 <form action="/users/logout" method="POST">
-                    <i class="fas fa-sign-out-alt"></i>
+                    <button type="submit"><i class="fas fa-sign-out-alt"></i></button>
                 </form>
             <% } else { %>
-                <a title="Log-In" href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
-                <a title="Register" href="/users/register"><i class="fas fa-user"></i></a>
+                <div>
+                    <a title="Register" href="/users/register"><i class="fas fa-user"></i></a>
+                </div>
+                <div>
+                    <a title="Log-In" href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
+                </div>
             <% } %>
         </div>
+
         <div class="shop-cart">
             <a href="/products/productCart"><i class="fas fa-shopping-cart"></i></a>
         </div>

@@ -16,7 +16,8 @@ router.post('/login', [
 ],
 usersController.processLogin);
 
-router.post('/users/logout', usersController.logout)
+/*** LOGOUT ***/
+router.post('/logout', usersController.logout)
 
 /*** CREATE ONE USER - REGISTER ***/
 router.get('/register', usersController.register);
