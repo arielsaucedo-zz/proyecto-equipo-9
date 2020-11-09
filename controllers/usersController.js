@@ -45,7 +45,7 @@ const controller = {
     logout : function(req, res){
         console.log('llego al logout')
         req.session.destroy()
-        req.cookie('rememberMe', null, { maxAge : 0 })
+        //req.cookie('rememberMe', null, { maxAge : 0 })
         return res.redirect('/users/login')
     },
 
