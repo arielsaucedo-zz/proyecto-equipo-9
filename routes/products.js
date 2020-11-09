@@ -3,22 +3,29 @@ const router = express.Router();
 
 const productsController = require('../controllers/productsController');
 
-/*** Listado de productos ***/
-router.get('/productsList', productsController.list);
+/*** localhost:3000/products/ ***/
+router.get('/', productsController.list);
 
-/*** Formulario de creación de productos ***/
+/*** localhost:3000/products/create ***/
 router.get('/productCreate', productsController.create);
-//router.post('/', productsController.store);
 
-/*** ONE PRODUCT DETAIL ***/
-router.get('/productDetail/:id', productsController.detail);
 
-/*** Formulario de edición de producto ***/
+/*** localhost:3000/products/:id ***/
+router.get('/:id', productsController.show);
+
+/*** localhost:3000/products/:id/edit ***/
 router.get('/:id/edit', productsController.edit);
-//router.put('/:id', productsController.update);
 
-/*** DELETE ONE PRODUCT***/ 
-//router.delete('/:id/delete', productsController.destroy);
+/*** localhost:3000/products/ ***/
+router.post('/', productsController.store);
+
+/*** localhost:3000/products/:id ***/
+router.put('/:id', productsController.update);
+
+/*** localhost:3000/products/:id ***/
+router.delete('/:id/delete', productsController.destroy);
+
+
 
 /*** PRODUCT CART ***/
 router.get('/productCart', productsController.cart);

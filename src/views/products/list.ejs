@@ -27,15 +27,15 @@
         <section class="products d-flex f-wrap justify-center bg-hit">
 
 
-            <% for (let i = 0; i < productsList.length; i++) { %>
+            <% for (let i = 0; i < products.length; i++) { %>
             <article class="promo-1 w-42">
                 <div>
-                    <img class="device w-100 bg-white" src=" <%= productsList[i].image %> " alt="">
+                    <img class="device w-100 bg-white" src=" <%= products[i].image %> " alt="">
                     <div class="text-al-center">
 
-                        <a href="/src/views/products/productDetail.ejs" class="bg-blue"><%= productsList[i].name %> </p>
+                        <a href="/src/views/products/productDetail.ejs" class="bg-blue"><%= products[i].name %> </p>
                         </a>
-                        <p class="price bg-blue"><%= productsList[i].price %> </p>
+                        <p class="price bg-blue"><%= products[i].price %> </p>
                     </div>
             </article>
             <% } %>
