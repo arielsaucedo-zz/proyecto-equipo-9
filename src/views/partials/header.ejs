@@ -18,19 +18,21 @@
         </div>
         <div class="user">
             <% if ( locals.user ) { %>
-                <span>Bienvenido <%= locals.first_name + " " + locals.last_name + " " %></span>
-                <div>
-                    <a title="Mi Cuenta" href="/users/userDetail"><i class="fas fa-user"></i></a>
+                <span class="welcome">Bienvenido <%= locals.first_name + " " + locals.last_name + " " %></span>
+                <div class="user_box_1">
+                    <a title="Mi Cuenta" href="/users/userDetail"><i class="fas fa-user-edit"></i></a>
                 </div>
-                <form action="/users/logout" method="POST">
-                    <button type="submit"><i class="fas fa-sign-out-alt"></i></button>
-                </form>
+                <div class="user_box_1">
+                    <form action="/users/logout" method="POST">
+                        <button type="submit"><i class="fas fa-user-times"></i></button>
+                    </form>
+                </div>
             <% } else { %>
-                <div>
-                    <a title="Register" href="/users/register"><i class="fas fa-user"></i></a>
+                <div class="user_box_1">
+                    <a title="Register" href="/users/register"><i class="fas fa-user-plus"></i></a>
                 </div>
-                <div>
-                    <a title="Log-In" href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
+                <div class="user_box_1">
+                    <a title="Log-In" href="/users/login"><i class="fas fa-user-lock"></i></a>
                 </div>
             <% } %>
         </div>
