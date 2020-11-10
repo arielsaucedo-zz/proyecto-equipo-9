@@ -4,29 +4,29 @@
  let productsController = {
 
      list: function (req, res) {
-         let data = [...products]
+         /*    let data = [...products]
 
-         if (req.query.price_min) {
-             data = data.filter(function (product) {
-                 return product.price >= req.query.price_min
-             })
-         }
+             if (req.query.price_min) {
+                 data = data.filter(function (product) {
+                     return product.price >= req.query.price_min
+                 })
+             }
 
-         if (req.query.name) {
-             data = data.filter(function (product) {
-                 return product.name.includes(req.query.name);
-             })
-         }
+             if (req.query.name) {
+                 data = data.filter(function (product) {
+                     return product.name.includes(req.query.name);
+                 })
+             }*/
 
          res.render('products/list', {
-             products: data
+             products: products
          });
      },
 
      show: function (req, res) {
-         let resultado = categories.find(function (category) {
-             return category.id == req.params.id
-         })
+         /*  let resultado = categories.find(function (category) {
+               return category.id == req.params.id
+           })*/
      },
 
      create: function (req, res, next) {
@@ -34,11 +34,20 @@
      },
 
      store: function (req, res) {
-         res.redirect('products/productDetail')
+         products.push({
+             ...req.body,
+             id: products[products.length - 1].id + 1
+         })
+         fs.writeFileSync(productsFilePath, JSON.stringify(products))
+
+         res.render('products/added')
      },
 
-     edit: function (req, res, next) {
-         res.render('products/productEdit')
+     edit: function (req, res, ) {
+         let toEdit = req.params.id
+         res.render('products/productEdit', {
+             toEdit: toEdit
+         })
      },
 
      update: function (req, res, next) {
@@ -46,6 +55,8 @@
      },
 
      destroy: function (req, res) {
+         console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
+         res.redirect('/')
 
      },
 
