@@ -28,14 +28,10 @@ const controller = {
                 req.session.user = userLoggedIn.user_name
                 req.session.first_name = userLoggedIn.first_name
                 req.session.last_name = userLoggedIn.last_name
-                console.log('processLogin')
-                console.log(req.session.user)
-                console.log('------')
-                console.log(userLoggedIn.email)
                 // if(req.body.rememberMe){
                 //     res.cookie('rememberMe', user.user_name, { maxAge: 120 * 1000 })
                 // }
-                return res.redirect('../products/productsList')
+                return res.redirect('../products')
             }
         } else {
             return res.render('users/login', { errors: errors.errors } )
