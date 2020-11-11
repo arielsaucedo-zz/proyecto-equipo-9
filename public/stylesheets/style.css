@@ -387,6 +387,11 @@ a {
   margin: 0 5px;
 }
 
+.btn_logout{
+  border-style: none;
+  background: none;
+}
+
 .login {
   justify-content: center;
   margin: 1.5%;

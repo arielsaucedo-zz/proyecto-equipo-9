@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <div class="productForm-container productForm-d-flex margin-b-20">
+        <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST">
+            <div class="w-100 d-flex">
+                <h2 class="register-h2">Edicion de productos</h2>
+                <hr>
+            </div>
+            <div class="inputs-productForm d-flex f-wrap">
+                <label for="">Nombre del producto</label>
+                <input class="productForm-input-style-border" type="text" name="name" placeholder="<%= productEdit.name %>">
+    
+                <label for="">Categoria</label>
+                <input class="productForm-input-style-border" type="text" name="category" placeholder="<%= productEdit.category %>">
+
+                <label for="">Descripcion</label>
+                <input class="productForm-input-style-border" type="text" name="detail" placeholder="<%= productEdit.detail %>">
+
+                <label for="">Imagen del producto</label>
+                <input class="w-100 inputs-productForm" type="file" name="image" placeholder="<%= productEdit.image %>">
+
+                <label class="inputs-productForm" for="">Cantidad</label>
+                <input class="productForm-input-style-border" type="text" name="cantidad" placeholder="9">
+
+                <label for="">Precio</label>
+                <input class="productForm-input-style-border" type="text" name="price" placeholder="<%= productEdit.price %>">
+
+                <button type="submit" class="productForm-input-style-border class-btn">EDITAR</button>
+                <button type="reset" class="productForm-input-style-border class-rst">BORRAR</button>
+            </div>
+
+        </form>
+    </div>
+
+    <%- include('../partials/footer') %>
+
+</body>
+
+</html>

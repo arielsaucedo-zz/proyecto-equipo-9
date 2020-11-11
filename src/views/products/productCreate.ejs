@@ -8,34 +8,34 @@
     <%- include('../partials/header') %>
 
     <div class="productForm-container productForm-d-flex margin-b-20">
-        <form class="w-100" action="/" method="POST"></form>
-        <div class="w-100 d-flex">
-            <h2 class="register-h2">Creacion de productos</h2>
-            <hr>
-        </div>
-        <div class="inputs-productForm d-flex f-wrap">
-            <label for="">Nombre del producto</label>
-            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+        <form class="w-100" action="/products" method="POST">
+            <div class="w-100 d-flex">
+                <h2 class="register-h2">Creacion de productos</h2>
+                <hr>
+            </div>
+            <div class="inputs-productForm d-flex f-wrap">
+                <label for="">Nombre del producto</label>
+                <input class="productForm-input-style-border" type="text" name="product_name" id="inputNewProduct">
 
-            <label for="">Categoria</label>
-            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+                <label for="">Categoria</label>
+                <input class="productForm-input-style-border" type="text" name="product_category" id="inputNewProduct">
 
-            <label for="">Descripcion</label>
-            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+                <label for="">Descripcion</label>
+                <input class="productForm-input-style-border" type="text" name="product_description" id="inputNewProduct">
 
-            <label for="">Imagen del producto</label>
-            <input class="w-100 inputs-productForm" type="file" name="newProduct" id="inputNewProduct">
+                <label for="">Imagen del producto</label>
+                <input class="w-100 inputs-productForm" type="file" name="product_image" id="inputNewProduct">
 
-            <label class="inputs-productForm" for="">Cantidad</label>
-            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+                <label class="inputs-productForm" for="">Cantidad</label>
+                <input class="productForm-input-style-border" type="text" name="product_quantity" id="inputNewProduct">
 
-            <label for="">Precio</label>
-            <input class="productForm-input-style-border" type="text" name="newProduct" id="inputNewProduct">
+                <label for="">Precio</label>
+                <input class="productForm-input-style-border" type="text" name="product_price" id="inputNewProduct">
 
-            <button class="productForm-input-style-border class-btn">CREAR</button>
+                <button type="submit" class="productForm-input-style-border class-btn" target="">CREAR</button>
 
-            <button class="productForm-input-style-border class-rst">BORRAR</button>
-        </div>
+                <button type="reset" class="productForm-input-style-border class-rst">BORRAR</button>
+            </div>
 
         </form>
     </div>

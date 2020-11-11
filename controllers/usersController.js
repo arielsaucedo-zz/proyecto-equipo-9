@@ -52,7 +52,6 @@ const controller = {
     store : function(req, res){
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            console.log(errors.errors)
             return res.render('users/register', { errors: errors.errors } );
         }
         //hay que agregar validaciones de password y confirmación.
