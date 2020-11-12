@@ -31,6 +31,13 @@
                 <p class="text"><%= productDetail.detail %></p>
             </div>
         </div>
+
+        <a href="/products/<%= productDetail.id %>/edit" class="action-button edit">EDITAR PRODUCTO</a>
+        <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST" style="display: inline-flex">
+            <button type="submit" class="action-button delete">ELIMINAR</button>
+        </form>
+
+
         <section class="promo d-flex f-wrap justify-center bg-image">
             <div class="titulo-promo fz-12">
                 <h2>También Podría Interesarte</h2>

@@ -93,9 +93,15 @@
      },
 
      destroy: function (req, res) {
+         let productsRemaining = []
+         productsRemaining = products.filter(function(productElement){
+             if(productElement.id != req.params.id){return true}else{return false}
+         })
+         productsRemaining = JSON.stringify(productsRemaining)
+         //fs.writeFileSync(productsFilePath, productsRemaining)
          console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
+         console.log(productsRemaining)
          res.redirect('/')
-
      },
 
      cart: function (req, res) {
