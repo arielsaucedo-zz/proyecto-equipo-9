@@ -33,10 +33,14 @@ router.post('/', [
         .withMessage('Por favor, ingrese una dirección de correo electrónico válida'),
     check('password_initial')
         .isLength( {min: 8})
-        .withMessage('La contrase debe contener al menos 8 caracteres'),
-    check('password_confirmation')
-        .isLength( {min: 8}),
-// agregar validación de comparación password_initial vs password_confirmation
+        .withMessage('La contraseña debe contener al menos 8 caracteres')
+        .custom((value,{req, loc, path}) => {
+            if (value !== req.body.password_confirmation) {
+                throw new Error('Las contraseñas no coinciden, por favor corrija.');
+            } else {
+                return value;
+            }
+        }),
 ], userValidator, usersController.store); 
 
 module.exports = router;
