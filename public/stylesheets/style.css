@@ -664,6 +664,7 @@ hr {
 .numero {
   padding: 1%;
   width: 1%;
+  width: 50px;
 }
 
 .bg-hit {

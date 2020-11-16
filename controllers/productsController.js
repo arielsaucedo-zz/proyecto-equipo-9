@@ -40,6 +40,7 @@ let productsController = {
                 detail: req.body.product_description,
                 price: req.body.product_price,
                 category: req.body.product_category,
+                quantity: req.body.product_quantity,
                 image: "/images/Net-4.jpg" // aca hay que meter la imagen posta (capaz sea necesario hacer una vista aparte)
             },
         )
@@ -75,6 +76,7 @@ let productsController = {
                 productElement.category = req.body.category
                 productElement.detail = req.body.detail
                 productElement.price = req.body.price
+                productElement.quantity = req.body.quantity
                 productElement.image = req.body.image
             }
             return productElement

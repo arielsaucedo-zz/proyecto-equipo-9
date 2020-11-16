@@ -23,7 +23,7 @@
             <h2 class="title-product"><%= productDetail.name %></h2>
             <h3 class="subtitle-product">Touch I9 Ssd1tb Video 4gb</3>
             <h3 class="sale"><%= productDetail.price %></h3>
-            <input class="numero" type="number" name="num" min="0" max="100">
+            <input class="numero" type="number" name="product_quantity" min="0" max="100" value="<%= productDetail.quantity %>">
             <input class="boton" type="button" value="ORDENAR">
             <div>
                 <h4 class="description"><%= productDetail.name %></h4>

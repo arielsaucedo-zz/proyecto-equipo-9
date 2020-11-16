@@ -5,16 +5,16 @@
     "price": 86500,
     "category": "Balanzas",
     "image": "/images/product-1.jpg",
-    "quantity": "15"
+    "quantity": 15
   },
   {
     "id": 2,
     "name": "balanza",
     "detail": "Descripción de Balanza",
-    "price": "38000",
+    "price": 38000,
     "category": "Balanzas",
     "image": "/images/product-4.jpg",
-    "quantity": "1000"
+    "quantity": 1000
   },
   {
     "id": 3,
@@ -23,7 +23,7 @@
     "price": 54000,
     "category": "Balanzas",
     "image": "/images/product-3.jpg",
-    "quantity": "154"
+    "quantity": 154
   },
   {
     "id": 4,
@@ -32,7 +32,7 @@
     "price": 23700,
     "category": "Lectores",
     "image": "/images/product-4.jpg",
-    "quantity": "365"
+    "quantity": 365
   },
   {
     "id": 5,
@@ -41,7 +41,7 @@
     "price": 8200,
     "category": "Lectores",
     "image": "/images/Net-1.jpg",
-    "quantity": "8"
+    "quantity": 8
 
   },
   {
@@ -51,7 +51,7 @@
     "price": 6000,
     "category": "Lectores",
     "image": "/images/Net-2.jpg",
-    "quantity": "566"
+    "quantity": 566
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "price": 13500,
     "category": "Impresoras",
     "image": "/images/Net-3.jpeg",
-    "quantity": "22"
+    "quantity": 22
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "price": 12000,
     "category": "Impresoras",
     "image": "/images/Net-4.jpg",
-    "quantity": "75"
+    "quantity": 75
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "price": 12000,
     "category": "Impresoras",
     "image": "/images/Net-5.jpg",
-    "quantity": "25"
+    "quantity": 25
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "price": 70000,
     "category": "Impresoras",
     "image": "/images/Net-6.jpeg",
-    "quantity": "354"
+    "quantity": 354
 
   },
   {
@@ -97,7 +97,7 @@
     "price": 56000,
     "category": "PC Armadas",
     "image": "/images/Net-7.jpg",
-    "quantity": "1"
+    "quantity": 1
   },
   {
     "id": 12,
@@ -106,7 +106,7 @@
     "price": 4700,
     "category": "PC Armadas",
     "image": "/images/Net-8.jpg",
-    "quantity": "7"
+    "quantity": 7
   },
   {
     "id": 13,
@@ -115,7 +115,7 @@
     "price": 17000,
     "category": "Combos",
     "image": "/images/Net-1.jpg",
-    "quantity": "997"
+    "quantity": 997
   },
   {
     "id": 14,
@@ -124,7 +124,7 @@
     "price": 21700,
     "category": "Combos",
     "image": "/images/Net-2.jpg",
-    "quantity": "41"
+    "quantity": 41
   },
   {
     "id": 15,
@@ -133,7 +133,7 @@
     "price": 18000,
     "category": "Combos",
     "image": "/images/Net-3.jpeg",
-    "quantity": "39"
+    "quantity": 39
   },
   {
     "id": 16,
@@ -142,6 +142,6 @@
     "price": 77700,
     "category": "Combos",
     "image": "/images/Net-4.jpg",
-    "quantity": "15"
+    "quantity": 15
   }
 ]
