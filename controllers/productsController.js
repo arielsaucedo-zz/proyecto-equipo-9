@@ -91,9 +91,8 @@ let productsController = {
             if(productElement.id != req.params.id){return true}else{return false}
         })
         productsRemaining = JSON.stringify(productsRemaining)
-        //fs.writeFileSync(productsFilePath, productsRemaining)
+        fs.writeFileSync(productsFilePath, productsRemaining)
         console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-        console.log(productsRemaining)
         res.redirect('/', { listOfCategories : productData.retrieveListOfCategories() })
     },
 
