@@ -5,12 +5,9 @@
         </div>
         <nav class="navegation-menu">
             <ul class="nav-menu">
-                <li><a href="">PC ARMADAS</a></li>
-                <li><a href="">BALANZAS</a></li>
-                <li><a href="">LECTORES</a></li>
-                <li><a href="">COMANDERAS</a></li>
-                <li><a href="">COMBOS</a></li>
-                <li><a href="">PROMOCIONES</a></li>
+                <% listOfCategories.forEach(category => { %>
+                    <li><a href=""><%= category %></a></li>
+                <% }) %>
             </ul>
         </nav>
         <div class="logo d-flex">

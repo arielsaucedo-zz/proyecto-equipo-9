@@ -6,10 +6,12 @@ const userDataFilePath = path.join(__dirname, '../data/user')
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
 let userData = require(userDataFilePath)
 let bcryptjs = require('bcryptjs')
+const productDataFilePath = path.join(__dirname, '../data/product')
+let productData = require(productDataFilePath)
 
 const controller = {
     login : function(req, res){
-        res.render('users/login', { errors: [] })
+        res.render('users/login', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
     },
 
     processLogin : function(req, res){
@@ -19,11 +21,12 @@ const controller = {
             if(!userLoggedIn){
                 console.log('error')
                 return res.render('users/login', { errors: [ {
-                    value: '',
-                    msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
-                    param: 'user_name',
-                    location: 'body'
-                  } ] }, )
+                        value: '',
+                        msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
+                        param: 'user_name',
+                        location: 'body'
+                    } ],
+                  listOfCategories : productData.retrieveListOfCategories() }, )
             } else if(bcryptjs.compareSync(req.body.password, userLoggedIn.password)){
                 req.session.user = userLoggedIn.user_name
                 req.session.first_name = userLoggedIn.first_name
@@ -31,10 +34,10 @@ const controller = {
                 // if(req.body.rememberMe){
                 //     res.cookie('rememberMe', user.user_name, { maxAge: 120 * 1000 })
                 // }
-                return res.redirect('../products')
+                return res.redirect('../products', { listOfCategories : productData.retrieveListOfCategories() })
             }
         } else {
-            return res.render('users/login', { errors: errors.errors } )
+            return res.render('users/login', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } )
         }
     },
 
@@ -42,17 +45,20 @@ const controller = {
         console.log('llego al logout')
         req.session.destroy()
         //req.cookie('rememberMe', null, { maxAge : 0 })
-        return res.redirect('/users/login')
+        return res.redirect('/users/login', { listOfCategories : productData.retrieveListOfCategories() })
     },
 
     register : function(req, res){
-        res.render('users/register', { errors: [] } )
+        res.render('users/register', { 
+            errors: [], 
+            listOfCategories : productData.retrieveListOfCategories()
+        } )
     },
 
     store : function(req, res){
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('users/register', { errors: errors.errors } );
+            return res.render('users/register', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } );
         }
         //hay que agregar validaciones de password y confirmación.
         userData.create({
@@ -63,7 +69,7 @@ const controller = {
             rol: "user",
             image: "user_3.jpg"
         })
-        res.redirect('users/login')
+        res.redirect('users/login', { listOfCategories : productData.retrieveListOfCategories() })
     }
 }
 
