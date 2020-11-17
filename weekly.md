@@ -50,7 +50,7 @@
 	Cristian: 
 				Ninguno.
 	Nicolás:
-				Dificultades para incorporar lo atrasado de semanas anteriores.                                                                 	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
+				Dificultades para incorporar lo atrasado de semanas anteriores.                                                                 		              	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
 
 ​	Ariel:																																				                                                   				Ninguno.
 
