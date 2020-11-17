@@ -536,6 +536,11 @@ hr {
 /*************************************************************/
 /******** Estilos detalle de producto(productDeatil) *********/
 /*************************************************************/
+
+.col-12 {
+  padding-left: 8px;
+}
+
 .d-column {
   flex-direction: column;
 }
@@ -560,8 +565,12 @@ hr {
   align-items: center;
 }
 
+.products-title {
+  font-size: 17px;
+}
+
 .imagen-grande {
-  width: 100%;
+  width: 50%;
   flex-grow: 0.7;
 }
 
@@ -585,9 +594,7 @@ hr {
 
 .title-product {
   align-items: center;
-  margin-top: 2.5%;
-  padding-left: 2.5%;
-  font-size: 34px;
+  font-size: 17px;
 }
 
 .subtitle-product {
@@ -597,25 +604,29 @@ hr {
 
 .sale {
   align-items: center;
-  font-size: 30px;
-  color: springgreen;
+  font-size: 17px;
+  color: green
 }
 
 .description {
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   font-family: monospace;
   margin-top: 27px;
 }
 
 .detail {
   text-align: center;
-  font-size: 20px;
+  font-size: 17px;
   margin-top: 15px;
 }
 
 .text {
-  padding: 4%;
+  border: 1px lightgrey solid;
+  background-color: #ffffff;
+  padding: 30px 0px 30px 0px;
+  text-align: center;
+  width: 100%;
 }
 
 .too {
@@ -653,12 +664,13 @@ hr {
 }
 
 .boton {
-  color: #fff;
-  font-size: larger;
-  background-color: blue;
-  border-radius: 50%;
-  font-weight: bolder;
-  padding: 1.5%;
+  color: white;
+  background-color: #0044AA;
+  margin: 15px 0px 15px 10px;
+  border-radius: 5px;
+  border: 1px lightgrey solid;
+  height: 45px;
+  padding: 0px 25px 0px 25px;
 }
 
 .numero {
@@ -1071,6 +1083,33 @@ BORRARDESPUES
   }
 
   /*************************************************************/
+  /********* FIN - Estilos Product Cart ************************/
+  /*************************************************************/
+
+
+/*************************************************************/
+  /********* INICIO - Estilos Product Details *********************/
+  /*************************************************************/
+.products-title {
+  font-size: 23px;
+}
+
+.title-product {
+  font-size: 23px;
+}
+
+.sale {
+  font-size: 23px;
+}
+
+.description {
+  font-size: 24px;
+}
+
+.detail {
+  font-size: 20px;
+}
+/*************************************************************/
   /********* FIN - Estilos Product Cart ************************/
   /*************************************************************/
 }

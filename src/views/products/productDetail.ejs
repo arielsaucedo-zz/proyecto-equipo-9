@@ -9,7 +9,7 @@
 
     <main>
         <div class="">
-            <div class="d-flex">
+            <div class="d-flex f-wrap">
                 <div class="col-12">
                     <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
                 </div>
@@ -21,44 +21,44 @@
         </div>
         <div class="product-info">
             <h2 class="title-product"><%= productDetail.name %></h2>
-            <h3 class="subtitle-product">Touch I9 Ssd1tb Video 4gb</3>
-            <h3 class="sale"><%= productDetail.price %></h3>
+            <h3 class="sale">Precio: $<%= productDetail.price %></h3>
+            <Label>Seleccionar Cantidad</Label>
             <input class="numero" type="number" name="product_quantity" min="0" max="100" value="<%= productDetail.quantity %>">
-            <input class="boton" type="button" value="ORDENAR">
+            <input class="boton" type="button" value="COMPRAR">
             <div>
                 <h4 class="description"><%= productDetail.name %></h4>
                 <h4 class="detail">Detalles Del Producto</h4>
                 <p class="text"><%= productDetail.detail %></p>
             </div>
+            <form action="/products/<%= productDetail.id %>/edit" method="GET" style="display: inline-flex">
+                <button type="submit" class="action-button delete">EDITAR PRODUCTO</button>
+            </form>
+            <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST" style="display: inline-flex">
+                <button type="submit" class="action-button delete">ELIMINAR PRODUCTO</button>
+            </form>
         </div>
 
-        <a href="/products/<%= productDetail.id %>/edit" class="action-button edit">EDITAR PRODUCTO</a>
-        <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST" style="display: inline-flex">
-            <button type="submit" class="action-button delete">ELIMINAR</button>
-        </form>
-
-
         <section class="promo d-flex f-wrap justify-center bg-image">
-            <div class="titulo-promo fz-12">
+            <div class="titulo-promo fz-12 w-100 text-al-center">
                 <h2>También Podría Interesarte</h2>
             </div>
             <article class="promo-1 w-42">
-                <img class="img-promo-1 w-100" src="/images/Net-1.jpg" alt="">
+                <img class="img-promo-1 w-100" src="/images/product-inter-1.jpg" alt="">
                 <p class="sub-producto">Notebook Bangho</p>
                 <p class="sub-precio">$25.999</p>
             </article>
             <article class="promo-2 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-2.jpg" alt="">
+                <img class="img-promo-2 w-100" src="/images/product-inter-2.jpg" alt="">
                 <p class="sub-producto">Notebook Bangho</p>
                 <p class="sub-precio">$24.999</p>
             </article>
             <article class="promo-3 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-3.jpeg" alt="">
+                <img class="img-promo-2 w-100" src="/images/product-inter-3.jpeg" alt="">
                 <p class="sub-producto">Notebook ACME</p>
                 <p class="sub-precio">$22.999</p>
             </article>
             <article class="promo-4 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-4.jpg" alt="">
+                <img class="img-promo-2 w-100" src="/images/product-inter-4.jpg" alt="">
                 <p class="sub-producto">Notebook Cualqui</p>
                 <p class="sub-precio">$23.999</p>
             </article>
@@ -71,16 +71,6 @@
                 <img class="img-promo-2 w-100" src="/images/Net-6.jpeg" alt="">
                 <p class="sub-producto">Notebook Nomac</p>
                 <p class="sub-precio">$27.997</p>
-            </article>
-            <article class="promo-7 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-7.jpg" alt="">
-                <p class="sub-producto">Notebook Argenta</p>
-                <p class="sub-precio">$19.999</p>
-            </article>
-            <article class="promo-8 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-8.jpg" alt="">
-                <p class="sub-producto">Notebook Popular</p>
-                <p class="sub-precio">$22.500</p>
             </article>
         </section>
     </main>
