@@ -643,15 +643,13 @@ hr {
 
 .sub-producto {
   text-align: center;
-  font-size: 26px;
-  margin-top: 15px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .sub-precio {
   text-align: center;
-  font-size: 25px;
-  margin-top: 10px;
-  margin-bottom: 30px;
+  font-size: 19px;
 }
 
 .product-info {
