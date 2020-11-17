@@ -1,3 +1,13 @@
+## RETROSPECTIVA - SPRINT 4
+
+- **<u>Comenzar a hacer:</u>** Tratar de al comienzo del sprint (o antes), definir y obtener todos los requisitos para luego no demorar el desarrollo del proyecto. Tratar, dentro de lo posible, tener todos los conocimientos adquiridos para poder encarar el trabajo con mayor agilidad.
+- **<u>Hacer más:</u>** Realizar reuniones con más frecuencia o quizás establecer un día, una reunión de al menos una hora y codear en grupo. (podría ser que cada uno trabaje en su tarea, pero todos en una call).
+- **<u>Continuar haciendo:</u>** División de tareas entre los integrantes del equipo. 
+- **<u>Hacer menos:</u>** En este sprint logramos realizar lo propuesto en sprints anteriores.
+- **<u>Dejar de hacer:</u>** Enfocarse en los detalles que hacen perder demasiado tiempo. Avanzar generalmente todo el proyecto y luego volver a iterar en esos detalles.
+
+
+
 ## RETROSPECTIVA - SPRINT 3
 
 - **<u>Comenzar a hacer:</u>** Tratar de al comienzo del sprint (o antes), definir y obtener todos los requisitos para luego no demorar el desarrollo del proyecto. Tratar, dentro de lo posible, tener todos los conocimientos adquiridos para poder encarar el trabajo con mayor agilidad.

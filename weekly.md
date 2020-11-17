@@ -1,4 +1,71 @@
-## **<u>SPRINT - 2</u>**
+## **<u>SPRINT - 4</u>**
+
+**<u>SEMANA 1</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Planificación sprint-4. 
+				Se realizaron cambios de estilos sobre LOGIN y REGISTER.
+				Se agregó el uso de SESSION. 
+
+​	Nicolás: 
+​				Planificación sprint-4. 
+​				Datos de artículos y JSON de Productos.
+
+​	Daniel: 
+​				Creación de branch 4
+​				Planificación sprint-4. 
+​				Creación/modificación de archivo JSON de productos.      
+
+​	 Ariel:                                                                                                                                                                                               				Planificación sprint-4.
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Dificultad para emplear los contenidos vistos en el ejemplo al trabajo práctico.
+	Daniel:                                                                                                                       														      				Falta de tiempo. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Ninguno.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Trabajar en la navegación del sitio en relación a USERS.
+	Nicolás:
+                Mejorar visual del ProductCart.
+	Daniel: 																																							         	    				Trabajar en el controlador de productos.                                                                                                                          	Ariel:                                                                                                                                                                                                 				Trabajar sobre los formularios de Register y Login.
+
+**<u>SEMANA 2</u>**
+
+● Qué hizo en la semana
+
+​	Cristian: 
+​				Se mejoró la navegabilidad del sitio en general. Ya hay vínculos entre las vistas.
+​				Se mejoró el aspecto del header y se hizo dinámica la carga y muestra de categorías de productos (menú 	hamburguesa).
+​				Se trabajo en el BREAD de productos.
+​	Nicolás:
+​                Participación grupal vía zoom.                                                                                                                                                             	Daniel:                                                                                                                                                                                				Modificaciones en el productsController.                                                                                                                                                      	Ariel:                                                                                                                                                                                                    				Se trabajo en los estilos de la vista de productDetail.																				  				Creación botones para editar y borrar productos con sus links correspondientes a los formularios.
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Dificultades para incorporar lo atrasado de semanas anteriores.                                                                 	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
+
+​	Ariel:																																				                                                   				Ninguno.
+
+● Qué va a la próxima semana.
+	Cristian:
+				Planificar sprint-5.
+	Nicolás:
+				Terminar de actualizar contenidos atrasados.                                                                                                                              	Daniel:                                                                                                                                                                                				Planificar sprint-5.
+
+​	Ariel:
+​				Planificar sprint-5.
+
+
+
+## **<u>SPRINT - 3</u>**
 
 **<u>SEMANA 1</u>**
 
