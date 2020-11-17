@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
 
 <body>
-    
+
     <%- include('../partials/header') %>
 
     <main>
-        <div class="">
-            <div class="d-flex f-wrap">
-                <div class="col-12">
-                    <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
-                </div>
+        <div class="d-flex f-wrap">
+            <div class="col-12 div-prod-title">
+                <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
+            </div>
 
-                <div class="w-70">
-                    <img class="imagen-grande" src="<%= productDetail.image %>" alt="">
-                </div>
+            <div class="div-imagen">
+                <img class="imagen-grande" src="<%= productDetail.image %>" alt="">
             </div>
         </div>
+
         <div class="product-info">
             <h2 class="title-product"><%= productDetail.name %></h2>
             <h3 class="sale">Precio: $<%= productDetail.price %></h3>
             <Label>Seleccionar Cantidad</Label>
-            <input class="numero" type="number" name="product_quantity" min="0" max="100" value="<%= productDetail.quantity %>">
+            <input class="numero" type="number" name="product_quantity" min="0" max="100"
+                value="<%= productDetail.quantity %>">
             <input class="boton" type="button" value="COMPRAR">
             <div>
                 <h4 class="description"><%= productDetail.name %></h4>
                 <h4 class="detail">Detalles Del Producto</h4>
                 <p class="text"><%= productDetail.detail %></p>
             </div>
-            <form action="/products/<%= productDetail.id %>/edit" method="GET" style="display: inline-flex">
-                <button type="submit" class="action-button delete">EDITAR PRODUCTO</button>
-            </form>
-            <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST" style="display: inline-flex">
-                <button type="submit" class="action-button delete">ELIMINAR PRODUCTO</button>
-            </form>
+            <div class="text-al-center">
+                <form action="/products/<%= productDetail.id %>/edit" method="GET" style="display: inline-flex">
+                    <button type="submit" class="action-button delete">EDITAR PRODUCTO</button>
+                </form>
+                <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST"
+                    style="display: inline-flex">
+                    <button type="submit" class="action-button delete">ELIMINAR PRODUCTO</button>
+                </form>
+            </div>
+
         </div>
 
         <section class="promo d-flex f-wrap justify-center bg-image">
@@ -44,39 +48,29 @@
             </div>
             <article class="promo-1 w-42">
                 <img class="img-promo-1 w-100" src="/images/product-inter-1.jpg" alt="">
-                <p class="sub-producto">Notebook Bangho</p>
-                <p class="sub-precio">$25.999</p>
+                <p class="sub-producto">Cargador Inalámbrico de auto Universal mophie con soporte</p>
+                <p class="sub-precio">$11.999</p>
             </article>
             <article class="promo-2 w-42">
                 <img class="img-promo-2 w-100" src="/images/product-inter-2.jpg" alt="">
-                <p class="sub-producto">Notebook Bangho</p>
-                <p class="sub-precio">$24.999</p>
+                <p class="sub-producto">Cable de carga Apple USB-C (2 m)</p>
+                <p class="sub-precio">$6.299</p>
             </article>
             <article class="promo-3 w-42">
-                <img class="img-promo-2 w-100" src="/images/product-inter-3.jpeg" alt="">
-                <p class="sub-producto">Notebook ACME</p>
-                <p class="sub-precio">$22.999</p>
+                <img class="img-promo-2 w-100" src="/images/product-inter-3.jpg" alt="">
+                <p class="sub-producto">Auriculares IE In-ear Bose SoundSport MFI Negro</p>
+                <p class="sub-precio">$19.999</p>
             </article>
             <article class="promo-4 w-42">
                 <img class="img-promo-2 w-100" src="/images/product-inter-4.jpg" alt="">
-                <p class="sub-producto">Notebook Cualqui</p>
-                <p class="sub-precio">$23.999</p>
-            </article>
-            <article class="promo-5 w-42">
-                <img class="img-promo-1 w-100" src="/images/Net-5.jpg" alt="">
-                <p class="sub-producto">Notebook Barat</p>
-                <p class="sub-precio">$20.199</p>
-            </article>
-            <article class="promo-6 w-42">
-                <img class="img-promo-2 w-100" src="/images/Net-6.jpeg" alt="">
-                <p class="sub-producto">Notebook Nomac</p>
-                <p class="sub-precio">$27.997</p>
+                <p class="sub-producto">Adaptador Multiport Apple USB-C Digital AV</p>
+                <p class="sub-precio">$16.599</p>
             </article>
         </section>
     </main>
 
     <%- include('../partials/footer') %>
-    
+
 </body>
 
 </html>
