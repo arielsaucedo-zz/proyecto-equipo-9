@@ -569,10 +569,20 @@ hr {
   font-size: 17px;
 }
 
-.imagen-grande {
-  width: 50%;
-  flex-grow: 0.7;
+.div-prod-title{
+  width: 100%;
 }
+
+.div-imagen{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.imagen-grande{
+  height: 250px;
+}
+
 
 .imagen-chica {
   width: 75%;
@@ -860,6 +870,15 @@ hr {
     width: 22%;
   }
 
+  .div-imagen{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  .imagen-grande{
+    height: 500px;
+  }
 
   /*************************************************************/
   /********* FIN - Estilos Product *****************************/
