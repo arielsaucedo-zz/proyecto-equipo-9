@@ -1,15 +1,17 @@
 <header class="header-container">
     <div class="header-epigraph d-flex">
-        <div class="hamburger-menu">
-            <i class="fas fa-bars hamburger-element"></i>
-        </div>
-        <nav class="navegation-menu">
-            <ul class="nav-menu">
-                <% listOfCategories.forEach(category => { %>
-                    <li><a href=""><%= category %></a></li>
-                <% }) %>
-            </ul>
-        </nav>
+        <ul id="nav">
+            <li>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars hamburger-element"></i>
+                </div>
+                <ul class="nav-menu">
+                    <% listOfCategories.forEach(category => { %>
+                        <li><a href=""><%= category %></a></li>
+                    <% }) %>
+                </ul>
+            </li>
+        </ul>
         <div class="logo d-flex">
             <a href="/"><img class="img-logo" src="/images/kalitero-logo.png" alt="Logo - Kalítero"></a>
         </div>
@@ -43,21 +45,20 @@
             </div>
         </div>
 
-        <div class="d-flex">
-            <div class="social_net">
+        <ul id="nav1">
+            <li>
                 <div class="sub-menu">
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
-                <nav class="navegation-sub-menu">
-                    <ul class="nav-sub-menu">
-                        <li><a href="" title="CONTACTO">CONTACTO <i class="far fa-envelope"></i></a></li>
-                        <li><span class="hide-unhide-span">QUIENES SOMOS </span><a href="" title="QUIENES SOMOS"><i class="fas fa-handshake"></i></a></li>
-                        <li><span class="hide-unhide-span">FACEBOOK </span><a href="https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.kaliterosoftware.com%2Fcomunicate-con-nosotros%2F&linkname=Comun%C3%ADcate%20con%20nosotros&linknote="
-                                title="FACEBOOK"><i class="fab fa-facebook-square"></i></a></li>
-                        <li><span class="hide-unhide-span">INSTAGRAM </span><a href="https://instagram.com/softwarekalitero?igshid=49a5it2t8jz8" title="INSTAGRAM"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+                <ul class="nav-sub-menu d-flex">
+                    <li><a href="" title="CONTACTO"><span class="hide-unhide-span">CONTACTO </span><i class="far fa-envelope"></i></a></li>
+                    <li><a href="" title="QUIENES SOMOS"><span class="hide-unhide-span">QUIENES SOMOS </span><i class="fas fa-handshake"></i></a></li>
+                    <li><a href="https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.kaliterosoftware.com%2Fcomunicate-con-nosotros%2F&linkname=Comun%C3%ADcate%20con%20nosotros&linknote="
+                            title="FACEBOOK"><span class="hide-unhide-span">FACEBOOK </span><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="https://instagram.com/softwarekalitero?igshid=49a5it2t8jz8" title="INSTAGRAM"><span class="hide-unhide-span">INSTAGRAM </span><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </li>
+        </ul>
+
     </div>
 </header>

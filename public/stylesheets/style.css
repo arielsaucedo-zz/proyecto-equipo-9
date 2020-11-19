@@ -145,66 +145,106 @@ a {
   margin-left: -20px;
 }
 
+/************************ cris ******************************************************/
+ul#nav > li {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+  float: left;
+  position: relative;
+  left: -30px;
+}
+ul#nav li > a {
+  height: 30px;
+  min-width: 80px;
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  
+  display: block;
+  
+  background: #0044AA;
+  
+  color: #FFF;
+  text-align: center;
+  line-height: 30px;
+  white-space: nowrap;
+}
+ul#nav li:hover > a {
+  background: #FFF;
+  color: #000;
+  padding: 5px 10px;
+  border-bottom: 2px solid #456789;
+}
+ul#nav > li ul {
+  display: none;
+  position: absolute;
+  left: -40px;
+}
+ul#nav > li:hover ul {
+  display: block;
+  width: 220px;
+  z-index: 3;
+}
+ul#nav > li ul li {
+  display: block;
+}
+
+ul#nav1 > li {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+  float: left;
+  position: relative;
+  right: 20px;
+}
+ul#nav1 li > a {
+  padding: 0;
+  margin: 0;
+  border-right: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  display: block;
+  background: #0044AA;
+  color: #FFF;
+  text-align: center;
+  line-height: 45px;
+  /*white-space: nowrap;*/
+}
+
+ul#nav1 li:hover > a {
+  background: #FFF;
+  color: #000;
+  padding: 5px 10px;
+  border-bottom: 2px solid #456789;
+}
+ul#nav1 > li ul {
+  display: none;
+  position: absolute;
+  left: -235px;
+}
+ul#nav1 > li:hover ul {
+  display: block;
+  width: 220px;
+  z-index: 3;
+}
+ul#nav1 > li ul li {
+  display: block;
+}
+/******************************************************************************/
+
 .hamburger-menu {
   display: flex;
-  flex-grow: 0.1;
-  text-align: center;
-  color: black;
-  font-size: 1.75em;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 20px 0px;
-  box-sizing: border-box;
-  z-index: 4;
-}
-
-.hamburger-menu:hover+nav ul {
-  display: inline-block;
-  background-color: white;
-}
-
-.nav-menu {
-  display: none;
-  float: left;
-  text-align: left;
-  font-size: 1.18em;
-  position: absolute;
-  list-style: none;
-  border-radius: 5%;
-  padding: 4%;
-  border: 1px solid lightblue;
+  color: #0044AA;
   z-index: 4;
   left: 5px;
 }
-
-.sub-menu:hover+nav ul {
-  display: block;
-  background-color: white;
-}
-
-.nav-sub-menu {
-  float: right;
-  display: none;
-  text-align: right;
-  font-size: 1.18em;
-  position: absolute;
+.nav-sub-menu{
   list-style: none;
-  border-radius: 5%;
-  padding: 4%;
-  border: 1px solid lightblue;
-  z-index: 4;
-  right: 0px;
-}
-
-
-.nav-menu li,
-.sub-menu li {
-  color: black;
 }
 
 .shop-cart,
-.user,
-.sub-menu {
+.user {
   display: flex;
   text-align: center;
   color: black;
@@ -213,19 +253,15 @@ a {
   box-sizing: border-box;
 }
 
-.sub-menu {
-  margin-right: 10px;
-}
-
 .header-container {
-  height: 145px;
+  height: 100px;
 }
 
 .header-search {
   width: 100%;
   margin: 0px;
   position: absolute;
-  top: 100px;
+  top: 50px;
   left: 10px;
 }
 
@@ -806,6 +842,11 @@ hr {
   /*************************************************************/
   /********* INICIO - Estilos del main (index.html) ************/
   /*************************************************************/
+  .user{
+    position: relative;
+    right: -25px;
+  }
+
   .hamburger-menu{
     font-size: 3em;
   }
@@ -934,69 +975,65 @@ hr {
     top: 0px;
     left: 0px;
   }
-/*
 
-BORRARDESPUES
-  .hamburger-menu {
-    display: none;
-  }
-
-  .nav-menu {
-    display: flex;
-    padding: 10px;
-    border: none;
-    margin-top: 65px;
-    white-space: nowrap;
-  }
-
-  .sub-menu {
-    display: none;
-  }
-
-  .nav-sub-menu {
-    display: flex;
-    padding: 1%;
-    border: none;
-    margin-top: -110px;
-    margin-right: 5px;
-    white-space: nowrap;
-  }
-
-  .nav-menu li,
-  .nav-sub-menu li {
-    margin: 0%;
-    padding: 10px 5px;
-  }
-
-  .navegation-menu {
-    margin-top: -30px;
-    margin-left: -86px;
-  }
-
-*/
   .social_net{
     align-self: flex-end;
   }
 
+  ul#nav1 li > a {
+    height: 45px;
+    width: 45px;
+    font-size: 1.5em;
+    min-width: none;
+    background: none;
+    border: none;
+    color: #0044AA;
+    padding: 0;
+    margin: 0px;
+    display: block;
+    text-align: center;
+  }
+  
+
   .sub-menu {
     display: none;
   }
 
   .nav-sub-menu {
-    display: flex;
-    padding: 1%;
-    border: none;
-    margin-top: -85px;
-    margin-right: 5px;
-    white-space: nowrap;
+    display: inline-block;
+    height: 300px; /*your fixed height*/
+/*
+    -webkit-column-count: 1;
+       -moz-column-count: 1;
+*/
+            column-count: 4
   }
-  .nav-sub-menu li {
-    margin: 0%;
-    padding: 10px 5px;
+
+  ul#nav1 li:hover > a {
+    width: 45px;
+    height: 45px;
+    border-radius: 150px;
+    background: #0044AA;
+    color: #FFF;
+    padding: 0px;
+  }
+  ul#nav1 > li ul {
+    display: block;
+    position: absolute;
+    top: -85px;
+    left: -280px;
+    width: 220px;
+  }
+  ul#nav1 > li:hover ul {
+    display: block;
+    width: 220px;
+  }
+  ul#nav1 > li ul li {
+    display: block;
   }
 
   .header-epigraph {
-    height: 160px;
+    height: 185px;
   }
 
   .hide-unhide-span{
