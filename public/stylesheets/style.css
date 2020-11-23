@@ -1096,6 +1096,10 @@ hr {
     width: 100%;
   }
 
+  .rememberMe{
+    width: 100%;
+  }
+
   .login-btn {
     width: 25%;
     margin-left: 1%;

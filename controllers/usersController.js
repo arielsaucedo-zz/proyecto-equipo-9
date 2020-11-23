@@ -31,9 +31,9 @@ const controller = {
                 req.session.user = userLoggedIn.user_name
                 req.session.first_name = userLoggedIn.first_name
                 req.session.last_name = userLoggedIn.last_name
-                // if(req.body.rememberMe){
-                //     res.cookie('rememberMe', user.user_name, { maxAge: 120 * 1000 })
-                // }
+                if(req.body.rememberMe){
+                    res.cookie('rememberMe', userLoggedIn.user_name, { maxAge: 120 * 1000 })
+                }
                 return res.render('users/userDetail', { userLoggedIn : userLoggedIn, listOfCategories : productData.retrieveListOfCategories() })
             }
         } else {
@@ -43,15 +43,12 @@ const controller = {
 
     logout : function(req, res){    
         req.session.destroy()
-        //req.cookie('rememberMe', null, { maxAge : 0 })
-        return res.render('/users/login', { listOfCategories : productData.retrieveListOfCategories() })
+        res.cookie('rememberMe', null, { maxAge : 0 })
+        return res.render('users/login', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
     },
 
     register : function(req, res){
-        res.render('users/register', { 
-            errors: [], 
-            listOfCategories : productData.retrieveListOfCategories()
-        } )
+        res.render('users/register', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
     },
 
     store : function(req, res){

@@ -6,6 +6,7 @@ const logger = require('morgan')
 const path = require('path')
 const methodOverride =  require('method-override') // Pasar poder usar los métodos PUT y DELETE
 let session = require('express-session')
+let rememberMe = require('./middlewares/rememberMe')
 // ************ express() - (don't touch) ************
 const app = express()
 
@@ -24,6 +25,8 @@ app.use(session(
   }
 ))
 
+app.use(rememberMe)
+
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
@@ -32,7 +35,7 @@ app.use(function(req, res, next){
   }
   return next()
 })
-//app.user(rememberMe)
+
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs')
