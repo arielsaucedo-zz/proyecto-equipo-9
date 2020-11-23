@@ -7,7 +7,7 @@
                 </div>
                 <ul class="nav-menu">
                     <% listOfCategories.forEach(category => { %>
-                        <li><a href=""><%= category %></a></li>
+                        <li><a href="#"><%= category %></a></li>
                     <% }) %>
                 </ul>
             </li>
@@ -23,11 +23,11 @@
         </div>
         <div class="user">
             <% if ( locals.user ) { %>
-                <span class="welcome">Bienvenido <%= locals.first_name + " " + locals.last_name + " " %></span>
+                <span class="welcome">Bienvenido <%= locals.first_name %></span>
                 <div class="user_box_1">
                     <a title="Mi Cuenta" href="/users/userDetail"><i class="fas fa-user-edit"></i></a>
                 </div>
-                <div class="user_box_1">
+                <div class="user_box_1 log-out">
                     <form action="/users/logout" method="POST">
                         <button class="btn_logout" type="submit"><i class="fas fa-user-times"></i></button>
                     </form>
@@ -44,7 +44,6 @@
                 <a href="/products/productCart"><i class="fas fa-shopping-cart"></i></a>
             </div>
         </div>
-
         <ul id="nav1">
             <li>
                 <div class="sub-menu">

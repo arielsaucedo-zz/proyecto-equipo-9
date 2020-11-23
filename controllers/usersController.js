@@ -23,7 +23,7 @@ const controller = {
                 return res.render('users/login', { errors: [ {
                         value: '',
                         msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
-                        param: 'user_name',
+                         param: 'user_name',
                         location: 'body'
                     } ],
                   listOfCategories : productData.retrieveListOfCategories() }, )
@@ -34,18 +34,17 @@ const controller = {
                 // if(req.body.rememberMe){
                 //     res.cookie('rememberMe', user.user_name, { maxAge: 120 * 1000 })
                 // }
-                return res.redirect('../products', { listOfCategories : productData.retrieveListOfCategories() })
+                return res.render('users/userDetail', { userLoggedIn : userLoggedIn, listOfCategories : productData.retrieveListOfCategories() })
             }
         } else {
             return res.render('users/login', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } )
         }
     },
 
-    logout : function(req, res){
-        console.log('llego al logout')
+    logout : function(req, res){    
         req.session.destroy()
         //req.cookie('rememberMe', null, { maxAge : 0 })
-        return res.redirect('/users/login', { listOfCategories : productData.retrieveListOfCategories() })
+        return res.render('/users/login', { listOfCategories : productData.retrieveListOfCategories() })
     },
 
     register : function(req, res){
