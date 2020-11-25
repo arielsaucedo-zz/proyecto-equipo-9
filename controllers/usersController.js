@@ -11,6 +11,8 @@ let productData = require(productDataFilePath)
 
 const controller = {
     login : function(req, res){
+        //console.log(res.locals.listOfCategories)
+
         res.render('users/login', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
     },
 
