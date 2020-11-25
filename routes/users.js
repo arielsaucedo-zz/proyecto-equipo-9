@@ -3,9 +3,23 @@ const express = require('express');
 const { check } = require('express-validator');
 const router = express.Router();
 let userValidator = require('../middlewares/user-validator')
+const path = require('path')
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController')
+
+// ************ Multer Require ************
+var multer  = require('multer')
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/images/uploads_users')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+var upload = multer({ storage: storage });
+    
 
 /*** LOGIN ***/
 router.get('/login', usersController.login)
@@ -41,6 +55,6 @@ router.post('/', [
                 return value;
             }
         }),
-], userValidator, usersController.store); 
+], userValidator, upload.any(), usersController.store); 
 
 module.exports = router;

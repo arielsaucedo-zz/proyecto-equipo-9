@@ -51,6 +51,14 @@
                             </div>
                         <% } else { "" } %>
                     <% }) %>
+                    
+                    <form class="register-avatar" method="POST" action="" enctype="multipart/form-data">
+                        <div class="w-100 input_xl">
+                            <span>Subí tu imagen de perfil</span>
+                            <input class="" type="file" name="user-avatar">
+                        </div>
+                    </form>
+
                     <input class="register-input-style-border input_pass" type="password" name="password_initial" placeholder="Elegí tu contraseña">
                     <input class="register-input-style-border input_pass" type="password" name="password_confirmation" placeholder="Confirmá tu contraseña">
 

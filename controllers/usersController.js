@@ -53,12 +53,11 @@ const controller = {
         res.render('users/register', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
     },
 
-    store : function(req, res){
+    store : function(req, res, next){
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.render('users/register', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } );
         }
-        //hay que agregar validaciones de password y confirmación.
         userData.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
@@ -67,7 +66,7 @@ const controller = {
             rol: "user",
             image: "user_3.jpg"
         })
-        res.redirect('users/login', { listOfCategories : productData.retrieveListOfCategories() })
+        res.redirect('users/login')
     }
 }
 
