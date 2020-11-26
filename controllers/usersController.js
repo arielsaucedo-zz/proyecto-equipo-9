@@ -58,13 +58,19 @@ const controller = {
         if (!errors.isEmpty()) {
             return res.render('users/register', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } );
         }
+
+        let filenameVal = ''
+        if (req.files[0]!=undefined){
+            filenameVal = req.files[0].filename
+        }
+        
         userData.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             user_name: req.body.user_name,
             password: bcryptjs.hashSync(req.body.password_confirmation),
             rol: "user",
-            image: "user_3.jpg"
+            image: filenameVal
         })
         res.redirect('users/login')
     }
