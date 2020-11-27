@@ -146,7 +146,7 @@ a {
 }
 
 /************************ cris ******************************************************/
-ul#nav > li {
+ul#nav>li {
   list-style: none;
   padding: 0px;
   margin: 0;
@@ -154,43 +154,48 @@ ul#nav > li {
   position: relative;
   left: -15px;
 }
-ul#nav li > a {
+
+ul#nav li>a {
   height: 30px;
   padding: 0;
   margin: 0;
   border-right: 1px solid #CCC;
   border-left: 1px solid #CCC;
-  
+
   display: block;
-  
+
   background: #0044AA;
-  
+
   color: #FFF;
   text-align: center;
   line-height: 30px;
   white-space: nowrap;
 }
-ul#nav li:hover > a {
+
+ul#nav li:hover>a {
   background: #FFF;
   color: #000;
   padding: 5px 10px;
   border-bottom: 2px solid #456789;
 }
-ul#nav > li ul {
+
+ul#nav>li ul {
   display: none;
   position: absolute;
   left: -40px;
 }
-ul#nav > li:hover ul {
+
+ul#nav>li:hover ul {
   display: block;
   width: 220px;
   z-index: 3;
 }
-ul#nav > li ul li {
+
+ul#nav>li ul li {
   display: block;
 }
 
-ul#nav1 > li {
+ul#nav1>li {
   list-style: none;
   padding: 0px;
   margin: 0;
@@ -198,7 +203,8 @@ ul#nav1 > li {
   position: relative;
   right: 20px;
 }
-ul#nav1 li > a {
+
+ul#nav1 li>a {
   padding: 0;
   margin: 0;
   border-right: 1px solid #CCC;
@@ -211,25 +217,29 @@ ul#nav1 li > a {
   /*white-space: nowrap;*/
 }
 
-ul#nav1 li:hover > a {
+ul#nav1 li:hover>a {
   background: #FFF;
   color: #000;
   padding: 5px 10px;
   border-bottom: 2px solid #456789;
 }
-ul#nav1 > li ul {
+
+ul#nav1>li ul {
   display: none;
   position: absolute;
   left: -235px;
 }
-ul#nav1 > li:hover ul {
+
+ul#nav1>li:hover ul {
   display: block;
   width: 220px;
   z-index: 3;
 }
-ul#nav1 > li ul li {
+
+ul#nav1>li ul li {
   display: block;
 }
+
 /******************************************************************************/
 
 .hamburger-menu {
@@ -238,16 +248,17 @@ ul#nav1 > li ul li {
   z-index: 4;
   left: 5px;
 }
-.nav-sub-menu{
+
+.nav-sub-menu {
   list-style: none;
 }
 
-.user span{
+.user span {
   align-self: center;
   font-size: 0.25em;
 }
 
-.btn_logout{
+.btn_logout {
   width: 17px;
   padding: 0px 0px 0px 0px;
 }
@@ -432,19 +443,19 @@ ul#nav1 > li ul li {
 /*************************************************************/
 
 /**************************** MAIN *********************************/
-.user_box_1{
+.user_box_1 {
   text-decoration: none;
   color: black;
   margin: 0px 5px 0px 0px;
 }
 
 .user_box_1 i,
-.shop-cart i{
+.shop-cart i {
   width: 20px;
 }
 
 .user_box_1,
-.shop-cart{
+.shop-cart {
   border: 7.5px double #0044AA;
   border-radius: 150px;
   font-size: 15px;
@@ -452,7 +463,7 @@ ul#nav1 > li ul li {
   color: #0044AA;
 }
 
-.btn_logout{
+.btn_logout {
   border-style: none;
   background: none;
 }
@@ -614,17 +625,18 @@ hr {
   font-size: 17px;
 }
 
-.div-prod-title{
+.div-prod-title {
   width: 100%;
 }
 
-.div-imagen{
+.div-imagen {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
-.imagen-grande{
+
+.imagen-grande {
   height: 250px;
 }
 
@@ -851,42 +863,42 @@ hr {
   /*************************************************************/
   /********* INICIO - Estilos del main (index.html) ************/
   /*************************************************************/
-  .user{
+  .user {
     position: relative;
     right: -25px;
   }
 
-  .user span{
+  .user span {
     margin-right: 30px;
     font-size: 1.25em;
   }
 
-  .hamburger-menu{
+  .hamburger-menu {
     font-size: 3em;
   }
 
-  .user_box_1{
+  .user_box_1 {
     margin: 0px 20px 0px 0px;
     font-size: 12.5px;
     padding: 7.5px;
   }
-  
-  .log-out{
-    padding: 7.5px 11.5px 7.5px 2.5px;    
+
+  .log-out {
+    padding: 7.5px 11.5px 7.5px 2.5px;
   }
 
-  .btn_logout{
+  .btn_logout {
     width: 35px;
     position: relative;
     right: -4px;
   }
 
-  .fa-user-edit{
+  .fa-user-edit {
     position: relative;
     right: -3px;
   }
 
-  .fa-shopping-cart{
+  .fa-shopping-cart {
     position: relative;
     right: 1px;
   }
@@ -907,9 +919,9 @@ hr {
     align-items: center;
     margin-left: 5px;
   }
-  
+
   .user_box_1 i,
-  .shop-cart i{
+  .shop-cart i {
     width: 35px;
   }
 
@@ -945,13 +957,14 @@ hr {
     width: 22%;
   }
 
-  .div-imagen{
+  .div-imagen {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: block;
   }
-  .imagen-grande{
+
+  .imagen-grande {
     height: 500px;
   }
 
@@ -1010,11 +1023,11 @@ hr {
     left: 0px;
   }
 
-  .social_net{
+  .social_net {
     align-self: flex-end;
   }
 
-  ul#nav1 li > a {
+  ul#nav1 li>a {
     height: 45px;
     width: 45px;
     font-size: 1.5em;
@@ -1026,7 +1039,7 @@ hr {
     display: block;
     text-align: center;
   }
-  
+
 
   .sub-menu {
     display: none;
@@ -1034,11 +1047,12 @@ hr {
 
   .nav-sub-menu {
     display: inline-block;
-    height: 300px; /*your fixed height*/
+    height: 300px;
+    /*your fixed height*/
     column-count: 4
   }
 
-  ul#nav1 li:hover > a {
+  ul#nav1 li:hover>a {
     width: 45px;
     height: 45px;
     border-radius: 150px;
@@ -1046,7 +1060,8 @@ hr {
     color: #FFF;
     padding: 0px;
   }
-  ul#nav1 > li ul {
+
+  ul#nav1>li ul {
     display: block;
     position: absolute;
     top: -85px;
@@ -1054,11 +1069,13 @@ hr {
     width: 220px;
     height: 50px;
   }
-  ul#nav1 > li:hover ul {
+
+  ul#nav1>li:hover ul {
     display: block;
     width: 220px;
   }
-  ul#nav1 > li ul li {
+
+  ul#nav1>li ul li {
     display: block;
   }
 
@@ -1066,7 +1083,7 @@ hr {
     height: 185px;
   }
 
-  .hide-unhide-span{
+  .hide-unhide-span {
     display: none;
   }
 
@@ -1096,7 +1113,7 @@ hr {
     width: 100%;
   }
 
-  .rememberMe{
+  .rememberMe {
     width: 100%;
   }
 
@@ -1175,29 +1192,30 @@ hr {
   /*************************************************************/
 
 
-/*************************************************************/
+  /*************************************************************/
   /********* INICIO - Estilos Product Details *********************/
   /*************************************************************/
-.products-title {
-  font-size: 23px;
-}
+  .products-title {
+    font-size: 23px;
+  }
 
-.title-product {
-  font-size: 23px;
-}
+  .title-product {
+    font-size: 23px;
+  }
 
-.sale {
-  font-size: 23px;
-}
+  .sale {
+    font-size: 23px;
+  }
 
-.description {
-  font-size: 24px;
-}
+  .description {
+    font-size: 24px;
+  }
 
-.detail {
-  font-size: 20px;
-}
-/*************************************************************/
+  .detail {
+    font-size: 20px;
+  }
+
+  /*************************************************************/
   /********* FIN - Estilos Product Cart ************************/
   /*************************************************************/
 }

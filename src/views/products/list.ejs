@@ -21,13 +21,13 @@
         <div class="titulo-promo fz-12">
             <h2>LISTADO DE PRODUCTOS</h2>
         </div>
-        <section class="products d-flex f-wrap justify-center bg-hit">
+        <section class="products d-flex f-wrap justify-center">
             <% for (let i = 0; i < products.length; i++) { %>
             <article class="promo-1 w-42">
                 <div>
                     <img class="device w-100 bg-white" src=" <%= products[i].image %> " alt="">
                     <div class="text-al-center">
-                        <a href="/products/detail/<%= products[i].id %>" class="bg-blue"><%= products[i].name %> </p>
+                        <a href="/products/detail/<%= products[i].id %>" class=""><%= products[i].name %> </p>
                         </a>
                         <p class="price bg-blue"><%= products[i].price %> </p>
                     </div>
