@@ -9,7 +9,7 @@
 
     <main>
         <div class="register-container register-d-flex margin-b-20">
-            <form class="w-100" action="/users" method="POST">
+            <form class="w-100" action="/users" method="POST" enctype="multipart/form-data">
                 <div class="w-100 d-flex">
                     <h2 class="register-h2">Registro</h2>
                     <hr>
@@ -51,6 +51,12 @@
                             </div>
                         <% } else { "" } %>
                     <% }) %>
+                    
+                    <div class="w-100 input_xl">
+                        <span>Subí tu imagen de perfil</span>
+                        <input class="" type="file" name="user-avatar">
+                    </div>
+
                     <input class="register-input-style-border input_pass" type="password" name="password_initial" placeholder="Elegí tu contraseña">
                     <input class="register-input-style-border input_pass" type="password" name="password_confirmation" placeholder="Confirmá tu contraseña">
 
