@@ -9,10 +9,7 @@ let productData = require(productDataFilePath)
 let productsController = {
 
     list: function (req, res) {
-        res.render('products/list', {
-            products: products,
-            listOfCategories : productData.retrieveListOfCategories()
-        });
+        res.render('products/list', { products: products });
     },
 
     show: function (req, res) {
@@ -22,14 +19,11 @@ let productsController = {
                 return true
             }
         })
-        res.render('products/productDetail', {
-            productDetail: product[0],
-            listOfCategories : productData.retrieveListOfCategories()
-        })
+        res.render('products/productDetail', { productDetail: product[0] })
     },
 
     create: function (req, res, next) {
-        res.render('products/productCreate', { listOfCategories : productData.retrieveListOfCategories() })
+        res.render('products/productCreate')
     },
 
     store: function (req, res) {
@@ -45,7 +39,7 @@ let productsController = {
             },
         )
         fs.writeFileSync(productsFilePath, JSON.stringify(products))
-        res.render('products/added', { listOfCategories : productData.retrieveListOfCategories() })
+        res.render('products/added')
     },
 
     edit: function (req, res, ) {
@@ -55,19 +49,13 @@ let productsController = {
                 return true
             }
         })
-        res.render('products/productEdit', {
-            productEdit: product[0],
-            listOfCategories : productData.retrieveListOfCategories()
-        })
+        res.render('products/productEdit', { productEdit: product[0] })
     },
 
     update: function (req, res, next) {
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productEdit', {
-                errors: errors.errors,
-                listOfCategories : productData.retrieveListOfCategories()
-            });
+            return res.render('products/productEdit', { errors: errors.errors });
         }
         let productEdited = {}
         productEdited = products.map(function (productElement) {
@@ -84,7 +72,7 @@ let productsController = {
 
         productEdited = JSON.stringify(productEdited)
         fs.writeFileSync(productsFilePath, productEdited)
-        res.redirect('..', { listOfCategories : productData.retrieveListOfCategories() })
+        res.redirect('..')
     },
 
     destroy: function (req, res) {
@@ -95,11 +83,11 @@ let productsController = {
         productsRemaining = JSON.stringify(productsRemaining)
         fs.writeFileSync(productsFilePath, productsRemaining)
         console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-        res.redirect('/', { listOfCategories : productData.retrieveListOfCategories() })
+        res.redirect('/')
     },
 
     cart: function (req, res) {
-        res.render('products/productCart', { listOfCategories : productData.retrieveListOfCategories() })
+        res.render('products/productCart')
     }
 
 }

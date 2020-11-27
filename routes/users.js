@@ -35,7 +35,7 @@ router.post('/logout', usersController.logout)
 
 /*** CREATE ONE USER - REGISTER ***/
 router.get('/register', usersController.register);
-router.post('/', upload.any(console.log('culo')), [
+router.post('/', upload.any(), [
     check('first_name')
         .isLength( {min: 1})
         .withMessage('Por favor, ingrese su nombre'),
@@ -56,5 +56,8 @@ router.post('/', upload.any(console.log('culo')), [
             }
         }),
 ], userValidator, usersController.store); 
+
+router.get('/userDetail/:id', usersController.show);
+
 
 module.exports = router;

@@ -11,9 +11,7 @@ let productData = require(productDataFilePath)
 
 const controller = {
     login : function(req, res){
-        //console.log(res.locals.listOfCategories)
-
-        res.render('users/login', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
+        res.render('users/login', { errors: []})
     },
 
     processLogin : function(req, res){
@@ -22,41 +20,43 @@ const controller = {
             let userLoggedIn = userData.findByUserName(req.body.user_name)
             if(!userLoggedIn){
                 console.log('error')
-                return res.render('users/login', { errors: [ {
+                return res.render('users/login', { 
+                    errors: [ {
                         value: '',
                         msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
-                         param: 'user_name',
+                        param: 'user_name',
                         location: 'body'
-                    } ],
-                  listOfCategories : productData.retrieveListOfCategories() }, )
+                    } ] 
+                } )
             } else if(bcryptjs.compareSync(req.body.password, userLoggedIn.password)){
                 req.session.user = userLoggedIn.user_name
                 req.session.first_name = userLoggedIn.first_name
                 req.session.last_name = userLoggedIn.last_name
+                req.session.userId = userLoggedIn.id
                 if(req.body.rememberMe){
                     res.cookie('rememberMe', userLoggedIn.user_name, { maxAge: 120 * 1000 })
                 }
-                return res.render('users/userDetail', { userLoggedIn : userLoggedIn, listOfCategories : productData.retrieveListOfCategories() })
+                return res.redirect('/users/userDetail/' + userLoggedIn.id)
             }
         } else {
-            return res.render('users/login', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } )
+            return res.render('users/login', { errors: errors.errors } )
         }
     },
 
     logout : function(req, res){    
         req.session.destroy()
         res.cookie('rememberMe', null, { maxAge : 0 })
-        return res.render('users/login', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
+        return res.render('users/login', { errors: [] })
     },
 
     register : function(req, res){
-        res.render('users/register', { errors: [], listOfCategories : productData.retrieveListOfCategories() })
+        res.render('users/register', { errors: [] })
     },
 
     store : function(req, res, next){
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('users/register', { errors: errors.errors, listOfCategories : productData.retrieveListOfCategories() } );
+            return res.render('users/register', { errors: errors.errors } );
         }
 
         let filenameVal = ''
@@ -73,6 +73,16 @@ const controller = {
             image: filenameVal
         })
         res.redirect('users/login')
+    },
+
+    show : function(req, res, next){
+        let user = []
+        user = users.filter(function (userElement) {
+            if (userElement.id == req.params.id) {
+                return true
+            }
+        })
+        res.render('users/userDetail', { userLoggedIn : user[0] })
     }
 }
 

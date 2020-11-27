@@ -4,6 +4,6 @@ let productData = require(productDataFilePath)
 
 module.exports = {
     index: function (req, res, next) {
-        res.render("index", { listOfCategories : productData.retrieveListOfCategories() })
+        res.render("index")
     },
 }

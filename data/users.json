@@ -5,7 +5,7 @@
     "last_name": "Danelutti",
     "user_name": "mdanelutti0@mit.edu",
     "password": "amvHJe",
-    "rol": "user",
+    "rol": 1,
     "image": "user_1.jpg"
   },
   {
@@ -14,7 +14,7 @@
     "last_name": "Darcey",
     "user_name": "cdarcey1@admin.ch",
     "password": "Shg4WObM",
-    "rol": "user",
+    "rol": 1,
     "image": "user_2.jpg"
   },
   {
@@ -23,7 +23,7 @@
     "last_name": "Affuso",
     "user_name": "kaffuso2@arstechnica.com",
     "password": "5TtZ2p",
-    "rol": "user",
+    "rol": 1,
     "image": "user_3.jpg"
   },
   {
@@ -32,7 +32,7 @@
     "last_name": "Roze",
     "user_name": "droze3@desdev.cn",
     "password": "CtGlat",
-    "rol": "user",
+    "rol": 1,
     "image": "user_4.jpg"
   },
   {
@@ -41,7 +41,7 @@
     "last_name": "Sturge",
     "user_name": "csturge4@foxnews.com",
     "password": "c4oBBcG",
-    "rol": "user",
+    "rol": 1,
     "image": "user_5.jpg"
   },
   {
@@ -50,7 +50,7 @@
     "last_name": "Beurich",
     "user_name": "pbeurich5@stumbleupon.com",
     "password": "gcuHFjHS8onv",
-    "rol": "user",
+    "rol": 1,
     "image": "user_6.jpg"
   },
   {
@@ -59,7 +59,7 @@
     "last_name": "Curless",
     "user_name": "pcurless6@cloudflare.com",
     "password": "qMkbGOsIH",
-    "rol": "user",
+    "rol": 1,
     "image": "user_7.jpg"
   },
   {
@@ -68,7 +68,7 @@
     "last_name": "Manuelli",
     "user_name": "pmanuelli7@opensource.org",
     "password": "xKxJTl",
-    "rol": "user",
+    "rol": 1,
     "image": "user_8.jpg"
   },
   {
@@ -77,7 +77,7 @@
     "last_name": "Wyldbore",
     "user_name": "owyldbore8@skype.com",
     "password": "eXULcqE",
-    "rol": "user",
+    "rol": 1,
     "image": "user_9.jpg"
   },
   {
@@ -86,7 +86,7 @@
     "last_name": "Demongeot",
     "user_name": "ademongeot9@loc.gov",
     "password": "67Mf4J",
-    "rol": "user",
+    "rol": 1,
     "image": "user_10.jpg"
   },
   {
@@ -95,7 +95,7 @@
     "last_name": "Heliar",
     "user_name": "nheliara@mediafire.com",
     "password": "YIOe3VWYHiqV",
-    "rol": "user",
+    "rol": 1,
     "image": "user_11.jpg"
   },
   {
@@ -104,7 +104,7 @@
     "last_name": "Shenton",
     "user_name": "lshentonb@istockphoto.com",
     "password": "4ivFDXKN",
-    "rol": "user",
+    "rol": 1,
     "image": "user_12.jpg"
   },
   {
@@ -113,7 +113,7 @@
     "last_name": "Baxandall",
     "user_name": "tbaxandallc@google.com.au",
     "password": "nZ2GrSA",
-    "rol": "user",
+    "rol": 1,
     "image": "user_13.jpg"
   },
   {
@@ -122,7 +122,7 @@
     "last_name": "Keelan",
     "user_name": "akeeland@homestead.com",
     "password": "aOua0RbGx",
-    "rol": "user",
+    "rol": 1,
     "image": "user_14.jpg"
   },
   {
@@ -131,7 +131,7 @@
     "last_name": "Hooban",
     "user_name": "ghoobane@archive.org",
     "password": "JxdSsQ",
-    "rol": "user",
+    "rol": 1,
     "image": "user_15.jpg"
   },
   {
@@ -140,7 +140,7 @@
     "last_name": "Biaggetti",
     "user_name": "gbiaggettif@guardian.co.uk",
     "password": "49BcH2IWWrGv",
-    "rol": "user",
+    "rol": 1,
     "image": "user_16.jpg"
   },
   {
@@ -149,7 +149,7 @@
     "last_name": "Itzkovsky",
     "user_name": "hitzkovskyg@shareasale.com",
     "password": "udDharQb1",
-    "rol": "user",
+    "rol": 1,
     "image": "user_17.jpg"
   },
   {
@@ -158,7 +158,7 @@
     "last_name": "Arnao",
     "user_name": "sarnaoh@discovery.com",
     "password": "g5VMDfcoCjb",
-    "rol": "user",
+    "rol": 1,
     "image": "user_18.jpg"
   },
   {
@@ -167,7 +167,7 @@
     "last_name": "Drinkwater",
     "user_name": "mdrinkwateri@discuz.net",
     "password": "sKN3mdS5nzV",
-    "rol": "user",
+    "rol": 1,
     "image": "user_19.jpg"
   },
   {
@@ -176,7 +176,7 @@
     "last_name": "Lakeman",
     "user_name": "mlakemanj@mail.ru",
     "password": "XqIVBsP",
-    "rol": "user",
+    "rol": 1,
     "image": "user_20.jpg"
   },
   {
@@ -184,7 +184,7 @@
     "last_name": "Peralta",
     "user_name": "cristian.r.peralta@gmail.com",
     "password": "$2a$10$FATuF1SzbpVm7cFIxJqDAOQ619dhg/8Kg.7Gg.KNj8o2t.0hjp0Ga",
-    "rol": "user",
+    "rol": 0,
     "image": "user_3.jpg",
     "id": 21
   },
@@ -193,7 +193,7 @@
     "last_name": "Saucedo",
     "user_name": "arielsaucedo@gmail.com",
     "password": "$2a$10$32ne7xaJJEvsb.YZFlSpYut56DezDeJAdKFKLT5IWTKch6Ji3./2.",
-    "rol": "user",
+    "rol": 0,
     "image": "user_3.jpg",
     "id": 22
   }

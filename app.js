@@ -35,11 +35,10 @@ app.use(function(req, res, next){
     res.locals.user = req.session.user
     res.locals.first_name = req.session.first_name
     res.locals.last_name = req.session.last_name
+    res.locals.userId = req.session.userId
   }
-  if(req.session.listOfCategories != undefined){
-    res.locals.listOfCategories = productData.retrieveListOfCategories()
-  }
-  return next()
+  res.locals.listOfCategories = productData.retrieveListOfCategories()
+  next()
 })
 
 
