@@ -10,7 +10,7 @@ const productsController = require('../controllers/productsController');
 var multer  = require('multer')
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/images/uploads_users')
+        cb(null, './public/images/products')
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -25,7 +25,12 @@ router.get('/', productsController.list);
 /*** localhost:3000/products/productCreate ***/
 router.get('/productCreate', productsController.create);
 /*** localhost:3000/products/ ***/
-router.post('/', upload.any(), productsController.store);
+router.post('/', upload.any(), 
+    [check('product_name')
+        .isLength( {min: 1})
+        .withMessage('Por favor, ingrese un nombre para el producto a cargar'),
+    ], 
+    productsController.store);
 
 
 /*** localhost:3000/products/detail/:id ***/

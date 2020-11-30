@@ -1,7 +1,7 @@
 const products = require('../data/products.json');
 const fs = require('fs')
 const path = require('path')
-const {check, validationResult,} = require('express-validator')
+const {check, validationResult, } = require('express-validator')
 const productsFilePath = path.join(__dirname, '../data/products.json')
 const productDataFilePath = path.join(__dirname, '../data/product')
 let productData = require(productDataFilePath)
@@ -27,6 +27,10 @@ let productsController = {
     },
 
     store: function (req, res) {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.render('products/productCreate', { errors: errors.errors } );
+        }
         products.push(
             {
                 id: products[products.length - 1].id + 1,

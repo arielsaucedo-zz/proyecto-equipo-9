@@ -14,6 +14,11 @@
                 <hr>
             </div>
             <div class="inputs-productForm d-flex f-wrap">
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_name") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label for="">Nombre del producto</label>
                 <input class="productForm-input-style-border" type="text" name="product_name" id="inputNewProduct">
 
