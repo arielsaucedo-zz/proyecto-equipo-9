@@ -14,68 +14,66 @@
         <div class="delivery">
             <img class="w-100" src="/images/covid-entrega.png" alt="delivery">
         </div>
-        <section class="products d-flex f-wrap justify-center">
-            <article class="product-1 w-42">
-                <div>
-                    <img class="w-100" src="/images/product-1.jpg" alt="">
-                </div>
-                <div class="text-al-center">
-                    <p class="device">iPhone 11 Pro 64 Gb - Space Gray</p>
-                    <p class="price">$250.000</p>
-                </div>
-            </article>
 
-            <article class="product-2 w-42">
-                <div>
-                    <img class="w-100" src="/images/product-2.jpg" alt="">
+        <!-- ultima visita -->
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Basado en tu última visita</h2>
                 </div>
-                <div class="text-al-center">
-                    <p class="device">iPhone 11 Pro 64 Gb - Silver</p>
-                    <p class="price">$250.000</p>
+                    <% for (let i = 0; i < products.length; i++) { %>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="/products/detail/<%= products[i].id %>">
+                                <figure class="product-box_image">
+                                    <img src="<%= products[i].image %>" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>$ <%= products[i].price %></h2>
+                                    <span>DISCOUNT% OFF</span>
+                                    <p><%= products[i].name %></p>
+                                    <i class="fas fa-truck"></i>
+                                </article>
+                            </a>
+                        </section>
+                    </div>
+                    <% } %>
                 </div>
-            </article>
-
-            <article class="product-3 w-42">
-                <div>
-                    <img class="w-100" src="/images/product-3.jpg" alt="">
-                </div>
-                <div class="text-al-center">
-                    <p class="device">iPhone 11 Pro 64 Gb - Midnight Green</p>
-                    <p class="price">$250.000</p>
-                </div>
-            </article>
-
-            <article class="product-4 w-42">
-                <div>
-                    <img class="w-100" src="/images/product-4.jpg" alt="">
-                </div>
-                <div class="text-al-center">
-                    <p class="device">iPhone 11 Pro 64 Gb - Gold</p>
-                    <p class="price">$250.000</p>
-                </div>
-            </article>
-        </section>
-        <section class="promo d-flex f-wrap justify-center">
-            <div class="titulo-promo fz-12">
-                <h2>Nuestras promociones</h2>
             </div>
-            <article class="promo-1 w-42">
-                <img class="img-promo-1 w-100" src="/images/ipad-pro.jpg" alt="iPad Pro">
-            </article>
-            <article class="promo-2 w-42">
-                <img class="img-promo-2 w-100" src="/images/apple-tv.jpg" alt="Macbook Pro">
-            </article>
-            <article class="promo-3 w-42">
-                <img class="img-promo-2 w-100" src="/images/macbook-pro.jpg" alt="Macbook Pro">
-            </article>
-            <article class="promo-4 w-42">
-                <img class="img-promo-2 w-100" src="/images/apple-watch.jpg" alt="Macbook Pro">
-            </article>
-        </section>
+        </div>
+        <!-- /ultima visita -->
+        
+        <!-- Ofertas -->
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Ofertas</h2>
+                </div>
+                    <% for (let i = 0; i < products.length; i++) { %>
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <section class="product-box">
+                            <a href="/products/detail/<%= products[i].id %>">
+                                <figure class="product-box_image">
+                                    <img src="<%= products[i].image %>" alt="imagen de producto">
+                                </figure>
+                                <article class="product-box_data">
+                                    <h2>$ <%= products[i].price %></h2>
+                                    <span>DISCOUNT% OFF</span>
+                                    <p><%= products[i].name %></p>
+                                    <i class="fas fa-truck"></i>
+                                </article>
+                            </a>
+                        </section>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <!-- /Ofertas -->
     </main>
-
+    <!-- footer -->
     <%- include('./partials/footer') %>
-
+    <!-- /footer -->
 </body>
 
 </html>
