@@ -71,6 +71,22 @@ hr {
 
 
 /*====== Main Header ======*/
+.bg-dark-kalitero {
+  background-color: var(--dark-blue) !important;
+}
+.btn-outline-success-kalitero{
+  color: var(--light-gray-0);
+    background-color: transparent;
+    background-image: none;
+    border-color: var(--light-gray-0);
+}
+
+.btn-outline-success-kalitero:hover {
+  color: var(--light-gray-0);
+  background-color: var(--light-blue);
+  border-color: var(--light-blue);
+}
+
 .main-header {
   padding: 15px 0;
   background-color: var(--dark-blue);
