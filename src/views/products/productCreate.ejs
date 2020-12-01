@@ -22,18 +22,43 @@
                 <label for="">Nombre del producto</label>
                 <input class="productForm-input-style-border" type="text" name="product_name" id="inputNewProduct">
 
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_category") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label for="">Categoria</label>
                 <input class="productForm-input-style-border" type="text" name="product_category" id="inputNewProduct">
 
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_description") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label for="">Descripcion</label>
                 <input class="productForm-input-style-border" type="text" name="product_description" id="inputNewProduct">
 
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_image") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label for="">Imagen del producto</label>
                 <input class="w-100 inputs-productForm" type="file" name="product_image" id="inputNewProduct">
 
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_quantity") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label class="inputs-productForm" for="">Cantidad</label>
                 <input class="productForm-input-style-border" type="text" name="product_quantity" id="inputNewProduct">
 
+                <% errors.forEach(error => { %>
+                    <% if(error.param == "product_price") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                <% }) %>
                 <label for="">Precio</label>
                 <input class="productForm-input-style-border" type="text" name="product_price" id="inputNewProduct">
 

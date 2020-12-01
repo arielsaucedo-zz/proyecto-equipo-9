@@ -7,7 +7,62 @@
 
     <%- include('../partials/header') %>
 
-    <main>
+<!-- product detail -->
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
+        </div>
+    </div>
+    <div class="product-detail">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <img class="product-detail-img" src="<%= productDetail.image %>" alt="">
+                <p class="product-detail-description">
+                    <%= productDetail.detail %>
+                </p>
+            </div>
+            <div class="col-12 col-lg-4">
+                <article class="product-detail-info">
+                    <h2 class="product-detail-title"><%= productDetail.name %></h2>
+                    
+                        <p class="product-detail-price small">
+                            <span>$<%= productDetail.price %></span>
+                            /
+                            <b><%= productDetail.discount %>% OFF</b>
+                        </p>
+                        <p class="product-detail-price">
+                            $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
+                        </p>
+                        <p class="product-detail-price">
+                            $<%= productDetail.price %>
+                        </p>
+
+                    <ul class="actions-list">
+                        <li>
+                            <i class="fas fa-credit-card"></i>
+                            <p>Pagá en cuotas sin interes</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-store"></i>
+                            <p>Retiro gratis en locales del vendedor</p>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="buy-now-button">COMPRAR AHORA</a>
+                    <hr>
+
+                    <a href="/products/<%= productDetail.id %>/edit" class="action-button edit">EDITAR PRODUCTO</a>
+                    <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                        <button type="submit" class="action-button delete">ELIMINAR</button>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /product detail -->
+ <!--    <main>
         <div class="d-flex f-wrap">
             <div class="col-12 div-prod-title">
                 <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
@@ -67,7 +122,7 @@
                 <p class="sub-precio">$16.599</p>
             </article>
         </section>
-    </main>
+    </main> -->
 
     <%- include('../partials/footer') %>
 

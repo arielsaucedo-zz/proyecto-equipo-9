@@ -25,11 +25,23 @@ router.get('/', productsController.list);
 /*** localhost:3000/products/productCreate ***/
 router.get('/productCreate', productsController.create);
 /*** localhost:3000/products/ ***/
-router.post('/', upload.any(), 
-    [check('product_name')
+router.post('/', upload.any(), [
+    check('product_name')
         .isLength( {min: 1})
         .withMessage('Por favor, ingrese un nombre para el producto a cargar'),
-    ], 
+    check('product_category')
+        .isLength( {min: 1})
+        .withMessage('Por favor, ingrese una categoria para el producto'),
+    check('product_description')
+        .isLength( {min: 1} )
+        .withMessage('Por favor, ingrese una descripcion para el producto'),
+    check('product_quantity')
+        .isInt( {min: 1})
+        .withMessage('La cantidad no puede ser cero'),
+    check('product_price')
+        .isInt( {min: 1})
+        .withMessage('El precio no puede ser cero'),
+    ],
     productsController.store);
 
 

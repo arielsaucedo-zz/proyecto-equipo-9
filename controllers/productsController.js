@@ -53,7 +53,7 @@ let productsController = {
                 return true
             }
         })
-        res.render('products/productEdit', { productEdit: product[0], errors: errors.errors })
+        res.render('products/productEdit', { productEdit: product[0], errors: errors.errors }) 
     },
 
     update: function (req, res, next) {
