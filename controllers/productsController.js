@@ -23,7 +23,7 @@ let productsController = {
     },
 
     create: function (req, res, next) {
-        res.render('products/productCreate')
+        res.render('products/productCreate', { errors : [] } );
     },
 
     store: function (req, res) {
@@ -53,7 +53,7 @@ let productsController = {
                 return true
             }
         })
-        res.render('products/productEdit', { productEdit: product[0] })
+        res.render('products/productEdit', { productEdit: product[0], errors: errors.errors })
     },
 
     update: function (req, res, next) {
@@ -91,7 +91,7 @@ let productsController = {
     },
 
     cart: function (req, res) {
-        res.render('products/productCart')
+        res.render('products/productCart', { errors: errors.errors })
     }
 
 }
