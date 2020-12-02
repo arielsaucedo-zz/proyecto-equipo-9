@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
 
 <body>
     <%- include('../partials/header') %>
     <main>
+        <div class="carousel">
+            <img class="img" src="/images/iphone-banner.jpg" alt="foto-carrusel">
+        </div>
+
         <div class="container products-wrapper">
             <div class="row">
                 <div class="col-12">
                     <h2 class="products-title">Ofertas</h2>
                 </div>
-                    <% for (let i = 0; i < 12; i++) { %>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <section class="product-box">
-                            <a href="/products/detail/<%= products[i].id %>">
-                                <figure class="product-box_image">
-                                    <img src="<%= products[i].image %>" alt="imagen de producto">
-                                </figure>
-                                <article class="product-box_data">
-                                    <h2>$ <%= products[i].price %></h2>
-                                    <span>DISCOUNT% OFF</span>
-                                    <p><%= products[i].name %></p>
-                                    <i class="fas fa-truck"></i>
-                                </article>
-                            </a>
-                        </section>
-                    </div>
-                    <% } %>
+                <% for (let i = 0; i < 12; i++) { %>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="product-box">
+                        <a href="/products/detail/<%= products[i].id %>">
+                            <figure class="product-box_image">
+                                <img src="<%= products[i].image %>" alt="imagen de producto">
+                            </figure>
+                            <article class="product-box_data">
+                                <h2>$ <%= products[i].price %></h2>
+                                <span>DISCOUNT% OFF</span>
+                                <p><%= products[i].name %></p>
+                                <i class="fas fa-truck"></i>
+                            </article>
+                        </a>
+                    </section>
                 </div>
+                <% } %>
             </div>
+        </div>
         </div>
     </main>
     <%- include('../partials/footer') %>

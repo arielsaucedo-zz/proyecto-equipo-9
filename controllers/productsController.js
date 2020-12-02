@@ -91,7 +91,7 @@ let productsController = {
     },
 
     cart: function (req, res) {
-        res.render('products/productCart', { errors: errors.errors })
+        res.render('products/productCart', { errors : [] })
     }
 
 }

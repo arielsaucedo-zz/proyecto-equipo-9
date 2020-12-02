@@ -7,122 +7,63 @@
 
     <%- include('../partials/header') %>
 
-<!-- product detail -->
-<div class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
-        </div>
-    </div>
-    <div class="product-detail">
+    <!-- product detail -->
+    <div class="container products-wrapper">
         <div class="row">
-            <div class="col-12 col-lg-8">
-                <img class="product-detail-img" src="<%= productDetail.image %>" alt="">
-                <p class="product-detail-description">
-                    <%= productDetail.detail %>
-                </p>
+            <div class="col-12">
+                <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
             </div>
-            <div class="col-12 col-lg-4">
-                <article class="product-detail-info">
-                    <h2 class="product-detail-title"><%= productDetail.name %></h2>
-                    
+        </div>
+        <div class="product-detail">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <img class="product-detail-img" src="<%= productDetail.image %>" alt="">
+                </div>
+
+                <div class="card bg-light mb-3" style="max-width: 40rem;">
+                    <div class="card-header">
+                        <h2>
+                            <%= productDetail.name %>
+                        </h2>
+                    </div>
+                    <div class="card-body">
                         <p class="product-detail-price small">
                             <span>$<%= productDetail.price %></span>
                             /
                             <b><%= productDetail.discount %>% OFF</b>
                         </p>
-                        <p class="product-detail-price">
+                        <p class="product-detail-price small">
                             $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
                         </p>
-                        <p class="product-detail-price">
-                            $<%= productDetail.price %>
-                        </p>
 
-                    <ul class="actions-list">
-                        <li>
-                            <i class="fas fa-credit-card"></i>
-                            <p>Pagá en cuotas sin interes</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-store"></i>
-                            <p>Retiro gratis en locales del vendedor</p>
-                        </li>
-                    </ul>
+                        <form action="#" method="get" style="display: inline-flex">
+                            <button type="submit" class="btn btn-info action-button">COMPRAR</button>
+                        </form>
+                        <hr>
 
-                    <a href="#" class="buy-now-button">COMPRAR AHORA</a>
-                    <hr>
+                        <form action="/products/<%= productDetail.id %>/edit" method="get" style="display: inline-flex">
+                            <button type="submit" class="action-button btn btn-warning">EDITAR PRODUCTO</button>
+                        </form>
 
-                    <a href="/products/<%= productDetail.id %>/edit" class="action-button edit">EDITAR PRODUCTO</a>
-                    <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                        <button type="submit" class="action-button delete">ELIMINAR</button>
-                    </form>
-                </article>
+                        <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST"
+                            style="display: inline-flex">
+                            <button type="submit" class="action-button btn btn-danger">ELIMINAR</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="container">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="lead"><%= productDetail.detail %></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
-<!-- /product detail -->
- <!--    <main>
-        <div class="d-flex f-wrap">
-            <div class="col-12 div-prod-title">
-                <h2 class="products-title">Detalle del producto: <%= productDetail.name %></h2>
-            </div>
 
-            <div class="div-imagen">
-                <img class="imagen-grande" src="<%= productDetail.image %>" alt="">
-            </div>
-        </div>
-
-        <div class="product-info">
-            <h2 class="title-product"><%= productDetail.name %></h2>
-            <h3 class="sale">Precio: $<%= productDetail.price %></h3>
-            <Label>Seleccionar Cantidad</Label>
-            <input class="numero" type="number" name="product_quantity" min="0" max="100"
-                value="<%= productDetail.quantity %>">
-            <input class="boton" type="button" value="COMPRAR">
-            <div>
-                <h4 class="description"><%= productDetail.name %></h4>
-                <h4 class="detail">Detalles Del Producto</h4>
-                <p class="text"><%= productDetail.detail %></p>
-            </div>
-            <div class="text-al-center">
-                <form action="/products/<%= productDetail.id %>/edit" method="GET" style="display: inline-flex">
-                    <button type="submit" class="action-button delete">EDITAR PRODUCTO</button>
-                </form>
-                <form action="/products/<%= productDetail.id %>/delete/?_method=DELETE" method="POST"
-                    style="display: inline-flex">
-                    <button type="submit" class="action-button delete">ELIMINAR PRODUCTO</button>
-                </form>
-            </div>
-
-        </div>
-
-        <section class="promo d-flex f-wrap justify-center bg-image">
-            <div class="titulo-promo fz-12 w-100 text-al-center">
-                <h2>También Podría Interesarte</h2>
-            </div>
-            <article class="promo-1 w-42">
-                <img class="img-promo-1 w-100" src="/images/product-inter-1.jpg" alt="">
-                <p class="sub-producto">Cargador Inalámbrico de auto Universal mophie con soporte</p>
-                <p class="sub-precio">$11.999</p>
-            </article>
-            <article class="promo-2 w-42">
-                <img class="img-promo-2 w-100" src="/images/product-inter-2.jpg" alt="">
-                <p class="sub-producto">Cable de carga Apple USB-C (2 m)</p>
-                <p class="sub-precio">$6.299</p>
-            </article>
-            <article class="promo-3 w-42">
-                <img class="img-promo-2 w-100" src="/images/product-inter-3.jpg" alt="">
-                <p class="sub-producto">Auriculares IE In-ear Bose SoundSport MFI Negro</p>
-                <p class="sub-precio">$19.999</p>
-            </article>
-            <article class="promo-4 w-42">
-                <img class="img-promo-2 w-100" src="/images/product-inter-4.jpg" alt="">
-                <p class="sub-producto">Adaptador Multiport Apple USB-C Digital AV</p>
-                <p class="sub-precio">$16.599</p>
-            </article>
-        </section>
-    </main> -->
 
     <%- include('../partials/footer') %>
 

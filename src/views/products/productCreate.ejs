@@ -7,68 +7,115 @@
 
     <%- include('../partials/header') %>
 
-    <div class="productForm-container productForm-d-flex margin-b-20">
-        <form class="w-100" action="/products" method="POST" enctype="multipart/form-data">
-            <div class="w-100 d-flex">
-                <h2 class="register-h2">Creacion de productos</h2>
-                <hr>
-            </div>
-            <div class="inputs-productForm d-flex f-wrap">
-                <% errors.forEach(error => { %>
+    <main>
+        <div class="container">
+            <form class="w-100" action="/products" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group">
+                        <h2 class="register-h2">Creacion de productos</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <% errors.forEach(error => { %>
                     <% if(error.param == "product_name") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
+                    <span class="span_errors">* <%= error.msg %></span>
                     <% } else { "" } %>
-                <% }) %>
-                <label for="">Nombre del producto</label>
-                <input class="productForm-input-style-border" type="text" name="product_name" id="inputNewProduct">
+                    <% }) %>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label col-form-label-lg" for="inputDefault">Nombre del producto</label>
+                        <input class="form-control form-control-lg" type="text" name="product_name" id="inputDefault">
+                    </div>
 
-                <% errors.forEach(error => { %>
+                    <% errors.forEach(error => { %>
                     <% if(error.param == "product_category") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
+                    <span class="span_errors">* <%= error.msg %></span>
                     <% } else { "" } %>
-                <% }) %>
-                <label for="">Categoria</label>
-                <input class="productForm-input-style-border" type="text" name="product_category" id="inputNewProduct">
+                    <% }) %>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
+                        <input class="form-control form-control-lg" type="text" name="product_category"
+                            id="inputNewProduct">
+                    </div>
+                </div>
 
-                <% errors.forEach(error => { %>
-                    <% if(error.param == "product_description") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
-                    <% } else { "" } %>
-                <% }) %>
-                <label for="">Descripcion</label>
-                <input class="productForm-input-style-border" type="text" name="product_description" id="inputNewProduct">
-
-                <% errors.forEach(error => { %>
-                    <% if(error.param == "product_image") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
-                    <% } else { "" } %>
-                <% }) %>
-                <label for="">Imagen del producto</label>
-                <input class="w-100 inputs-productForm" type="file" name="product_image" id="inputNewProduct">
-
-                <% errors.forEach(error => { %>
+                <div class="row">
+                    <% errors.forEach(error => { %>
                     <% if(error.param == "product_quantity") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
+                    <span class="span_errors">* <%= error.msg %></span>
                     <% } else { "" } %>
-                <% }) %>
-                <label class="inputs-productForm" for="">Cantidad</label>
-                <input class="productForm-input-style-border" type="text" name="product_quantity" id="inputNewProduct">
+                    <% }) %>
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad</label>
+                        <input class="form-control form-control-lg" type="text" name="product_quantity"
+                            id="inputNewProduct">
+                    </div>
+
+
+                    <% errors.forEach(error => { %>
+                    <% if(error.param == "product_price") { %>
+                    <span class="span_errors">* <%= error.msg %></span>
+                    <% } else { "" } %>
+                    <% }) %>
+
+                    <div class="form-group col-md-6">
+                        <label class="col-form-label col-form-label-lg">Precio</label>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                                <input type="text" class="form-control form-control-lg"
+                                    aria-label="Amount (to the nearest dollar)" name="price">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <% errors.forEach(error => { %>
-                    <% if(error.param == "product_price") { %>
-                        <span class="span_errors">* <%= error.msg %></span>
-                    <% } else { "" } %>
+                <% if(error.param == "product_image") { %>
+                <span class="span_errors">* <%= error.msg %></span>
+                <% } else { "" } %>
                 <% }) %>
-                <label for="">Precio</label>
-                <input class="productForm-input-style-border" type="text" name="product_price" id="inputNewProduct">
 
-                <button type="submit" class="productForm-input-style-border class-btn" target="">CREAR</button>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <div class="input-group mb-3">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile02" name="image">
+                                <label class="custom-file-label" for="inputGroupFile02">Imagen del producto</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text">Upload</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                <button type="reset" class="productForm-input-style-border class-rst">BORRAR</button>
-            </div>
+                <% errors.forEach(error => { %>
+                <% if(error.param == "product_description") { %>
+                <span class="span_errors">* <%= error.msg %></span>
+                <% } else { "" } %>
+                <% }) %>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label class="col-form-label col-form-label-lg" for="exampleTextarea">Descripcion</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="3" name="detail">
+                    </textarea>
+                    </div>
+                </div>
 
+                <button type="submit" class="btn btn-lg btn-primary" target="">CREAR</button>
+
+                <button type="reset" class="btn btn-lg btn-warning">BORRAR</button>
+        </div>
+        <br>
         </form>
-    </div>
+        </div>
+    </main>
 
     <%- include('../partials/footer') %>
 
