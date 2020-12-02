@@ -3,10 +3,11 @@
     "id": 1,
     "name": "Balanza Kretz Report NX TCP/IP WiFi",
     "detail": "Descripción de Balanza Kretz Report NX TCP/IP WiFi",
-    "price": 86500,
     "category": "Balanzas",
+    "discount": 10,
+    "price": "86500",
     "image": "/images/products/product-1.jpg",
-    "quantity": 15
+    "quantity": "15"
   },
   {
     "id": 2,

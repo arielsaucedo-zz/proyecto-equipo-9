@@ -9,6 +9,14 @@ module.exports = {
         res.render("index", { products: products })
     },
     search: (req, res) => {
-		res.render('results')
+        let searchResults = []
+        searchResults = products.filter(function (productElement) {
+            if (productElement.name.includes(req.query.search)  ||
+                productElement.detail.includes(req.query.search)  ||
+                productElement.category.includes(req.query.search)) {
+                return true
+            } else { return false}
+        })
+		res.render('results', { products: searchResults })
 	},
 }

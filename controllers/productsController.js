@@ -46,14 +46,14 @@ let productsController = {
         res.render('products/added')
     },
 
-    edit: function (req, res, ) {
+    edit: function (req, res, next) {
         let product = []
         product = products.filter(function (productElement) {
             if (productElement.id == req.params.id) {
                 return true
             }
         })
-        res.render('products/productEdit', { productEdit: product[0], errors: errors.errors }) 
+        res.render('products/productEdit', { productEdit: product[0], errors : [] }) 
     },
 
     update: function (req, res, next) {
