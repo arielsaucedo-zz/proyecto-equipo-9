@@ -56,7 +56,7 @@ router.get('/:id/edit', userAuth, [
     check('name')
         .isEmpty()
         .withMessage('Por favor, ingrese un título')
-], productsController.edit);
+], userAuth, productsController.edit);
 
 /*** localhost:3000/products/:id ***/
 router.put('/:id', productsController.update);

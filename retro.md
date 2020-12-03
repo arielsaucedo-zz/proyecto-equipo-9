@@ -1,3 +1,14 @@
+## RETROSPECTIVA - SPRINT 5
+
+- **<u>Comenzar a hacer:</u>** *** Nota Nicolas: Repasar contenido de playground para poder compender mejor el formato general del armado del sitio.
+- **<u>Hacer más:</u>** Realizar reuniones con más frecuencia o establecer quizas un día, una juntada de al menos una hora y codear en grupo. (podría ser que cada uno trabaje en su tarea, pero todos en una call)
+- **<u>Continuar haciendo:</u>** Division de tareas para repartirlas entre los diferentes integrantes del equipo. 
+- **<u>Hacer menos:</u>** En este sprint logramos realizar lo propuesto en sprints anteriores.
+- **<u>Dejar de hacer:</u>** Postergar cambios en estilos y demas funcionalidades que se pueden ir adelantando. Por no estar solicitadas dentro del sprint en curso, no estamos avanzando en ciertas cuestiones que 
+  ya sabemos y podemos ir adelantando. Hay que avanzar en lo que más se pueda.
+
+
+
 ## RETROSPECTIVA - SPRINT 4
 
 - **<u>Comenzar a hacer:</u>** Tratar de al comienzo del sprint (o antes), definir y obtener todos los requisitos para luego no demorar el desarrollo del proyecto. Tratar, dentro de lo posible, tener todos los conocimientos adquiridos para poder encarar el trabajo con mayor agilidad.

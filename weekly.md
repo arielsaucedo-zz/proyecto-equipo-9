@@ -1,3 +1,77 @@
+## **<u>SPRINT - 5</u>**
+
+**<u>SEMANA 1</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Planificación sprint-5. 
+				Se realizaron cambios de estilos en general sobre todo el sitio agregando Bootstrap.
+				Coding party. Realizamos dos sesiones donde nos juntamos todos los integrantes y desarrollamos. 
+
+​	Nicolás: 
+​				Planificación sprint-5. 																																 				Creacion del branch 5.
+​				Coding party. Realizamos dos sesiones donde nos juntamos todos los integrantes y desarrollamos.
+
+​	Daniel: 
+​				Ninguno .      
+
+​	 Ariel:                                                                                                                                                                                               				Planificación sprint-5. 																																			 				Coding party. Realizamos dos sesiones donde nos juntamos todos los integrantes y desarrollamos. 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Ninguno.
+	Daniel:                                                                                                                       														      				Falta de tiempo. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Ninguno.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Generar carpeta para la subida de imagenes del usuario.
+				Incluir la subida de imágenes con Multer en el perfil del usuario.
+				Trabajar en el redireccionamiento solicitado para este sprint (en login y register).
+
+​	Nicolás:
+​                Implementación de Multer en carga de productos. 																							    				Modificaciones en estilos del sitio.
+
+​	Daniel: 																																							         	    				Trabajar en busqueda de productos.
+
+​    Ariel:                                                                                                                                                                                                 				Implementar Multer para la subida de imagenes de productos. 																	 				Incluir validaciones de campos de formularios.
+
+**<u>SEMANA 2</u>**
+
+● Qué hizo en la semana
+
+​	Cristian: 
+​				Generamos carpeta para la subida de imagenes del usuario.
+​				Se desarrolló la subida de imágenes con Multer en el perfil del usuario.
+​				Se desarrolló el redireccionamiento solicitado para este sprint (en login y register).											   				Se implementó el uso de Cookies.
+
+​	Nicolás:
+​                Participación de sesiones grupales.                                                                                                                                                             	Daniel:                                                                                                                                                                                				Trabajar en productos.                                                                                                                                                      	Ariel:                                                                                                                                                                                                    				Se desarrolló la subida de imágenes con Multer en el formulario de carga de productos.									 				Modificacion de estilos en el sitio.
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Escases de tiempo para trabajar en el proyecto.
+	Nicolás:
+				Dificultades con la implementación de Multer. 																									 				Poco entendimiento del funcionamiento e implementación de sesiones y cookies.                                                                      
+
+​	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
+
+​	Ariel:																																				                                                   				Escases de tiempo para trabajar en el proyecto.
+
+● Qué va a la próxima semana.
+	Cristian:
+				Planificar sprint-6.
+	Nicolás:
+				Terminar de actualizar contenidos atrasados.                                                                                                                              	Daniel:                                                                                                                                                                                				Planificar sprint-6.
+
+​	Ariel:
+​				Planificar sprint-6.
+
+
+
 ## **<u>SPRINT - 4</u>**
 
 **<u>SEMANA 1</u>**
