@@ -24,7 +24,7 @@ var upload = multer({ storage: storage });
 router.get('/', productsController.list);
 
 /*** localhost:3000/products/productCreate ***/
-router.get('/productCreate', productsController.create);
+router.get('/productCreate', userAuth,productsController.create);
 /*** localhost:3000/products/ ***/
 router.post('/', upload.any(), [
     check('product_name')
@@ -52,7 +52,7 @@ router.get('/detail/:id', productsController.show);
 
 /*** localhost:3000/products/:id/edit ***/
 //http://localhost:3000/products/4/edit
-router.get('/:id/edit', [
+router.get('/:id/edit', userAuth, [
     check('name')
         .isEmpty()
         .withMessage('Por favor, ingrese un título')
@@ -68,6 +68,6 @@ router.delete('/:id/delete', productsController.destroy);
 
 /*** PRODUCT CART ***/
 /*** localhost:3000/products/productCart ***/
-router.get('/productCart', productsController.cart);
+router.get('/productCart', userAuth,productsController.cart);
 
 module.exports = router;

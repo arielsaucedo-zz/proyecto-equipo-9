@@ -3,14 +3,18 @@ const userDataFilePath = path.join(__dirname, '../data/user')
 let userData = require(userDataFilePath)
 
 function userAuth(req, res, next) {
-    let userLoggedIn = userData.findByUserName(req.query.user)
-    console.log(req.query.user);
-    if(userLoggedIn.rol == 0){
+    console.log(res.locals);
+    if (res.locals.user != undefined){
+        let userLoggedIn = userData.findByUserName(res.locals.user)
+        if(userLoggedIn.rol == 0){
+            next()
+        } else {
+            res.redirect('/')
+        }
         next()
-    } else {
-        res.redirect('/')
+    } else{
+        res.redirect('/users/login')
     }
-    next()
 } 
 
 module.exports = userAuth

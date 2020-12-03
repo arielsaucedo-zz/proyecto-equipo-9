@@ -82,7 +82,7 @@ const controller = {
                 return true
             }
         })
-        res.render('users/userDetail', { userLoggedIn : user[0] })
+        res.render('users/userDetail', { userLoggedIn : user[0], errors: [] })
     }
 }
 

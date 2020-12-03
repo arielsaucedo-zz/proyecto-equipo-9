@@ -37,17 +37,17 @@
                         </p>
 
                         <form action="#" method="get" style="display: inline-flex">
-                            <button type="submit" class="btn btn-info action-button">COMPRAR</button>
+                            <button type="submit" class="btn btn-info action-button">Enviar al carrito</button>
                         </form>
                         <hr>
 
                         <form action="/products/<%= productDetail.id %>/edit" method="get" style="display: inline-flex">
-                            <button type="submit" class="action-button btn btn-warning">EDITAR PRODUCTO</button>
+                            <button type="submit" class="action-button btn btn-warning">Editar</button>
                         </form>
 
                         <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST"
                             style="display: inline-flex">
-                            <button type="submit" class="action-button btn btn-danger">ELIMINAR</button>
+                            <button type="submit" class="action-button btn btn-danger">Eliminar</button>
                         </form>
                     </div>
                 </div>

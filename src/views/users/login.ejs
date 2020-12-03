@@ -8,6 +8,8 @@
     <%- include('../partials/header') %>
     
     <main>
+
+        <!--
         <div class="login">
             <div class="login-container">
                 <form action="/users/login" method="POST">
@@ -43,15 +45,14 @@
                 </form>
             </div>
         </div>
-        <!--
+    -->
         <div class="container">
-            <div class="row m-4">
-                <div class="col-8">
-                    <div class="login-dark p-3 shadow-lg rounded">
+            <div class="row m-4 justify-content-center">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="gradient-dark p-3 shadow-lg rounded">
                         <div class="pt-3">
-                            <h2 class="text-white ">Mi Cuenta | Ingresa con tus datos</h2>
+                            <h2 class="text-white text-center">Mi Cuenta</h2>
                         </div>
-
                         <form class="mt-5" action="/users/login" method="POST" >
                             <% errors.forEach(error => { %>
                                 <% if(error.param == "user_name") { %>
@@ -95,7 +96,7 @@
             </div>
         </div>
 
-    -->
+    
     </main>
 
     <%- include('../partials/footer') %>  
