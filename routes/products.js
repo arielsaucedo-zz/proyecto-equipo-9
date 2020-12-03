@@ -24,7 +24,7 @@ var upload = multer({ storage: storage });
 router.get('/', productsController.list);
 
 /*** localhost:3000/products/productCreate ***/
-router.get('/productCreate', productsController.create);
+router.get('/productCreate', userAuth, productsController.create);
 /*** localhost:3000/products/ ***/
 router.post('/', upload.any(), [
     check('product_name')
@@ -56,7 +56,7 @@ router.get('/:id/edit', [
     check('name')
         .isEmpty()
         .withMessage('Por favor, ingrese un título')
-], productsController.edit);
+], userAuth, productsController.edit);
 
 /*** localhost:3000/products/:id ***/
 router.put('/:id', productsController.update);
