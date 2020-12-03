@@ -401,6 +401,11 @@ hr {
 
 
 /*====== Formularios ======*/
+
+.login-dark {
+  background: linear-gradient(145deg, #575b5d, #072731);
+}
+
 .form-label {
   display: inline-block;
   font-size: 1.6em;

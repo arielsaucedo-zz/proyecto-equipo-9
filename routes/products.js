@@ -5,6 +5,7 @@ const path = require('path')
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
+const userAuth = require('../middlewares/userAuth')
 
 // ************ Multer Require ************
 var multer  = require('multer')
