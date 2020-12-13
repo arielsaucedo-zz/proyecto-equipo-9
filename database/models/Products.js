@@ -48,11 +48,11 @@ module.exports = (sequelize, dataTypeslet) => {
 
     const Product = sequelize.define(alias, cols, config);
     Product.associate = (models) => {
-        Product.hasMany(models.Category, {
+        Product.belongsTo(models.Category, {
             as: "categories",
             foreingKey: "categories_id",
         })
-        Product.belongToMany(models, Detail, {
+        Product.hasMany(models, Detail, {
             as: "details",
             fireingKey: "products_id"
         });
