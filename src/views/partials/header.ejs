@@ -149,48 +149,74 @@
                                     class="icono-f-s fas fa-user-lock"></i></b> <span class="caret"></span></a>
                         <ul id="login-dp" class="header-f-s dropdown-menu">
                             <li>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        Login con
-                                        <div class="social-buttons">
-                                            <a href="#" class="header-f-s btn btn-fb"><i class="fa fa-facebook"></i>
-                                                Facebook</a>
-                                            <a href="#" class="header-f-s btn btn-tw"><i class="fa fa-twitter"></i>
-                                                Twitter</a>
+                                <ul class="d-inline-flex">
+                                    <% if ( locals.user ) { %>
+                                    <li class="align-self-center">
+                                        <div class="welcome">
+                                            <span>Hola <%= locals.first_name + " " + locals.last_name %></span>                            
                                         </div>
-                                        o
-                                        <form class="mt-4 form" role="form" method="POST" action="/users/login"
-                                            accept-charset="UTF-8" id="login-nav">
-                                            <div class="form-group">
-                                                <label class="header-f-s sr-only" for="exampleInputEmail2">Email /
-                                                    Nombre de usuario</label>
-                                                <input type="email" class="header-f-s form-control"
-                                                    id="exampleInputEmail2" placeholder="Email address" name="user_name">
-                                            </div>
-                                            <div class=" form-group">
-                                                <label class="header-f-s sr-only"
-                                                    for="exampleInputPassword2">Contraseña</label>
-                                                <input type="password" class="header-f-s form-control"
-                                                    id="exampleInputPassword2" placeholder="Password" name="password">
-                                                <div class="help-block text-center my-3"><a href=""
-                                                        class="header-f-s">Olvidaste tu contraseña ?</a>
+                                    </li>
+                                    <li>
+                                        <div class="user_box_1">
+                                            <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>"><i class="fas fa-user-edit"></i></a>
+                                        </div>
+                                    </li>
+                                    <li >
+                                        <div class="">
+                                            <form action="/users/logout" method="POST">
+                                                <button class="log_out" type="submit"><i class="fas fa-user-times"></i></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <% } else { %>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                Login con
+                                                <div class="social-buttons">
+                                                    <a href="#" class="header-f-s btn btn-fb"><i class="fa fa-facebook"></i>
+                                                        Facebook</a>
+                                                    <a href="#" class="header-f-s btn btn-tw"><i class="fa fa-twitter"></i>
+                                                        Twitter</a>
                                                 </div>
+                                                o
+                                                <form class="mt-4 form" role="form" method="POST" action="/users/login"
+                                                    accept-charset="UTF-8" id="login-nav">
+                                                    <div class="form-group">
+                                                        <label class="header-f-s sr-only" for="exampleInputEmail2">Email /
+                                                            Nombre de usuario</label>
+                                                        <input type="email" class="header-f-s form-control"
+                                                            id="exampleInputEmail2" placeholder="Email address" name="user_name">
+                                                    </div>
+                                                    <div class=" form-group">
+                                                        <label class="header-f-s sr-only"
+                                                            for="exampleInputPassword2">Contraseña</label>
+                                                        <input type="password" class="header-f-s form-control"
+                                                            id="exampleInputPassword2" placeholder="Password" name="password">
+                                                        <div class="help-block text-center my-3"><a href=""
+                                                                class="header-f-s">Olvidaste tu contraseña ?</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit"
+                                                            class="header-f-s btn btn-primary btn-block">Ingresar</button>
+                                                    </div>
+                                                    <div class="checkbox mt-3">
+                                                        <label>
+                                                            <input type="checkbox" id="rememberCheckBox" name="rememberMe"> Recordarme
+                                                        </label>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            <div class="form-group">
-                                                <button type="submit"
-                                                    class="header-f-s btn btn-primary btn-block">Ingresar</button>
+                                            <div class="bottom text-center">
+                                                Eres nuevo ? <a href="/users/register"><b>Regístrate</b></a>
                                             </div>
-                                            <div class="checkbox mt-3">
-                                                <label>
-                                                    <input type="checkbox" id="rememberCheckBox" name="rememberMe"> Recordarme
-                                                </label>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="bottom text-center">
-                                        Eres nuevo ? <a href="/users/register"><b>Regístrate</b></a>
-                                    </div>
-                                </div>
+                                        </div>
+                                    </li>
+            
+                                    <% } %>
+                                </ul>
+                
+                                
                             </li>
                         </ul>
                     </li>

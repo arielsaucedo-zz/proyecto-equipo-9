@@ -12,6 +12,7 @@ let bcryptjs = require('bcryptjs')
 const productDataFilePath = path.join(__dirname, '../data/product')
 let productData = require(productDataFilePath)
 
+
 const controller = {
     login: function (req, res) {
         res.render('users/login', {
@@ -43,7 +44,7 @@ const controller = {
                         maxAge: 120 * 1000
                     })
                 }
-                return res.redirect('/users/userDetail/' + userLoggedIn.id)
+                return res.redirect('/')
             }
         } else {
             return res.render('users/login', {
