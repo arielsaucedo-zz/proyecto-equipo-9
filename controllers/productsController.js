@@ -5,6 +5,7 @@ const {check, validationResult, } = require('express-validator')
 const productsFilePath = path.join(__dirname, '../data/products.json')
 const productDataFilePath = path.join(__dirname, '../data/product')
 let productData = require(productDataFilePath)
+let db = require('../database/models')
 
 let productsController = {
 
@@ -91,6 +92,14 @@ let productsController = {
     },
 
     cart: function (req, res) {
+        db.ShoppingCart.findAll({include: [{ association : 'Users' }]})
+            .then(Shopping_cart => {console.log('ShoppingCart.findAll')
+            })
+/*
+        db.CartDetail.findAll()
+            .then(CartDetail => {console.log("CartDetail.findAll")
+            })
+*/
         res.render('products/productCart', { errors : [] })
     }
 

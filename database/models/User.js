@@ -1,6 +1,3 @@
-const { DataTypes } = require("sequelize/types");
-const { sequelize } = require(".");
-
 module.exports = (sequelize, DataTypes) => {
     let alias = "Users"
     let cols = {
@@ -8,14 +5,13 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
             allowNull: false,
-            type: DataTypes.INTEGER,
-
+            type: DataTypes.INTEGER
         },
-        firstName: {
+        first_name: {
             allowNull: false,
             type: DataTypes.STRING
         },
-        lastName: {
+        last_name: {
             allowNull: false,
             type:DataTypes.STRING
         },
@@ -25,32 +21,32 @@ module.exports = (sequelize, DataTypes) => {
         password: {
             type: DataTypes.STRING
         },
-        imageAvatar: {
+        image_avatar: {
             type: DataTypes.STRING
         },
-        createdAt: {
+        created_at: {
             type: DataTypes.DATE
         },
-        updatedAt: {
+        updated_at: {
             type: DataTypes.DATE
         },
-        rolesId: {
+        roles_id:{
             allowNull: false,
             type: DataTypes.INTEGER
-            
-        },
+        }
     }
+
     let config = {
-        tableName: "users"
+        tableName: "users",
+        timestamps: false
     }
 
-    const User = sequelize.define(alias, cols, config);
+    const User = sequelize.define(alias, cols, config)
     User.associate = function(models) {
-        User.belongsTo(models.Roles, {
-            as: "roles",
-            foreingKey: "roles_id",
+        User.hasOne(models.Roles, {
+            as: "Roles",
+            foreingKey: "roles_id"
         })
-
-    return User;
-}
+    }
+    return User
 }
