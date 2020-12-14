@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     Role.associate = function(models) {
         Role.hasMany(models.Users, {
             as: "users",
-            foreingKey: "roles_id",
+            foreingKey: "rolesId",
         })
     }
 
