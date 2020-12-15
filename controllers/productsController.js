@@ -24,7 +24,10 @@ let productsController = {
     },
 
     create: function (req, res, next) {
-        res.render('products/productCreate', { errors : [] } );
+        db.Category.findAll()
+        .then(function(categories){
+            res.render('products/productCreate', { errors : [] }, { categories:categories });
+        })
     },
 
     store: function (req, res) {
@@ -32,7 +35,20 @@ let productsController = {
         if (!errors.isEmpty()) {
             return res.render('products/productCreate', { errors: errors.errors } );
         }
-        products.push(
+        db.Product.create({
+                id: products[products.length - 1].id + 1,
+                name: req.body.product_name,
+                description: req.body.product_description,
+                created_at: newDate(),
+                updated_at: newDate(),
+                quantity: req.body.product_quantity,
+                price: req.body.product_price,
+                image: req.body.image,
+                category: req.body.product_category, 
+        })
+        res.render('products/added')
+    },
+        /* products.push(
             {
                 id: products[products.length - 1].id + 1,
                 name: req.body.product_name,
@@ -45,7 +61,7 @@ let productsController = {
         )
         fs.writeFileSync(productsFilePath, JSON.stringify(products))
         res.render('products/added')
-    },
+    }, */
 
     edit: function (req, res, next) {
         let product = []

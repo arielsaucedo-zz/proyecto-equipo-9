@@ -34,7 +34,14 @@
                     <% }) %>
                     <div class="form-group col-md-6">
                         <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
-                        <input class="form-control form-control-lg" type="text" name="product_category"
+                        <select name="product_category">
+                            <% for(let i = 0; i < categories.length; i++) {%>
+                            <option value="<%= categories[i].id %>">
+                                <%= categories[i].name %>
+                            </option>
+                            <% } %>
+                        </select>
+                        <input class="form-control form-control-lg" type="select" name="product_category"
                             id="inputNewProduct">
                     </div>
                 </div>
