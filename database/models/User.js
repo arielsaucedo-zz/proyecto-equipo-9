@@ -38,12 +38,13 @@ module.exports = (sequelize, DataTypes) => {
 
     let config = {
         tableName: "users",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     }
 
     const User = sequelize.define(alias, cols, config)
     User.associate = function(models) {
-        User.hasOne(models.Roles, {
+        User.belongsTo(models.Roles, {
             as: "Roles",
             foreingKey: "roles_id"
         })

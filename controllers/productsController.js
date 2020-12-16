@@ -24,9 +24,13 @@ let productsController = {
     },
 
     create: function (req, res, next) {
-        db.Category.findAll()
+        db.Categories.findAll()
         .then(function(categories){
-            res.render('products/productCreate', { errors : [] }, { categories:categories });
+            res.render('products/productCreate', { errors : [] , categories:categories });
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
         })
     },
 

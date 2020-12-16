@@ -8,11 +8,10 @@ function userAuth(req, res, next) {
         if(userLoggedIn.rol == 0){
             next()
         } else {
-            res.redirect('/')
+            return res.redirect('/')
         }
-        next()
     } else{
-        res.redirect('/users/login')
+        return res.redirect('/users/login')
     }
 } 
 
