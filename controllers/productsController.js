@@ -112,9 +112,19 @@ let productsController = {
     },
 
     cart: function (req, res) {
-        db.ShoppingCart.findAll({include: [{ association : 'Users' }]})
-            .then(Shopping_cart => {console.log('ShoppingCart.findAll')
+/*
+
+        db.Users.findAll({ include: [ { association : 'role' }]})
+            .then(Users => {console.log(Users)})
+*/
+/*
+        db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
+            .then(ShoppingCarts => {console.log(ShoppingCarts)
             })
+*/
+        db.Categories.findAll()
+        .then(Categories => {console.log(Categories)
+        })
 /*
         db.CartDetail.findAll()
             .then(CartDetail => {console.log("CartDetail.findAll")

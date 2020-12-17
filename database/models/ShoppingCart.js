@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let alias = "ShoppingCart"
+    let alias = "ShoppingCarts"
     let cols = {
         id: {
             autoIncrement: true,
@@ -17,23 +17,24 @@ module.exports = (sequelize, DataTypes) => {
         updated_at: {
             type: DataTypes.DATE
         },
-        users_id: {
+        user_id: {
             allowNull: false,
             type: DataTypes.INTEGER
         }
     }
     let config = {
-        tableName: "shopping_cart",
-        timestamps: false
+        tableName: "shopping_carts",
+        timestamps: false,
+        underscored: true
     }
 
 
     const shoppingCart = sequelize.define(alias, cols, config);
     
     shoppingCart.associate = function(models) {
-        shoppingCart.hasOne(models.Users, {
-            as: "Users",
-            foreingKey: "users_id"
+        shoppingCart.belongsTo(models.Users, {
+            as: "user",
+            foreingKey: "user_id"
         })
 /*
         shoppingCart.hasMany(models.CartDetail, {

@@ -7,6 +7,7 @@ const path = require('path')
 const methodOverride =  require('method-override') // Pasar poder usar los métodos PUT y DELETE
 let session = require('express-session')
 let rememberMe = require('./middlewares/rememberMe')
+let db = require('./database/models') // Referencia a los modelos
 // ************** carga de archivo de productos para almacenar luego las categorías **********************
 const productDataFilePath = path.join(__dirname, '/data/product')
 let productData = require(productDataFilePath)
@@ -37,8 +38,11 @@ app.use(function(req, res, next){
     res.locals.last_name = req.session.last_name
     res.locals.userId = req.session.userId
   }
-  res.locals.listOfCategories = productData.retrieveListOfCategories()
-  next()
+  db.Categories.findAll({raw : true})
+    .then(function(Categories){ 
+      res.locals.listOfCategories = Array.from(Categories)
+      next()
+    })
 })
 
 

@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         updated_at: {
             type: DataTypes.DATE
         },
-        roles_id:{
+        role_id:{
             allowNull: false,
             type: DataTypes.INTEGER
         }
@@ -45,8 +45,14 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(alias, cols, config)
     User.associate = function(models) {
         User.belongsTo(models.Roles, {
-            as: "Roles",
-            foreingKey: "roles_id"
+            as: "role",
+            foreingKey: "role_id"
+        })
+
+        User.hasMany(models.ShoppingCarts, {
+            as: "shoppingcart",
+            foreingKey: "user_id",
+            targetKey: "user_id"
         })
     }
     return User
