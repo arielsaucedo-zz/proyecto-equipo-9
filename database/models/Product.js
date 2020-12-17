@@ -35,13 +35,14 @@ module.exports = (sequelize, DataTypes) => {
     }
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     }
 
     const Product = sequelize.define(alias, cols, config);
     Product.associate = (models) => {
         Product.belongsTo(models.Categories, {
-            as: "categories",
+            as: "category",
             foreingKey: "category_id",
         })
         /*
