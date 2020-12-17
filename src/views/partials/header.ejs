@@ -1,98 +1,5 @@
 <header class="main-header header-f-s gradient-dark">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <!--
-    <div class="container-fluid">
-        <div class="row">
-            <ul class="right-navbar ml-auto" id="nav1">
-                <li>
-                    <div class="sub-menu">
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                    <ul class="nav-sub-menu d-flex">
-                        <li><a href="" title="CONTACTO"><span class="hide-unhide-span">CONTACTO </span><i class="far fa-envelope"></i></a></li>
-                        <li><a href="" title="QUIENES SOMOS"><span class="hide-unhide-span">QUIENES SOMOS </span><i class="fas fa-handshake"></i></a></li>
-                        <li><a href="https://www.addtoany.com/add_to/facebook?linkurl=https%3A%2F%2Fwww.kaliterosoftware.com%2Fcomunicate-con-nosotros%2F&linkname=Comun%C3%ADcate%20con%20nosotros&linknote="
-                                title="FACEBOOK"><span class="hide-unhide-span">FACEBOOK </span><i class="fab fa-facebook-square"></i></a></li>
-                        <li><a href="https://instagram.com/softwarekalitero?igshid=49a5it2t8jz8" title="INSTAGRAM"><span class="hide-unhide-span">INSTAGRAM </span><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <hr class="row">
-        <div class="row align-items-center">
-            <ul class="col-1 d-flex justify-content-center" id="nav">
-                <li>
-                    <div class="hamburger-menu">
-                        <i class="fas fa-bars hamburger-element"></i>
-                    </div>
-                    <ul class="nav-menu">
-                        <% locals.listOfCategories.forEach(category => { %>
-                            <li><a href="#"><%= category %></a></li>
-                        <% }) %>
-                    </ul>
-                </li>
-            </ul>
-            <div class="col-2">
-                <a href="/"><img class="img-logo" src="/images/kalitero-logo-wht.png" alt="Logo - Kalítero"></a>
-            </div>
-            <div class="col-4">
-                <form action="/search" method="GET" class="search-form">
-                    <input class="form-control" type="search" placeholder="Buscar productos" name="search" id="">
-                    <button type="submit" class="search_submit">
-                        <span><i class="fas fa-search"></i></span>
-                    </button>
-                </form>
-            </div>
-            <div class="col-5 d-flex justify-content-end">
-                <ul class="d-inline-flex">
-                    <% if ( locals.user ) { %>
-                    <li class="align-self-center">
-                        <div class="welcome">
-                            <span>Hola <%= locals.first_name %></span>                            
-                        </div>
-                    </li>
-                    <li>
-                        <div class="user_box_1">
-                            <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>"><i class="fas fa-user-edit"></i></a>
-                        </div>
-                    </li>
-                    <li >
-                        <div class="log_out_box">
-                            <form action="/users/logout" method="POST">
-                                <button class="log_out" type="submit"><i class="fas fa-user-times"></i></button>
-                            </form>
-                        </div>
-                    </li>
-                    <% } else { %>
-                    <li class="align-self-center">
-                        <div class="welcome">
-                            <span>                             </span>                            
-                        </div>
-                    </li>
-                    <li>
-                        <div class="user_box_1_register user_box_1">
-                            <a title="Register" href="/users/register"><i class="fas fa-user-plus"></i></a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="user_box_1_login user_box_1">
-                            <a title="Log-In" href="/users/login"><i class="fas fa-user-lock"></i></a>
-                        </div>
-                    </li>
-                    <% } %>
-                    <li>
-                        <div class="shop_cart">
-                            <a href="/products/productCart"><i class="fas fa-shopping-cart"></i></a>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-    </div>
-
--->
 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -148,29 +55,29 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i
                                     class="icono-f-s fas fa-user-lock"></i></b> <span class="caret"></span></a>
                         <ul id="login-dp" class="header-f-s dropdown-menu">
-                            <li>
+                            <li class = "margin-login">
                                 <ul class="d-inline-flex">
-                                    <% if ( locals.user ) { %>
-                                    <li class="align-self-center">
+                                    <div>
+                                        <% if ( locals.user ) { %>
+                                        <li class="align-self-center d-inline-flex">
                                         <div class="welcome">
                                             <span>Hola <%= locals.first_name + " " + locals.last_name %></span>                            
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="user_box_1">
-                                            <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>"><i class="fas fa-user-edit"></i></a>
-                                        </div>
-                                    </li>
-                                    <li >
                                         <div class="">
                                             <form action="/users/logout" method="POST">
                                                 <button class="log_out" type="submit"><i class="fas fa-user-times"></i></button>
                                             </form>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <a href="/products/productCreate">Crear producto</a>
-                                    </li>
+                                        </li>
+                                        <li class = "margin-5">
+                                            <div class="">
+                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">Mi cuenta</a>
+                                            </div>
+                                        </li>
+                                        <li class = "margin-5">
+                                            <a href="/products/productCreate">Crear producto</a>
+                                        </li>
+                                    </div>
                                     <% } else { %>
                                         <div class="row">
                                             <div class="col-md-12">

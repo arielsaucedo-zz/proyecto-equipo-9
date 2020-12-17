@@ -622,7 +622,7 @@ ul#nav1>li ul li {
 .welcome {
   align-self: center;
   color: var(--dark-blue);
-  font-size: 25px;
+  font-size: 20px;
 }
 
 
@@ -770,6 +770,18 @@ ul#nav1>li ul li {
   #login-dp .bottom {
     background-color: inherit;
     border-top: 0 none;
+  }
+
+  .log_out {
+    margin-left: 15px;
+  }
+
+  .margin-login {
+    margin: 5px 0px 10px 0px;
+  }
+
+  .margin-5 {
+    margin: 5px 5px 5px 5px;
   }
 
   /* borrar
