@@ -6,7 +6,7 @@ module.exports = [
         return db.Users.findOne({ where: { user_name: value } })
         .then(user => {
           if (user) {
-            return Promise.reject('E-mail already in use');
+            return Promise.reject('Este Email ya se encuentra registrado');
           }
         })
     })
