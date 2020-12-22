@@ -34,6 +34,10 @@ module.exports = {
     contact: function (req, res, next) {
 
         res.render('contactForm')
+    },
+    aboutUs: function (req, res, next) {
+
+        res.render('aboutUs')
     }
 
 }
