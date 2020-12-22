@@ -17,7 +17,7 @@
         <div class="product-detail">
             <div class="row">
                 <div class="col-12 col-lg-6">
-                    <img class="product-detail-img" src="<%= productDetail.image %>" alt="">
+                    <img class="product-detail-img" src="/images/products/<%= productDetail.image %>" alt="">
                 </div>
 
                 <div class="card bg-light mb-3" style="max-width: 40rem;">
@@ -32,11 +32,17 @@
                             /
                             <b><%= productDetail.discount %>% OFF</b>
                         </p>
+
                         <p class="product-detail-price small">
                             $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
                         </p>
 
-                        <form action="#" method="get" style="display: inline-flex">
+                        <form action="/products/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad</label>
+                                <input class="form-control form-control-lg" type="text" name="product_quantity"
+                                    id="inputNewProduct" value="1">
+                            </div>
                             <button type="submit" class="btn btn-info action-button">Enviar al carrito</button>
                         </form>
                         <hr>

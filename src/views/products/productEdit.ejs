@@ -9,7 +9,7 @@
 
     <main>
         <div class="container">
-            <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST">
+            <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group">
                         <h2 class="register-h2">Edicion de productos</h2>
@@ -19,27 +19,31 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label class="col-form-label col-form-label-lg" for="inputDefault">Nombre del producto</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="name"
+                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_name"
                             value="<%= productEdit.name %>">
-                    </div>
-
-
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label col-form-label-lg" for="inputDefault">Detalle del producto</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="detail"
-                            value="<%= productEdit.detail %>">
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="category"
-                            value="<%= productEdit.category %>">
+                        <select name="product_category" class="form-control form-control-lg">
+                        <% for(let i = 0; i < allCategories.length; i++) {%>
+                            <% if(allCategories[i].id == productEdit.category_id) { %>
+                                <option value="<%= allCategories[i].id %>" selected>
+                                    <%= allCategories[i].name %>
+                                </option>
+                            <% } else {%>
+                                <option value="<%= allCategories[i].id %>">
+                                    <%= allCategories[i].name %>
+                                </option>
+                            <% } %>
+                        <% } %>
+                        </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad en Stock</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="quantity"
+                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_quantity"
                             value="<%= productEdit.quantity %>">
                     </div>
 
@@ -51,7 +55,7 @@
                                     <span class="input-group-text">$</span>
                                 </div>
                                 <input type="text" class="form-control form-control-lg"
-                                    aria-label="Amount (to the nearest dollar)" name="price"
+                                    aria-label="Amount (to the nearest dollar)" name="product_price"
                                     value="<%= productEdit.price %>">
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
@@ -68,7 +72,13 @@
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="image"
                                     value="<%= productEdit.image %>">
-                                <label class="custom-file-label" for="inputGroupFile02">Subir imagen</label>
+                                <label class="custom-file-label" for="inputGroupFile02">
+                                    <% if (productEdit.image != '') { %>
+                                        <%= productEdit.image %>
+                                    <% } else {%>
+                                        Imagen del producto
+                                    <% } %>
+                                </label>
                             </div>
                             <div class="input-group-append">
                                 <span class="input-group-text">Upload</span>
@@ -80,8 +90,8 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label class="col-form-label col-form-label-lg" for="exampleTextarea">Descripcion</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3" name="name"
-                            value="<%= productEdit.detail %>"></textarea>
+                        <textarea class="form-control" id="exampleTextarea" rows="3" 
+                            name="product_description"><%= productEdit.description %></textarea>
                     </div>
                 </div>
 

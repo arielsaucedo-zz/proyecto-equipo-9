@@ -38,11 +38,11 @@ app.use(function(req, res, next){
     res.locals.last_name = req.session.last_name
     res.locals.userId = req.session.userId
   }
-  db.Categories.findAll({raw : true})
-    .then(function(Categories){ 
-      res.locals.listOfCategories = Array.from(Categories)
-      next()
-    })
+ db.Categories.findAll()
+ .then(function(Categories){ 
+   res.locals.listOfCategories = Categories
+   next()
+ })
 })
 
 

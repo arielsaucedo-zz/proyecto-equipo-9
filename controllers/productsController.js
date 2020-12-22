@@ -7,20 +7,27 @@ const productDataFilePath = path.join(__dirname, '../data/product')
 let productData = require(productDataFilePath)
 let db = require('../database/models')
 
+function dateNow(){
+    let now = new Date()
+    let monthReal = now.getMonth() + 1
+    return (now.getFullYear() + '-' + monthReal + '-' + now.getDate() + ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())
+} 
+
+
 let productsController = {
 
     list: function (req, res) {
-        res.render('products/list', { products: products });
+        db.Products.findAll()
+            .then((resultado) => {
+                res.render('products/list', { products: resultado })
+            })
     },
 
     show: function (req, res) {
-        let product = []
-        product = products.filter(function (productElement) {
-            if (productElement.id == req.params.id) {
-                return true
-            }
+        db.Products.findByPk(req.params.id)
+        .then((resultado) => {
+            res.render('products/productDetail', { productDetail: resultado })
         })
-        res.render('products/productDetail', { productDetail: product[0] })
     },
 
     create: function (req, res, next) {
@@ -37,78 +44,107 @@ let productsController = {
     store: function (req, res) {
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productCreate', { errors: errors.errors } );
+            db.Categories.findAll()
+            .then(function(categories){
+                return res.render('products/productCreate', { errors: errors.errors , categories:categories } )
+            })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
+            })
+        } else {
+            let dateTimeBD = dateNow()
+            let filenameVal = ''
+            if (req.files != undefined) {
+                filenameVal = req.files[0].filename
+            }
+            db.Products.create({
+                    name: req.body.product_name,
+                    description: req.body.product_description,
+                    created_at: dateTimeBD,
+                    updated_at: dateTimeBD,
+                    quantity: req.body.product_quantity,
+                    price: req.body.product_price,
+                    image: filenameVal,
+                    category_id: req.body.product_category, 
+            })
+            res.render('products/added')
         }
-        db.Product.create({
-                id: products[products.length - 1].id + 1,
-                name: req.body.product_name,
-                description: req.body.product_description,
-                created_at: newDate(),
-                updated_at: newDate(),
-                quantity: req.body.product_quantity,
-                price: req.body.product_price,
-                image: req.body.image,
-                category: req.body.product_category, 
-        })
-        res.render('products/added')
     },
-        /* products.push(
-            {
-                id: products[products.length - 1].id + 1,
-                name: req.body.product_name,
-                detail: req.body.product_description,
-                price: req.body.product_price,
-                category: req.body.product_category,
-                quantity: req.body.product_quantity,
-                image: "/images/Net-4.jpg" // aca hay que meter la imagen posta (capaz sea necesario hacer una vista aparte)
-            },
-        )
-        fs.writeFileSync(productsFilePath, JSON.stringify(products))
-        res.render('products/added')
-    }, */
 
     edit: function (req, res, next) {
-        let product = []
-        product = products.filter(function (productElement) {
-            if (productElement.id == req.params.id) {
-                return true
-            }
+        let allCategories = db.Products.findAll()
+        let oneProduct = db.Products.findByPk(req.params.id)
+        Promise.all([allCategories, oneProduct])
+        .then(function([allCategories, oneProduct]){
+            console.log(oneProduct)
+            res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors : [] })
         })
-        res.render('products/productEdit', { productEdit: product[0], errors : [] }) 
     },
 
     update: function (req, res, next) {
+        let dateTimeBD = dateNow()
+        let filenameVal = ''
+        console.log(req.files)
+        if (req.files != undefined) {
+            filenameVal = req.files[0].filename
+        }
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.render('products/productEdit', { errors: errors.errors });
         }
-        let productEdited = {}
-        productEdited = products.map(function (productElement) {
-            if (productElement.id == req.params.id) {
-                productElement.name = req.body.name
-                productElement.category = req.body.category
-                productElement.detail = req.body.detail
-                productElement.price = req.body.price
-                productElement.quantity = req.body.quantity
-                productElement.image = req.body.image
-            }
-            return productElement
+        console.log(filenameVal)
+        console.log(req.files);
+        db.Products.update({
+            name: req.body.product_name,
+            description: req.body.product_description,
+            created_at: dateTimeBD,
+            updated_at: dateTimeBD,
+            quantity: req.body.product_quantity,
+            price: req.body.product_price,
+            image: filenameVal,
+            category_id: req.body.product_category
+            },
+            { where: { id: req.params.id } })
+        .then((resultado) => {
+            res.redirect('..')
         })
-
-        productEdited = JSON.stringify(productEdited)
-        fs.writeFileSync(productsFilePath, productEdited)
-        res.redirect('..')
     },
 
     destroy: function (req, res) {
-        let productsRemaining = []
-        productsRemaining = products.filter(function(productElement){
-            if(productElement.id != req.params.id){return true}else{return false}
+        db.Products.destroy({
+            where: {
+                id: req.params.id
+            }
         })
-        productsRemaining = JSON.stringify(productsRemaining)
-        fs.writeFileSync(productsFilePath, productsRemaining)
-        console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-        res.redirect('/')
+        .then((resultado) => {
+            console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
+            res.redirect('/')
+        })
+    },
+
+    addToCart: function (req, res) {
+        db.Products.findByPk(req.params.id)
+            .then((resultado) => {
+                let dateTimeBD = dateNow()
+                db.ShoppingCarts.create({
+                    total: (resultado.price * req.body.product_quantity), //ver aca como hacer que acumule lo que se está agregando.
+                    created_at: dateTimeBD,
+                    updated_at: dateTimeBD,
+                    user_id: res.locals.userId,
+                    CartDetails: [{
+                        quantity: req.body.product_quantity,
+                        subtotal: resultado.price * req.body.product_quantity,
+                        product_id: req.params.id}
+                    ]
+                },{
+                    include: [{
+                        model: db.Products,
+                        as: 'products'
+                    }]
+                })               
+                res.render('products/productCart', { errors : [] })
+            })
     },
 
     cart: function (req, res) {
@@ -121,10 +157,12 @@ let productsController = {
         db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
             .then(ShoppingCarts => {console.log(ShoppingCarts)
             })
-*/
+
         db.Categories.findAll()
-        .then(Categories => {console.log(Categories)
+        .then(Categories => { console.log(Categories)
         })
+*/
+
 /*
         db.CartDetail.findAll()
             .then(CartDetail => {console.log("CartDetail.findAll")

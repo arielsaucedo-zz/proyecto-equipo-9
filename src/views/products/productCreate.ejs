@@ -34,15 +34,13 @@
                     <% }) %>
                     <div class="form-group col-md-6">
                         <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
-                        <select name="product_category">
+                        <select name="product_category" class="form-control form-control-lg">
                             <% for(let i = 0; i < categories.length; i++) {%>
                             <option value="<%= categories[i].id %>">
                                 <%= categories[i].name %>
                             </option>
                             <% } %>
                         </select>
-                        <input class="form-control form-control-lg" type="select" name="product_category"
-                            id="inputNewProduct">
                     </div>
                 </div>
 
@@ -73,7 +71,7 @@
                                     <span class="input-group-text">$</span>
                                 </div>
                                 <input type="text" class="form-control form-control-lg"
-                                    aria-label="Amount (to the nearest dollar)" name="price">
+                                    aria-label="Amount (to the nearest dollar)" name="product_price">
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
                                 </div>
@@ -110,7 +108,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label class="col-form-label col-form-label-lg" for="exampleTextarea">Descripcion</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3" name="detail">
+                        <textarea class="form-control" id="exampleTextarea" rows="3" name="product_description">
                     </textarea>
                     </div>
                 </div>
@@ -118,9 +116,9 @@
                 <button type="submit" class="btn btn-lg btn-primary" target="">CREAR</button>
 
                 <button type="reset" class="btn btn-lg btn-warning">BORRAR</button>
-        </div>
-        <br>
-        </form>
+                </div>
+                <br>
+            </form>
         </div>
     </main>
 

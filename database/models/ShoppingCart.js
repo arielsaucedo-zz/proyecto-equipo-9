@@ -29,20 +29,25 @@ module.exports = (sequelize, DataTypes) => {
     }
 
 
-    const shoppingCart = sequelize.define(alias, cols, config);
-    
-    shoppingCart.associate = function(models) {
-        shoppingCart.belongsTo(models.Users, {
-            as: "user",
+    const ShoppingCart = sequelize.define(alias, cols, config)
+    ShoppingCart.associate = function(models) {
+        ShoppingCart.belongsTo(models.Users, {
+            as: "User",
             foreingKey: "user_id"
         })
 /*
-        shoppingCart.hasMany(models.CartDetail, {
-            as: "cart_details",
-            foreingKey: "shopping_cart_id"
+        ShoppingCart.hasMany(models.CartDetails, {
+            as: "CartDetails",
+            foreingKey: "shopping_cart_id",
+            targetKey: "shopping_cart_id"
         })
 */
+        ShoppingCart.belongsToMany(models.Products, {
+            through: 'cart_details',
+            as: 'products',
+            foreignKey: 'shopping_cart_id',
+        });
     }
 
-    return shoppingCart;
+    return ShoppingCart;
 }

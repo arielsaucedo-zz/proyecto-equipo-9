@@ -59,15 +59,16 @@ router.get('/:id/edit', userAuth, [
 ], userAuth, productsController.edit);
 
 /*** localhost:3000/products/:id ***/
-router.put('/:id', productsController.update);
+router.put('/:id', upload.any(), productsController.update);
 
 /*** localhost:3000/products/:id ***/
 router.delete('/:id/delete', productsController.destroy);
 
-
+/*** localhost:3000/products/:id ***/
+router.post('/:id/addToCart', productsController.addToCart);
 
 /*** PRODUCT CART ***/
 /*** localhost:3000/products/productCart ***/
-router.get('/productCart', userAuth,productsController.cart);
+router.get('/productCart', productsController.cart);
 
 module.exports = router;

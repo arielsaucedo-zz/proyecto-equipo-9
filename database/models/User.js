@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
             type:DataTypes.STRING
         },
-        email: {
+        user_name: {
             type:DataTypes.STRING
         },
         password: {
@@ -45,12 +45,12 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define(alias, cols, config)
     User.associate = function(models) {
         User.belongsTo(models.Roles, {
-            as: "role",
+            as: "Role",
             foreingKey: "role_id"
         })
 
         User.hasMany(models.ShoppingCarts, {
-            as: "shoppingcart",
+            as: "ShoppingCarts",
             foreingKey: "user_id",
             targetKey: "user_id"
         })
