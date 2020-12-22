@@ -1,14 +1,13 @@
-const path = require('path')
+let db = require('../database/models')
 const {body} = require('express-validator')
-const userDataFilePath = path.join(__dirname, '../data/user')
-const userData = require(userDataFilePath)
 
 module.exports = [
     body('user_name').custom(function(value){
-        let user = userData.findByUserName(value)
-        if(user){
-            throw new Error('Este Email ya se encuentra registrado')
-        }
-        return true
+        return db.Users.findOne({ where: { user_name: value } })
+        .then(user => {
+          if (user) {
+            return Promise.reject('E-mail already in use');
+          }
+        })
     })
 ]
