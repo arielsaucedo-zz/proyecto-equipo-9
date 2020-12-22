@@ -1,17 +1,20 @@
 const products = require('../data/products.json');
 const fs = require('fs')
 const path = require('path')
-const {check, validationResult, } = require('express-validator')
+const {
+    check,
+    validationResult,
+} = require('express-validator')
 const productsFilePath = path.join(__dirname, '../data/products.json')
 const productDataFilePath = path.join(__dirname, '../data/product')
 let productData = require(productDataFilePath)
 let db = require('../database/models')
 
-function dateNow(){
+function dateNow() {
     let now = new Date()
     let monthReal = now.getMonth() + 1
     return (now.getFullYear() + '-' + monthReal + '-' + now.getDate() + ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())
-} 
+}
 
 
 let productsController = {
@@ -19,39 +22,49 @@ let productsController = {
     list: function (req, res) {
         db.Products.findAll()
             .then((resultado) => {
-                res.render('products/list', { products: resultado })
+                res.render('products/list', {
+                    products: resultado
+                })
             })
     },
 
     show: function (req, res) {
         db.Products.findByPk(req.params.id)
-        .then((resultado) => {
-            res.render('products/productDetail', { productDetail: resultado })
-        })
+            .then((resultado) => {
+                res.render('products/productDetail', {
+                    productDetail: resultado
+                })
+            })
     },
 
     create: function (req, res, next) {
         db.Categories.findAll()
-        .then(function(categories){
-            res.render('products/productCreate', { errors : [] , categories:categories });
-        })
-        .catch(function(error){
-            console.log(error)
-            res.send('')
-        })
+            .then(function (categories) {
+                res.render('products/productCreate', {
+                    errors: [],
+                    categories: categories
+                });
+            })
+            .catch(function (error) {
+                console.log(error)
+                res.send('')
+            })
     },
 
     store: function (req, res) {
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
             db.Categories.findAll()
-            .then(function(categories){
-                return res.render('products/productCreate', { errors: errors.errors , categories:categories } )
-            })
-            .catch(function(error){
-                console.log(error)
-                res.send('')
-            })
+                .then(function (categories) {
+                    return res.render('products/productCreate', {
+                        errors: errors.errors,
+                        categories: categories
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    res.send('')
+                })
         } else {
             let dateTimeBD = dateNow()
             let filenameVal = ''
@@ -59,14 +72,14 @@ let productsController = {
                 filenameVal = req.files[0].filename
             }
             db.Products.create({
-                    name: req.body.product_name,
-                    description: req.body.product_description,
-                    created_at: dateTimeBD,
-                    updated_at: dateTimeBD,
-                    quantity: req.body.product_quantity,
-                    price: req.body.product_price,
-                    image: filenameVal,
-                    category_id: req.body.product_category, 
+                name: req.body.product_name,
+                description: req.body.product_description,
+                created_at: dateTimeBD,
+                updated_at: dateTimeBD,
+                quantity: req.body.product_quantity,
+                price: req.body.product_price,
+                image: filenameVal,
+                category_id: req.body.product_category,
             })
             res.render('products/added')
         }
@@ -76,10 +89,14 @@ let productsController = {
         let allCategories = db.Products.findAll()
         let oneProduct = db.Products.findByPk(req.params.id)
         Promise.all([allCategories, oneProduct])
-        .then(function([allCategories, oneProduct]){
-            console.log(oneProduct)
-            res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors : [] })
-        })
+            .then(function ([allCategories, oneProduct]) {
+                console.log(oneProduct)
+                res.render('products/productEdit', {
+                    allCategories: allCategories,
+                    productEdit: oneProduct,
+                    errors: []
+                })
+            })
     },
 
     update: function (req, res, next) {
@@ -91,36 +108,41 @@ let productsController = {
         }
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productEdit', { errors: errors.errors });
+            return res.render('products/productEdit', {
+                errors: errors.errors
+            });
         }
         console.log(filenameVal)
         console.log(req.files);
         db.Products.update({
-            name: req.body.product_name,
-            description: req.body.product_description,
-            created_at: dateTimeBD,
-            updated_at: dateTimeBD,
-            quantity: req.body.product_quantity,
-            price: req.body.product_price,
-            image: filenameVal,
-            category_id: req.body.product_category
-            },
-            { where: { id: req.params.id } })
-        .then((resultado) => {
-            res.redirect('..')
-        })
+                name: req.body.product_name,
+                description: req.body.product_description,
+                created_at: dateTimeBD,
+                updated_at: dateTimeBD,
+                quantity: req.body.product_quantity,
+                price: req.body.product_price,
+                image: filenameVal,
+                category_id: req.body.product_category
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((resultado) => {
+                res.redirect('..')
+            })
     },
 
     destroy: function (req, res) {
         db.Products.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        .then((resultado) => {
-            console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-            res.redirect('/')
-        })
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((resultado) => {
+                console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
+                res.redirect('/')
+            })
     },
 
     addToCart: function (req, res) {
@@ -135,43 +157,47 @@ let productsController = {
                     CartDetails: [{
                         quantity: req.body.product_quantity,
                         subtotal: resultado.price * req.body.product_quantity,
-                        product_id: req.params.id}
-                    ]
-                },{
+                        product_id: req.params.id
+                    }]
+                }, {
                     include: [{
                         model: db.Products,
                         as: 'products'
                     }]
-                })               
-                res.render('products/productCart', { errors : [] })
+                })
+                res.render('products/productCart', {
+                    errors: []
+                })
             })
     },
 
     cart: function (req, res) {
-/*
+        /*
 
-        db.Users.findAll({ include: [ { association : 'role' }]})
-            .then(Users => {console.log(Users)})
-*/
-/*
-        db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
-            .then(ShoppingCarts => {console.log(ShoppingCarts)
-            })
+                db.Users.findAll({ include: [ { association : 'role' }]})
+                    .then(Users => {console.log(Users)})
+        */
+        /*
+                db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
+                    .then(ShoppingCarts => {console.log(ShoppingCarts)
+                    })
 
-        db.Categories.findAll()
-        .then(Categories => { console.log(Categories)
+                db.Categories.findAll()
+                .then(Categories => { console.log(Categories)
+                })
+        */
+
+        /*
+                db.CartDetail.findAll()
+                    .then(CartDetail => {console.log("CartDetail.findAll")
+                    })
+        */
+        res.render('products/productCart', {
+            errors: []
         })
-*/
-
-/*
-        db.CartDetail.findAll()
-            .then(CartDetail => {console.log("CartDetail.findAll")
-            })
-*/
-        res.render('products/productCart', { errors : [] })
     }
 
 }
 
 
- module.exports = productsController;
+module.exports = productsController;
