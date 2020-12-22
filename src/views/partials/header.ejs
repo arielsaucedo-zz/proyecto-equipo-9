@@ -17,7 +17,7 @@
                             aria-haspopup="true" aria-expanded="false">Categorías</a>
                         <div class="dropdown-menu header-f-s">
                             <% locals.listOfCategories.forEach(category => { %>
-                                <a class="dropdown-item" href="#"><%= category.name %></a>
+                            <a class="dropdown-item" href="#"><%= category.name %></a>
                             <% }) %>
                             <a class="dropdown-item" href="#">Action</a>
                             <a class="dropdown-item" href="#">Another action</a>
@@ -27,25 +27,20 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Acerca de nosotros</a>
-                        <div class="dropdown-menu header-f-s">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
+                        <a class="nav-link " href="../aboutUs.ejs" role="button" aria-haspopup="true"
+                            aria-expanded="false">Acerca de
+                            nosotros</a>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Contacto</a>
                         <div class="dropdown-menu header-f-s">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="https://www.facebook.com/">Facebook</a>
+                            <a class="dropdown-item" href="https://www.instagram.com/">Instagram</a>
+                            <a class="dropdown-item" href="https://twitter.com/">Twitter</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
+                            <a class="dropdown-item" href="../contactForm.ejs">Dejanos un mensaje</a>
                         </div>
                     </li>
                 </ul>
@@ -58,86 +53,91 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i
                                     class="icono-f-s fas fa-user-lock"></i></b> <span class="caret"></span></a>
                         <ul id="login-dp" class="header-f-s dropdown-menu">
-                            <li class = "margin-login">
+                            <li class="margin-login">
                                 <ul class="d-inline-flex">
                                     <div>
                                         <% if ( locals.user ) { %>
                                         <li class="align-self-center d-inline-flex">
-                                        <div class="welcome">
-                                            <span>Hola <%= locals.first_name + " " + locals.last_name %></span>                            
-                                        </div>
-                                        <div class="">
-                                            <form action="/users/logout" method="POST">
-                                                <button class="log_out" type="submit"><i class="fas fa-user-times"></i></button>
-                                            </form>
-                                        </div>
-                                        </li>
-                                        <li class = "margin-5">
+                                            <div class="welcome">
+                                                <span>Hola <%= locals.first_name + " " + locals.last_name %></span>
+                                            </div>
                                             <div class="">
-                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">Mi cuenta</a>
+                                                <form action="/users/logout" method="POST">
+                                                    <button class="log_out" type="submit"><i
+                                                            class="fas fa-user-times"></i></button>
+                                                </form>
                                             </div>
                                         </li>
-                                        <li class = "margin-5">
+                                        <li class="margin-5">
+                                            <div class="">
+                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">Mi
+                                                    cuenta</a>
+                                            </div>
+                                        </li>
+                                        <li class="margin-5">
                                             <a href="/products/productCreate">Crear producto</a>
                                         </li>
                                     </div>
                                     <% } else { %>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                Login con
-                                                <div class="social-buttons">
-                                                    <a href="#" class="header-f-s btn btn-fb"><i class="fa fa-facebook"></i>
-                                                        Facebook</a>
-                                                    <a href="#" class="header-f-s btn btn-tw"><i class="fa fa-twitter"></i>
-                                                        Twitter</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            Login con
+                                            <div class="social-buttons">
+                                                <a href="#" class="header-f-s btn btn-fb"><i class="fa fa-facebook"></i>
+                                                    Facebook</a>
+                                                <a href="#" class="header-f-s btn btn-tw"><i class="fa fa-twitter"></i>
+                                                    Twitter</a>
+                                            </div>
+                                            o
+                                            <form class="mt-4 form" role="form" method="POST" action="/users/login"
+                                                accept-charset="UTF-8" id="login-nav">
+                                                <div class="form-group">
+                                                    <label class="header-f-s sr-only" for="exampleInputEmail2">Email /
+                                                        Nombre de usuario</label>
+                                                    <input type="email" class="header-f-s form-control"
+                                                        id="exampleInputEmail2" placeholder="Email address"
+                                                        name="user_name">
                                                 </div>
-                                                o
-                                                <form class="mt-4 form" role="form" method="POST" action="/users/login"
-                                                    accept-charset="UTF-8" id="login-nav">
-                                                    <div class="form-group">
-                                                        <label class="header-f-s sr-only" for="exampleInputEmail2">Email /
-                                                            Nombre de usuario</label>
-                                                        <input type="email" class="header-f-s form-control"
-                                                            id="exampleInputEmail2" placeholder="Email address" name="user_name">
+                                                <div class=" form-group">
+                                                    <label class="header-f-s sr-only"
+                                                        for="exampleInputPassword2">Contraseña</label>
+                                                    <input type="password" class="header-f-s form-control"
+                                                        id="exampleInputPassword2" placeholder="Password"
+                                                        name="password">
+                                                    <div class="help-block text-center my-3"><a href=""
+                                                            class="header-f-s">Olvidaste tu contraseña ?</a>
                                                     </div>
-                                                    <div class=" form-group">
-                                                        <label class="header-f-s sr-only"
-                                                            for="exampleInputPassword2">Contraseña</label>
-                                                        <input type="password" class="header-f-s form-control"
-                                                            id="exampleInputPassword2" placeholder="Password" name="password">
-                                                        <div class="help-block text-center my-3"><a href=""
-                                                                class="header-f-s">Olvidaste tu contraseña ?</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <button type="submit"
-                                                            class="header-f-s btn btn-primary btn-block">Ingresar</button>
-                                                    </div>
-                                                    <div class="checkbox mt-3">
-                                                        <label>
-                                                            <input type="checkbox" id="rememberCheckBox" name="rememberMe"> Recordarme
-                                                        </label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="bottom text-center">
-                                                Eres nuevo ? <a href="/users/register"><b>Regístrate</b></a>
-                                            </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit"
+                                                        class="header-f-s btn btn-primary btn-block">Ingresar</button>
+                                                </div>
+                                                <div class="checkbox mt-3">
+                                                    <label>
+                                                        <input type="checkbox" id="rememberCheckBox" name="rememberMe">
+                                                        Recordarme
+                                                    </label>
+                                                </div>
+                                            </form>
                                         </div>
-                                    </li>
-            
-                                    <% } %>
-                                </ul>
-                
-                                
+                                        <div class="bottom text-center">
+                                            Eres nuevo ? <a href="/users/register"><b>Regístrate</b></a>
+                                        </div>
+                                    </div>
                             </li>
+
+                            <% } %>
                         </ul>
+
+
                     </li>
-                    <li class="nav-link">
-                        <div>
-                            <a href="/products/productCart"><i class="icono-f-s fas fa-shopping-cart"></i></a>
-                        </div>
-                    </li>
+                </ul>
+                </li>
+                <li class="nav-link">
+                    <div>
+                        <a href="/products/productCart"><i class="icono-f-s fas fa-shopping-cart"></i></a>
+                    </div>
+                </li>
                 </ul>
                 <form class="header-f-s form-inline my-2 my-lg-0" action="/search" method="GET">
                     <input class="header-f-s form-control mr-sm-2" type="search" placeholder="Buscar productos"
