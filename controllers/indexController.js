@@ -12,16 +12,34 @@ module.exports = {
         .then((resultado) => {
             res.render('index', { products: resultado })
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     },
     search: (req, res) => {
         let searchResults = []
         searchResults = products.filter(function (productElement) {
-            if (productElement.name.includes(req.query.search)  ||
-                productElement.detail.includes(req.query.search)  ||
+            if (productElement.name.includes(req.query.search) ||
+                productElement.detail.includes(req.query.search) ||
                 productElement.category.includes(req.query.search)) {
                 return true
-            } else { return false}
+            } else {
+                return false
+            }
         })
-		res.render('results', { products: searchResults })
-	},
+
+        res.render('results', {
+            products: searchResults
+        })
+    },
+    contact: function (req, res, next) {
+
+        res.render('contactForm')
+    },
+    aboutUs: function (req, res, next) {
+
+        res.render('aboutUs')
+    }
+
 }

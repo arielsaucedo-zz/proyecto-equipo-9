@@ -28,7 +28,10 @@ html,
 body {
   min-height: 100vh;
   margin: 0;
+<<<<<<< HEAD
   font-size: 14px;
+=======
+>>>>>>> 53d2fbf67f481636cc0d8fb08ba7896ae496c723
 }
 
 body {
