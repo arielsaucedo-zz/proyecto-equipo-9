@@ -23,7 +23,11 @@ const controller = {
     processLogin: function (req, res) {
         let errors = validationResult(req)
 
-        db.Users.findOne({ where: { user_name: req.body.user_name } })
+        db.Users.findOne({
+                where: {
+                    user_name: req.body.user_name
+                }
+            })
             .then((resultado) => {
                 if (errors.isEmpty()) {
                     let userLoggedIn = resultado
@@ -100,7 +104,11 @@ const controller = {
 
     show: function (req, res, next) {
         let user = {}
-        db.Users.findOne({ where: { user_name: res.locals.user } })
+        db.Users.findOne({
+                where: {
+                    user_name: res.locals.user
+                }
+            })
             .then((resultado) => {
                 user = resultado
                 res.render('users/userDetail', {

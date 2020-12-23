@@ -1,3 +1,78 @@
+## **<u>SPRINT - 6</u>**
+
+**<u>SEMANA 1</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Planificación sprint-6. 
+				Generación de modelos - Carrito de compra.
+
+​	Nicolás: 
+​				Planificación sprint-6. 																																 																 				Alta de actividades del sprint-6 en Trello.
+
+​	Daniel: 
+​				Planificación sprint-6.  																																																		      				Generación de modelos - Product y Category.
+
+​	 Ariel:                                                                                                                                                                                               													 				Planificación sprint-6. 																																			 																 				Generación de modelos Usuarios y Roles. 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				En la semana del 14/12 por temas personales no logré dedicarle el tiempo que quería al proyecto.
+	Nicolás:
+				En muchos casos, las soluciones a aplicar son distintas a las vistas en la cursada.
+	Daniel:                                                                                                                       														      														 				Ninguno. 				                    	
+
+​	Ariel:                                                                                                                                                                                                													 				Dificultad en el manejo de sequelize.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Terminar modelo e iniciar CRUD Carrito de compra y productos.
+
+​	Nicolás:
+​                Trabajar sobre CRUD productos. 																							 
+
+​	Daniel: 																																							         	    														 				Terminar enlaces que quedaban pendientes del Header.
+
+​    Ariel:                                                                                                                                                                                                 								 				 				Iniciar CRUD de usuario y productos. 																	 																 										 				Mejorar estilos de las vistas.
+
+**<u>SEMANA 2</u>**
+
+● Qué hizo en la semana
+
+​	Cristian: 
+​				Modelo de Carrito y productos. CRUD de productos y carrito (aún falta terminar este último).
+
+​	Nicolás:
+​                Participación grupal.                                                                                                                                                             	
+
+​	Daniel:                                                                                                                                                                                														 				Terminar enlaces que quedaban pendientes de Acerca de nosotros y Contacto.                                                                                                                                                      	
+
+​	Ariel:                                                                                                                                                                                                    											 				CRUD de usuarios en forma grupal.																																			                                                				Mejora de estilos en la pagina.									 											 		 		 				
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				En varias ocasiones, necesitamos implementar soluciones no vistas en clase, con las que no estoy familiarizado, por lo que me cuesta trabajar sobre ellas. 																									 															 				
+
+​	Daniel:                                                                                                                                                                                    												 			 				Ninguno.                                                                                               	
+
+​	Ariel:																																				                                                   									 			 				Ninguno.
+
+● Qué va a la próxima semana.
+	Cristian:
+				Planificar sprint-7.																																																				 				Terminar CRUD Carrito de compra.
+
+​	Nicolás:
+​				Planificar sprint-7.                                                                                                                              		
+
+​	Daniel:                                                                                                                                                                                														 				Planificar sprint-7.
+
+​	Ariel:
+​				Planificar sprint-7.																																																				       				Mejorar el estilo de la pagina.
+
+
+
 ## **<u>SPRINT - 5</u>**
 
 **<u>SEMANA 1</u>**
