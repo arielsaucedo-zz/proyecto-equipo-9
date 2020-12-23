@@ -12,6 +12,10 @@ module.exports = {
         .then((resultado) => {
             res.render('index', { products: resultado })
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     },
     search: (req, res) => {
         let searchResults = []

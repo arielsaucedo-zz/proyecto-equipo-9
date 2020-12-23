@@ -35,18 +35,18 @@ module.exports = (sequelize, DataTypes) => {
             as: "User",
             foreingKey: "user_id"
         })
-/*
+
         ShoppingCart.hasMany(models.CartDetails, {
-            as: "CartDetails",
-            foreingKey: "shopping_cart_id",
-            targetKey: "shopping_cart_id"
+            as: "CartItems",
+            foreingKey: "shopping_cart_id"
         })
-*/
+
         ShoppingCart.belongsToMany(models.Products, {
             through: 'cart_details',
             as: 'products',
-            foreignKey: 'shopping_cart_id',
+            foreignKey: 'shopping_cart_id'
         });
+
     }
 
     return ShoppingCart;

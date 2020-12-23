@@ -21,12 +21,20 @@ let productsController = {
             .then((resultado) => {
                 res.render('products/list', { products: resultado })
             })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
+            })
     },
 
     show: function (req, res) {
         db.Products.findByPk(req.params.id)
         .then((resultado) => {
             res.render('products/productDetail', { productDetail: resultado })
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
         })
     },
 
@@ -68,6 +76,10 @@ let productsController = {
                     image: filenameVal,
                     category_id: req.body.product_category, 
             })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
+            })
             res.render('products/added')
         }
     },
@@ -79,6 +91,10 @@ let productsController = {
         .then(function([allCategories, oneProduct]){
             console.log(oneProduct)
             res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors : [] })
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
         })
     },
 
@@ -109,6 +125,10 @@ let productsController = {
         .then((resultado) => {
             res.redirect('..')
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     },
 
     destroy: function (req, res) {
@@ -121,6 +141,10 @@ let productsController = {
             console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
             res.redirect('/')
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     },
 
     addToCart: function (req, res) {
@@ -132,18 +156,26 @@ let productsController = {
                     created_at: dateTimeBD,
                     updated_at: dateTimeBD,
                     user_id: res.locals.userId,
-                    CartDetails: [{
+                    CartItems: [{
                         quantity: req.body.product_quantity,
                         subtotal: resultado.price * req.body.product_quantity,
-                        product_id: req.params.id}
-                    ]
-                },{
-                    include: [{
-                        model: db.Products,
-                        as: 'products'
+                        product_id: req.params.id,
+                        cart_details: {
+                            selfGranted: true
+                        }
                     }]
+                },{
+                    include: {
+                        all: true
+/*                        model: db.Products,
+                        as: 'products' */
+                    }
                 })               
                 res.render('products/productCart', { errors : [] })
+            })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
             })
     },
 

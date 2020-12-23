@@ -33,19 +33,19 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const CartDetail = sequelize.define(alias, cols, config)
-        /*
+
 
     CartDetail.associate = function(models) {
         CartDetail.belongsTo(models.ShoppingCarts, {
             as: "ShoppingCart",
             foreingKey: "shopping_cart_id"
         })
-        CartDetail.hasMany(models.Products, {
+        CartDetail.belongsTo(models.Products, {
             as: "Products",
             foreingKey: "product_id"
         })
     }
-        */
+        
 
     return CartDetail
 }
