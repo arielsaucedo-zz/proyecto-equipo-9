@@ -3,7 +3,7 @@
 - **<u>Comenzar a hacer:</u>** Generar el tiempo suficiente para poder juntarnos a codificar en grupo y, de esa manera, poder ver las dudas y ayudarnos a fijar los conocimientos.
 - **<u>Hacer más:</u>** Realizar reuniones con más frecuencia o establecer quizas un día, una juntada de al menos una hora y codear en grupo. (podría ser que cada uno trabaje en su tarea, pero todos en una call)
 - **<u>Continuar haciendo:</u>** Division de tareas para repartirlas entre los diferentes integrantes del equipo. 
-- **<u>Hacer menos:</u>** En este sprint logramos realizar lo propuesto en sprints anteriores.
+- **<u>Hacer menos:</u>** Ninguno.
 - **<u>Dejar de hacer:</u>** Postergar cambios en estilos y demas funcionalidades que se pueden ir adelantando. Por no estar solicitadas dentro del sprint en curso, no estamos avanzando en ciertas cuestiones que 
   ya sabemos y podemos ir adelantando. Hay que avanzar en lo que más se pueda.
 

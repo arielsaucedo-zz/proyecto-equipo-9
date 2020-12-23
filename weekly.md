@@ -8,21 +8,21 @@
 				Generación de modelos - Carrito de compra.
 
 ​	Nicolás: 
-​				Planificación sprint-6. 																																 																 				Alta de actividades del sprint-6 en Trello.
+​				Planificación sprint-6. 																																 				Alta de actividades del sprint-6 en Trello.
 
 ​	Daniel: 
-​				Planificación sprint-6.  																																																		      				Generación de modelos - Product y Category.
+​				Planificación sprint-6.  																																	 				Generación de modelos - Product y Category.
 
-​	 Ariel:                                                                                                                                                                                               													 				Planificación sprint-6. 																																			 																 				Generación de modelos Usuarios y Roles. 
+​	 Ariel:                                                                                                                                                                                               				Planificación sprint-6. 																																			 				Generación de modelos Usuarios y Roles. 
 
 ● Si se encontró con algún impedimento
 	Cristian: 
 				En la semana del 14/12 por temas personales no logré dedicarle el tiempo que quería al proyecto.
 	Nicolás:
 				En muchos casos, las soluciones a aplicar son distintas a las vistas en la cursada.
-	Daniel:                                                                                                                       														      														 				Ninguno. 				                    	
+	Daniel:                                                                                                                       														      				Ninguno. 				                    	
 
-​	Ariel:                                                                                                                                                                                                													 				Dificultad en el manejo de sequelize.
+​	Ariel:                                                                                                                                                                                                				Dificultad en el manejo de sequelize.
 
 ● Qué va a hacer la próxima semana.
 	Cristian:
@@ -31,9 +31,9 @@
 ​	Nicolás:
 ​                Trabajar sobre CRUD productos. 																							 
 
-​	Daniel: 																																							         	    														 				Terminar enlaces que quedaban pendientes del Header.
+​	Daniel: 																																							         	    				Terminar enlaces que quedaban pendientes del Header.
 
-​    Ariel:                                                                                                                                                                                                 								 				 				Iniciar CRUD de usuario y productos. 																	 																 										 				Mejorar estilos de las vistas.
+​    Ariel:                                                                                                                                                                                                 				Iniciar CRUD de usuario y productos. 																	 											 				Mejorar estilos de las vistas.
 
 **<u>SEMANA 2</u>**
 
@@ -45,9 +45,9 @@
 ​	Nicolás:
 ​                Participación grupal.                                                                                                                                                             	
 
-​	Daniel:                                                                                                                                                                                														 				Terminar enlaces que quedaban pendientes de Acerca de nosotros y Contacto.                                                                                                                                                      	
+​	Daniel:                                                                                                                                                                                				Terminar enlaces que quedaban pendientes de Acerca de nosotros y Contacto.                                                                                                                                                      	
 
-​	Ariel:                                                                                                                                                                                                    											 				CRUD de usuarios en forma grupal.																																			                                                				Mejora de estilos en la pagina.									 											 		 		 				
+​	Ariel:                                                                                                                                                                                                    				CRUD de usuarios en forma grupal.																											 	 				Mejora de estilos en la pagina.									 											 		 		 				
 
 ● Si se encontró con algún impedimento
 	Cristian: 
@@ -55,9 +55,9 @@
 	Nicolás:
 				En varias ocasiones, necesitamos implementar soluciones no vistas en clase, con las que no estoy familiarizado, por lo que me cuesta trabajar sobre ellas. 																									 															 				
 
-​	Daniel:                                                                                                                                                                                    												 			 				Ninguno.                                                                                               	
+​	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
 
-​	Ariel:																																				                                                   									 			 				Ninguno.
+​	Ariel:																																				                                                   				Ninguno.
 
 ● Qué va a la próxima semana.
 	Cristian:
@@ -66,10 +66,10 @@
 ​	Nicolás:
 ​				Planificar sprint-7.                                                                                                                              		
 
-​	Daniel:                                                                                                                                                                                														 				Planificar sprint-7.
+​	Daniel:                                                                                                                                                                                				Planificar sprint-7.
 
 ​	Ariel:
-​				Planificar sprint-7.																																																				       				Mejorar el estilo de la pagina.
+​				Planificar sprint-7.																																		 	 				Mejorar el estilo de la pagina.
 
 
 
