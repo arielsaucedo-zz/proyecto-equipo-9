@@ -8,67 +8,6 @@
     <%- include('../partials/header') %>
 
     <main>
-        <!--
-        <div class="register-container register-d-flex margin-b-20">
-            <form class="w-100" action="/users" method="POST" enctype="multipart/form-data">
-                <div class="w-100 d-flex">
-                    <h2 class="register-h2">Registro</h2>
-                    <hr>
-                </div>
-                <div class="inputs-registro register-d-flex">
-                    <% errors.forEach(error => { %>
-                        <% if(error.param == "first_name") { %>
-                            <span class="span_errors">* <%= error.msg %></span>
-                        <% } else { "" } %>
-                    <% }) %>
-                    <input class="register-input-style-border input_xl" type="text" name="first_name" placeholder="Nombre">
-                    <% errors.forEach(error => { %>
-                        <% if(error.param == "last_name") { %>
-                            <span class="span_errors">* <%= error.msg %></span>
-                        <% } else { "" } %>
-                    <% }) %>
-                    <input class="register-input-style-border input_xl" type="text" name="last_name" placeholder="Apellido">
-                    <% errors.forEach(error => { %>
-                        <% if(error.param == "user_name") { %>
-                            <span class="span_errors">* <%= error.msg %></span>
-                        <% } else { "" } %>
-                    <% }) %>
-                    <input class="register-input-style-border input_xl" type="text" name="user_name" placeholder="Nombre de usuario">
-                    <% errors.forEach(error => { %>
-                        <% if(error.param == "password_initial") { %>
-                            <div class="w-50">
-                                <span class="span_errors">
-                                    * <%= error.msg %>                            
-                                </span>
-                            </div>
-                        <% } else { "" } %>
-                    <% }) %>
-                    <% errors.forEach(error => { %>
-                        <% if(error.param == "password_confirmation") { %>
-                            <div class="w-50">
-                                <span class="span_errors">
-                                    * <%= error.msg %>                            
-                                </span>
-                            </div>
-                        <% } else { "" } %>
-                    <% }) %>
-
-                    <span>Subí tu imagen de perfil</span>
-
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFile" name="user-avatar">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                    </div>
-
-                    <input class="register-input-style-border input_pass" type="password" name="password_initial" placeholder="Elegí tu contraseña">
-                    <input class="register-input-style-border input_pass" type="password" name="password_confirmation" placeholder="Confirmá tu contraseña">
-
-                    <button class="register-input-style-border class-btn" type="submit" id="enviar" target="">Enviar</button>
-                    <button class="register-input-style-border class-rst" type="reset" id="borrar">Borrar</button>
-                </div>
-            </form>
-        </div>
-        -->
         <div class="container">
             <div class="w-100 d-flex">
                 <h2 class="register-h2">Registro</h2>
@@ -77,8 +16,8 @@
             <form class="needs-validation" action="/users" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltip01">First name</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" name="first_name"
+                        <label for="validationTooltip01">Nombre</label>
+                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Ingrese su nombre" name="first_name"
                             required>
                         <div class="valid-tooltip">
                             Looks good!
@@ -90,8 +29,8 @@
                         <% }) %>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Last name</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" name="last_name"
+                        <label for="validationTooltip02">Apellido</label>
+                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Ingrese su apellido" name="last_name"
                             required>
                         <div class="valid-tooltip">
                             Looks good!
@@ -103,12 +42,12 @@
                         <% }) %>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="validationTooltipUsername">Username (e-mail address)</label>
+                        <label for="validationTooltipUsername">Nombre de Usuario (e-mail)</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                             </div>
-                            <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" name="user_name"
+                            <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Ingrese su e-mail" name="user_name"
                                 aria-describedby="validationTooltipUsernamePrepend" required>
                             <div class="invalid-tooltip">
                                 Please choose a unique and valid username.
@@ -123,8 +62,8 @@
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
-                        <label for="validationTooltip03">Password</label>
-                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Password" name="password_initial"
+                        <label for="validationTooltip03">Contraseña</label>
+                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Ingrese su contraseña" name="password_initial"
                         required>
                         <div class="invalid-tooltip">
                             Please provide a valid password.
@@ -132,8 +71,8 @@
                         
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="validationTooltip03">Confirm Password</label>
-                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Confirm Password" name="password_confirmation"
+                        <label for="validationTooltip03">Confirmacion contraseña</label>
+                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Ingrese su contraseña nuevamente" name="password_confirmation"
                         required>
                         <div class="invalid-tooltip">
                             Please provide a valid password.
@@ -164,8 +103,9 @@
                         <% }) %>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit registration</button>
+                <button class="btn btn-primary" type="submit">Registrarse</button>
             </form>
+            <br>
         </div>
     </main>
 
