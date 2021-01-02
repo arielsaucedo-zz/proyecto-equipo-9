@@ -100,7 +100,6 @@ let productsController = {
         let oneProduct = db.Products.findByPk(req.params.id)
         Promise.all([allCategories, oneProduct])
         .then(function([allCategories, oneProduct]){
-            console.log(oneProduct)
             res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors : [] })
         })
         .catch(function(error){
@@ -112,7 +111,6 @@ let productsController = {
     update: function (req, res, next) {
         let dateTimeBD = dateNow()
         let filenameVal = ''
-        console.log(req.files)
         if (req.files != undefined) {
             filenameVal = req.files[0].filename
         }
@@ -122,8 +120,6 @@ let productsController = {
                 errors: errors.errors
             });
         }
-        console.log(filenameVal)
-        console.log(req.files);
         db.Products.update({
             name: req.body.product_name,
             description: req.body.product_description,

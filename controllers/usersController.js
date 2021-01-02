@@ -28,38 +28,40 @@ const controller = {
                     user_name: req.body.user_name
                 }
             })
-            .then((resultado) => {
-                if (errors.isEmpty()) {
-                    let userLoggedIn = resultado
-                    if (!userLoggedIn) {
-                        console.log('error')
-                        return res.render('users/login', {
-                            errors: [{
-                                value: '',
-                                msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
-                                param: 'user_name',
-                                location: 'body'
-                            }]
-                        })
-                    } else if (bcryptjs.compareSync(req.body.password, userLoggedIn.password)) {
-                        req.session.user = userLoggedIn.user_name
-                        req.session.first_name = userLoggedIn.first_name
-                        req.session.last_name = userLoggedIn.last_name
-                        req.session.userId = userLoggedIn.id
-                        console.log(req.session);
-                        if (req.body.rememberMe) {
-                            res.cookie('rememberMe', userLoggedIn.user_name, {
-                                maxAge: 120 * 1000
-                            })
-                        }
-                        return res.redirect('/')
-                    }
-                } else {
+        .then((resultado) => {
+            if (errors.isEmpty()) {
+                let userLoggedIn = resultado
+                if (!userLoggedIn) {
                     return res.render('users/login', {
-                        errors: errors.errors
+                        errors: [{
+                            value: '',
+                            msg: 'E-mail incorrecto. Ingrese nuevamente los datos por favor.',
+                            param: 'user_name',
+                            location: 'body'
+                        }]
                     })
+                } else if (bcryptjs.compareSync(req.body.password, userLoggedIn.password)) {
+                    req.session.user = userLoggedIn.user_name
+                    req.session.first_name = userLoggedIn.first_name
+                    req.session.last_name = userLoggedIn.last_name
+                    req.session.userId = userLoggedIn.id
+                    if (req.body.rememberMe) {
+                        res.cookie('rememberMe', userLoggedIn.user_name, {
+                            maxAge: 120 * 1000
+                        })
+                    }
+                    return res.redirect('/')
                 }
-            })
+            } else {
+                return res.render('users/login', {
+                    errors: errors.errors
+                })
+            }
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     },
 
     logout: function (req, res) {
@@ -99,6 +101,10 @@ const controller = {
             role_id: 1,
             image: filenameVal
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
         res.redirect('users/login')
     },
 
@@ -108,14 +114,18 @@ const controller = {
                 where: {
                     user_name: res.locals.user
                 }
+        })
+        .then((resultado) => {
+            user = resultado
+            res.render('users/userDetail', {
+                userLoggedIn: user,
+                errors: []
             })
-            .then((resultado) => {
-                user = resultado
-                res.render('users/userDetail', {
-                    userLoggedIn: user,
-                    errors: []
-                })
-            })
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     }
 }
 

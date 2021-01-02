@@ -20,7 +20,7 @@
                     <img class="product-detail-img" src="/images/products/<%= productDetail.image %>" alt="">
                 </div>
 
-                <div class="card bg-light mb-3" style="max-width: 40rem;">
+                <div class="card bg-light mb-3 col-12 col-lg-6" style="max-width: 40rem;">
                     <div class="card-header">
                         <h2>
                             <%= productDetail.name %>
@@ -38,22 +38,21 @@
                         </p>
 
                         <form action="/products/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
-                            <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad</label>
-                                <input class="form-control form-control-lg" type="text" name="product_quantity"
-                                    id="inputNewProduct" value="1">
+                            <div class="ml-1">
+                                <label class="" for="inputDefault">Cantidad</label>
+                                <input class="form-control mb-2" type="text" name="product_quantity" id="inputNewProduct" value="1">
+                                <button type="submit" class="btn btn-success"><i class="fas fa-cart-arrow-down mr-2"></i> Enviar al carrito</button>
                             </div>
-                            <button type="submit" class="btn btn-info action-button">Enviar al carrito</button>
                         </form>
                         <hr>
 
                         <form action="/products/<%= productDetail.id %>/edit" method="get" style="display: inline-flex">
-                            <button type="submit" class="action-button btn btn-warning">Editar</button>
+                            <button type="submit" class="btn btn-warning"><i class="fas fa-edit mr-2"></i> Editar</button>
                         </form>
 
                         <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST"
                             style="display: inline-flex">
-                            <button type="submit" class="action-button btn btn-danger">Eliminar</button>
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i> Eliminar</button>
                         </form>
                     </div>
                 </div>

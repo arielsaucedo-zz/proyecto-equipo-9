@@ -28,10 +28,7 @@ html,
 body {
   min-height: 100vh;
   margin: 0;
-<<<<<<< HEAD
   font-size: 14px;
-=======
->>>>>>> 53d2fbf67f481636cc0d8fb08ba7896ae496c723
 }
 
 body {
@@ -697,7 +694,7 @@ ul#nav1>li ul li {
 }
 
 #login-dp {
-  min-width: 250px;
+  min-width: 260px;
   padding: 14px 14px 0;
   overflow: hidden;
   background-color: rgba(255, 255, 255, .8);
