@@ -8,50 +8,13 @@
     <%- include('../partials/header') %>
     
     <main>
-
-        <!--
-        <div class="login">
-            <div class="login-container">
-                <form action="/users/login" method="POST">
-                    <div class="inputs-login">
-                        <div class="title-login texts-login">
-                            <a>MI CUENTA</a>
-                        </div>
-                        <div class="sub-title-login texts-login">
-                            <a>INGRESA CON TUS DATOS:</a>
-                        </div>
-                        <% errors.forEach(error => { %>
-                            <% if(error.param == "user_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                            <% } else { "" } %>
-                        <% }) %>
-                        <div class="inputs-format">
-                            <input class="login-input-style-border" type="text" name="user_name" placeholder="Usuario">
-                            <input class="login-input-style-border" type="password" name="password" placeholder="Contraseña">
-                        </div>
-                        <div class="opciones-login">
-                            <div class="boton-enviar">
-                                <button class="login-btn class-btn" type="submit" id="login-enviar" target="">Enviar</button>
-                            </div>
-                            <div class="rememberMe margin-t-10 margin-b-10">
-                                <input type="checkbox" name="rememberMe">
-                                <span>Recuérdame</span>
-                            </div>
-                            <div class="olvide-contra">
-                                <a href="#">Olvidé mi clave</a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    -->
         <div class="container">
             <div class="row m-4 justify-content-center">
                 <div class="col-xs-12 col-lg-4">
                     <div class="gradient-dark p-3 shadow-lg rounded">
                         <div class="pt-3">
                             <h2 class="text-white text-center">Mi Cuenta</h2>
+                            <hr>
                         </div>
                         <form class="mt-5" action="/users/login" method="POST" >
                             <% errors.forEach(error => { %>
@@ -60,13 +23,15 @@
                                 <% } else { "" } %>
                             <% }) %>
                             <div class="form-group">
+                                <label class="text-white" for="email_id">Nombre de Usuario (e-mail)</label>
                                 <input type="email" class="form-control form-control-sm bg-light"
-                                    placeholder="Email Id" name="user_name">
+                                    placeholder="Email Id" name="user_name" id="email_id">
                             </div>
 
                             <div class="form-group">
+                                <label class="text-white" for="psw_id">Contraseña</label>
                                 <input type="password" class="form-control form-control-sm bg-light"
-                                    placeholder="Password" name="password">
+                                    placeholder="Password" name="password" id="psw_id">
                             </div>
 
                             <div class="form-group form-check">
@@ -75,7 +40,7 @@
                             </div>
 
                             <div class="mt-5">
-                                <button class="btn btn-sm btn-light col">
+                                <button class="btn btn-sm btn-primary col">
                                     Login
                                 </button>
                             </div>

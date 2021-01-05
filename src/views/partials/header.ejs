@@ -27,7 +27,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link " href="../aboutUs" role="button" aria-haspopup="true"
+                        <a class="nav-link " href="/aboutUs" role="button" aria-haspopup="true"
                             aria-expanded="false">Acerca de
                             nosotros</a>
 
@@ -42,7 +42,7 @@
                                 <a class="dropdown-item" href="https://twitter.com/">Twitter</a>
                             -->
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../contact">Dejanos un mensaje</a>
+                            <a class="dropdown-item" href="/contact">Dejanos un mensaje</a>
                         </div>
                     </li>
                 </ul>
@@ -57,27 +57,30 @@
                         <ul id="login-dp" class="header-f-s dropdown-menu">
                             <li class="margin-login">
                                 <ul class="d-inline-flex">
+                                    <% if ( locals.user ) { %>
                                     <div>
-                                        <% if ( locals.user ) { %>
                                         <li class="align-self-center d-inline-flex">
                                             <div class="welcome">
                                                 <span>Hola <%= locals.first_name + " " + locals.last_name %></span>
                                             </div>
+                                        </li>
+                                        <li class="margin-5">
+                                            <div class="">
+                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">
+                                                    <i class="fas fa-user-circle mr-2"></i> Mi cuenta</a>
+                                                </div>
+                                            </li>
+                                        <li class="margin-5">
+                                            <a href="/products/productCreate">
+                                                <i class="fas fa-plus-circle mr-2" ></i> Crear producto</a>
+                                        </li>
+                                        <li>
                                             <div class="">
                                                 <form action="/users/logout" method="POST">
-                                                    <button class="log_out" type="submit"><i
-                                                            class="fas fa-user-times"></i></button>
+                                                    <button class="log_out" type="submit">
+                                                        <i class="fas fa-user-times mr-2"></i> LogOut</button>
                                                 </form>
                                             </div>
-                                        </li>
-                                        <li class="margin-5">
-                                            <div class="">
-                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">Mi
-                                                    cuenta</a>
-                                            </div>
-                                        </li>
-                                        <li class="margin-5">
-                                            <a href="/products/productCreate">Crear producto</a>
                                         </li>
                                     </div>
                                     <% } else { %>
