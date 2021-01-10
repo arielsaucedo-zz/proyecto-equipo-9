@@ -9,97 +9,99 @@
 
     <main>
         <div class="container">
-            <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                <div class="form-row">
-                    <div class="form-group">
+            <div class="card mt-4 p-3 shadow-lg rounded border-0">
+                <div class="card-body">
+                    <div class="card-title text-center mb-4">
                         <h2 class="register-h2">Edicion de productos</h2>
                         <hr>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label col-form-label-lg" for="inputDefault">Nombre del producto</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_name"
-                            value="<%= productEdit.name %>">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
-                        <select name="product_category" class="form-control form-control-lg">
-                        <% for(let i = 0; i < allCategories.length; i++) {%>
-                            <% if(allCategories[i].id == productEdit.category_id) { %>
-                                <option value="<%= allCategories[i].id %>" selected>
-                                    <%= allCategories[i].name %>
-                                </option>
-                            <% } else {%>
-                                <option value="<%= allCategories[i].id %>">
-                                    <%= allCategories[i].name %>
-                                </option>
-                            <% } %>
-                        <% } %>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad en Stock</label>
-                        <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_quantity"
-                            value="<%= productEdit.quantity %>">
-                    </div>
-
-                    <div class="form-group col-md-4">
-                        <label class="col-form-label col-form-label-lg">Precio</label>
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">$</span>
-                                </div>
-                                <input type="text" class="form-control form-control-lg"
-                                    aria-label="Amount (to the nearest dollar)" name="product_price"
-                                    value="<%= productEdit.price %>">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">.00</span>
-                                </div>
+                    <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-lg" for="inputDefault">Nombre del producto</label>
+                                <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_name"
+                                    value="<%= productEdit.name %>">
                             </div>
                         </div>
-                    </div>
-                </div>
 
-
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <div class="input-group mb-3">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile02" name="image"
-                                    value="<%= productEdit.image %>">
-                                <label class="custom-file-label" for="inputGroupFile02">
-                                    <% if (productEdit.image != '') { %>
-                                        <%= productEdit.image %>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
+                                <select name="product_category" class="form-control form-control-lg">
+                                <% for(let i = 0; i < allCategories.length; i++) {%>
+                                    <% if(allCategories[i].id == productEdit.category_id) { %>
+                                        <option value="<%= allCategories[i].id %>" selected>
+                                            <%= allCategories[i].name %>
+                                        </option>
                                     <% } else {%>
-                                        Imagen del producto
+                                        <option value="<%= allCategories[i].id %>">
+                                            <%= allCategories[i].name %>
+                                        </option>
                                     <% } %>
-                                </label>
+                                <% } %>
+                                </select>
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text">Upload</span>
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad en Stock</label>
+                                <input type="text" class="form-control form-control-lg" id="inputDefault" name="product_quantity"
+                                    value="<%= productEdit.quantity %>">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label class="col-form-label col-form-label-lg">Precio</label>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input type="text" class="form-control form-control-lg"
+                                            aria-label="Amount (to the nearest dollar)" name="product_price"
+                                            value="<%= productEdit.price %>">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">.00</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image"
+                                            value="<%= productEdit.image %>">
+                                        <label class="custom-file-label" for="inputGroupFile02">
+                                            <% if (productEdit.image != '') { %>
+                                                <%= productEdit.image %>
+                                            <% } else {%>
+                                                Imagen del producto
+                                            <% } %>
+                                        </label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label col-form-label-lg" for="exampleTextarea">Descripcion</label>
+                                <textarea class="form-control" id="exampleTextarea" rows="3" 
+                                    name="product_description"><%= productEdit.description %></textarea>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Editar</button>
+
+                        <button type="reset" class="btn btn-warning">Limpiar</button>
+                    </form>
                 </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label class="col-form-label col-form-label-lg" for="exampleTextarea">Descripcion</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="3" 
-                            name="product_description"><%= productEdit.description %></textarea>
-                    </div>
-                </div>
-
-
-                <button type="submit" class="btn btn-lg btn-primary">EDITAR</button>
-
-                <button type="reset" class="btn btn-lg btn-warning">RESET</button>
-            </form>
+            </div>
         </div>
         <br>
     </main>

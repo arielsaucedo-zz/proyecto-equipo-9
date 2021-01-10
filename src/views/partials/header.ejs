@@ -65,23 +65,23 @@
                                 <ul class="d-inline-flex">
                                     <% if ( locals.user ) { %>
                                     <div>
-                                        <li class="margin-5">
+                                        <li class="">
                                             <div class="">
-                                                <a title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">
+                                                <a class="dropdown-item" title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">
                                                     <i class="fas fa-user-circle mr-2"></i> Mi cuenta</a>
                                                 </div>
                                             </li>
-                                        <li class="margin-5">
-                                            <a href="/products/productCreate">
+                                        <li class="">
+                                            <a class="dropdown-item" href="/products/productCreate">
                                                 <i class="fas fa-plus-circle mr-2" ></i> Crear producto</a>
                                         </li>
-                                        <li>
-                                            <div class="">
-                                                <form action="/users/logout" method="POST">
-                                                    <button class="log_out" type="submit">
-                                                        <i class="fas fa-user-times mr-2"></i> LogOut</button>
-                                                </form>
-                                            </div>
+                                        <div class="dropdown-divider"></div>
+                                        <li class="dropdown-item">
+                                            <form action="/users/logout" method="POST">
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <i class="fas fa-sign-out-alt mr-2"></i><input class="dropdown-item log_out border-0 p-0" type="submit" value="Cerrar sesión">
+                                                </div>
+                                            </form>
                                         </li>
                                     </div>
                                     <% } else { %>

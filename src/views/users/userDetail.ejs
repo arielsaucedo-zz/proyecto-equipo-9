@@ -9,103 +9,107 @@
 
     <main>
         <div class="container">
-            <div class="w-100 d-flex">
-                <h2 class="register-h2">Mi Cuenta</h2>
-                <hr>
+            <div class="card mt-4 p-3 shadow-lg rounded border-0">
+                <div class="card-body">
+                    <div class="card-title text-center mb-4">
+                        <h2 class="register-h2">Mi Cuenta</h2>
+                        <hr>
+                    </div>
+                    <form class="needs-validation" action="/users" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip01">Nombre</label>
+                                <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" name="first_name"
+                                value="<%= userLoggedIn.first_name %>" required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                                <% errors.forEach(error => { %>
+                                    <% if(error.param == "first_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                    <% } else { "" } %>
+                                <% }) %>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltip02">Apellido</label>
+                                <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" name="last_name"
+                                value="<%= userLoggedIn.last_name %>"   required>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                </div>
+                                <% errors.forEach(error => { %>
+                                    <% if(error.param == "last_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                    <% } else { "" } %>
+                                <% }) %>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationTooltipUsername">Nombre de usuario (e-mail)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" name="user_name"
+                                        aria-describedby="validationTooltipUsernamePrepend" value="<%= userLoggedIn.user_name %>" required>
+                                    <div class="invalid-tooltip">
+                                        Please choose a unique and valid username.
+                                    </div>
+                                </div>
+                                <% errors.forEach(error => { %>
+                                    <% if(error.param == "user_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                    <% } else { "" } %>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip03">Contraseña</label>
+                                <input type="text" class="form-control" id="validationTooltip03" placeholder="Password" name="password_initial"
+                                value="Elegí tu nueva contraseña" required>
+                                <div class="invalid-tooltip">
+                                    Please provide a valid password.
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationTooltip03">Confirmacion de contraseña</label>
+                                <input type="text" class="form-control" id="validationTooltip03" placeholder="Confirm Password" name="password_confirmation"
+                                value="Confirmá tu nueva contraseña" required>
+                                <div class="invalid-tooltip">
+                                    Please provide a valid password.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <% errors.forEach(error => { %>
+                                <% if(error.param == "password_initial") { %>
+                                <div class="">
+                                    <span class="span_errors">
+                                        * <%= error.msg %>
+                                    </span>
+                                </div>
+                                <% } else { "" } %>
+                                <% }) %>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <% errors.forEach(error => { %>
+                                <% if(error.param == "password_confirmation") { %>
+                                <div class="">
+                                    <span class="span_errors">
+                                        * <%= error.msg %>
+                                    </span>
+                                </div>
+                                <% } else { "" } %>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" target="">Aceptar</button>
+                        <button type="reset" class="btn btn-warning">Limpiar</button>
+                    </form>
+                </div>
             </div>
-            <form class="needs-validation" action="/users" method="POST" enctype="multipart/form-data">
-                <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip01">Nombre</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" name="first_name"
-                        value="<%= userLoggedIn.first_name %>" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                        <% errors.forEach(error => { %>
-                            <% if(error.param == "first_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                            <% } else { "" } %>
-                        <% }) %>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltip02">Apellido</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" name="last_name"
-                        value="<%= userLoggedIn.last_name %>"   required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
-                        <% errors.forEach(error => { %>
-                            <% if(error.param == "last_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                            <% } else { "" } %>
-                        <% }) %>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationTooltipUsername">Nombre de usuario (e-mail)</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                            </div>
-                            <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" name="user_name"
-                                aria-describedby="validationTooltipUsernamePrepend" value="<%= userLoggedIn.user_name %>" required>
-                            <div class="invalid-tooltip">
-                                Please choose a unique and valid username.
-                            </div>
-                        </div>
-                        <% errors.forEach(error => { %>
-                            <% if(error.param == "user_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                            <% } else { "" } %>
-                        <% }) %>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationTooltip03">Contraseña</label>
-                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Password" name="password_initial"
-                        value="Elegí tu nueva contraseña" required>
-                        <div class="invalid-tooltip">
-                            Please provide a valid password.
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="validationTooltip03">Confirmacion de contraseña</label>
-                        <input type="text" class="form-control" id="validationTooltip03" placeholder="Confirm Password" name="password_confirmation"
-                        value="Confirmá tu nueva contraseña" required>
-                        <div class="invalid-tooltip">
-                            Please provide a valid password.
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <% errors.forEach(error => { %>
-                        <% if(error.param == "password_initial") { %>
-                        <div class="">
-                            <span class="span_errors">
-                                * <%= error.msg %>
-                            </span>
-                        </div>
-                        <% } else { "" } %>
-                        <% }) %>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <% errors.forEach(error => { %>
-                        <% if(error.param == "password_confirmation") { %>
-                        <div class="">
-                            <span class="span_errors">
-                                * <%= error.msg %>
-                            </span>
-                        </div>
-                        <% } else { "" } %>
-                        <% }) %>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-lg btn-primary" target="">Aceptar</button>
-                <button type="reset" class="btn btn-lg btn-warning">Limpiar</button>
-            </form>
             <br>
         </div>
     </main>

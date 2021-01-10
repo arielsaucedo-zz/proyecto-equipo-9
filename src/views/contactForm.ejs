@@ -14,8 +14,8 @@
 
                 <form action="mail.php" method="post">
                     <div class="card border-primary rounded-0">
-                        <div class="card-header gradient-dark p-0">
-                            <div class="text-white text-center py-2">
+                        <div class="card-header p-0 bg-white">
+                            <div class="text-center py-2">
                                 <h3><i class="fa fa-envelope"></i> Contactanos</h3>
                                 <p class="m-0">Con gusto te ayudaremos</p>
                             </div>
@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-user text-primary"></i></div>
+                                        <div class="input-group-text bg-white"><i class="fa fa-user text-primary"></i></div>
                                     </div>
                                     <input type="text" class="form-control" id="nombre" name="nombre"
                                         placeholder="Nombre y Apellido" required>
@@ -35,17 +35,25 @@
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-envelope text-primary"></i></div>
+                                        <div class="input-group-text bg-white"><i class="fa fa-envelope text-primary"></i></div>
                                     </div>
                                     <input type="email" class="form-control" id="nombre" name="email"
                                         placeholder="ejemplo@gmail.com" required>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="fa fa-comment text-primary"></i></div>
+                                        <div class="input-group-text bg-white"><i class="fas fa-phone-alt text-primary"></i></div>
+                                    </div>
+                                    <input type="text" class="form-control" id="telefono" name="tel" placeholder="(Código de área) Número"
+                                    pattern="\([0-9]{3}\) [0-9]{4}[ -][0-9]{4}" title="A valid telephone number consistof a 3 digits code area between brackets, a space, the three first digits of thenumber, a space or hypen (-), and four more digits" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text bg-white"><i class="fa fa-comment text-primary"></i></div>
                                     </div>
                                     <textarea class="form-control" placeholder="Envianos tu Mensaje"
                                         required></textarea>
@@ -53,7 +61,7 @@
                             </div>
 
                             <div class="text-center">
-                                <input type="submit" value="Enviar" class="btn gradient-dark btn-block rounded-0 text-white py-2">
+                                <input type="submit" value="Enviar" class="btn btn-primary btn-block rounded-0 text-white py-2">
                             </div>
                         </div>
 
