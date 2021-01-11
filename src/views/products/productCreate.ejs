@@ -79,6 +79,26 @@
                                 </div>
                             </div>
                         </div>
+
+                        <% errors.forEach(error => { %>
+                            <% if(error.param == "product_discount") { %>
+                            <span class="span_errors">* <%= error.msg %></span>
+                            <% } else { "" } %>
+                            <% }) %>
+                        <div class="form-group col-md-6">
+                            <label class="col-form-label col-form-label-lg">Descuento</label>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control form-control-lg"
+                                            aria-label="Amount (to the nearest dollar)" name="product_discount"
+                                            value="<%= product.discount %>">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
         
                         <% errors.forEach(error => { %>
                         <% if(error.param == "product_image") { %>
