@@ -699,9 +699,12 @@ ul#nav1>li ul li {
   margin-bottom: 0px;
 }
 
+.login-dp-1{
+  padding: 14px 14px 0;
+}
+
 #login-dp {
   min-width: 260px;
-  padding: 14px 14px 0;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 1);
 }
@@ -753,7 +756,7 @@ ul#nav1>li ul li {
 /*====== Media-Queries ======*/
 @media (min-width: 600px) {
   .header-f-s {
-    font-size: 16px;
+    font-size: 1em;
   }
   
   .icono-f-s {
