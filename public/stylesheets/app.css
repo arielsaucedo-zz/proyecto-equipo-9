@@ -52,7 +52,7 @@ a {
 
 figure {
   margin: 0;
-  padding: 0 0 10px 0;
+  padding: 0 0 25px 0;
 }
 
 img {
@@ -239,14 +239,19 @@ hr {
 }
 
 .product-box_data span {
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 300;
   color: var(--green);
   margin: 0 0 0 10px;
 }
 
+.product-box_data .original-price{
+  opacity: 1;
+  font-size: 1em;
+}
+
 .product-box_data p {
-  font-size: 1.5em;
+  font-size: 1em;
   width: 100%;
   color: var(--gray);
   margin: 0;
@@ -257,7 +262,7 @@ hr {
 
 .product-box_data i {
   color: var(--green);
-  font-size: 1.8em;
+  font-size: 1.25em;
   width: 35px;
   height: 35px;
   text-align: center;
@@ -291,6 +296,7 @@ hr {
 /*====== Footer ======*/
 
 .main-footer {
+  font-size: 0.8em;
   background-color: var(--dark-blue);
   color: var(--light-gray);
 }
@@ -697,7 +703,7 @@ ul#nav1>li ul li {
   min-width: 260px;
   padding: 14px 14px 0;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #login-dp .help-block {
@@ -761,19 +767,17 @@ ul#nav1>li ul li {
   .text-logo{
     font-size: 38px;
   }
-/*
-  #login-dp {
-    background-color: inherit;
-    color: #fff;
-  }
-*/
+
   #login-dp .bottom {
     background-color: inherit;
     border-top: 0 none;
   }
 
   .log_out {
-    margin-left: 15px;
+    font: var(--base-font-family);
+    background-color:transparent;
+    border-width:0px;
+    outline: none;
   }
 
   .margin-login {
@@ -784,149 +788,8 @@ ul#nav1>li ul li {
     margin: 5px 5px 5px 5px;
   }
 
-  /* borrar
-
-  .shop_cart,
-  .user_box_1{
-    padding: 10px;
-    font-size: 25px;
-    border-radius: 150px;
-    border: 4px solid white;
-    color: var(--light-gray);
-    margin: 0px 15px;
-  }
-
-  .log_out{
-    border-radius: 150px;
-    height: 60px;
-    width: 58px;
-    font-size: 25px;
-    border: 4px solid white;
-    background-color: var(--dark-blue);
-    color: white;
-  }
-
-
-  .header-container {
-    height: 110px;
-  }
-
-  .header-search {
-    width: 100%;
-    margin: 0px 0px 0px 20px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-  }
-
-  .social_net {
-    align-self: flex-end;
-  }
-
-  ul#nav1 li>a {
-    height: 45px;
-    width: 45px;
-    font-size: 1em;
-    background: none;
-    border: none;
-    color: var(--gray);
-    padding: 0;
-    margin: 0px;
-    display: block;
-    text-align: center;
-  }
-
-
-  .sub-menu {
-    display: none;
-  }
-
-  .nav-sub-menu {
-    display: inline-block;
-
-  }
-
-  ul#nav1 li:hover>a {
-
-    border-radius: 150px;
-    background: var(--light-gray);
-    color: var(--dark-blue);
-    padding: 0px;
-  }
-
-  ul#nav1>li ul {
-    display: block;
-  }
-
-  ul#nav1>li:hover ul {
-    display: block;
-  }
-
-  ul#nav1>li ul li {
-    display: block;
-  }
-
-  .header-epigraph {
-    height: 185px;
-  }
-
-  .hide-unhide-span {
-    display: none;
-  }
-*/
   /*************************/
 
-  /*
-  .main-header_credit-link {
-    margin-top: 0;
-    text-align: right;
-  }
-
-  .banner {
-    height: 320px;
-  }
-
-  .btn-toggle-navbar {
-    display: none;
-  }
-
-  .main-navbar,
-  .left-navbar,
-  .right-navbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .left-navbar a,
-  .right-navbar a {
-    border-bottom: none;
-  }
-
-  .left-navbar a:hover,
-  .right-navbar a:hover {
-    color: var(--light-blue);
-  }
-
-  .left-navbar li {
-    margin-right: 15px;
-  }
-
-  .right-navbar li {
-    margin-left: 15px;
-  }
-
-  .main-footer {
-    padding: 40px 0;
-  }
-
-  .footer-data {
-    width: 95%;
-    margin: auto;
-  }
-}
-*/
   /** Estilos de Registro ****/
   .span_errors {
     color: red;
@@ -934,17 +797,4 @@ ul#nav1>li ul li {
     margin-left: 20px;
   }
 
-
-  /********* funcy navbar**********************/
-  /*
-  body {
-    background:url('/images/kalitero-fondo.jpg');
-    padding:50px;
-  }
-  
-  .navbar-inverse {
-      background-color: #222;
-      border-color: #080808;
-  }
-  */
 }

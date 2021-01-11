@@ -19,8 +19,9 @@
                                 <img src="<%= products[i].image %>" alt="imagen de producto">
                             </figure>
                             <article class="product-box_data">
-                                <h2>$ <%= products[i].price %></h2>
-                                <span>DISCOUNT% OFF</span>
+                                <h2 class="original-price font-weight-light"><strike>$ <%= products[i].price %> </strike></h2> <!-- Original Price -->
+                                <h2>$ <%= products[i].price %></h2> <!-- Price with discount -->
+                                <span>DISC% OFF</span>
                                 <p><%= products[i].name %></p>
                                 <i class="fas fa-truck"></i>
                             </article>
