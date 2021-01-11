@@ -66,6 +66,7 @@ const controller = {
 
     logout: function (req, res) {
         req.session.destroy()
+        res.locals.user = '' // se limpia valor de res.locals.user debido a que era necesario re-ejecutar logout para anular valor de res.locals.user.
         res.cookie('rememberMe', null, {
             maxAge: 0
         })
