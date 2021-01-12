@@ -22,11 +22,13 @@
                             <span class="span_errors">* <%= error.msg %></span>
                             <% } else { "" } %>
                             <% }) %>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <label class="col-form-label" for="inputDefault">Nombre del producto</label>
                                 <input class="form-control" type="text" name="product_name" id="inputDefault">
                             </div>
-        
+                        </div>
+
+                        <div class="form-row">
                             <% errors.forEach(error => { %>
                             <% if(error.param == "product_category") { %>
                             <span class="span_errors">* <%= error.msg %></span>
@@ -42,9 +44,7 @@
                                     <% } %>
                                 </select>
                             </div>
-                        </div>
-        
-                        <div class="row">
+
                             <% errors.forEach(error => { %>
                             <% if(error.param == "product_quantity") { %>
                             <span class="span_errors">* <%= error.msg %></span>
@@ -52,17 +52,18 @@
                             <% }) %>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label" for="inputDefault">Cantidad</label>
-                                <input class="form-control" type="text" name="product_quantity"
-                                    id="inputNewProduct">
+                                <input class="form-control" type="text" name="product_quantity" id="inputNewProduct">
                             </div>
-        
-        
+
+                        </div>
+
+                        <div class="form-row">
                             <% errors.forEach(error => { %>
                             <% if(error.param == "product_price") { %>
                             <span class="span_errors">* <%= error.msg %></span>
                             <% } else { "" } %>
                             <% }) %>
-        
+
                             <div class="form-group col-md-6">
                                 <label class="col-form-label">Precio</label>
                                 <div class="form-group">
@@ -78,40 +79,36 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <% errors.forEach(error => { %>
+                            <% errors.forEach(error => { %>
                             <% if(error.param == "product_discount") { %>
                             <span class="span_errors">* <%= error.msg %></span>
                             <% } else { "" } %>
                             <% }) %>
-                        <div class="form-group col-md-6">
-                            <label class="col-form-label col-form-label-lg">Descuento</label>
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Descuento</label>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control form-control-lg"
-                                            aria-label="Amount (to the nearest dollar)" name="product_discount"
-                                            value="<%= product.discount %>">
+                                        <input type="text" class="form-control" name="product_discount">
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
-                        
-        
                         <% errors.forEach(error => { %>
                         <% if(error.param == "product_image") { %>
                         <span class="span_errors">* <%= error.msg %></span>
                         <% } else { "" } %>
                         <% }) %>
-        
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="inputGroupFile02" name="image">
-                                        <label class="custom-file-label" for="inputGroupFile02">Imagen del producto</label>
+                                        <label class="custom-file-label" for="inputGroupFile02">Imagen del
+                                            producto</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>
@@ -119,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <% errors.forEach(error => { %>
                         <% if(error.param == "product_description") { %>
                         <span class="span_errors">* <%= error.msg %></span>
@@ -129,18 +126,18 @@
                             <div class="form-group col-md-12">
                                 <label class="col-form-label" for="exampleTextarea">Descripcion</label>
                                 <textarea class="form-control" id="exampleTextarea" rows="3" name="product_description">
-                            </textarea>
+                                        </textarea>
                             </div>
                         </div>
-        
                         <button type="submit" class="btn btn-primary" target="">Crear</button>
-        
+
                         <button type="reset" class="btn btn-warning">Limpiar</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-            <br>
+            </form>
+        </div>
+        </div>
+        <br>
         </div>
     </main>
 

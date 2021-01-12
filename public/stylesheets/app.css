@@ -187,12 +187,8 @@ hr {
 
 
 /*====== Banner ======*/
-.banner {
-  background-image: url(/images/img-home-banner.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  height: 100px;
+#carousel-example-1z {
+  display: none;
 }
 
 
@@ -789,6 +785,10 @@ ul#nav1>li ul li {
 
   .margin-5 {
     margin: 5px 5px 5px 5px;
+  }
+
+  #carousel-example-1z {
+    display: inherit;
   }
 
   /*************************/
