@@ -17,8 +17,25 @@ var storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 });
-var upload = multer({ storage: storage });
 
+var upload = multer({
+    storage,
+ 
+    // Validate image
+    fileFilter: (req, file, cb) => {
+ 
+       const acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+ 
+       const ext = path.extname(file.originalname);
+       
+       if (!acceptedExtensions.includes(ext)) {
+          req.file = file;
+       }
+ 
+       cb(null, acceptedExtensions.includes(ext));
+    }
+ });
+ 
 
 /*** localhost:3000/products/ ***/
 router.get('/', productsController.list);
