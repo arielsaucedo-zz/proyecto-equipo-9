@@ -59,6 +59,9 @@ router.post('/', upload.any(), [
     check('product_price')
         .isInt( {min: 1})
         .withMessage('El precio no puede ser cero'),
+    check('product_discount')
+        .isInt( {min: 0, max: 100})
+        .withMessage('El descuento no puede ser negativo ni mayor a 100'),
     ],
     productsController.store);
 
@@ -76,7 +79,26 @@ router.get('/:id/edit', userAuth, [
 ], userAuth, productsController.edit);
 
 /*** localhost:3000/products/:id ***/
-router.put('/:id', upload.any(), productsController.update);
+router.put('/:id', upload.any(), [
+    check('product_name')
+        .isLength( {min: 1})
+        .withMessage('Por favor, ingrese un nombre para el producto a cargar'),
+    check('product_category')
+        .isLength( {min: 1})
+        .withMessage('Por favor, ingrese una categoria para el producto'),
+    check('product_description')
+        .isLength( {min: 1} )
+        .withMessage('Por favor, ingrese una descripcion para el producto'),
+    check('product_quantity')
+        .isInt( {min: 1})
+        .withMessage('La cantidad no puede ser cero'),
+    check('product_price')
+        .isInt( {min: 1})
+        .withMessage('El precio no puede ser cero'),
+    check('product_discount')
+        .isInt( {min: 0, max: 100})
+        .withMessage('El descuento no puede ser negativo ni mayor a 100'),
+    ], productsController.update);
 
 /*** localhost:3000/products/:id ***/
 router.delete('/:id/delete', productsController.destroy);
