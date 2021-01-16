@@ -100,7 +100,7 @@ const controller = {
             user_name: req.body.user_name,
             password: bcryptjs.hashSync(req.body.password_confirmation),
             role_id: 1,
-            image: filenameVal
+            image_avatar: filenameVal
         })
         .catch(function(error){
             console.log(error)
@@ -127,7 +127,35 @@ const controller = {
             console.log(error)
             res.send('')
         })
-    }
+    },
+
+    update: function (req, res, next) {
+        let errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.render('/userDetail/:id', {
+                errors: errors.errors
+            });
+        }
+
+        let filenameVal = ''
+        if (req.files[0] != undefined) {
+            filenameVal = req.files[0].filename
+        }
+
+        db.Users.update({
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            user_name: req.body.user_name,
+            password: bcryptjs.hashSync(req.body.password_confirmation),
+            role_id: 1,
+            image_avatar: filenameVal
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
+        res.redirect('/')
+    },
 }
 
 module.exports = controller;

@@ -18,8 +18,8 @@
                     <form class="needs-validation" action="/users" method="POST" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationTooltip01">Nombre</label>
-                                <input type="text" class="form-control" id="validationTooltip01"
+                                <label for="validationFirstName">Nombre</label>
+                                <input type="text" class="form-control" id="validationFirstName"
                                     placeholder="Ingrese su nombre" name="first_name" required>
                                 <div class="valid-tooltip">
                                     Looks good!
@@ -31,8 +31,8 @@
                                 <% }) %>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationTooltip02">Apellido</label>
-                                <input type="text" class="form-control" id="validationTooltip02"
+                                <label for="validationLastName">Apellido</label>
+                                <input type="text" class="form-control" id="validationLastName"
                                     placeholder="Ingrese su apellido" name="last_name" required>
                                 <div class="valid-tooltip">
                                     Looks good!
@@ -44,12 +44,12 @@
                                 <% }) %>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationTooltipUsername">Nombre de Usuario (e-mail)</label>
+                                <label for="validationUserName">Nombre de Usuario (e-mail)</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                                     </div>
-                                    <input type="text" class="form-control" id="validationTooltipUsername"
+                                    <input type="text" class="form-control" id="validationUserName"
                                         placeholder="Ingrese su e-mail" name="user_name"
                                         aria-describedby="validationTooltipUsernamePrepend" required>
                                     <div class="invalid-tooltip">
@@ -63,10 +63,26 @@
                                 <% }) %>
                             </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="validationImageAvatar">Imagen de perfil</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="validationImageAvatar" name="image_avatar">
+                                        <label class="custom-file-label" for="inputGroupFile02">Elegir archivo</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label for="validationTooltip03">Contraseña</label>
-                                <input type="password" class="form-control" id="validationTooltip03"
+                                <label for="validationPassword">Contraseña</label>
+                                <input type="password" class="form-control" id="validationPassword"
                                     placeholder="Ingrese su contraseña" name="password_initial" required>
                                 <div class="invalid-tooltip">
                                     Please provide a valid password.
@@ -74,8 +90,8 @@
     
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="validationTooltip03">Confirmacion contraseña</label>
-                                <input type="password" class="form-control" id="validationTooltip03"
+                                <label for="validationPasswordConfirmation">Confirmacion contraseña</label>
+                                <input type="password" class="form-control" id="validationPasswordConfirmation"
                                     placeholder="Ingrese su contraseña nuevamente" name="password_confirmation" required>
                                 <div class="invalid-tooltip">
                                     Please provide a valid password.
@@ -115,6 +131,7 @@
     </main>
 
     <%- include('../partials/footer') %>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js" integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ==" crossorigin="anonymous"></script>
+    <script src="/js/register.js"></script>
 </body>
 </html>
