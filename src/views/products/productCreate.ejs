@@ -15,7 +15,7 @@
                         <h2 class="register-h2">Creación de productos</h2>
                         <hr>
                     </div>
-                    <form class="w-100" action="/products" method="POST" enctype="multipart/form-data">
+                    <form class="w-100" action="/products" method="POST" enctype="multipart/form-data" id="productCreateForm">
                         <div class="form-row">
                             <% errors.forEach(error => { %>
                             <% if(error.param == "product_name") { %>
@@ -23,8 +23,9 @@
                             <% } else { "" } %>
                             <% }) %>
                             <div class="form-group col-md-12">
-                                <label class="col-form-label" for="inputDefault">Nombre del producto</label>
-                                <input class="form-control" type="text" name="product_name" id="inputDefault">
+                                <label class="col-form-label" for="product_name">Nombre del producto</label>
+                                <input class="form-control" type="text" name="product_name" id="product_name_id">
+                                <span class="" id="product_name_msg"></span>
                             </div>
                         </div>
 
@@ -36,7 +37,7 @@
                             <% }) %>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label" for="inputDefault">Categoria</label>
-                                <select name="product_category" class="form-control">
+                                <select name="product_category" id="product_category_id" class="form-control">
                                     <% for(let i = 0; i < categories.length; i++) {%>
                                     <option value="<%= categories[i].id %>">
                                         <%= categories[i].name %>
@@ -51,8 +52,8 @@
                             <% } else { "" } %>
                             <% }) %>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label" for="inputDefault">Cantidad</label>
-                                <input class="form-control" type="text" name="product_quantity" id="inputNewProduct">
+                                <label class="col-form-label" for="product_quantity">Cantidad</label>
+                                <input class="form-control" type="text" name="product_quantity" id="product_quantity_id">
                             </div>
 
                         </div>
@@ -72,7 +73,7 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <input type="text" class="form-control"
-                                            aria-label="Amount (to the nearest dollar)" name="product_price">
+                                            aria-label="Amount (to the nearest dollar)" name="product_price" id="product_price_id">
                                         <div class="input-group-append">
                                             <span class="input-group-text">.00</span>
                                         </div>
@@ -88,7 +89,7 @@
                                 <label class="col-form-label">Descuento</label>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="product_discount">
+                                        <input type="text" class="form-control" name="product_discount" id="product_discount_id">
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
@@ -106,8 +107,8 @@
                             <div class="form-group col-md-12">
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image">
-                                        <label class="custom-file-label" for="inputGroupFile02">Imagen del
+                                        <input type="file" class="custom-file-input" id="product_image_id" name="product_image">
+                                        <label class="custom-file-label" for="product_image">Imagen del
                                             producto</label>
                                     </div>
                                     <div class="input-group-append">
@@ -124,9 +125,8 @@
                         <% }) %>
                         <div class="form-row">
                             <div class="form-group col-md-12">
-                                <label class="col-form-label" for="exampleTextarea">Descripcion</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3" name="product_description">
-                                        </textarea>
+                                <label class="col-form-label" for="product_description">Descripcion</label>
+                                <textarea class="form-control" id="product_description_id" rows="3" name="product_description"></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" target="">Crear</button>
@@ -142,7 +142,9 @@
     </main>
 
     <%- include('../partials/footer') %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js" integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ==" crossorigin="anonymous"></script>
+    <script src="/js/productsCreate.js"></script>
+    
 </body>
 
 </html>

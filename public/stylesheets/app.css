@@ -800,4 +800,27 @@ ul#nav1>li ul li {
     margin-left: 20px;
   }
 
+
+  /********* Estilos validator ************/
+
+  .border-ok{
+    border: 1px solid rgb(8, 226, 55);
+  }
+
+  .border-nok{
+    border: 1px solid rgb(199, 38, 9);
+  }
+  
+  .check-ok{
+    color: rgb(8, 226, 55);
+    /*<i class="fas fa-check"></i>*/
+  }
+
+  .check-nok{
+    color: rgb(199, 38, 9);
+    /*<i class="fas fa-times"></i>*/
+  }
+
+
+
 }
