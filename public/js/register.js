@@ -16,7 +16,7 @@ window.addEventListener("load", function() {
 
     let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
     let passwordConfirmationMsg = document.getElementById("password_confirm_msg");
-
+    
     let form = document.getElementById("registerForm");
 
     const user = {
@@ -82,7 +82,7 @@ window.addEventListener("load", function() {
         }
      })
 
-/*  let filePath = imageAvatar.value;
+/*    let filePath = imageAvatar.value;
     let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
     if(allowedExtensions.exec(filePath)){
         imageAvatar.classList.remove("border-nok")
