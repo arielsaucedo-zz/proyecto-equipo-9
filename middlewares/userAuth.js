@@ -1,18 +1,28 @@
-const path = require('path')
-const userDataFilePath = path.join(__dirname, '../data/user')
-let userData = require(userDataFilePath)
+let db = require('../database/models')
 
 function userAuth(req, res, next) {
     if (res.locals.user != undefined){
-        let userLoggedIn = userData.findByUserName(res.locals.user)
-        if(userLoggedIn.rol == 0){
-            next()
-        } else {
-            return res.redirect('/')
-        }
+        db.Users.findOne({
+            where: {
+                user_name: res.locals.user
+            }
+        })
+        .then((userLoggedIn) => {
+            console.log(userLoggedIn)
+            if(userLoggedIn.role_id == 2){
+                next()
+            } else {
+                return res.redirect('/')
+            }
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
     } else{
         return res.redirect('/users/login')
     }
 } 
+
 
 module.exports = userAuth

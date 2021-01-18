@@ -44,6 +44,7 @@
                                     </option>
                                     <% } %>
                                 </select>
+                                <span class="" id="product_category_msg"></span>
                             </div>
 
                             <% errors.forEach(error => { %>
@@ -54,6 +55,7 @@
                             <div class="form-group col-md-6">
                                 <label class="col-form-label" for="product_quantity">Cantidad</label>
                                 <input class="form-control" type="text" name="product_quantity" id="product_quantity_id">
+                                <span class="" id="product_quantity_msg"></span>
                             </div>
 
                         </div>
@@ -77,6 +79,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text">.00</span>
                                         </div>
+                                        <span class="" id="product_price_msg"></span>
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +96,7 @@
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
+                                        <span class="" id="product_discount_msg"></span>
                                     </div>
                                 </div>
                             </div>
@@ -114,6 +118,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>
                                     </div>
+                                    <span class="" id="product_image_msg"></span>
                                 </div>
                             </div>
                         </div>
@@ -127,6 +132,7 @@
                             <div class="form-group col-md-12">
                                 <label class="col-form-label" for="product_description">Descripcion</label>
                                 <textarea class="form-control" id="product_description_id" rows="3" name="product_description"></textarea>
+                                <span class="" id="product_description_msg"></span>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary" target="">Crear</button>
