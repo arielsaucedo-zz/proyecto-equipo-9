@@ -38,7 +38,10 @@ var upload = multer({
  
 
 /*** localhost:3000/products/ ***/
-router.get('/', productsController.list);
+//router.get('/', productsController.list);
+
+/*** localhost:3000/categories/1 ***/
+router.get('/:category_id?', productsController.list);
 
 /*** localhost:3000/products/productCreate ***/
 router.get('/productCreate', userAuth,productsController.create);
