@@ -7,6 +7,7 @@ const path = require('path')
 
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController')
+const userAuth = require('../middlewares/userAuth')
 
 // ************ Multer Require ************
 var multer  = require('multer')
@@ -71,7 +72,7 @@ router.post('/', upload.any(), [
         }),
 ], userValidator, usersController.store); 
 
-router.get('/userDetail/:id', usersController.show);
+router.get('/userDetail/:id', userAuth, usersController.show);
 router.put('/:id', upload.any(),
 [
     check('first_name')
