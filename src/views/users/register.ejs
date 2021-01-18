@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
 
 <body>
-    
+
     <%- include('../partials/header') %>
 
     <main>
@@ -15,7 +15,8 @@
                         <h2 class="register-h2">Registro</h2>
                         <hr>
                     </div>
-                    <form id="registerForm" class="needs-validation" action="/users" method="POST" enctype="multipart/form-data" novalidate>
+                    <form id="registerForm" class="needs-validation" action="/users" method="POST"
+                        enctype="multipart/form-data" novalidate>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationFirstName">Nombre</label>
@@ -72,7 +73,8 @@
                                 <label for="validationImageAvatar">Imagen de perfil</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validationImageAvatar" name="image_avatar">
+                                        <input type="file" class="custom-file-input" id="validationImageAvatar"
+                                            name="image_avatar">
                                         <label class="custom-file-label" for="inputGroupFile02">Elegir archivo</label>
                                     </div>
                                     <div class="input-group-append">
@@ -93,18 +95,19 @@
                                 </div>
                                 <span id="password_msg" class="span_errors"></span>
                             </div>
-                            
+
 
                             <div class="col-md-6 mb-3">
                                 <label for="validationPasswordConfirmation">Confirmacion contraseña</label>
                                 <input type="password" class="form-control" id="validationPasswordConfirmation"
-                                    placeholder="Ingrese su contraseña nuevamente" name="password_confirmation" required>
+                                    placeholder="Ingrese su contraseña nuevamente" name="password_confirmation"
+                                    required>
                                 <div class="">
                                     <span id="password_confirm_msg" class="span_errors"></span>
                                 </div>
-                                
+
                             </div>
-                            
+
                         </div>
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
@@ -139,7 +142,10 @@
     </main>
 
     <%- include('../partials/footer') %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js" integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js"
+        integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ=="
+        crossorigin="anonymous"></script>
     <script src="/js/register.js"></script>
 </body>
+
 </html>
