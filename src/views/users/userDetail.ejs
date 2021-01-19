@@ -16,7 +16,7 @@
                         <hr>
                     </div>
                     <form class="needs-validation" action="/userDetail/:id_method=PUT" method="POST"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" id="form">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip01">Nombre</label>
@@ -94,8 +94,8 @@
 
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="validationTooltip03">Confirmacion de contraseña</label>
-                                <input type="text" class="form-control" id="validationTooltip03"
+                                <label for="validationTooltip04">Confirmacion de contraseña</label>
+                                <input type="text" class="form-control" id="validationTooltip04"
                                     placeholder="Confirm Password" name="password_confirmation"
                                     value="Confirmá tu nueva contraseña" required>
                                 <div class="invalid-tooltip">
@@ -127,7 +127,7 @@
                                 <% }) %>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" target="">Aceptar</button>
+                        <button type="submit" class="btn btn-primary" target="" id="send">Aceptar</button>
                         <button type="reset" class="btn btn-warning">Limpiar</button>
                     </form>
                 </div>
@@ -138,7 +138,7 @@
 
     <%- include('../partials/footer') %>
 
-    <script src="/js/register.js">
+    <script src="/js/userEdit.js">
 
     </script>
 
