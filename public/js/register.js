@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.onload = function () {
     let firstName = document.getElementById("validationFirstName");
     let firstNameMsg = document.getElementById("first_name_msg");
 
@@ -16,144 +16,252 @@ window.addEventListener("load", function() {
 
     let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
     let passwordConfirmationMsg = document.getElementById("password_confirm_msg");
-    
+
     let form = document.getElementById("registerForm");
 
+    const errFirstName = "La longitud del nombre debe ser como mínimo de 3 letras."
+    const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
+    const errUserName = "El nombre de usuario debe ser un e-mail."
+    const errImageAvatar = "El archivo debe ser de extension jpg, jpeg, png o gif."
+    const errPassword = "La contraseña debe contener entre 4 y 8 caracteres y debe incluir al menos un número."
+    const errPasswordConfirm = "Las contraseñas deben ser iguales."
+    const allowedExtensions = ["jpg", "jpeg", "png", "gif"]
+
+    function getFileExtension(filename) {
+        return filename.slice((filename.lastIndexOf(".") - 1 >>> 0) + 2);
+    }
+
     const user = {
-        first_name : '',
-        last_name : '',
-        user_name : '',
-        image_avatar : '',
-        password : '',
-        password_confirm : '', 
+        first_name: "",
+        last_name: "",
+        user_name: "",
+        image_avatar: "",
+        password: "",
+        password_confirm: "",
     }
 
     const errors = {
-        first_name : '',
-        last_name : '',
-        user_name : '',
-        image_avatar : '',
-        password : '',
-        password_confirm : '',
+        first_name: "",
+        last_name: "",
+        user_name: "",
+        image_avatar: "",
+        password: "",
+        password_confirm: "",
     }
 
-    firstName.addEventListener("keyup", function() {
-       if(validator.isLength(firstName.value, {min:3})) {
-            firstName.classList.remove("border-nok")
-            firstName.classList.add("border-ok")
-            user.first_name = this.value
+    function setValidationResult(element, keyName, keyNameU, status, elementMsg, errMsg) {
+        if (status === "OK") {
+            element.classList.remove("border-nok")
+            element.classList.add("border-ok")
+            console.log(element.keyName);
+            if (elementMsg.classList) {
+                elementMsg.classList.remove("span_errors")
+                elementMsg.innerHTML = ""
+            }
+            console.log(errors);
+        } else {
+            element.classList.remove("border-ok")
+            element.classList.add("border-nok")
+            if (elementMsg.classList) {
+                elementMsg.classList.add("span_errors")
+                elementMsg.innerHTML = errMsg
+            }
+        }
+    }
+
+    firstName.addEventListener("keyup", function () {
+        if (validator.isLength(firstName.value, {
+                min: 3
+            })) {
             delete errors.first_name
-            firstNameMsg.innerHTML = ''
-       } else {
-            firstName.classList.remove("border-ok")
-            firstName.classList.add("border-nok")
-            errors.first_name = 'El nombre debe ser de al menos 3 letras'
-            firstNameMsg.classList.remove('span_errors')
-       }
+            setValidationResult(firstName, "first_name", "First_Name", "OK", firstNameMsg, "")
+        } else {
+            errors.first_name = errFirstName
+            setValidationResult(firstName, "first_name", "First_Name", "NOK", firstNameMsg, errFirstName)
+        }
     })
 
-    lastName.addEventListener("keyup", function() {
-        if(validator.isLength(lastName.value, {min:3})) {
-            lastName.classList.remove("border-nok")
-            lastName.classList.add("border-ok")
-            user.last_name = this.value
+    firstName.addEventListener("blur", function () {
+        if (validator.isLength(firstName.value, {
+                min: 3
+            })) {
+            delete errors.first_name
+            setValidationResult(firstName, "first_name", "First_Name", "OK", firstNameMsg, "")
+        } else {
+            errors.first_name = errFirstName
+            setValidationResult(firstName, "first_name", "First_Name", "NOK", firstNameMsg, errFirstName)
+        }
+    })
+
+    lastName.addEventListener("keyup", function () {
+        if (validator.isLength(lastName.value, {
+                min: 3
+            })) {
             delete errors.last_name
-            lastNameMsg.innerHTML = ''
+            setValidationResult(lastName, "last_name", "Last_Name", "OK", lastNameMsg, "")
         } else {
-            lastName.classList.remove("border-ok")
-            lastName.classList.add("border-nok")
-            errors.last_name = 'El apellido debe ser de al menos 3 letras'
-            lastNameMsg.classList.remove('span_errors')
+            errors.last_name = errLastName
+            setValidationResult(lastName, "last_name", "Last_Name", "NOK", lastNameMsg, errLastName)
         }
-     })
+    })
 
-     userName.addEventListener("keyup", function() {
-        if(validator.isEmail(userName.value)) {
-            userName.classList.remove("border-nok")
-            userName.classList.add("border-ok")
-            user.user_name = this.value
+    lastName.addEventListener("blur", function () {
+        if (validator.isLength(lastName.value, {
+                min: 3
+            })) {
+            delete errors.last_name
+            setValidationResult(lastName, "last_name", "Last_Name", "OK", lastNameMsg, "")
+        } else {
+            errors.last_name = errLastName
+            setValidationResult(lastName, "last_name", "Last_Name", "NOK", lastNameMsg, errLastName)
+        }
+    })
+
+    userName.addEventListener("keyup", function () {
+        if (validator.isEmail(userName.value)) {
             delete errors.user_name
-            userNameMsg.innerHTML = ''
+            setValidationResult(userName, "user_name", "User_Name", "OK", userNameMsg, "")
         } else {
-            userName.classList.remove("border-ok")
-            userName.classList.add("border-nok")
-            errors.user_name = 'El nombre de usuario debe ser un e-mail'
-            userNameMsg.classList.remove('span_errors')
+            errors.user_name = errUserName
+            setValidationResult(userName, "user_name", "User_Name", "NOK", userNameMsg, errUserName)
         }
-     })
+    })
 
-/*    let filePath = imageAvatar.value;
-    let allowedExtensions = /(.jpg|.jpeg|.png|.gif)$/i;
-    if(allowedExtensions.exec(filePath)){
-        imageAvatar.classList.remove("border-nok")
-        imageAvatar.classList.add("border-ok")
-        user.image_avatar = this.value
-        delete errors.image_avatar
-        imageAvatarMsg.innerHTML = ''
-    }else{
-        imageAvatar.classList.remove("border-ok")
-        imageAvatar.classList.add("border-nok")
-        errors.image_avatar = 'El tipo de archivo no es valido'
-        imageAvatarMsg.classList.remove('span_errors')
-    } */
+    userName.addEventListener("blur", function () {
+        if (validator.isEmail(userName.value)) {
+            delete errors.user_name
+            setValidationResult(userName, "user_name", "User_Name", "OK", userNameMsg, "")
+        } else {
+            errors.user_name = errUserName
+            setValidationResult(userName, "user_name", "User_Name", "NOK", userNameMsg, errUserName)
+        }
+    })
 
-     password.addEventListener("keyup", function() {
-        if(/^(?=.*\d).{4,8}$/.test(password.value)) {
-            password.classList.remove("border-nok")
-            password.classList.add("border-ok")
-            user.password = this.value
+    /* imageAvatar.addEventListener("change", function () {
+        let imageExtension = ""
+        let imageExtension = getFileExtension(imageAvatar.value)
+        let flag = false
+        for (let i = 0; i < allowedExtensions.length; i++) {
+            if (allowedExtensions[i] == imageExtension) {
+                flag = true
+                break
+            } else {
+                flag = false
+            }
+        }
+        if (flag) {
+            delete errors.image_avatar
+            setValidationResult(imageAvatar, "image_avatar", "Image_Avatar", "OK", imageAvatarMsg, "")
+        } else {
+            if (imageExtension != "") {
+            errors.image_avatar = errImageAvatar
+            setValidationResult(imageAvatar, "image_avatar", "Image_Avatar", "NOK", imageAvatarMsg, errImageAvatar)
+            }
+        }
+    }) */
+
+    password.addEventListener("keyup", function () {
+        if (/^(?=.*\d).{4,8}$/.test(password.value)) {
             delete errors.password
-            passwordMsg.innerHTML = ''
+            setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
         } else {
-            password.classList.remove("border-ok")
-            password.classList.add("border-nok")
-            errors.password = 'La contraseña debe contener entre 4 y 8 caracteres y debe incluir al menos un número'
-            passwordMsg.classList.remove('span_errors')
+            errors.password = errPassword
+            setValidationResult(password, "password", "Password", "NOK", passwordMsg, errPassword)
         }
-     })
+    })
 
-     passwordConfirmation.addEventListener("keyup", function() {
-        if(validator.equals(passwordConfirmation.value, password.value )) {
-            passwordConfirmation.classList.remove("border-nok")
-            passwordConfirmation.classList.add("border-ok")
-            user.passwordConfirmation = this.value
-            delete errors.passwordConfirmation
-            passwordMsg.innerHTML = ''
+    password.addEventListener("blur", function () {
+        if (/^(?=.*\d).{4,8}$/.test(password.value)) {
+            delete errors.password
+            setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
         } else {
-            passwordConfirmation.classList.remove("border-ok")
-            passwordConfirmation.classList.add("border-nok")
-            errors.password_confirm = 'La contraseña no coincide'
-            passwordConfirmationMsg.classList.remove('span_errors')
+            errors.password = errPassword
+            setValidationResult(password, "password", "Password", "NOK", passwordMsg, errPassword)
         }
-     })
+    })
 
-     form.addEventListener('submit', function(e){
-        console.log('llego al submit');
-        if(Object.keys(errors).length > 0){
-            console.log('no se envía');
+    passwordConfirmation.addEventListener("keyup", function () {
+        if (validator.equals(passwordConfirmation.value, password.value)) {
+            delete errors.password_confirm
+            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+        } else {
+            errors.password_confirm = errPasswordConfirm
+            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+        }
+    })
+
+    passwordConfirmation.addEventListener("blur", function () {
+        if (validator.equals(passwordConfirmation.value, password.value)) {
+            delete errors.password_confirm
+            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+        } else {
+            errors.password_confirm = errPasswordConfirm
+            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+        }
+    })
+
+    form.addEventListener("submit", function (e) {
+        if (Object.keys(errors).length > 0) {
+            console.log("no se envía");
             e.preventDefault()
-            firstNameMsg.innerHTML = errors.first_name
-            firstNameMsg.classList.add('span_errors')
-
-            lastNameMsg.innerHTML = errors.last_name
-            lastNameMsg.classList.add('span_errors')
-
-            userNameMsg.innerHTML = errors.user_name
-            userNameMsg.classList.add('span_errors')
-
-            imageAvatarMsg.innerHTML = errors.image_avatar
-            imageAvatarMsg.classList.add('span_errors')
-
-            passwordMsg.innerHTML = errors.password
-            passwordMsg.classList.add('span_errors')
-
-            passwordConfirmationMsg.innerHTML = errors.password_confirm
-            passwordConfirmationMsg.classList.add('span_errors')
+            console.log(Object.keys(errors));
+            for (i = 0; i < Object.keys(errors).length; i++) {
+                switch (Object.keys(errors)[i]) {
+                    case "first_name":
+                        firstName.classList.remove("border-ok")
+                        firstName.classList.add("border-nok")
+                        if (firstNameMsg.classList) {
+                            firstNameMsg.classList.add('span_errors')
+                            firstNameMsg.innerHTML = errFirstName
+                        }
+                        break;
+                    case "last_name":
+                        lastName.classList.remove("border-ok")
+                        lastName.classList.add("border-nok")
+                        if (lastNameMsg.classList) {
+                            lastNameMsg.classList.add('span_errors')
+                            lastNameMsg.innerHTML = errLastName
+                        }
+                        break;
+                    case "user_name":
+                        userName.classList.remove("border-ok")
+                        userName.classList.add("border-nok")
+                        if (userNameMsg.classList) {
+                            userNameMsg.classList.add('span_errors')
+                            userNameMsg.innerHTML = errUserName
+                        }
+                        break;
+                    case "image_avatar":
+                        imageAvatar.classList.remove("border-ok")
+                        imageAvatar.classList.add("border-nok")
+                        if (imageAvatarMsg.classList) {
+                            imageAvatarMsg.classList.add('span_errors')
+                            imageAvatarMsg.innerHTML = errImageAvatar
+                        }
+                        break;
+                    case "password":
+                        password.classList.remove("border-ok")
+                        password.classList.add("border-nok")
+                        if (passwordMsg.classList) {
+                            passwordMsg.classList.add('span_errors')
+                            passwordMsg.innerHTML = errPassword
+                        }
+                        break;
+                    case "password_confirm":
+                        passwordConfirmation.classList.remove("border-ok")
+                        passwordConfirmation.classList.add("border-nok")
+                        if (passwordConfirmationMsg.classList) {
+                            passwordConfirmationMsg.classList.add('span_errors')
+                            passwordConfirmationMsg.innerHTML = errPasswordConfirm
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
         } else {
             console.log('se puede enviar');
         }
     })
 
-})
-
-
+}
