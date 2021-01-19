@@ -55,11 +55,11 @@ window.onload = function(){
         discount : ''
     }
 
-    function setValidationResult(element, keyName, keyNameU, status, elementMsg, errMsg){
+    function setValidationResult(element, status, elementMsg, errMsg){
         if(status === 'OK'){
             element.classList.remove('border-nok')
             element.classList.add('border-ok')
-            element.keyName = this.value
+            console.log(element.keyName);
             if(elementMsg.classList){
                 elementMsg.classList.remove('span_errors')
                 elementMsg.innerHTML = ''
@@ -79,99 +79,119 @@ window.onload = function(){
     productName.addEventListener('keyup', function(){
         if(validator.isLength(productName.value, { min : 5 } )){
             delete errors.name
-            setValidationResult(productName, 'name', 'Name', 'OK', productNameMsg, '')
+            product.name = this.value
+            setValidationResult(productName, 'OK', productNameMsg, '')
         }else{
             errors.name = errProductName
-            setValidationResult(productName, 'name', 'Name', 'NOK', productNameMsg, errProductName)
+            product.name = ''
+            setValidationResult(productName, 'NOK', productNameMsg, errProductName)
         }
     })
     productName.addEventListener('blur', function(){
         if(validator.isLength(productName.value, { min : 5 } )){
             delete errors.name
-            setValidationResult(productName, 'name', 'Name', 'OK', productNameMsg, '')
+            product.name = this.value
+            setValidationResult(productName, 'OK', productNameMsg, '')
         }else{
             errors.name = errProductName
-            setValidationResult(productName, 'name', 'Name', 'NOK', productNameMsg, errProductName)
+            product.name = ''
+            setValidationResult(productName, 'NOK', productNameMsg, errProductName)
         }
     })
 
     productDescription.addEventListener('keyup', function(){
         if(validator.isLength(productDescription.value, { min : 20 } )){
             delete errors.description
-            setValidationResult(productDescription, 'description', 'Description', 'OK', productDescriptionMsg,'')
+            product.description = this.value
+            setValidationResult(productDescription, 'OK', productDescriptionMsg,'')
         } else {
+            product.description = ''
             errors.description = errProductDescription
-            setValidationResult(productDescription, 'description', 'Description', 'NOK', productDescriptionMsg, errProductDescription)
+            setValidationResult(productDescription, 'NOK', productDescriptionMsg, errProductDescription)
         }
     })
 
     productDescription.addEventListener('blur', function(){
         if(validator.isLength(productDescription.value, { min : 20 } )){
             delete errors.description
-            setValidationResult(productDescription, 'description', 'Description', 'OK', productDescriptionMsg,'')
+            product.description = this.value
+            setValidationResult(productDescription, 'OK', productDescriptionMsg,'')
         } else {
             errors.description = errProductDescription
-            setValidationResult(productDescription, 'description', 'Description', 'NOK', productDescriptionMsg, errProductDescription)
+            product.description = ''
+            setValidationResult(productDescription, 'NOK', productDescriptionMsg, errProductDescription)
         }
     })
 
     productCategory.addEventListener('keyup', function(){
         if(validator.isLength(productCategory.value, { min : 1 } )){
             delete errors.category
-            setValidationResult(productCategory, 'category', 'Category', 'OK', productCategoryMsg, '')
+            product.category = this.value
+            setValidationResult(productCategory, 'OK', productCategoryMsg, '')
         } else {
             errors.category = errProductCategory
-            setValidationResult(productCategory, 'category', 'Category', 'NOK', productCategoryMsg, errProductCategory)
+            product.category = ''
+            setValidationResult(productCategory, 'NOK', productCategoryMsg, errProductCategory)
         }
     })
 
     productCategory.addEventListener('blur', function(){
         if(validator.isLength(productCategory.value, { min : 1 } )){
             delete errors.category
-            setValidationResult(productCategory, 'category', 'Category', 'OK', productCategoryMsg, '')
+            product.category = this.value
+            setValidationResult(productCategory, 'OK', productCategoryMsg, '')
         } else {
             errors.category = errProductCategory
-            setValidationResult(productCategory, 'category', 'Category', 'NOK', productCategoryMsg, errProductCategory)
+            product.category = ''
+            setValidationResult(productCategory, 'NOK', productCategoryMsg, errProductCategory)
         }
     })
 
     productQuantity.addEventListener('keyup', function(){
         if(validator.isInt(productQuantity.value, { min: 1, max: 99999999999999999999 } )){
             delete errors.quantity
-            setValidationResult(productQuantity, 'quantity', 'Quantity', 'OK', productQuantityMsg, '')
+            product.quantity = this.value
+            setValidationResult(productQuantity, 'OK', productQuantityMsg, '')
         } else {
             errors.quantity = errProductQuantity
-            setValidationResult(productQuantity, 'quantity', 'Quantity', 'NOK', productQuantityMsg, errProductQuantity)
+            product.quantity = ''
+            setValidationResult(productQuantity, 'NOK', productQuantityMsg, errProductQuantity)
         }
     })
 
     productQuantity.addEventListener('blur', function(){
         if(validator.isInt(productQuantity.value, { min: 1, max: 99999999999999999999 } )){
             delete errors.quantity
-            setValidationResult(productQuantity, 'quantity', 'Quantity', 'OK', productQuantityMsg, '')
+            product.quantity = this.value
+            setValidationResult(productQuantity, 'OK', productQuantityMsg, '')
         } else {
             errors.quantity = errProductQuantity
-            setValidationResult(productQuantity, 'quantity', 'Quantity', 'NOK', productQuantityMsg, errProductQuantity)
+            product.quantity = ''
+            setValidationResult(productQuantity, 'NOK', productQuantityMsg, errProductQuantity)
         }
     })
 
     productPrice.addEventListener('keyup', function(){
         if(validator.isFloat(productPrice.value, { min: 0.01, max: 9999999999.99 } )){
             delete errors.price
-            setValidationResult(productPrice, 'price', 'Price', 'OK', productPriceMsg, '')
+            product.price = this.value
+            setValidationResult(productPrice, 'OK', productPriceMsg, '')
         } else {
             errors.price = errProductPrice
-            setValidationResult(productPrice, 'price', 'Price', 'NOK', productPriceMsg, errProductPrice)
+            product.price = ''
+            setValidationResult(productPrice, 'NOK', productPriceMsg, errProductPrice)
         }
     })
 
     productPrice.addEventListener('blur', function(){
         if(validator.isFloat(productPrice.value, { min: 0.01, max: 9999999999.99 } )){
             delete errors.price
-            setValidationResult(productPrice, 'price', 'Price', 'OK', productPriceMsg, '')
+            product.price = this.value
+            setValidationResult(productPrice, 'OK', productPriceMsg, '')
         } else {
             errors.price = errProductPrice
-            setValidationResult(productPrice, 'price', 'Price', 'NOK', productPriceMsg, errProductPrice)
+            product.price = ''
+            setValidationResult(productPrice, 'NOK', productPriceMsg, errProductPrice)
         }
     })
 
@@ -179,20 +199,24 @@ window.onload = function(){
     productDiscount.addEventListener('keyup', function(){
         if(validator.isInt(productDiscount.value, { min: 0, max: 100 } )){
             delete errors.discount
-            setValidationResult(productDiscount, 'discount', 'Discount', 'OK', productDiscountMsg, '')
+            product.discount = this.value
+            setValidationResult(productDiscount, 'OK', productDiscountMsg, '')
         } else {
             errors.discount = errProductDiscount
-            setValidationResult(productDiscount, 'discount', 'Discount', 'NOK', productDiscountMsg, errProductDiscount)
+            product.discount = ''
+            setValidationResult(productDiscount, 'NOK', productDiscountMsg, errProductDiscount)
         }
     })
 
     productDiscount.addEventListener('blur', function(){
         if(validator.isInt(productDiscount.value, { min: 0, max: 100 } )){
             delete errors.discount
-            setValidationResult(productDiscount, 'discount', 'Discount', 'OK', productDiscountMsg, '')
+            product.discount = this.value
+            setValidationResult(productDiscount, 'OK', productDiscountMsg, '')
         } else {
             errors.discount = errProductDiscount
-            setValidationResult(productDiscount, 'discount', 'Discount', 'NOK', productDiscountMsg, errProductDiscount)
+            product.discount = ''
+            setValidationResult(productDiscount, 'NOK', productDiscountMsg, errProductDiscount)
         }
     })
 
@@ -209,10 +233,12 @@ window.onload = function(){
         }
         if(flag){
             delete errors.image
-            setValidationResult(productImage, 'image', 'Image', 'OK', productImageMsg, '')
+            product.image = this.value
+            setValidationResult(productImage, 'OK', productImageMsg, '')
         } else {
             errors.image = errProductImage
-            setValidationResult(productImage, 'image', 'Image', 'NOK', productImageMsg, errProductImage)
+            product.image = ''
+            setValidationResult(productImage, 'NOK', productImageMsg, errProductImage)
         }
     })
 
@@ -224,6 +250,7 @@ window.onload = function(){
             for(i=0;i<Object.keys(errors).length;i++){
                 switch (Object.keys(errors)[i]) {
                     case 'name':
+                        errors.name = errProductName
                         productName.classList.remove('border-ok')
                         productName.classList.add('border-nok')
                         if(productNameMsg.classList){
@@ -232,6 +259,7 @@ window.onload = function(){
                         }
                         break;
                     case 'description':
+                        errors.description = errProductDescription
                         productDescription.classList.remove('border-ok')
                         productDescription.classList.add('border-nok')
                         if(productDescriptionMsg.classList){
@@ -240,6 +268,7 @@ window.onload = function(){
                         }
                         break;
                     case 'image':
+                        errors.image = errProductImage
                         productImage.classList.remove('border-ok')
                         productImage.classList.add('border-nok')
                         if(productImageMsg.classList){
@@ -248,6 +277,7 @@ window.onload = function(){
                         }
                         break;
                     case 'category':
+                        errors.category = errProductCategory
                         productCategory.classList.remove('border-ok')
                         productCategory.classList.add('border-nok')
                         if(productCategoryMsg.classList){
@@ -256,6 +286,7 @@ window.onload = function(){
                         }
                         break;
                     case 'quantity':
+                        errors.quantity = errProductQuantity
                         productQuantity.classList.remove('border-ok')
                         productQuantity.classList.add('border-nok')
                         if(productQuantityMsg.classList){
@@ -264,6 +295,7 @@ window.onload = function(){
                         }
                         break;
                     case 'price':
+                        errors.price = errProductPrice
                         productPrice.classList.remove('border-ok')
                         productPrice.classList.add('border-nok')
                         if(productPriceMsg.classList){
@@ -272,6 +304,7 @@ window.onload = function(){
                         }
                         break;
                     case 'discount':
+                        errors.discount = errProductDiscount
                         productDiscount.classList.remove('border-ok')
                         productDiscount.classList.add('border-nok')
                         if(productDiscountMsg.classList){

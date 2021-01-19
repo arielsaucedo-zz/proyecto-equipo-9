@@ -49,14 +49,6 @@ module.exports = (sequelize, DataTypes) => {
             foreingKey: "category_id",
         })
 
-        /*
-        Product.belongsTo(models.CartDetails, {
-            as: "CartDetail",
-            foreingKey: "product_id",
-            targetKey: "product_id"
-        })
-        */
-
         Product.belongsToMany(models.ShoppingCarts, {
             through: 'cart_details',
             as: "ShoppingCarts",

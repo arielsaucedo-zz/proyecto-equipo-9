@@ -1,13 +1,8 @@
-const products = require('../data/products.json');
-const fs = require('fs')
-const path = require('path')
 const {
     check,
     validationResult,
 } = require('express-validator')
-const productsFilePath = path.join(__dirname, '../data/products.json')
-const productDataFilePath = path.join(__dirname, '../data/product')
-let productData = require(productDataFilePath)
+
 let db = require('../database/models')
 
 function dateNow() {
@@ -19,18 +14,26 @@ function dateNow() {
 
 let productsController = {
 
-    list: function (req, res) {
-        db.Products.findAll()
-            .then((resultado) => {
-                res.render('products/list', {
-                    products: resultado
-                })
-            })
-            .catch(function(error){
-                console.log(error)
-                res.send('')
-            })
-    },
+    async list (req, res) {
+		let where = {}
+		let products = []
+		let title = "Todos los productos"
+		if (req.params.category_id) {
+			let category = await db.Categories.findOne({
+				where: {
+				   id: req.params.category_id
+				},
+				include: ['products']
+			});
+			title = 'Todos los productos de la categoría: ' + category.name;			 
+			if (category) {
+				products = category.products
+			};
+		} else {
+			products = await db.Products.findAll(where)
+		}
+		return res.render('products/list', { products, title })
+	},
 
     show: function (req, res) {
         db.Products.findByPk(req.params.id)
