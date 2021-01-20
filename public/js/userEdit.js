@@ -32,7 +32,7 @@ firstName.addEventListener("change", (e) => {
     } else {
         firstName.classList.remove("border-ok");
         firstName.classList.add("border-nok");
-        innerHTML('El nombre debe tener al menos 3 letras');
+        document.innerHTML('El nombre debe tener al menos 3 letras');
     }
 })
 lastName.addEventListener("change", (e) => {
@@ -43,7 +43,7 @@ lastName.addEventListener("change", (e) => {
     } else {
         firstName.classList.remove("border-ok");
         firstName.classList.add("border-nok");
-        innerHTML('El apellido debe tener al menos 3 letras');
+        document.innerHTML('El apellido debe tener al menos 3 letras');
     }
 })
 userName.addEventListener("change", (e) => {
@@ -55,7 +55,7 @@ userName.addEventListener("change", (e) => {
     } else {
         userName.classList.remove("border-ok");
         userName.classList.add("border-nok");
-        innerHTML('El nombre de usuario debe ser un e-mail')
+        document.innerHTML('El nombre de usuario debe ser un e-mail')
     }
 })
 
@@ -67,7 +67,7 @@ password.addEventListener("change", function () {
     } else {
         password.classList.remove("border-ok")
         password.classList.add("border-nok")
-        innerHTML('La contraseña debe contener entre 4 y 8 caracteres e incluir al menos un número')
+        document.innerHTMLinnerHTML('La contraseña debe contener entre 4 y 8 caracteres e incluir al menos un número')
 
     }
 })
@@ -81,7 +81,7 @@ confirmn.addEventListener("change", function () {
     } else {
         confirmn.classList.remove("border-ok")
         confirmn.classList.add("border-nok")
-        innerHTML('La contraseña no coincide')
+        document.innerHTML('La contraseña no coincide')
 
     }
 })
