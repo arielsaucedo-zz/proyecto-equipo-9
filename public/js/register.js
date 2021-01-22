@@ -137,17 +137,15 @@ window.onload = function () {
         }
     })
 
-    /* imageAvatar.addEventListener("change", function () {
+    imageAvatar.addEventListener("change", function () {
         let imageExtension = ""
-        let imageExtension = getFileExtension(imageAvatar.value)
+        imageExtension = getFileExtension(imageAvatar.value)
         let flag = false
         for (let i = 0; i < allowedExtensions.length; i++) {
             if (allowedExtensions[i] == imageExtension) {
                 flag = true
                 break
-            } else {
-                flag = false
-            }
+            } 
         }
         if (flag) {
             delete errors.image_avatar
@@ -158,10 +156,10 @@ window.onload = function () {
             setValidationResult(imageAvatar, "image_avatar", "Image_Avatar", "NOK", imageAvatarMsg, errImageAvatar)
             }
         }
-    }) */
+    })
 
     password.addEventListener("keyup", function () {
-        if (/^(?=.*\d).{4,8}$/.test(password.value)) {
+        if (/^(?=.*\d).{8,20}$/.test(password.value)) {
             delete errors.password
             setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
         } else {
@@ -171,7 +169,7 @@ window.onload = function () {
     })
 
     password.addEventListener("blur", function () {
-        if (/^(?=.*\d).{4,8}$/.test(password.value)) {
+        if (/^(?=.*\d).{8,20}$/.test(password.value)) {
             delete errors.password
             setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
         } else {
@@ -183,24 +181,36 @@ window.onload = function () {
     passwordConfirmation.addEventListener("keyup", function () {
         if (validator.equals(passwordConfirmation.value, password.value)) {
             delete errors.password_confirm
-            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+            console.log("OK");
         } else {
             errors.password_confirm = errPasswordConfirm
-            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+            console.log("NOK");
         }
     })
 
     passwordConfirmation.addEventListener("blur", function () {
         if (validator.equals(passwordConfirmation.value, password.value)) {
             delete errors.password_confirm
-            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
         } else {
             errors.password_confirm = errPasswordConfirm
-            setValidationResult(passwordConfirm, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
         }
     })
 
-    form.addEventListener("submit", function (e) {
+    passwordConfirmation.addEventListener("change", function () {
+        if (validator.equals(passwordConfirmation.value, password.value)) {
+            delete errors.password_confirm
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
+        } else {
+            errors.password_confirm = errPasswordConfirm
+            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
+        }
+    })
+
+   /*  form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
             console.log("no se envía");
             e.preventDefault()
@@ -262,6 +272,6 @@ window.onload = function () {
         } else {
             console.log('se puede enviar');
         }
-    })
+    }) */
 
 }
