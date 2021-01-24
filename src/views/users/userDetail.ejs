@@ -6,6 +6,13 @@
 <body>
 
     <%- include('../partials/header') %>
+    <style>
+        span {
+            display: none;
+            font-size: 12px;
+            color: red;
+            }
+      </style>
 
     <main>
         <div class="container">
@@ -16,15 +23,16 @@
                         <hr>
                     </div>
                     <form class="needs-validation" action="/userDetail/:id_method=PUT" method="POST"
-                        enctype="multipart/form-data" id="form">
+                        enctype="multipart/form-data" id="form" onsubmit="return validar();">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationTooltip01">Nombre</label>
                                 <input type="text" class="form-control firstName" id="validationTooltip01"
                                     placeholder="First name" name="first_name" value="<%= userLoggedIn.first_name %>"
                                     required>
+                                    <span id="span_name">El nombre debe tener al menos 3 letras</span>
                                 <div class="valid-tooltip">
-                                    Looks good!
+                                    Looks good! 
                                 </div>
                                 <% errors.forEach(error => { %>
                                 <% if(error.param == "first_name") { %>
@@ -36,6 +44,7 @@
                                 <label for="validationTooltip02">Apellido</label>
                                 <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name"
                                     name="last_name" value="<%= userLoggedIn.last_name %>" required>
+                                    <span id="span_last_name">El apellido debe tener al menos 3 letras</span>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
@@ -55,6 +64,7 @@
                                         placeholder="Username" name="user_name"
                                         aria-describedby="validationTooltipUsernamePrepend"
                                         value="<%= userLoggedIn.user_name %>" required>
+                                        <span id="span_user_name">El nombre de usuario debe ser una dirección de correo electrónica válida</span>
                                     <div class="invalid-tooltip">
                                         Please choose a unique and valid username.
                                     </div>
@@ -88,6 +98,7 @@
                                 <label for="validationTooltip03">Contraseña</label>
                                 <input type="text" class="form-control" id="validationTooltip03"
                                     placeholder="Elegí tu nueva contraseña" name="password_initial" required>
+                                    <span id="span_password">La contraseña debe contener entre 4 y 8 letras y números</span>
                                 <div class="invalid-tooltip">
                                     Please provide a valid password.
                                 </div>
@@ -97,6 +108,7 @@
                                 <label for="validationTooltip04">Confirmacion de contraseña</label>
                                 <input type="text" class="form-control" id="validationTooltip04"
                                     placeholder="Confirmá tu nueva contraseña" name="password_confirmation" required>
+                                    <span id="span_confirm">La confirmación no coincide con la contraseña</span>
                                 <div class="invalid-tooltip">
                                     Please provide a valid password.
                                 </div>
@@ -139,9 +151,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js"
         integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ=="
         crossorigin="anonymous"></script>
-    <script src="/js/userEdit.js">
+    <script src="/js/userEdit.js"></script>
 
-    </script>
+   
 
 </body>
 
