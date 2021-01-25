@@ -18,18 +18,30 @@
                     <form class="w-100" action="/products/<%= productEdit.id %>?_method=PUT" method="POST"
                         enctype="multipart/form-data">
                         <div class="form-row">
+                            
                             <div class="form-group col-md-12">
-                                <label class="col-form-label col-form-label-lg" for="inputDefault">Nombre del
+                                <label class="col-form-label col-form-label-lg" for="product_name">Nombre del
                                     producto</label>
-                                <input type="text" class="form-control" id="inputDefault"
+                                <input type="text" class="form-control" id="nameDefault_id"
                                     name="product_name" value="<%= productEdit.name %>">
+                                    <% errors.forEach(error => { %>
+                                        <% if(error.param == "nameDefault_id") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                        <% } else { "" } %>
+                                        <% }) %>
+                                <span class="" id="nameDefault_msg"></span>
                             </div>
                         </div>
 
                         <div class="form-row">
+                            <% errors.forEach(error => { %>
+                                <% if(error.param == "product_category") { %>
+                                <span class="span_errors">* <%= error.msg %></span>
+                                <% } else { "" } %>
+                                <% }) %>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-lg" for="inputDefault">Categoria</label>
-                                <select name="product_category" class="form-control">
+                                <label class="col-form-label col-form-label-lg" for="categoryDefault">Categoria</label>
+                                <select name="product_category" id="product_category_id" class="form-control">
                                     <% for(let i = 0; i < allCategories.length; i++) {%>
                                     <% if(allCategories[i].id == productEdit.category_id) { %>
                                     <option value="<%= allCategories[i].id %>" selected>
@@ -42,14 +54,27 @@
                                     <% } %>
                                     <% } %>
                                 </select>
+                                <span class="" id="product_category_msg"></span>
                             </div>
+                            
+                            <% errors.forEach(error => { %>
+                                <% if(error.param == "product_quantity") { %>
+                                <span class="span_errors">* <%= error.msg %></span>
+                                <% } else { "" } %>
+                                <% }) %>
                             <div class="form-group col-md-6">
-                                <label class="col-form-label col-form-label-lg" for="inputDefault">Cantidad en
+                                <label class="col-form-label col-form-label-lg" for="product_quantity">Cantidad en
                                     Stock</label>
-                                <input type="text" class="form-control" id="inputDefault"
+                                <input type="text" class="form-control" id="product_quantity_id"
                                     name="product_quantity" value="<%= productEdit.quantity %>">
+                                <span class="" id="product_quantity_msg"></span>
                             </div>
 
+                            <% errors.forEach(error => { %>
+                                <% if(error.param == "product_price") { %>
+                                <span class="span_errors">* <%= error.msg %></span>
+                                <% } else { "" } %>
+                                <% }) %>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-lg">Precio</label>
                                 <div class="form-group">
@@ -58,24 +83,32 @@
                                             <span class="input-group-text">$</span>
                                         </div>
                                         <input type="text" class="form-control"
-                                            aria-label="Amount (to the nearest dollar)" name="product_price"
+                                            aria-label="Amount (to the nearest dollar)" name="product_price" id="product_price_id"
                                             value="<%= productEdit.price %>">
                                         <div class="input-group-append">
                                             <span class="input-group-text">.00</span>
                                         </div>
+                                        <span class="" id="product_price_msg"></span>
                                     </div>
                                 </div>
                             </div>
+
+                            <% errors.forEach(error => { %>
+                                <% if(error.param == "product_discount") { %>
+                                <span class="span_errors">* <%= error.msg %></span>
+                                <% } else { "" } %>
+                                <% }) %>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label col-form-label-lg">Descuento</label>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control"
-                                            aria-label="Amount (to the nearest dollar)" name="product_discount"
+                                            aria-label="Amount (to the nearest dollar)" name="product_discount" id="product_discount_id"
                                             value="<%= productEdit.discount %>">
                                         <div class="input-group-append">
                                             <span class="input-group-text">%</span>
                                         </div>
+                                        <span class="" id="product_discount_msg"></span>
                                     </div>
                                 </div>
                             </div>
@@ -83,13 +116,18 @@
                             
                         </div>
 
+                        <% errors.forEach(error => { %>
+                            <% if(error.param == "product_image") { %>
+                            <span class="span_errors">* <%= error.msg %></span>
+                            <% } else { "" } %>
+                            <% }) %>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile02" name="image"
+                                        <input type="file" class="custom-file-input" id="product_image_id" name="product_image"
                                             value="<%= productEdit.image %>">
-                                        <label class="custom-file-label" for="inputGroupFile02">
+                                        <label class="custom-file-label" for="product_image">
                                             <% if (productEdit.image != '') { %>
                                             <%= productEdit.image %>
                                             <% } else {%>
@@ -125,6 +163,9 @@
     </main>
 
     <%- include('../partials/footer') %>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.5.2/validator.min.js" integrity="sha512-vZEoK8xRncku4g5GANHh5zobUjeCMbZkSEahrADeAcRlk/1Ignf8sAKojkV4RZLkPw145+ILJFisI2pnjsPtGQ==" crossorigin="anonymous"></script>
+    <script src="/js/productsEdit.js"></script>
 
 </body>
 
