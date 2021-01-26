@@ -96,7 +96,7 @@ window.onload = function () {
     })
 
     productQuantity.addEventListener('keyup', function(){
-        if(validator.isLength(productQuantity.value, { min : 5 } )){
+        if(validator.isLength(productQuantity.value, { min : 1, max: 99999999999999999999} )){
             delete errors.name
             product.name = this.value
             setValidationResult(productQuantity, 'OK', productQuantityMsg, '')

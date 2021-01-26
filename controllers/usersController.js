@@ -99,7 +99,7 @@ const controller = {
             last_name: req.body.last_name,
             user_name: req.body.user_name,
             password: bcryptjs.hashSync(req.body.password_confirmation),
-            role_id: 1,
+            role_id: 2,
             image_avatar: filenameVal
         })
         .catch(function(error){
