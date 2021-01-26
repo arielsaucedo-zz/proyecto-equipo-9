@@ -19,24 +19,10 @@ validar = () => {
         document.getElementById('span_user_name').style.display = 'block';
         return false;
     }
-<<<<<<< HEAD:public/js/userEditValidator.js
-})
-
-password.addEventListener("change", function () {
-    if (/^(?=.*\d).{4,8}$/.test(password.value)) {
-        password.classList.remove("border-nok")
-        password.classList.add("border-ok")
-        user.password = true;
-    } else {
-        password.classList.remove("border-ok")
-        password.classList.add("border-nok")
-        innerHTML('La contraseña debe contener entre 4 y 8 caracteres e incluir al menos un número')
-=======
 
     else if(!expresion_password.test(password)) {
     document.getElementById('span_password').style.display = 'block';
     return false;
->>>>>>> 48eefa0f7d88ed6470cedfa6a58f36d1101cdf39:public/js/userEdit.js
     }
     else if(confirm !== password) {
         document.getElementById('span_confirm').style.display = 'block';
