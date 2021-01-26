@@ -68,7 +68,6 @@ password.addEventListener("change", function () {
         password.classList.remove("border-ok")
         password.classList.add("border-nok")
         innerHTML('La contraseña debe contener entre 4 y 8 caracteres e incluir al menos un número')
-
     }
 })
 
