@@ -17,7 +17,7 @@ window.onload = function () {
     let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
     let passwordConfirmationMsg = document.getElementById("password_confirm_msg");
 
-    let form = document.getElementById("registerForm");
+    let form = document.getElementById("registerForm"); 
 
     const errFirstName = "La longitud del nombre debe ser como mínimo de 3 letras."
     const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
