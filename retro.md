@@ -1,3 +1,11 @@
+## RETROSPECTIVA - SPRINT 7
+
+- **<u>Comenzar a hacer:</u>** Seguimiento diario del avance de cada parte dividida para asegurar un progreso parejo entre los integrantes del equipo.
+- **<u>Hacer más:</u>** Realizar reuniones con más frecuencia o establecer quizas un día, una juntada de al menos una hora y codear en grupo. (podría ser que cada uno trabaje en su tarea, pero todos en una call)
+- **<u>Continuar haciendo:</u>** Division de tareas para repartirlas entre los diferentes integrantes del equipo.
+- **<u>Hacer menos:</u>** Postergar sincronizaciones GIT. Todo lo desarrollado debe quedar impactado en el repositorio remoto (GITHUB). Es una forma de seguimiento.
+- **<u>Dejar de hacer:</u>** Esperar a los ultimos momentos para completar lo referente a lo solicitado en el sprint.
+
 ## RETROSPECTIVA - SPRINT 6
 
 - **<u>Comenzar a hacer:</u>** Generar el tiempo suficiente para poder juntarnos a codificar en grupo y, de esa manera, poder ver las dudas y ayudarnos a fijar los conocimientos.
