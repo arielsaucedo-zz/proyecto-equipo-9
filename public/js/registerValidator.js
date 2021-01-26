@@ -23,7 +23,7 @@ window.onload = function () {
     const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
     const errUserName = "El nombre de usuario debe ser un e-mail."
     const errImageAvatar = "El archivo debe ser de extension jpg, jpeg, png o gif."
-    const errPassword = "La contraseña debe contener entre 4 y 8 caracteres y debe incluir al menos un número."
+    const errPassword = "La contraseña debe contener mínimo 8 caracteres y debe incluir al menos un número."
     const errPasswordConfirm = "Las contraseñas deben ser iguales."
     const allowedExtensions = ["jpg", "jpeg", "png", "gif"]
 
@@ -210,7 +210,7 @@ window.onload = function () {
         }
     })
 
-   /*  form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
             console.log("no se envía");
             e.preventDefault()
@@ -272,6 +272,6 @@ window.onload = function () {
         } else {
             console.log('se puede enviar');
         }
-    }) */
+    })
 
 }
