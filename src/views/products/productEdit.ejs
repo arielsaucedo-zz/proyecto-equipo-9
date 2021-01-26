@@ -142,15 +142,20 @@
                             </div>
                         </div>
 
+                        <% errors.forEach(error => { %>
+                        <% if(error.param == "product_description") { %>
+                        <span class="span_errors">* <%= error.msg %></span>
+                        <% } else { "" } %>
+                        <% }) %>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label class="col-form-label col-form-label-lg"
-                                    for="exampleTextarea">Descripcion</label>
-                                <textarea class="form-control" id="exampleTextarea" rows="3"
+                                    for="product_description_id">Descripcion</label>
+                                <textarea class="form-control" id="product_description_id" rows="3"
                                     name="product_description"><%= productEdit.description %></textarea>
+                                <span class="" id="product_description_msg"></span>
                             </div>
                         </div>
-
 
                         <button type="submit" class="btn btn-primary">Editar</button>
 

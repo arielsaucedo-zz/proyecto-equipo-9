@@ -18,13 +18,15 @@ window.onload = function () {
     let productImage = document.getElementById('product_image_id')
     let productImageMsg = document.getElementById('product_image_msg')
 
-
+    let productDescription = document.getElementById('product_description_id')
+    let productDescriptionMsg = document.getElementById('product_description_msg')
 
     const errNameDefault = 'La longitud del nombre debe ser como mínimo de 5 letras.';
     const errProductCategory = 'La longitud de la categoría debe ser como mínimo de 1 letra.';
     const errProductQuantity = 'El valor de cantidad debe ser mayor o igual a 1 y menor o igual a 99.999.999.999.999.999.999';
     const errProductPrice = 'El valor del precio debe ser mayor o igual a 0,01 y menor o igual a 9.999.999.999,99';
     const errProductDiscount = 'El valor del descuento debe ser mayor o igual a 0 y menor o igual a 100';
+    const errProductDescription = 'La longitud de la descripción debe ser como mínimo de 20 letras.'
     const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']
 
     function getFileExtension(filename) {
@@ -95,26 +97,50 @@ window.onload = function () {
         }
     })
 
+    productCategory.addEventListener('keyup', function(){
+        if(validator.isLength(productCategory.value, { min : 1 } )){
+            delete errors.category
+            product.category = this.value
+            setValidationResult(productCategory, 'OK', productCategoryMsg, '')
+        } else {
+            errors.category = errProductCategory
+            product.category = ''
+            setValidationResult(productCategory, 'NOK', productCategoryMsg, errProductCategory)
+        }
+    })
+
+    productCategory.addEventListener('blur', function(){
+        if(validator.isLength(productCategory.value, { min : 1 } )){
+            delete errors.category
+            product.category = this.value
+            setValidationResult(productCategory, 'OK', productCategoryMsg, '')
+        } else {
+            errors.category = errProductCategory
+            product.category = ''
+            setValidationResult(productCategory, 'NOK', productCategoryMsg, errProductCategory)
+        }
+    })
+
     productQuantity.addEventListener('keyup', function(){
-        if(validator.isLength(productQuantity.value, { min : 1, max: 99999999999999999999} )){
-            delete errors.name
-            product.name = this.value
+        if(validator.isInt(productQuantity.value, { min: 1, max: 99999999999999999999 } )){
+            delete errors.quantity
+            product.quantity = this.value
             setValidationResult(productQuantity, 'OK', productQuantityMsg, '')
-        }else{
-            errors.name = errNameDefault
-            product.name = ''
+        } else {
+            errors.quantity = errProductQuantity
+            product.quantity = ''
             setValidationResult(productQuantity, 'NOK', productQuantityMsg, errProductQuantity)
         }
     })
 
     productQuantity.addEventListener('blur', function(){
-        if(validator.isLength(productQuantity.value, { min : 1, max: 99999999999999999999} )){
-            delete errors.name
-            product.name = this.value
+        if(validator.isInt(productQuantity.value, { min: 1, max: 99999999999999999999 } )){
+            delete errors.quantity
+            product.quantity = this.value
             setValidationResult(productQuantity, 'OK', productQuantityMsg, '')
-        }else{
-            errors.name = errNameDefault
-            product.name = ''
+        } else {
+            errors.quantity = errProductQuantity
+            product.quantity = ''
             setValidationResult(productQuantity, 'NOK', productQuantityMsg, errProductQuantity)
         }
     })
@@ -167,8 +193,32 @@ window.onload = function () {
         }
     })
 
+    productDescription.addEventListener('keyup', function(){
+        if(validator.isLength(productDescription.value, { min : 20 } )){
+            delete errors.description
+            product.description = this.value
+            setValidationResult(productDescription, 'OK', productDescriptionMsg,'')
+        } else {
+            product.description = ''
+            errors.description = errProductDescription
+            setValidationResult(productDescription, 'NOK', productDescriptionMsg, errProductDescription)
+        }
+    })
+
+    productDescription.addEventListener('blur', function(){
+        if(validator.isLength(productDescription.value, { min : 20 } )){
+            delete errors.description
+            product.description = this.value
+            setValidationResult(productDescription, 'OK', productDescriptionMsg,'')
+        } else {
+            errors.description = errProductDescription
+            product.description = ''
+            setValidationResult(productDescription, 'NOK', productDescriptionMsg, errProductDescription)
+        }
+    })
+
     productImage.addEventListener('change', function(){
-        let imageExtension = getFileExtension(productImage.value)
+        let imageExtension = getFileExtension(productImage.defaultValue)
         let flag = false
         for (let i = 0; i < allowedExtensions.length; i++) {
             if(allowedExtensions[i] == imageExtension){
@@ -180,7 +230,7 @@ window.onload = function () {
         }
         if(flag){
             delete errors.image
-            product.image = this.value
+            product.image = this.defaultValue
             setValidationResult(productImage, 'OK', productImageMsg, '')
         } else {
             errors.image = errProductImage
