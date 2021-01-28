@@ -115,14 +115,14 @@ let productsController = {
         console.log(req.files)
         let dateTimeBD = dateNow()
         let filenameVal = ''
+        let allCategories = db.Products.findAll()
+        let oneProduct = db.Products.findByPk(req.params.id)
         if (req.files[0] != undefined) {
             filenameVal = req.files[0].filename
         }
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productEdit', {
-                errors: errors.errors
-            });
+            return res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors: errors.errors });
         }
         db.Products.update({
             name: req.body.product_name,
