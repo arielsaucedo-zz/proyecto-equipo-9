@@ -59,10 +59,12 @@ app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación d
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const productsRouter = require('./routes/products')
+const emailRouter = require('./routes/email')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/products', productsRouter)
+app.use('/contact', emailRouter)
 
 
 // ************ catch 404 and forward to error handler ************
