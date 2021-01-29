@@ -112,6 +112,6 @@ router.post('/:id/addToCart', productsController.addToCart);
 router.get('/productCart', productsController.cart);
 
 /*** localhost:3000/categories/1 ***/
-router.get('/:category_id?', productsController.list);
+router.get('/categories/:category?', productsController.categories);
 
 module.exports = router;

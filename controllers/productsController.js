@@ -14,25 +14,33 @@ function dateNow() {
 
 let productsController = {
 
-    async list (req, res) {
+    async categories (req, res) {
 		let where = {}
 		let products = []
-		let title = "Todos los productos"
-		if (req.params.category_id) {
+        let title = "Todos los productos"
+        
+		if (req.params.category) {
 			let category = await db.Categories.findOne({
 				where: {
-				   id: req.params.category_id
+				   name: req.params.category
 				},
 				include: ['products']
-			});
-			title = 'Todos los productos de la categoría: ' + category.name;			 
+            });
+            
+            title = 'Todos los productos de la categoría: ' + category.name;			 
+            
 			if (category) {
 				products = category.products
 			};
 		} else {
 			products = await db.Products.findAll(where)
-		}
-		return res.render('products/list', { products, title })
+        }
+        
+        let categories = await db.Categories.findAll({
+			include: ['products']
+		});
+
+		return res.render('products/categories', { products, categories, title })
 	},
 
     show: function (req, res) {
