@@ -125,7 +125,7 @@ const controller = {
     update: function (req, res, next) {
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('/userDetail/:id', {
+            return res.render('users/userDetail', {
                 errors: errors.errors
             });
         }
@@ -135,14 +135,18 @@ const controller = {
             filenameVal = req.files[0].filename
         }
 
-        db.Users.update({
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            user_name: req.body.user_name,
-            password: bcryptjs.hashSync(req.body.password_confirmation),
-            role_id: 1,
-            image_avatar: filenameVal
-        })
+        db.Users.update(
+            {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                user_name: req.body.user_name,
+                role_id: 1,
+                image_avatar: filenameVal
+            }, 
+            { 
+                where : {id : req.params.id}
+            }
+        )
         .catch(function(error){
             console.log(error)
             res.send('')
@@ -151,8 +155,55 @@ const controller = {
     },
 
     showChangePassword: function(req, res, next) {
-        res.render('users/changePassword')
-    }
+        let user = {}
+        db.Users.findOne({
+                where: {
+                    user_name: res.locals.user
+                }
+        })
+        .then((resultado) => {
+            user = resultado
+            res.render('users/changePassword', {
+                userLoggedIn: user,
+                errors: []
+            })
+        })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+        })
+    },
+
+    updateChangePassword: function(req, res, next) {
+        let errors = validationResult(req)
+        console.log(errors);
+        db.Users.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        .then((resultado) => {
+            let errors = validationResult(req)
+            let userLoggedIn  = resultado
+            if (!errors.isEmpty()) {
+                return res.render('users/changePassword', {
+                    userLoggedIn : userLoggedIn,
+                    errors: errors.errors
+                })
+            }
+            const _body = req.body
+            _body.password = bcryptjs.hashSync(req.body.password_new)
+            db.Users.update(
+                {
+                    password : _body.password
+                },
+                { 
+                    where : { id : req.params.id } 
+                })
+            //res.redirect(`users/userDetail/${req.params.id}`)
+            res.send('es prueba')
+        })
+    },
 }
 
 module.exports = controller;

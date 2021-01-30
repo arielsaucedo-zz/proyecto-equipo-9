@@ -9,6 +9,9 @@ const path = require('path')
 const usersController = require('../controllers/usersController')
 const userAuth = require('../middlewares/userAuth')
 
+let bcryptjs = require('bcryptjs')
+let db = require('../database/models')
+
 // ************ Multer Require ************
 var multer  = require('multer')
 var storage = multer.diskStorage({
@@ -72,7 +75,9 @@ router.post('/', upload.any(), [
         }),
 ], userValidator, usersController.store); 
 
-router.get('/userDetail/:id', userAuth, usersController.show);
+
+/** UPDATE USER */
+router.get('/userDetail/:id/edit', userAuth, usersController.show);
 router.put('/:id', upload.any(),
 [
     check('first_name')
@@ -84,7 +89,39 @@ router.put('/:id', upload.any(),
     check('user_name')
         .isEmail()
         .withMessage('Por favor, ingrese una dirección de correo electrónico válida'),
-    check('password_initial')
+/*     check('password_initial')
+        .isLength( {min: 8})
+        .withMessage('La contraseña debe contener al menos 8 caracteres')
+        .custom((value,{req, loc, path}) => {
+            if (value !== req.body.password_confirmation) {
+                throw new Error('Las contraseñas no coinciden, por favor corrija.');
+            } else {
+                return value;
+            }
+        }) 
+*/
+], usersController.update)
+
+router.get('/userDetail/:id/changePassword', userAuth, usersController.showChangePassword);
+router.put('/userDetail/:id', [
+    check('password_old')
+        .isLength( {min: 8})
+        .withMessage('La contraseña debe contener al menos 8 caracteres')
+        .custom((value,{req, loc, path}) => {
+            db.Users.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then((objUser) => {
+                if (bcryptjs.compareSync(value, objUser.password)) {
+                    throw new Error('La contraseña no es correcta o inválida, por favor corrija y vuelva a intentar.');
+                }else {
+                    return value;
+                }
+            })
+        }),
+    check('password_new')
         .isLength( {min: 8})
         .withMessage('La contraseña debe contener al menos 8 caracteres')
         .custom((value,{req, loc, path}) => {
@@ -94,8 +131,7 @@ router.put('/:id', upload.any(),
                 return value;
             }
         }),
-], userValidator, usersController.update)
+], userAuth, usersController.updateChangePassword);
 
-router.get('/userDetail/:id/changePassword', userAuth, usersController.showChangePassword);
 
 module.exports = router;
