@@ -40,15 +40,17 @@ app.use(function(req, res, next){
     res.locals.last_name = req.session.last_name
     res.locals.userId = req.session.userId
   }
-  db.Categories.findAll()
-    .then(function(Categories){ 
-      res.locals.listOfCategories = Categories
-      next()
-    })
-    .catch(function(error){
-      console.log(error)
-      res.send('')
-    })
+  db.Categories.findAll({
+    include: ['products']
+  })
+  .then(function(Categories){ 
+    res.locals.listOfCategories = Categories
+    next()
+  })
+  .catch(function(error){
+    console.log(error)
+    res.send('')
+  })
 })
 
 
@@ -58,7 +60,7 @@ app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación d
 
 // My middlewares
 //app.use(logMiddleware);
-app.use(cartMiddleware);
+//app.use(cartMiddleware);
 app.use(helpersMiddleware);
 
 // ************ Route System require and use() ************

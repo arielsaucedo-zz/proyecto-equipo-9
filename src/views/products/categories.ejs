@@ -17,7 +17,7 @@
       <% if(products.length != 0){ %>
       <div class="row">
          <div class="col-12">
-            <h1 class="products-title"><%= title %></h1>
+            <h1 class="products-title text-right"><%= title %></h1>
          </div>
       </div>
       <div class="product-detail">
@@ -55,9 +55,14 @@
                               <img src="/images/products/<%= product.image %>" alt="<%= product.name %>">
                            </figure>
                            <article class="product-box_data">
+                              <% if(product.discount > 0) { %>
+                                 <div class="col-12 pl-0">
+                                    <h2 class="original-price font-weight-light"><strike>$ <%= product.price %> </strike></h2> <!-- Original Price -->
+                                 </div>
+                              <% } %>
                               <h2>$<%= helpers.trunc(product.price - product.price * product.discount / 100) %></h2>
                               <% if(product.discount > 0) { %>
-                              <span><%= product.discount %> % OFF</span>
+                                 <span><%= product.discount %> % OFF</span>
                               <% } %>
                               <p><%= product.name %></p>
                               <i class="fas fa-truck"></i>

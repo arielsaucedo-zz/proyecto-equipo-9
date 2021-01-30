@@ -149,6 +149,10 @@ const controller = {
         })
         res.redirect('/')
     },
+
+    showChangePassword: function(req, res, next) {
+        res.render('users/changePassword')
+    }
 }
 
 module.exports = controller;

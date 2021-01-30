@@ -95,6 +95,8 @@
                             </div>
                         </div>
 
+                        <!--
+
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationTooltip03">Contraseña</label>
@@ -115,6 +117,7 @@
                                 <span id="password_confirm_msg" class="span_errors"></span>
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <% errors.forEach(error => { %>
@@ -139,12 +142,20 @@
                                 <% }) %>
                             </div>
                         </div>
+                        -->
                         <button type="submit" class="btn btn-primary" target="" id="send">Aceptar</button>
-                        <button type="reset" class="btn btn-warning">Limpiar</button>
+                        <button type="reset" class="btn btn-warning" id="reset">Limpiar</button>
+                        <div class="my-5 card border-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Cambiar Contraseña</div>
+                            <div class="card-body text-dark">
+                              <h5 class="card-title">Para cambiar su contraseña, por favor presione el boton debajo.</h5>
+                              <a class="btn btn-warning  btn-lg btn-block" href="/users/userDetail/<%=userLoggedIn.id%>/changePassword" role="button" id="change_password_id">Cambiar contraseña</a>
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
-            <br>
         </div>
     </main>
 
