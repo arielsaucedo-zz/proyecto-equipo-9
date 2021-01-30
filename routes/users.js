@@ -96,5 +96,6 @@ router.put('/:id', upload.any(),
         }),
 ], userValidator, usersController.update)
 
+router.get('/userDetail/:id/changePassword', userAuth, usersController.showChangePassword);
 
 module.exports = router;

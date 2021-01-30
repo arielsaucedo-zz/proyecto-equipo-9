@@ -14,25 +14,33 @@ function dateNow() {
 
 let productsController = {
 
-    async list (req, res) {
+    async categories (req, res) {
 		let where = {}
 		let products = []
-		let title = "Todos los productos"
-		if (req.params.category_id) {
+        let title = "Todos los productos"
+        
+		if (req.params.category) {
 			let category = await db.Categories.findOne({
 				where: {
-				   id: req.params.category_id
+				   name: req.params.category
 				},
 				include: ['products']
-			});
-			title = 'Todos los productos de la categoría: ' + category.name;			 
+            });
+            
+            title = 'Todos los productos de la categoría: ' + category.name;			 
+            
 			if (category) {
 				products = category.products
 			};
 		} else {
 			products = await db.Products.findAll(where)
-		}
-		return res.render('products/list', { products, title })
+        }
+        
+        let categories = await db.Categories.findAll({
+			include: ['products']
+		});
+
+		return res.render('products/categories', { products, categories, title })
 	},
 
     show: function (req, res) {
@@ -115,14 +123,14 @@ let productsController = {
         console.log(req.files)
         let dateTimeBD = dateNow()
         let filenameVal = ''
+        let allCategories = db.Products.findAll()
+        let oneProduct = db.Products.findByPk(req.params.id)
         if (req.files[0] != undefined) {
             filenameVal = req.files[0].filename
         }
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productEdit', {
-                errors: errors.errors
-            });
+            return res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors: errors.errors });
         }
         db.Products.update({
             name: req.body.product_name,

@@ -9,8 +9,10 @@ let session = require('express-session')
 let rememberMe = require('./middlewares/rememberMe')
 let db = require('./database/models') // Referencia a los modelos
 // ************** carga de archivo de productos para almacenar luego las categorías **********************
-const productDataFilePath = path.join(__dirname, '/data/product')
-let productData = require(productDataFilePath)
+
+const cartMiddleware = require('./middlewares/cart');
+const helpersMiddleware = require('./middlewares/helpers')
+
 // ************ express() - (don't touch) ************
 const app = express()
 
@@ -38,15 +40,17 @@ app.use(function(req, res, next){
     res.locals.last_name = req.session.last_name
     res.locals.userId = req.session.userId
   }
-  db.Categories.findAll()
-    .then(function(Categories){ 
-      res.locals.listOfCategories = Categories
-      next()
-    })
-    .catch(function(error){
-      console.log(error)
-      res.send('')
-    })
+  db.Categories.findAll({
+    include: ['products']
+  })
+  .then(function(Categories){ 
+    res.locals.listOfCategories = Categories
+    next()
+  })
+  .catch(function(error){
+    console.log(error)
+    res.send('')
+  })
 })
 
 
@@ -54,6 +58,10 @@ app.use(function(req, res, next){
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación de la carpeta de las Vistas
 
+// My middlewares
+//app.use(logMiddleware);
+//app.use(cartMiddleware);
+app.use(helpersMiddleware);
 
 // ************ Route System require and use() ************
 const indexRouter = require('./routes/index')
