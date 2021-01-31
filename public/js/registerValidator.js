@@ -44,7 +44,6 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-       /*  image_avatar: "", */
         password: "",
         password_confirm: "",
     }
@@ -137,7 +136,7 @@ window.onload = function () {
         }
     })
 
-    /* imageAvatar.addEventListener("change", function () {
+    imageAvatar.addEventListener("change", function () {
         let imageExtension = ""
         imageExtension = getFileExtension(imageAvatar.value)
         let flag = false
@@ -156,7 +155,7 @@ window.onload = function () {
             setValidationResult(imageAvatar, "image_avatar", "Image_Avatar", "NOK", imageAvatarMsg, errImageAvatar)
             }
         }
-    }) */
+    })
 
     password.addEventListener("keyup", function () {
         if (/^(?=.*\d).{8,20}$/.test(password.value)) {
@@ -241,14 +240,14 @@ window.onload = function () {
                             userNameMsg.innerHTML = errUserName
                         }
                         break;
-                   /*  case "image_avatar":
+                    case "image_avatar":
                         imageAvatar.classList.remove("border-ok")
                         imageAvatar.classList.add("border-nok")
                         if (imageAvatarMsg.classList) {
                             imageAvatarMsg.classList.add('span_errors')
                             imageAvatarMsg.innerHTML = errImageAvatar
                         }
-                        break; */
+                        break;
                     case "password":
                         password.classList.remove("border-ok")
                         password.classList.add("border-nok")
