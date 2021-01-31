@@ -109,7 +109,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.redirect('users/login')
+        res.render('users/success')
     },
 
     show: function (req, res, next) {

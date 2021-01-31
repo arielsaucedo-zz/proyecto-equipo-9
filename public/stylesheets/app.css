@@ -697,8 +697,6 @@ ul#nav1>li ul li {
     width: 8rem;
   }
 
-
-
   table#cart tfoot td {
     display: block;
   }
@@ -709,11 +707,8 @@ ul#nav1>li ul li {
 
 }
 
-
-
 .navbar-text-kalitero {
   display: inline-block;
-  margin-bottom: 0px;
 }
 
 .login-dp-1{
@@ -772,9 +767,9 @@ ul#nav1>li ul li {
 /******************************/
 /*====== Media-Queries ======*/
 @media (min-width: 600px) {
-  .header-f-s {
+  /* .header-f-s {
     font-size: 1em;
-  }
+  } */
   
   .icono-f-s {
     font-size: 20px;
@@ -841,7 +836,9 @@ ul#nav1>li ul li {
     color: rgb(199, 38, 9);
     /*<i class="fas fa-times"></i>*/
   }
+}
 
-
-
+/********Estilo producto agregado***********/
+.check-ok{
+  width: 10%;
 }
