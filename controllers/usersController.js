@@ -109,7 +109,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.render('users/success')
+        res.render('users/addedUser')
     },
 
     show: function (req, res, next) {
@@ -140,8 +140,8 @@ const controller = {
             });
         }
 
-        let filenameVal = ''
-        if (req.files[0] != undefined) {
+        let filenameVal = 'avatar-default.jpg'
+        if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
             filenameVal = req.files[0].filename
         }
 
@@ -161,7 +161,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.redirect('/')
+        res.render('users/changeUser')
     },
 
     showChangePassword: function(req, res, next) {

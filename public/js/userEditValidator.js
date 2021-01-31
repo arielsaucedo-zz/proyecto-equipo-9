@@ -35,7 +35,7 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-        image_avatar: "",
+     /*    image_avatar: "", */
 /*         password: "",
         password_confirm: "", */
     }
@@ -44,7 +44,6 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-        image_avatar: "",
 /*         password: "",
         password_confirm: "", */
     }

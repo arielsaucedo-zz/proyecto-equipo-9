@@ -102,7 +102,7 @@ let productsController = {
                 console.log(error)
                 res.send('')
             })
-            res.render('products/added')
+            res.render('products/addedProduct')
         }
     },
 
@@ -151,6 +151,7 @@ let productsController = {
             console.log(error)
             res.send('')
         })
+        res.render('products/changeProduct')
     },
 
     destroy: function (req, res) {
