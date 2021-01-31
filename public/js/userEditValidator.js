@@ -208,7 +208,9 @@ window.onload = function () {
             errors.password_confirm = errPasswordConfirm
             setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
         }
-    }) */
+    }) 
+    
+*/
 
     form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
