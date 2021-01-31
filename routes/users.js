@@ -107,24 +107,26 @@ router.put('/userDetail/:id', [
     check('password_old')
         .isLength( {min: 8})
         .withMessage('La contraseña debe contener al menos 8 caracteres')
-        .custom((value,{req, loc, path}) => {
-            db.Users.findOne({
+        .custom((value,{req}) => {
+            return db.Users.findOne({
                 where: {
                     id: req.params.id
                 }
             })
-            .then((objUser) => {
-                if (bcryptjs.compareSync(value, objUser.password)) {
-                    throw new Error('La contraseña no es correcta o inválida, por favor corrija y vuelva a intentar.');
-                }else {
-                    return value;
+            .then((user) => {
+                if(user){
+                    if (!bcryptjs.compareSync(value, user.password)) { 
+                        return Promise.reject('La contraseña no es correcta o inválida, por favor corrija y vuelva a intentar.')
+                    }
+                } else {
+                    return Promise.reject('La contraseña no es correcta o inválida, por favor corrija y vuelva a intentar.')
                 }
             })
         }),
     check('password_new')
         .isLength( {min: 8})
         .withMessage('La contraseña debe contener al menos 8 caracteres')
-        .custom((value,{req, loc, path}) => {
+        .custom((value,{req}) => {
             if (value !== req.body.password_confirmation) {
                 throw new Error('Las contraseñas no coinciden, por favor corrija.');
             } else {
@@ -132,6 +134,5 @@ router.put('/userDetail/:id', [
             }
         }),
 ], userAuth, usersController.updateChangePassword);
-
 
 module.exports = router;

@@ -44,6 +44,15 @@ const controller = {
                         })
                     }
                     return res.redirect('/')
+                } else {
+                    return res.render('users/login', {
+                        errors: [{
+                            value: '',
+                            msg: 'Contraseña incorrecta. Ingrese nuevamente los datos por favor.',
+                            param: 'password',
+                            location: 'body'
+                        }]
+                    })
                 }
             } else {
                 return res.render('users/login', {
@@ -183,7 +192,6 @@ const controller = {
             }
         })
         .then((resultado) => {
-            let errors = validationResult(req)
             let userLoggedIn  = resultado
             if (!errors.isEmpty()) {
                 return res.render('users/changePassword', {
@@ -200,8 +208,7 @@ const controller = {
                 { 
                     where : { id : req.params.id } 
                 })
-            //res.redirect(`users/userDetail/${req.params.id}`)
-            res.send('es prueba')
+            res.redirect(`${req.params.id}/edit`)
         })
     },
 }

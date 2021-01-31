@@ -8,7 +8,6 @@ function userAuth(req, res, next) {
             }
         })
         .then((userLoggedIn) => {
-            console.log(userLoggedIn)
             if(userLoggedIn.role_id == 2){
                 next()
             } else {

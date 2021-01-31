@@ -17,22 +17,29 @@
                             <hr>
                         </div>
                         <form class="mt-5" action="/users/login" method="POST" >
-                            <% errors.forEach(error => { %>
-                                <% if(error.param == "user_name") { %>
-                                    <span class="span_errors">* <%= error.msg %></span>
-                                <% } else { "" } %>
-                            <% }) %>
                             <div class="form-group">
                                 <label class="text-white" for="email_id">Nombre de Usuario (e-mail)</label>
                                 <input type="email" class="form-control form-control-sm bg-light"
                                     placeholder="Email Id" name="user_name" id="email_id">
+                                <% errors.forEach(error => { %>
+                                    <% if(error.param == "user_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                    <% } else { "" } %>
+                                <% }) %>
                             </div>
+
 
                             <div class="form-group">
                                 <label class="text-white" for="psw_id">Contraseña</label>
                                 <input type="password" class="form-control form-control-sm bg-light"
                                     placeholder="Password" name="password" id="psw_id">
+                                <% errors.forEach(error => { %>
+                                    <% if(error.param == "password") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                    <% } else { "" } %>
+                                <% }) %>
                             </div>
+
 
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="rememberCheckBox" name="rememberMe">
