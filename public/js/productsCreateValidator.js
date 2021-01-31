@@ -37,7 +37,7 @@ window.onload = function(){
     const product = {
         name : '',
         description : '',
-        image : '',
+     /*    image : '', */
         category : '',
         quantity : '',
         price : '',
@@ -48,7 +48,7 @@ window.onload = function(){
     const errors = {
         name : '',
         description : '',
-        image : '',
+     /*    image : '', */
         category : '',
         quantity : '',
         price : '',
@@ -220,7 +220,7 @@ window.onload = function(){
         }
     })
 
-    productImage.addEventListener('change', function(){
+   /*  productImage.addEventListener('change', function(){
         let imageExtension = getFileExtension(productImage.value)
         let flag = false
         for (let i = 0; i < allowedExtensions.length; i++) {
@@ -240,7 +240,7 @@ window.onload = function(){
             product.image = ''
             setValidationResult(productImage, 'NOK', productImageMsg, errProductImage)
         }
-    })
+    }) */
 
     form.addEventListener('submit', function(e){
         if(Object.keys(errors).length > 0){
@@ -267,7 +267,7 @@ window.onload = function(){
                             productDescriptionMsg.innerHTML = errProductDescription
                         }
                         break;
-                    case 'image':
+                    /* case 'image':
                         errors.image = errProductImage
                         productImage.classList.remove('border-ok')
                         productImage.classList.add('border-nok')
@@ -275,7 +275,7 @@ window.onload = function(){
                             productImageMsg.classList.add('span_errors')
                             productImageMsg.innerHTML = errProductImage
                         }
-                        break;
+                        break; */
                     case 'category':
                         errors.category = errProductCategory
                         productCategory.classList.remove('border-ok')

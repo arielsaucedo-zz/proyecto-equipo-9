@@ -38,12 +38,14 @@ const controller = {
                     req.session.first_name = userLoggedIn.first_name
                     req.session.last_name = userLoggedIn.last_name
                     req.session.userId = userLoggedIn.id
+                    req.session.image_avatar = userLoggedIn.image_avatar
                     if (req.body.rememberMe) {
                         res.cookie('rememberMe', userLoggedIn.user_name, {
                             maxAge: 120 * 1000
                         })
                     }
-                    return res.redirect('/')
+                    return res.redirect('/');
+
                 }
             } else {
                 return res.render('users/login', {
@@ -82,11 +84,11 @@ const controller = {
             });
         }
 
-        let filenameVal = ''
-        if (req.files[0] != undefined) {
+        let filenameVal = 'avatar-default.jpg'
+        if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
             filenameVal = req.files[0].filename
         }
-
+       
         db.Users.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,

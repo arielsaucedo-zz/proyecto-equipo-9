@@ -19,6 +19,7 @@ var storage = multer.diskStorage({
         cb(null, './public/images/uploads_users')
     },
     filename: (req, file, cb) => {
+        console.log(file);
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 });
@@ -33,7 +34,6 @@ var upload = multer({ storage,
     if (!acceptedExtensions.includes(ext)) {
        req.file = file;
     }
-
     cb(null, acceptedExtensions.includes(ext));
  }
 });

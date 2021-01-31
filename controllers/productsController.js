@@ -84,8 +84,8 @@ let productsController = {
                 })
         } else {
             let dateTimeBD = dateNow()
-            let filenameVal = ''
-            if (req.files != undefined) {
+            let filenameVal = 'product-default.jpg'
+            if (req.files[0] != undefined && req.files[0] != filenameVal) {
                 filenameVal = req.files[0].filename
             }
             db.Products.create({
@@ -120,9 +120,10 @@ let productsController = {
     },
 
     update: function (req, res, next) {
-        console.log(req.files)
+        console.log("este es my body")
+        console.log(req.body);
         let dateTimeBD = dateNow()
-        let filenameVal = ''
+        let filenameVal = req.body.file
         let allCategories = db.Products.findAll()
         let oneProduct = db.Products.findByPk(req.params.id)
         if (req.files[0] != undefined) {

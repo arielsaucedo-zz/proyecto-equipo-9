@@ -49,16 +49,19 @@
                 <ul class="header-f-s navbar-nav mr-auto my-lg-0 text-white">
                     <% if ( locals.user ) { %>
                         <li class="nav-item mr-2">
-                            <p class="navbar-text-kalitero mt-2">Hola <%= locals.first_name + " " + locals.last_name %></p>
+                            <img class= "avatar" src="/images/uploads_users/<%= locals.image_avatar  %>" alt="avatar">
+                        </li>
+                        <li class="nav-item mr-2">
+                            <p class="navbar-text-kalitero mt-3"><%= locals.first_name + " " + locals.last_name %></p>
                         </li>
                     <% } else { %>
                         <li class="nav-item mr-2">
-                            <p class="navbar-text-kalitero mt-2">Ya tienes una cuenta?</p>
+                            <p class="navbar-text-kalitero mt-3">Ya tienes una cuenta?</p>
                         </li>
                     <% } %>
-                    <li class="nav-link dropdown mr-3">
+                    <li class="nav-link dropdown mr-2">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i
-                                    class="icono-f-s fas fa-user-lock"></i></b> <span class="caret"></span></a>
+                                    class="icono-f-s fas fa-user-lock mt-2"></i></b> <span class="caret"></span></a>
                     <% if ( locals.user ) { %>
                         <ul id="login-dp" class="header-f-s dropdown-menu">
                     <% } else { %>
@@ -131,7 +134,7 @@
                 </li>
                 <li class="nav-link">
                     <div>
-                        <a href="/products/productCart"><i class="icono-f-s fas fa-shopping-cart"></i></a>
+                        <a href="/products/productCart"><i class="icono-f-s fas fa-shopping-cart mt-2"></i></a>
                     </div>
                 </li>
                 </ul>
