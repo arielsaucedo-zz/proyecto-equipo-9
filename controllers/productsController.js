@@ -120,8 +120,6 @@ let productsController = {
     },
 
     update: function (req, res, next) {
-        console.log("este es my body")
-        console.log(req.body);
         let dateTimeBD = dateNow()
         let filenameVal = req.body.file
         let allCategories = db.Products.findAll()

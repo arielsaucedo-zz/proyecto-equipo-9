@@ -109,7 +109,7 @@ router.post('/:id/addToCart', productsController.addToCart);
 
 /*** PRODUCT CART ***/
 /*** localhost:3000/products/productCart ***/
-router.get('/productCart', productsController.cart);
+//router.get('/productCart', productsController.cart);
 
 /*** localhost:3000/categories/1 ***/
 router.get('/categories/:category?', productsController.categories);
