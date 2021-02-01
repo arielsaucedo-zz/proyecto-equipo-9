@@ -25,7 +25,6 @@ const controller = {
     find: function(req,res) {
         db.Users.findByPk(req.params.id)
             .then(function(pelicula) {
-                let respuesta = {};
                 pelicula.password = "Esta contraseña es privada!"
                 res.json(pelicula)
             })
