@@ -69,11 +69,18 @@ const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const productsRouter = require('./routes/products')
 const emailRouter = require('./routes/email')
+// ************ Route System require - APIs ************
+const apiUsersRouter = require('./routes/api/users')
+const apiProductsRouter = require('./routes/api/products')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/products', productsRouter)
 app.use('/contact', emailRouter)
+
+// ************ API´s Routes************
+app.use("/api/users", apiUsersRouter)
+app.use("/api/products", apiProductsRouter)
 
 
 // ************ catch 404 and forward to error handler ************
