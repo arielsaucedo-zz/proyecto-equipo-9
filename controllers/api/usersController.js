@@ -20,16 +20,17 @@ const controller = {
             res.json(respuesta)
         })
     },
-<<<<<<< HEAD
-=======
     find: function(req,res) {
         db.Users.findByPk(req.params.id)
-            .then(function(pelicula) {
-                pelicula.password = "Esta contraseña es privada!"
-                res.json(pelicula)
+            .then(function(respuesta) {
+                let usuario = {
+                    id: respuesta.id, 
+                    first_name: respuesta.id, 
+                    last_name:respuesta.last_name,
+                    image_avatar: respuesta.image_avatar};
+                res.json(usuario)
             })
     }
->>>>>>> df9740da0fde71a402eae00ed4f05ddc9db5c15b
 }
 
 module.exports = controller;
