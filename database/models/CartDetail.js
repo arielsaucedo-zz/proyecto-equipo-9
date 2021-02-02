@@ -40,12 +40,11 @@ module.exports = (sequelize, DataTypes) => {
             as: "ShoppingCart",
             foreingKey: "shopping_cart_id"
         })
+
         CartDetail.belongsTo(models.Products, {
-            as: "Products",
+            as: "Product",
             foreingKey: "product_id"
         })
     }
-        
-
     return CartDetail
 }

@@ -65,13 +65,13 @@ app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación d
 app.use(helpersMiddleware);
 
 // ************ Route System require and use() ************
-const indexRouter = require('./routes/index')
-const usersRouter = require('./routes/users')
-const productsRouter = require('./routes/products')
-const emailRouter = require('./routes/email')
+const indexRouter = require('./routes/indexRouter')
+const usersRouter = require('./routes/usersRouter')
+const productsRouter = require('./routes/productsRouter')
+const emailRouter = require('./routes/emailRouter')
 // ************ Route System require - APIs ************
-const apiUsersRouter = require('./routes/api/users')
-const apiProductsRouter = require('./routes/api/products')
+const apiUsersRouter = require('./routes/api/usersRouter')
+const apiProductsRouter = require('./routes/api/productsRouter')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
