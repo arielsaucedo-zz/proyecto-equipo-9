@@ -105,7 +105,7 @@ router.put('/:id', upload.any(), [
 router.delete('/:id/delete', productsController.destroy);
 
 /*** localhost:3000/products/:id ***/
-router.post('/:id/addToCart', productsController.addToCart);
+//router.post('/:id/addToCart', productsController.addToCart);
 
 /*** PRODUCT CART ***/
 /*** localhost:3000/products/productCart ***/
