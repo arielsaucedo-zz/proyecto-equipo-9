@@ -1,4 +1,3 @@
-
 let db = require('../../database/models')
 
 const controller = {
@@ -19,9 +18,8 @@ const controller = {
               }
             
             res.json(respuesta)
-
         })
-    }
+    },
 }
 
 module.exports = controller;
