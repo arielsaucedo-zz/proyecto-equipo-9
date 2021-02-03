@@ -235,7 +235,21 @@ const controller = {
         const errors = validationResult(req);
     
         if (errors.isEmpty()) {
-          // Busco el producto que voy a agregar como Item.
+            // Busco si el usuario tiene un carrito.
+            db.ShoppingCarts.findOne({
+                where : {
+                    user_id : req.session.userId
+                }
+            }).then(cart => {
+                console.log(cart);
+                cart.addProducts(req.params.id, {
+                    through : { quantity: 1, subtotal : 100 }
+                })
+                .then(resultado => console.log(resultado))
+            })
+            .catch((e) => console.log(e));
+/* 
+            // Busco el producto que voy a agregar como Item.
             db.Products.findByPk(req.params.id, )
             .then((product) => {
               // Saco el valor del producto, teniendo en cuenta el descuento.   
@@ -266,7 +280,9 @@ const controller = {
              .then(product => {
                 return res.render('products/detail', {product, errors: errors.mapped()})
             })
-        }
+        */
+        } 
+        
     },
 
     deleteFromCart(req, res) {
