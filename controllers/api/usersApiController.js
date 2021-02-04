@@ -28,12 +28,21 @@ const controller = {
     },
     find: function(req,res) {
         db.Users.findByPk(req.params.id)
+
             .then(function(respuesta) {
+
                 let usuario = {
-                    id: respuesta.id, 
-                    first_name: respuesta.id, 
-                    last_name:respuesta.last_name,
-                    image_avatar: "http://localhost:3000/api/users/" + respuesta.id + "/" + respuesta.image_avatar};
+                    meta:{
+                        status:200
+                    },
+
+                    data:{
+                        id: respuesta.id, 
+                        first_name: respuesta.first_name, 
+                        last_name:respuesta.last_name,
+                        image_avatar: "http://localhost:3000/api/users/" + respuesta.id + "/" + respuesta.image_avatar}
+                    }
+                
                 res.json(usuario)
             })
     },
