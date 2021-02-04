@@ -37,10 +37,10 @@
                             $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
                         </p>
 
-                        <form action="/products/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
+                        <form action="/users/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
                             <div class="ml-1">
                                 <label class="" for="inputDefault">Cantidad</label>
-                                <input class="form-control mb-2" type="text" name="product_quantity" id="inputNewProduct" value="1">
+                                <input class="form-control mb-2" type="text" name="product_quantity" id="product_quantity" value="1">
                                 <button type="submit" class="btn btn-success"><i class="fas fa-cart-arrow-down mr-2"></i> Enviar al carrito</button>
                             </div>
                         </form>

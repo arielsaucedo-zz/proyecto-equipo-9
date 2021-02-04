@@ -70,8 +70,8 @@ const usersRouter = require('./routes/usersRouter')
 const productsRouter = require('./routes/productsRouter')
 const emailRouter = require('./routes/emailRouter')
 // ************ Route System require - APIs ************
-const apiUsersRouter = require('./routes/api/usersRouter')
-const apiProductsRouter = require('./routes/api/productsRouter')
+const apiUsersRouter = require('./routes/api/usersApiRouter')
+const apiProductsRouter = require('./routes/api/productsApiRouter')
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)

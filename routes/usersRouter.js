@@ -136,7 +136,7 @@ router.put('/userDetail/:id', [
 ], userAuth, usersController.updateChangePassword);
 
 router.get('/cart', userAuth, usersController.cart);
-router.post('/addToCart', userAuth, usersController.addToCart);
+router.post('/:id/addToCart', userAuth, usersController.addToCart);
 //router.get('/history', userAuth, usersController.history);
 router.post('/shop', userAuth, usersController.shop);
 router.post('/deleteFromCart', userAuth, usersController.deleteFromCart);

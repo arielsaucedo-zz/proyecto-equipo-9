@@ -97,6 +97,7 @@ let productsController = {
                 price: req.body.product_price,
                 image: filenameVal,
                 category_id: req.body.product_category,
+                discount: req.body.product_discount,
             })
             .catch(function(error){
                 console.log(error)

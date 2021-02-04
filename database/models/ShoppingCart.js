@@ -36,16 +36,18 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: "user_id"
         })
 
-        ShoppingCart.hasMany(models.CartDetails, {
+/*         ShoppingCart.hasMany(models.CartDetails, {
             as: "CartItems",
             foreignKey: "shopping_cart_id"
-        })
+        }) */
 
         ShoppingCart.belongsToMany(models.Products, {
-            through: 'cart_details',
+            through: models.CartDetails,
             as: 'products',
-            foreignKey: 'shopping_cart_id'
-        });
+            foreignKey: 'shopping_cart_id',
+            otherKey: 'product_id',
+            timestamps: false
+        }); 
 
     }
 
