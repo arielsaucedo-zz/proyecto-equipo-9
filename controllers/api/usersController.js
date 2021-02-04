@@ -13,15 +13,19 @@ const controller = {
             }
 
             let respuesta = {
+                meta: {
+                    status: 200,
                     count: allUsers.length,
+                },
+
+                data: {
                     users: allUsers
+                }   
               }
             
             res.json(respuesta)
         })
     },
-<<<<<<< HEAD
-=======
     find: function(req,res) {
         db.Users.findByPk(req.params.id)
             .then(function(pelicula) {
@@ -29,7 +33,6 @@ const controller = {
                 res.json(pelicula)
             })
     }
->>>>>>> df9740da0fde71a402eae00ed4f05ddc9db5c15b
 }
 
 module.exports = controller;
