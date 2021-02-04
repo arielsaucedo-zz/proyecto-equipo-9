@@ -27,25 +27,23 @@ const controller = {
         })
     },
     find: function(req,res) {
-        db.Users.findOne({
-            where: {
-                id: req.params.id
-            },
-            attributes: {exclude: ["password", "role_id", "RoleId" ]},
-        })
-            .then(function(resultado) {
-                let user = resultado
-                user.setDataValue("image_avatar", "http://localhost:3000/images/uploads_users/" + resultado.image_avatar)
+        db.Users.findByPk(req.params.id)
 
-                let respuesta = {
-                    meta: {
-                        status: 200,
+            .then(function(respuesta) {
+
+                let usuario = {
+                    meta:{
+                        status:200
                     },
-                    data: {
-                        user
+
+                    data:{
+                        id: respuesta.id, 
+                        first_name: respuesta.first_name, 
+                        last_name:respuesta.last_name,
+                        image_avatar: "http://localhost:3000/api/users/" + respuesta.id + "/" + respuesta.image_avatar}
                     }
-                }
-                res.json(respuesta)       
+                
+                res.json(usuario)
             })
     },
 }

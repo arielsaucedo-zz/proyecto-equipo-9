@@ -213,21 +213,29 @@ const controller = {
         })
     },
 
+    /**
+User.findAll({
+  include: [{
+    model: Project,
+    through: {
+      attributes: ['createdAt', 'startedAt', 'finishedAt'],
+      where: {completed: true}
+    }
+  }]
+});
+     */
     cart(req, res) {
-        db.ShoppingCarts.findAll({
+        db.ShoppingCarts.findOne({
           where: {
             user_id: req.session.userId,
           },
           include : [{
-            model : db.CartDetails,
-            as : 'CartItems',
-            include : [{
-                model : db.Products,
-                as : 'Product'
-                }]
+            model : db.Products,
+            as: 'products',
             }],
         }).then((ShoppingCart) => {
-            return res.render("users/cart", { ShoppingCart })
+            console.log(ShoppingCart);
+            return res.render("users/cart", { ShoppingCart : ShoppingCart })
         });
     },
 
@@ -241,11 +249,31 @@ const controller = {
                     user_id : req.session.userId
                 }
             }).then(cart => {
-                console.log(cart);
-                cart.addProducts(req.params.id, {
-                    through : { quantity: 1, subtotal : 100 }
-                })
-                .then(resultado => console.log(resultado))
+                //el metodo siguiente lo que hace es insertar los datos del producto seleccionado
+                //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
+                //con Productos.
+                if(cart){
+                    cart.addProducts(req.params.id, {
+                        through : { quantity: 1, subtotal : 100 }
+                    })
+                    .then(resultado => console.log(resultado))
+                    .catch((e) => console.log(e));
+                } else {
+                    db.ShoppingCarts.create({
+                        total: 0,
+                        user_id: req.session.userId,
+                        CartItems: [],
+                    })
+                    .then(cart => 
+                        cart.addProducts(req.params.id, {
+                            through : { quantity: 1, subtotal : 100 }
+                        })
+                        .then(resultado => console.log(resultado))
+                        .catch((e) => console.log(e))
+                    )
+                    .catch((e) => console.log(e));
+                }
+
             })
             .catch((e) => console.log(e));
 /* 
