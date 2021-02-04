@@ -40,13 +40,7 @@ window.onload = function () {
         password_confirm: "", */
     }
 
-    const errors = {
-        first_name: "",
-        last_name: "",
-        user_name: "",
-/*         password: "",
-        password_confirm: "", */
-    }
+    const errors = {}
 
     function setValidationResult(element, keyName, keyNameU, status, elementMsg, errMsg) {
         if (status === "OK") {

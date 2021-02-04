@@ -13,8 +13,14 @@ const controller = {
             }
 
             let respuesta = {
+                meta: {
+                    status: 200,
                     count: allUsers.length,
+                },
+
+                data: {
                     users: allUsers
+                }   
               }
             
             res.json(respuesta)

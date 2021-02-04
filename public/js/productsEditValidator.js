@@ -46,14 +46,7 @@ window.onload = function () {
         discount : ''
     }
 
-    const errors = {
-        name : '',
-        description : '',
-        category : '',
-        quantity : '',
-        price : '',
-        discount : ''
-    }
+    const errors = {}
 
     function setValidationResult(element, status, elementMsg, errMsg){
         if(status === 'OK'){
