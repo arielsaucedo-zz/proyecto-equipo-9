@@ -12,7 +12,7 @@ const controller = {
                 allUsers[i].setDataValue("detail", "/api/users/" + resultado[i].id)
             }
 
-            let respuesta = {
+            let Response = {
                 meta: {
                     status: 200,
                     count: allUsers.length,
@@ -23,7 +23,7 @@ const controller = {
                 }   
               }
             
-            res.json(respuesta)
+            res.json(Response)
         })
     },
     find: function(req,res) {
@@ -39,13 +39,13 @@ const controller = {
                 let user = resultado
                 user.setDataValue("image_avatar", "http://localhost:3000/images/uploads_users/" + resultado.image_avatar)
 
-                let respuesta = {
+                let Response = {
                     meta: {
                         status: 200,
                     },
                     data: user,
                 }
-                res.json(respuesta)       
+                res.json(Response)       
             })
     },
 
