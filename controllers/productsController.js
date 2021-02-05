@@ -121,7 +121,6 @@ let productsController = {
     },
 
     update: function (req, res, next) {
-        let dateTimeBD = dateNow()
         let filenameVal = req.body.file
         let allCategories = db.Products.findAll()
         let oneProduct = db.Products.findByPk(req.params.id)
@@ -132,10 +131,10 @@ let productsController = {
         if (!errors.isEmpty()) {
             return res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors: errors.errors });
         }
+        let dateTimeBD = dateNow()
         db.Products.update({
             name: req.body.product_name,
             description: req.body.product_description,
-            created_at: dateTimeBD,
             updated_at: dateTimeBD,
             quantity: req.body.product_quantity,
             price: req.body.product_price,
@@ -168,65 +167,6 @@ let productsController = {
             res.send('')
         })
     },
-
-    addToCart: function (req, res) {
-        db.Products.findByPk(req.params.id)
-            .then((resultado) => {
-                let dateTimeBD = dateNow()
-                db.ShoppingCarts.create({
-                    total: (resultado.price * req.body.product_quantity), //ver aca como hacer que acumule lo que se está agregando.
-                    created_at: dateTimeBD,
-                    updated_at: dateTimeBD,
-                    user_id: res.locals.userId,
-                    CartItems: [{
-                        quantity: req.body.product_quantity,
-                        subtotal: resultado.price * req.body.product_quantity,
-                        product_id: req.params.id,
-                        cart_details: {
-                            selfGranted: true
-                        }
-                    }]
-                },{
-                    include: {
-                        all: true
-/*                        model: db.Products,
-                        as: 'products' */
-                    }
-                })               
-                res.render('products/productCart', { errors : [] })
-            })
-            .catch(function(error){
-                console.log(error)
-                res.send('')
-            })
-    },
-
-    cart: function (req, res) {
-        /*
-
-                db.Users.findAll({ include: [ { association : 'role' }]})
-                    .then(Users => {console.log(Users)})
-        */
-        /*
-                db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
-                    .then(ShoppingCarts => {console.log(ShoppingCarts)
-                    })
-
-                db.Categories.findAll()
-                .then(Categories => { console.log(Categories)
-                })
-        */
-
-        /*
-                db.CartDetail.findAll()
-                    .then(CartDetail => {console.log("CartDetail.findAll")
-                    })
-        */
-        res.render('products/productCart', {
-            errors: []
-        })
-    }
-
 }
 
 
