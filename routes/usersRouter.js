@@ -137,9 +137,10 @@ router.put('/userDetail/:id', [
 
 router.get('/cart', userAuth, usersController.cart);
 router.post('/:id/addToCart', userAuth, usersController.addToCart);
+router.put('/:id/editQtyItemCart', userAuth, usersController.addToCart);
 //router.get('/history', userAuth, usersController.history);
 router.post('/shop', userAuth, usersController.shop);
-router.post('/deleteFromCart', userAuth, usersController.deleteFromCart);
+router.post('/deleteFromCart/:id', userAuth, usersController.deleteFromCart);
 router.get('/buy-detail/:id', userAuth, usersController.showBuyDetail);
 
 module.exports = router;

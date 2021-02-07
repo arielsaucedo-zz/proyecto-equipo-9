@@ -225,18 +225,7 @@ const controller = {
         })
     },
 
-    /**
-User.findAll({
-  include: [{
-    model: Project,
-    through: {
-      attributes: ['createdAt', 'startedAt', 'finishedAt'],
-      where: {completed: true}
-    }
-  }]
-});
-     */
-    cart(req, res) {
+    cart: function(req, res, next) {
         db.ShoppingCarts.findOne({
           where: {
             user_id: req.session.userId,
@@ -249,12 +238,11 @@ User.findAll({
             }
             }],
         }).then((ShoppingCart) => {
-            console.log(ShoppingCart.products[6]);
             return res.render("users/cart", { ShoppingCart : ShoppingCart })
         });
     },
 
-    addToCart(req, res) {
+    addToCart: function(req, res, next) {
         const errors = validationResult(req)
         const _body = req.body
         if (errors.isEmpty()) {
@@ -272,8 +260,7 @@ User.findAll({
                     //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
                     //con Productos.
                     if(shopCartToAdd){
-                        console.log(shopCartToAdd);
-                        shopCartToAdd.addProducts(req.params.id, {
+                        shopCartToAdd.addProducts(productToAdd.id, {
                             through : { 
                                 quantity: _body.product_quantity, 
                                 subtotal : _body.product_quantity * productToAdd.price ,
@@ -282,7 +269,7 @@ User.findAll({
                         .then(resultado => {
                             res.redirect("/users/cart")
                         })
-                        .catch((e) => console.log(e));
+                        .catch((e) => console.log(e))
                     } else {
                         let dateTimeBD = dateNow()
                         db.ShoppingCarts.create({
@@ -293,7 +280,7 @@ User.findAll({
                             products: [],
                         })
                         .then(cart => {
-                            cart.addProducts(req.params.id, {
+                            cart.addProducts(productToAdd.id, {
                                 through : { 
                                     quantity: _body.product_quantity, 
                                     subtotal : _body.product_quantity * productToAdd.price ,
@@ -304,66 +291,10 @@ User.findAll({
                             })
                             .catch((e) => console.log(e))
                         })
-                        .catch((e) => console.log(e));
-                    }
-    
-                })
-                .catch((e) => console.log(e));
-
-
-
-
-
-
-
-
-
-
-
-/*             // Busco si el usuario tiene un carrito.
-            db.ShoppingCarts.findOne({
-                where : {
-                    user_id : req.session.userId
-                }
-            }).then(cart => {
-                //el metodo siguiente lo que hace es insertar los datos del producto seleccionado
-                //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
-                //con Productos.
-                if(cart){
-                    console.log(cart);
-                    cart.addProducts(req.params.id, {
-                        through : { 
-                            quantity: _body.product_quantity, 
-                            subtotal : _body.product_quantity ,
-                        }
-                    })
-                    .then(resultado => {
-                        res.redirect("/users/cart")
-                    })
-                    .catch((e) => console.log(e));
-                } else {
-                    db.ShoppingCarts.create({
-                        created_at : dateNow(),
-                        updated_at : dateNow(),
-                        total: 0,
-                        user_id: req.session.userId,
-                        CartItems: [],
-                    })
-                    .then(cart => {
-                        cart.addProducts(req.params.id, {
-                            through : { quantity: 1, subtotal : 100 }
-                        })
-                        .then(resultado => {
-                            res.redirect("/users/cart")
-                        })
                         .catch((e) => console.log(e))
-                    })
-                    .catch((e) => console.log(e));
-                }
-
-            })
-            .catch((e) => console.log(e));
-        */
+                    }
+                })
+                .catch((e) => console.log(e))
         } else {
             return res.render('/users/cart', {
                 errors: errors.errors
@@ -371,27 +302,26 @@ User.findAll({
         }
     },
 
-    deleteFromCart(req, res) {
-    Item.destroy({
-        where: {
-        id: req.body.itemId,
-        },
-        force: true,
-    })
+    deleteFromCart: function(req, res, next) {
+        Item.destroy({
+            where: {
+            id: req.body.itemId,
+            },
+            force: true,
+        })
         .then((response) => res.redirect("/users/cart"))
         .catch((e) => console.log(e));
     },
 
-    shop(req, res) {
-    let items;
-
-    // busco los items agregados al carrito
-    Item.findAll({
-        where: {
-        userId: req.session.userId,
-        state: 1,
-        },
-    })
+    shop: function(req, res) {
+        let items;
+        // busco los items agregados al carrito
+        Item.findAll({
+            where: {
+            userId: req.session.userId,
+            state: 1,
+            },
+        })
         // cierro los items
         .then((itemsSearched) => {
         items = itemsSearched;
@@ -420,35 +350,35 @@ User.findAll({
         })
         // redirect
         .then(() => res.redirect("/users/history"))
-        .catch((e) => console.log(e));
+        .catch((e) => console.log(e))
     },
 /* 
-    history(req, res) {
-    Cart.findAll({
-        where: {
-        userId: req.session.userId,
-        },
-        include: {
-        all: true,
-        nested: true,
-        paranoid: false,
-        },
-        order: [["createdAt", "DESC"]],
-    })
-        .then((carts) => {
-        res.render("users/history", { carts });
+    history: function(req, res, next) {
+        Cart.findAll({
+            where: {
+            userId: req.session.userId,
+            },
+            include: {
+            all: true,
+            nested: true,
+            paranoid: false,
+            },
+            order: [["createdAt", "DESC"]],
         })
-        .catch((e) => console.log(e));
+            .then((carts) => {
+            res.render("users/history", { carts })
+            })
+            .catch((e) => console.log(e))
     },
  */
-    showBuyDetail(req, res) {
-    Cart.findByPk(req.params.id, {
-        include: {
-        all: true,
-        nested: true,
-        paranoid: false,
-        },
-    }).then((cart) => res.render("users/buyDetail", { cart }));
+    showBuyDetail: function(req, res) {
+        Cart.findByPk(req.params.id, {
+            include: {
+            all: true,
+            nested: true,
+            paranoid: false,
+            },
+        }).then((cart) => res.render("users/buyDetail", { cart }))
     },
 }
 
