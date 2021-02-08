@@ -303,14 +303,31 @@ const controller = {
     },
 
     deleteFromCart: function(req, res, next) {
-        Item.destroy({
+        db.CartDetails.destroy({
             where: {
-            id: req.body.itemId,
+                id: req.params.id,
             },
             force: true,
         })
         .then((response) => res.redirect("/users/cart"))
-        .catch((e) => console.log(e));
+        .catch((e) => console.log(e))
+    },
+
+    editQtyItemCart: function(req, res, next){
+        console.log(req.body)
+        db.CartDetails.update(
+            {
+                quantity: req.body.quantity,
+                subtotal : req.body.quantity * req.body.price,
+            }, 
+            { 
+                where : {
+                    id: req.params.id,
+                }
+            }
+        )
+        .then((response) => res.redirect("/users/cart"))
+        .catch((e) => console.log(e))
     },
 
     shop: function(req, res) {

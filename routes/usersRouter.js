@@ -137,7 +137,7 @@ router.put('/userDetail/:id', [
 
 router.get('/cart', userAuth, usersController.cart);
 router.post('/:id/addToCart', userAuth, usersController.addToCart);
-router.put('/:id/editQtyItemCart', userAuth, usersController.addToCart);
+router.put('/:id/editQtyItemCart', userAuth, usersController.editQtyItemCart);
 //router.get('/history', userAuth, usersController.history);
 router.post('/shop', userAuth, usersController.shop);
 router.post('/deleteFromCart/:id', userAuth, usersController.deleteFromCart);
