@@ -61,7 +61,7 @@ app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación d
 
 // My middlewares
 //app.use(logMiddleware);
-//app.use(cartMiddleware);
+app.use(cartMiddleware);
 app.use(helpersMiddleware);
 
 // ************ Route System require and use() ************
