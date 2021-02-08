@@ -27,8 +27,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="/aboutUs" role="button" aria-haspopup="true"
-                            aria-expanded="false">Acerca de
-                            nosotros</a>
+                            aria-expanded="false">Acerca de...</a>
 
                     </li>
                     <li class="nav-item dropdown">
@@ -132,11 +131,14 @@
                         </li>
                     </ul>
                 </li>
+                <% if(locals.user){ %>
                 <li class="nav-link">
                     <div>
-                        <a href="/users/cart"><i class="icono-f-s fas fa-shopping-cart mt-2"></i></a>
+                        <a href="/users/cart">
+                            Mi carrito <i class="icono-f-s fas fa-shopping-cart mt-2"></i> <span class="badge badge-info"><%= cartQty %> </a>
                     </div>
                 </li>
+                <% } %>
                 </ul>
                 <form class="header-f-s form-inline my-2 my-lg-0" action="/search" method="GET">
                     <input class="header-f-s form-control mr-sm-2" type="search" placeholder="Buscar productos"

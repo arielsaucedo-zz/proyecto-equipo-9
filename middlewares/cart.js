@@ -1,19 +1,30 @@
-const { Item } = require('../database/models');
+const db = require('../database/models');
 
 module.exports = async (req, res, next) => {
-   if (req.session.user) {
-      Item.findAndCountAll({
+   if (req.session.userId) {
+      db.ShoppingCarts.findOne({
          where: {
-            userId: req.session.user.id,
-            state: 1
+            user_id: req.session.userId,
          },
+         include : [{
+            model : db.Products,
+            as: "products",     
+            through : {
+                attributes: ['id', 'quantity', 'subtotal', 'shopping_cart_id', 'product_id'],
+            }
+            }],
          force: true
       })
-         .then(data => {
-            res.locals.cartQty = data.count;
-            return next();
+         .then(cart => {
+            if (cart) {
+               res.locals.cartQty = cart.products.length
+               return next()
+            } else {
+               res.locals.cartQty = 0;
+               return next()
+            }
          })
    }  else {
-      return next();
+      return next()
    }
 }
