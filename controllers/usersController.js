@@ -6,6 +6,12 @@ const {
     validationResult,
 } = require('express-validator')
 
+function dateNow() {
+    let now = new Date()
+    let monthReal = now.getMonth() + 1
+    return (now.getFullYear() + '-' + monthReal + '-' + now.getDate() + ' ' + now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds())
+}
+
 const controller = {
     login: function (req, res) {
         res.render('users/login', {
@@ -96,11 +102,13 @@ const controller = {
         if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
             filenameVal = req.files[0].filename
         }
-       
+        let dateTimeBD = dateNow()
         db.Users.create({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
             user_name: req.body.user_name,
+            created_at: dateTimeBD,
+            updated_at: dateTimeBD,
             password: bcryptjs.hashSync(req.body.password_confirmation),
             role_id: 2,
             image_avatar: filenameVal
@@ -109,7 +117,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.render('users/addedUser')
+        res.send('')
     },
 
     show: function (req, res, next) {
@@ -144,12 +152,13 @@ const controller = {
         if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
             filenameVal = req.files[0].filename
         }
-
+        let dateTimeBD = dateNow()
         db.Users.update(
             {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 user_name: req.body.user_name,
+                updated_at: dateTimeBD,
                 role_id: 1,
                 image_avatar: filenameVal
             }, 
@@ -161,7 +170,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.render('users/changeUser')
+        res.send('')
     },
 
     showChangePassword: function(req, res, next) {
@@ -200,11 +209,14 @@ const controller = {
                     errors: errors.errors
                 })
             }
+            let dateTimeBD = dateNow()
             const _body = req.body
             _body.password = bcryptjs.hashSync(req.body.password_new)
             db.Users.update(
                 {
-                    password : _body.password
+                    password : _body.password,
+                    updated_at : dateTimeBD,
+
                 },
                 { 
                     where : { id : req.params.id } 
@@ -231,19 +243,84 @@ User.findAll({
           },
           include : [{
             model : db.Products,
-            as: 'products',
+            as: "products",     
+            through : {
+                attributes: ['id', 'quantity', 'subtotal', 'shopping_cart_id', 'product_id'],
+            }
             }],
         }).then((ShoppingCart) => {
-            console.log(ShoppingCart);
+            console.log(ShoppingCart.products[6]);
             return res.render("users/cart", { ShoppingCart : ShoppingCart })
         });
     },
 
     addToCart(req, res) {
-        const errors = validationResult(req);
-    
+        const errors = validationResult(req)
+        const _body = req.body
         if (errors.isEmpty()) {
-            // Busco si el usuario tiene un carrito.
+            // Busco producto que voy a agregar al carrito de compras.
+            let productToAdd = db.Products.findByPk(req.params.id)
+            // Busco si existe un carrito para el usuario logueado.
+            let shopCartToAdd = db.ShoppingCarts.findOne({
+                where : {
+                    user_id : req.session.userId
+                }
+            })
+            Promise.all([productToAdd, shopCartToAdd])
+                .then(([productToAdd, shopCartToAdd]) => {
+                    //el metodo siguiente lo que hace es insertar los datos del producto seleccionado
+                    //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
+                    //con Productos.
+                    if(shopCartToAdd){
+                        console.log(shopCartToAdd);
+                        shopCartToAdd.addProducts(req.params.id, {
+                            through : { 
+                                quantity: _body.product_quantity, 
+                                subtotal : _body.product_quantity * productToAdd.price ,
+                            }
+                        })
+                        .then(resultado => {
+                            res.redirect("/users/cart")
+                        })
+                        .catch((e) => console.log(e));
+                    } else {
+                        let dateTimeBD = dateNow()
+                        db.ShoppingCarts.create({
+                            created_at : dateTimeBD,
+                            updated_at : dateTimeBD,
+                            total: 0,
+                            user_id: req.session.userId,
+                            products: [],
+                        })
+                        .then(cart => {
+                            cart.addProducts(req.params.id, {
+                                through : { 
+                                    quantity: _body.product_quantity, 
+                                    subtotal : _body.product_quantity * productToAdd.price ,
+                                }
+                            })
+                            .then(resultado => {
+                                res.redirect("/users/cart")
+                            })
+                            .catch((e) => console.log(e))
+                        })
+                        .catch((e) => console.log(e));
+                    }
+    
+                })
+                .catch((e) => console.log(e));
+
+
+
+
+
+
+
+
+
+
+
+/*             // Busco si el usuario tiene un carrito.
             db.ShoppingCarts.findOne({
                 where : {
                     user_id : req.session.userId
@@ -253,64 +330,45 @@ User.findAll({
                 //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
                 //con Productos.
                 if(cart){
+                    console.log(cart);
                     cart.addProducts(req.params.id, {
-                        through : { quantity: 1, subtotal : 100 }
+                        through : { 
+                            quantity: _body.product_quantity, 
+                            subtotal : _body.product_quantity ,
+                        }
                     })
-                    .then(resultado => console.log(resultado))
+                    .then(resultado => {
+                        res.redirect("/users/cart")
+                    })
                     .catch((e) => console.log(e));
                 } else {
                     db.ShoppingCarts.create({
+                        created_at : dateNow(),
+                        updated_at : dateNow(),
                         total: 0,
                         user_id: req.session.userId,
                         CartItems: [],
                     })
-                    .then(cart => 
+                    .then(cart => {
                         cart.addProducts(req.params.id, {
                             through : { quantity: 1, subtotal : 100 }
                         })
-                        .then(resultado => console.log(resultado))
+                        .then(resultado => {
+                            res.redirect("/users/cart")
+                        })
                         .catch((e) => console.log(e))
-                    )
+                    })
                     .catch((e) => console.log(e));
                 }
 
             })
             .catch((e) => console.log(e));
-/* 
-            // Busco el producto que voy a agregar como Item.
-            db.Products.findByPk(req.params.id, )
-            .then((product) => {
-              // Saco el valor del producto, teniendo en cuenta el descuento.   
-                let price =
-                    Number(product.discount) > 0
-                    ? product.price - (product.price * product.discount) / 100
-                    : product.price;
-              // Creo el Item de compra
-                return db.ShoppingCarts.create({
-                    total: 1000,
-                    user_id: req.session.id,
-                    CartItems: [{
-                    quantity: req.body.product_quantity,
-                    subtotal: price * req.body.product_quantity,
-                    product_id: product.id,
-                    }]
-                }, {
-                    include : [{
-                        association : db.CartDetails,
-                        as : 'CartItems'
-                    }]
-                })
-            })
-            .then((item) => res.redirect("/users/cart"))
-            .catch((e) => console.log(e));
-        } else {
-            db.Products.findByPk(req.params.id)
-             .then(product => {
-                return res.render('products/detail', {product, errors: errors.mapped()})
-            })
         */
-        } 
-        
+        } else {
+            return res.render('/users/cart', {
+                errors: errors.errors
+            })
+        }
     },
 
     deleteFromCart(req, res) {

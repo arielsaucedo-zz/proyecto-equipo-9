@@ -35,10 +35,7 @@ const controller = {
                     count: allProducts.length,
                     countByCategory: arrayCategories
                 },
-
-                data: {
-                    products: allProducts
-                }  
+                data: allProducts,
               }
             
             res.json(respuesta)
@@ -62,10 +59,7 @@ const controller = {
                 meta: {
                     status: 200,
                 },
-
-                data: {
-                    product
-                }  
+                data: product,
               }
             res.json(respuesta)
         })   
