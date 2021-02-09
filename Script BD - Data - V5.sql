@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `kalitero_db`.`shopping_carts` (
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
   `user_id` INT(10) UNSIGNED NOT NULL,
+  `order_number` INT UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_shopping_carts_users1_idx` (`user_id` ASC)  ,
   CONSTRAINT `fk_shopping_carts_users1`
