@@ -12,18 +12,16 @@ const controller = {
                 allUsers[i].setDataValue("detail", "/api/users/" + resultado[i].id)
             }
 
-            let Response = {
+            let respuesta = {
                 meta: {
                     status: 200,
                     count: allUsers.length,
                 },
-
                 data: {
                     users: allUsers
                 }   
               }
-            
-            res.json(Response)
+            res.json(respuesta)
         })
     },
     find: function(req,res) {
@@ -31,24 +29,23 @@ const controller = {
             where: {
                 id: req.params.id
             },
-            attributes: {exclude: ["password", "role_id", "RoleId" , 
-        //    "createdAt", "updatedAt"
-        ]},
+            attributes: {exclude: ["password", "role_id", "RoleId" ]},
         })
             .then(function(resultado) {
                 let user = resultado
                 user.setDataValue("image_avatar", "http://localhost:3000/images/uploads_users/" + resultado.image_avatar)
 
-                let Response = {
+                let respuesta = {
                     meta: {
                         status: 200,
                     },
-                    data: user,
+                    data: {
+                        user
+                    }
                 }
-                res.json(Response)       
+                res.json(respuesta)       
             })
     },
-
 }
 
 module.exports = controller;

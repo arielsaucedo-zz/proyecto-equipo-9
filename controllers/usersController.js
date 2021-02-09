@@ -117,7 +117,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.render('users/addedUser')
+        res.send('')
     },
 
     show: function (req, res, next) {
@@ -169,7 +169,7 @@ const controller = {
             console.log(error)
             res.send('')
         })
-        res.render('users/changeUser')
+        res.send('')
     },
 
     showChangePassword: function(req, res, next) {
