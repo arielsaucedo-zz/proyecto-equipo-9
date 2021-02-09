@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         user_id: {
             allowNull: false,
             type: DataTypes.INTEGER
+        },
+        order_number: {
+            allowNull: true,
+            type: DataTypes.INTEGER
         }
     }
     let config = {
