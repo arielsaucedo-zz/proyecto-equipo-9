@@ -17,6 +17,7 @@ module.exports = {
             res.send('')
         })
     },
+    
     search: (req, res) => {
         let searchResults = []
         searchResults = products.filter(function (productElement) {
@@ -33,10 +34,7 @@ module.exports = {
             products: searchResults
         })
     },
-    contact: function (req, res, next) {
 
-        res.render('contactForm')
-    },
     aboutUs: function (req, res, next) {
 
         res.render('aboutUs')

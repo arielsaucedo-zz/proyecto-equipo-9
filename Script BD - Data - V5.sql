@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `kalitero_db`.`shopping_carts` (
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
   `user_id` INT(10) UNSIGNED NOT NULL,
+  `order_number` INT UNSIGNED NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_shopping_carts_users1_idx` (`user_id` ASC)  ,
   CONSTRAINT `fk_shopping_carts_users1`
@@ -181,14 +182,14 @@ UNLOCK TABLES;
 -- categories
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'4000','2020-06-27 01:36:18','2020-08-06 08:12:52'),(2,'SLK-Class','2020-01-24 08:56:47','2020-09-26 21:25:37'),(3,'Z4','2020-09-24 23:48:34','2020-10-11 12:01:25'),(4,'Canyon','2020-03-07 21:56:37','2020-07-03 20:41:17'),(5,'Range Rover Sport','2020-04-03 01:18:37','2020-12-05 21:56:33'),(6,'G6','2020-02-27 01:41:26','2020-02-06 03:00:44'),(7,'MX-5','2020-04-07 13:21:20','2020-01-07 17:23:58'),(8,'Frontier','2019-12-17 15:18:44','2019-12-09 10:26:47'),(9,'TL','2020-08-23 12:57:25','2020-06-18 18:01:21'),(10,'Impala','2020-03-30 13:46:26','2020-07-02 08:09:06');
+INSERT INTO `categories` VALUES (1,'Balanzas','2020-06-27 01:36:18','2020-08-06 08:12:52'),(2,'Lectores lineales (codigos de barra)','2020-01-24 08:56:47','2020-09-26 21:25:37'),(3,'Comanderas','2020-09-24 23:48:34','2020-10-11 12:01:25'),(4,'Computadoras','2020-03-07 21:56:37','2020-07-03 20:41:17'),(5,'Monitores','2020-04-03 01:18:37','2020-12-05 21:56:33'),(6,'Lectores 2D (codigos QR)','2020-02-27 01:41:26','2020-02-06 03:00:44'),(7,'Combos','2020-04-07 13:21:20','2020-01-07 17:23:58');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 -- products
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'S2000','Honda','2020-09-15 09:42:44','2020-06-08 00:24:31',1,5108.36,20,'product-1.jpg',1),(2,'STS-V','Cadillac','2020-02-11 13:54:53','2020-02-10 12:36:12',2,7612.67,0,'product-1.jpg',1),(3,'Grand Prix','Pontiac','2020-02-13 06:01:51','2020-02-05 09:45:41',3,3115.95,0,'product-1.jpg',1),(4,'Sunfire','Pontiac','2020-02-18 07:31:06','2020-09-11 04:09:01',4,4186.75,0,'product-1.jpg',1),(5,'X5 M','BMW','2020-10-05 23:42:11','2020-11-23 22:15:25',5,9598.48,0,'product-1.jpg',4),(6,'Civic','Honda','2020-06-27 15:04:09','2020-06-11 08:49:40',6,6560.22,0,'product-1.jpg',2),(7,'Cobalt','Chevrolet','2020-02-21 01:04:10','2020-07-17 11:30:59',7,4440.99,0,'product-1.jpg',2),(8,'Legacy','Subaru','2020-09-13 06:52:36','2020-11-24 08:24:41',8,5961.91,0,'product-1.jpg',3),(9,'LS','Lincoln','2020-01-31 10:34:29','2020-07-24 01:38:16',9,953.24,0,'product-1.jpg',3),(10,'4Runner','Toyota','2020-03-09 06:58:54','2020-05-05 02:30:21',10,8756.91,0,'product-1.jpg',3);
+INSERT INTO `products` VALUES (1,'Balanza Kretz Report TCP-IP','Balanza con conexión por red','2020-09-15 09:42:44','2020-06-08 00:24:31',1,99000,10,'balanza-tcp-ip-kretz.png',1),(2,'Balanza Kretz Report LT','Balanza con conexión por USB','2020-02-11 13:54:53','2020-02-10 12:36:12',1,66000,5,'balanza-report-lt-kretz.jpg',1),(3,'Lector lineal Kretz OPR-3201','Lector de mano para codigos de barra lineales marca Kretz','2020-02-13 06:01:51','2020-02-05 09:45:41',1,9000,0,'lector-opr-kretz.png',2),(4,'Lector lineal 3nSTAR SC100-1','Lector de mano para codigos de barra lineales marca 3nSTAR','2020-02-18 07:31:06','2020-09-11 04:09:01',1,8000,20,'lector-3nstar.png',2),(5,'Lector 2D Honeywell 7980g','Lector de mesa para codigos lineales y QR marca Honeywell','2020-10-05 23:42:11','2020-11-23 22:15:25',1,25000,0,'lector-2d-honeywell.png',6),(6,'Monitor de PC 19"','Monitor para computadora de escritorio de 19"','2020-06-27 15:04:09','2020-06-11 08:49:40',1,15000,0,'monitor.png',5),(7,'PC i3 4GB 1TB','Computadora de escritorio con procesador Intel Core i3, 4 GB de RAM y 1 TB de almacenamiento','2020-02-21 01:04:10','2020-07-17 11:30:59',1,35000,0,'PC-i3.png',4),(8,'Comandera Kretz Lexa','Impresora de tickets y comandas a rollo térmico de 80mm Kretz Lexa','2020-09-13 06:52:36','2020-11-24 08:24:41',1,15000,0,'impresora-lexa-kretz.png',3),(9,'Comandera 3nSTAR RPT-600','Impresora de tickets y comandas a rollo térmico de 80mm 3nSTAR RPT-600','2020-01-31 10:34:29','2020-07-24 01:38:16',1,12500,0,'impresora-3nstar.png',3),(10,'Combo 1','Combo PC i3 4GB 1TB + Monitor 19" + Balanza Kretz Report TCP-IP + Comandera Kretz Lexa + Lector de codigos QR Honeywell','2020-03-09 06:58:54','2020-05-05 02:30:21',1,140000,0,'combo1.jpeg',7);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 

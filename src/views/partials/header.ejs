@@ -16,17 +16,18 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">Categorías</a>
                         <div class="dropdown-menu header-f-s">
-                            <% locals.listOfCategories.forEach(category => { %>
-                            <a class="dropdown-item" href="/products/<%= category.id %>"><%= category.name %></a>
+                            <% locals.listOfCategories.forEach(category => { %> 
+                                <% if (category.products.length > 0) { %>
+                                    <a class="dropdown-item" href="/products/categories/<%= category.name %>"><%= category.name %></a>
+                                <% } %>
                             <% }) %>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/products">Todos los productos</a>
+                            <a class="dropdown-item" href="/products/categories">Todos los productos</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link " href="/aboutUs" role="button" aria-haspopup="true"
-                            aria-expanded="false">Acerca de
-                            nosotros</a>
+                            aria-expanded="false">Acerca de...</a>
 
                     </li>
                     <li class="nav-item dropdown">
@@ -47,16 +48,19 @@
                 <ul class="header-f-s navbar-nav mr-auto my-lg-0 text-white">
                     <% if ( locals.user ) { %>
                         <li class="nav-item mr-2">
-                            <p class="navbar-text-kalitero mt-2">Hola <%= locals.first_name + " " + locals.last_name %></p>
+                            <img class= "avatar" src="/images/uploads_users/<%= locals.image_avatar  %>" alt="avatar">
+                        </li>
+                        <li class="nav-item mr-2">
+                            <p class="navbar-text-kalitero mt-3"><%= locals.first_name + " " + locals.last_name %></p>
                         </li>
                     <% } else { %>
                         <li class="nav-item mr-2">
-                            <p class="navbar-text-kalitero mt-2">Ya tienes una cuenta?</p>
+                            <p class="navbar-text-kalitero mt-3">Ya tienes una cuenta?</p>
                         </li>
                     <% } %>
-                    <li class="nav-link dropdown mr-3">
+                    <li class="nav-link dropdown mr-2">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b><i
-                                    class="icono-f-s fas fa-user-lock"></i></b> <span class="caret"></span></a>
+                                    class="icono-f-s fas fa-user-lock mt-2"></i></b> <span class="caret"></span></a>
                     <% if ( locals.user ) { %>
                         <ul id="login-dp" class="header-f-s dropdown-menu">
                     <% } else { %>
@@ -65,7 +69,7 @@
                             <li class="">
                                 <ul class="">
                                     <% if ( locals.user ) { %>
-                                    <a class="dropdown-item" title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>">
+                                    <a class="dropdown-item" title="Mi Cuenta" href="/users/userDetail/<%= locals.userId %>/edit">
                                         <i class="fas fa-user-circle mr-2"></i> Mi cuenta</a>
                                     
                                     <a class="dropdown-item" href="/products/productCreate"><i class="fas fa-plus-circle mr-2" ></i> Crear producto</a>
@@ -127,11 +131,14 @@
                         </li>
                     </ul>
                 </li>
+                <% if(locals.user){ %>
                 <li class="nav-link">
                     <div>
-                        <a href="/products/productCart"><i class="icono-f-s fas fa-shopping-cart"></i></a>
+                        <a href="/users/cart">
+                            Mi carrito <i class="icono-f-s fas fa-shopping-cart mt-2"></i> <span class="badge badge-info"><%= cartQty %> </a>
                     </div>
                 </li>
+                <% } %>
                 </ul>
                 <form class="header-f-s form-inline my-2 my-lg-0" action="/search" method="GET">
                     <input class="header-f-s form-control mr-sm-2" type="search" placeholder="Buscar productos"

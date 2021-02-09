@@ -21,12 +21,15 @@ window.onload = function () {
     let productDescription = document.getElementById('product_description_id')
     let productDescriptionMsg = document.getElementById('product_description_msg')
 
+    let form = document.getElementById('productEditForm')
+
     const errNameDefault = 'La longitud del nombre debe ser como mínimo de 5 letras.';
     const errProductCategory = 'La longitud de la categoría debe ser como mínimo de 1 letra.';
     const errProductQuantity = 'El valor de cantidad debe ser mayor o igual a 1 y menor o igual a 99.999.999.999.999.999.999';
     const errProductPrice = 'El valor del precio debe ser mayor o igual a 0,01 y menor o igual a 9.999.999.999,99';
     const errProductDiscount = 'El valor del descuento debe ser mayor o igual a 0 y menor o igual a 100';
     const errProductDescription = 'La longitud de la descripción debe ser como mínimo de 20 letras.'
+    const errProductImage = 'Debe adjuntar una imagen del producto'
     const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif']
 
     function getFileExtension(filename) {
@@ -43,15 +46,7 @@ window.onload = function () {
         discount : ''
     }
 
-    const errors = {
-        name : '',
-        description : '',
-        image : '',
-        category : '',
-        quantity : '',
-        price : '',
-        discount : ''
-    }
+    const errors = {}
 
     function setValidationResult(element, status, elementMsg, errMsg){
         if(status === 'OK'){
@@ -239,4 +234,82 @@ window.onload = function () {
         }
     })
 
+    form.addEventListener('submit', function(e){
+        if(Object.keys(errors).length > 0){
+            console.log('no se envía');
+            e.preventDefault()
+            console.log(Object.keys(errors));
+            for(i=0;i<Object.keys(errors).length;i++){
+                switch (Object.keys(errors)[i]) {
+                    case 'name':
+                        errors.name = errNameDefault
+                        nameDefault.classList.remove('border-ok')
+                        nameDefault.classList.add('border-nok')
+                        if(nameDefaultMsg.classList){
+                            nameDefaultMsg.classList.add('span_errors')
+                            nameDefaultMsg.innerHTML = errProductName
+                        }
+                        break;
+                    case 'description':
+                        errors.description = errProductDescription
+                        productDescription.classList.remove('border-ok')
+                        productDescription.classList.add('border-nok')
+                        if(productDescriptionMsg.classList){
+                            productDescriptionMsg.classList.add('span_errors')
+                            productDescriptionMsg.innerHTML = errProductDescription
+                        }
+                        break;
+                    case 'image':
+                        errors.image = errProductImage
+                        productImage.classList.remove('border-ok')
+                        productImage.classList.add('border-nok')
+                        if(productImageMsg.classList){
+                            productImageMsg.classList.add('span_errors')
+                            productImageMsg.innerHTML = errProductImage
+                        }
+                        break;
+                    case 'category':
+                        errors.category = errProductCategory
+                        productCategory.classList.remove('border-ok')
+                        productCategory.classList.add('border-nok')
+                        if(productCategoryMsg.classList){
+                            productCategoryMsg.classList.add('span_errors')
+                            productCategoryMsg.innerHTML = errProductCategory
+                        }
+                        break;
+                    case 'quantity':
+                        errors.quantity = errProductQuantity
+                        productQuantity.classList.remove('border-ok')
+                        productQuantity.classList.add('border-nok')
+                        if(productQuantityMsg.classList){
+                            productQuantityMsg.classList.add('span_errors')
+                            productQuantityMsg.innerHTML = errProductQuantity
+                        }
+                        break;
+                    case 'price':
+                        errors.price = errProductPrice
+                        productPrice.classList.remove('border-ok')
+                        productPrice.classList.add('border-nok')
+                        if(productPriceMsg.classList){
+                            productPriceMsg.classList.add('span_errors')
+                            productPriceMsg.innerHTML = errProductPrice
+                        }
+                        break;
+                    case 'discount':
+                        errors.discount = errProductDiscount
+                        productDiscount.classList.remove('border-ok')
+                        productDiscount.classList.add('border-nok')
+                        if(productDiscountMsg.classList){
+                            productDiscountMsg.classList.add('span_errors')
+                            productDiscountMsg.innerHTML = errProductDiscount
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        } else {
+            console.log('se puede enviar');
+        }
+    })
 }

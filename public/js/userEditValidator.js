@@ -11,11 +11,11 @@ window.onload = function () {
     let imageAvatar = document.getElementById("validationImageAvatar");
     let imageAvatarMsg = document.getElementById("image_avatar_msg");
 
-    let password = document.getElementById("validationPassword");
+/*     let password = document.getElementById("validationPassword");
     let passwordMsg = document.getElementById("password_msg");
 
     let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
-    let passwordConfirmationMsg = document.getElementById("password_confirm_msg");
+    let passwordConfirmationMsg = document.getElementById("password_confirm_msg"); */
 
     let form = document.getElementById("updateForm"); 
 
@@ -23,8 +23,8 @@ window.onload = function () {
     const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
     const errUserName = "El nombre de usuario debe ser un e-mail."
     const errImageAvatar = "El archivo debe ser de extension jpg, jpeg, png o gif."
-    const errPassword = "La contraseña debe contener mínimo 8 caracteres y debe incluir al menos un número."
-    const errPasswordConfirm = "Las contraseñas deben ser iguales."
+/*     const errPassword = "La contraseña debe contener mínimo 8 caracteres y debe incluir al menos un número."
+    const errPasswordConfirm = "Las contraseñas deben ser iguales." */
     const allowedExtensions = ["jpg", "jpeg", "png", "gif"]
 
     function getFileExtension(filename) {
@@ -35,19 +35,12 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-        image_avatar: "",
-        password: "",
-        password_confirm: "",
+     /*    image_avatar: "", */
+/*         password: "",
+        password_confirm: "", */
     }
 
-    const errors = {
-        first_name: "",
-        last_name: "",
-        user_name: "",
-        image_avatar: "",
-        password: "",
-        password_confirm: "",
-    }
+    const errors = {}
 
     function setValidationResult(element, keyName, keyNameU, status, elementMsg, errMsg) {
         if (status === "OK") {
@@ -157,7 +150,7 @@ window.onload = function () {
             }
         }
     })
-
+/* 
     password.addEventListener("keyup", function () {
         if (/^(?=.*\d).{8,20}$/.test(password.value)) {
             delete errors.password
@@ -208,7 +201,9 @@ window.onload = function () {
             errors.password_confirm = errPasswordConfirm
             setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
         }
-    })
+    }) 
+    
+*/
 
     form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
@@ -249,7 +244,7 @@ window.onload = function () {
                             imageAvatarMsg.innerHTML = errImageAvatar
                         }
                         break;
-                    case "password":
+/*                     case "password":
                         password.classList.remove("border-ok")
                         password.classList.add("border-nok")
                         if (passwordMsg.classList) {
@@ -266,7 +261,7 @@ window.onload = function () {
                         }
                         break;
                     default:
-                        break;
+                        break; */
                 }
             }
         } else {

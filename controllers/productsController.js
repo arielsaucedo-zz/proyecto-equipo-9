@@ -14,25 +14,33 @@ function dateNow() {
 
 let productsController = {
 
-    async list (req, res) {
+    async categories (req, res) {
 		let where = {}
 		let products = []
-		let title = "Todos los productos"
-		if (req.params.category_id) {
+        let title = "Todos los productos"
+        
+		if (req.params.category) {
 			let category = await db.Categories.findOne({
 				where: {
-				   id: req.params.category_id
+				   name: req.params.category
 				},
 				include: ['products']
-			});
-			title = 'Todos los productos de la categoría: ' + category.name;			 
+            });
+            
+            title = 'Todos los productos de la categoría: ' + category.name;			 
+            
 			if (category) {
 				products = category.products
 			};
 		} else {
 			products = await db.Products.findAll(where)
-		}
-		return res.render('products/list', { products, title })
+        }
+        
+        let categories = await db.Categories.findAll({
+			include: ['products']
+		});
+
+		return res.render('products/categories', { products, categories, title })
 	},
 
     show: function (req, res) {
@@ -76,8 +84,8 @@ let productsController = {
                 })
         } else {
             let dateTimeBD = dateNow()
-            let filenameVal = ''
-            if (req.files != undefined) {
+            let filenameVal = 'product-default.jpg'
+            if (req.files[0] != undefined && req.files[0] != filenameVal) {
                 filenameVal = req.files[0].filename
             }
             db.Products.create({
@@ -89,12 +97,13 @@ let productsController = {
                 price: req.body.product_price,
                 image: filenameVal,
                 category_id: req.body.product_category,
+                discount: req.body.product_discount,
             })
             .catch(function(error){
                 console.log(error)
                 res.send('')
             })
-            res.render('products/added')
+            res.render('products/addedProduct')
         }
     },
 
@@ -112,22 +121,20 @@ let productsController = {
     },
 
     update: function (req, res, next) {
-        console.log(req.files)
-        let dateTimeBD = dateNow()
-        let filenameVal = ''
+        let filenameVal = req.body.file
+        let allCategories = db.Products.findAll()
+        let oneProduct = db.Products.findByPk(req.params.id)
         if (req.files[0] != undefined) {
             filenameVal = req.files[0].filename
         }
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
-            return res.render('products/productEdit', {
-                errors: errors.errors
-            });
+            return res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors: errors.errors });
         }
+        let dateTimeBD = dateNow()
         db.Products.update({
             name: req.body.product_name,
             description: req.body.product_description,
-            created_at: dateTimeBD,
             updated_at: dateTimeBD,
             quantity: req.body.product_quantity,
             price: req.body.product_price,
@@ -142,6 +149,7 @@ let productsController = {
             console.log(error)
             res.send('')
         })
+        res.render('products/changeProduct')
     },
 
     destroy: function (req, res) {
@@ -159,65 +167,6 @@ let productsController = {
             res.send('')
         })
     },
-
-    addToCart: function (req, res) {
-        db.Products.findByPk(req.params.id)
-            .then((resultado) => {
-                let dateTimeBD = dateNow()
-                db.ShoppingCarts.create({
-                    total: (resultado.price * req.body.product_quantity), //ver aca como hacer que acumule lo que se está agregando.
-                    created_at: dateTimeBD,
-                    updated_at: dateTimeBD,
-                    user_id: res.locals.userId,
-                    CartItems: [{
-                        quantity: req.body.product_quantity,
-                        subtotal: resultado.price * req.body.product_quantity,
-                        product_id: req.params.id,
-                        cart_details: {
-                            selfGranted: true
-                        }
-                    }]
-                },{
-                    include: {
-                        all: true
-/*                        model: db.Products,
-                        as: 'products' */
-                    }
-                })               
-                res.render('products/productCart', { errors : [] })
-            })
-            .catch(function(error){
-                console.log(error)
-                res.send('')
-            })
-    },
-
-    cart: function (req, res) {
-        /*
-
-                db.Users.findAll({ include: [ { association : 'role' }]})
-                    .then(Users => {console.log(Users)})
-        */
-        /*
-                db.ShoppingCarts.findAll({include: [{ association : 'user' }]})
-                    .then(ShoppingCarts => {console.log(ShoppingCarts)
-                    })
-
-                db.Categories.findAll()
-                .then(Categories => { console.log(Categories)
-                })
-        */
-
-        /*
-                db.CartDetail.findAll()
-                    .then(CartDetail => {console.log("CartDetail.findAll")
-                    })
-        */
-        res.render('products/productCart', {
-            errors: []
-        })
-    }
-
 }
 
 

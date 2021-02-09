@@ -35,7 +35,7 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-        image_avatar: "",
+       /*  image_avatar: "", */
         password: "",
         password_confirm: "",
     }
@@ -44,7 +44,6 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-        image_avatar: "",
         password: "",
         password_confirm: "",
     }
@@ -270,6 +269,15 @@ window.onload = function () {
                 }
             }
         } else {
+            /* e.preventDefault() */
+            let i = 4
+            let cuentaRegresiva = setInterval(function(){
+                document.querySelector("h4").innerHTML ="En " + i + " segundos seras redirigido..."
+                i--
+                    if(i === 0) {
+                        window.location = "http://localhost:3000/"
+                    }
+            }, 1000)
             console.log('se puede enviar');
         }
     })

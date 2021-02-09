@@ -20,6 +20,10 @@ module.exports = (sequelize, DataTypes) => {
         user_id: {
             allowNull: false,
             type: DataTypes.INTEGER
+        },
+        order_number: {
+            allowNull: true,
+            type: DataTypes.INTEGER
         }
     }
     let config = {
@@ -30,23 +34,18 @@ module.exports = (sequelize, DataTypes) => {
 
 
     const ShoppingCart = sequelize.define(alias, cols, config)
-    ShoppingCart.associate = function(models) {
-        ShoppingCart.belongsTo(models.Users, {
-            as: "User",
-            foreignKey: "user_id"
-        })
-
-        ShoppingCart.hasMany(models.CartDetails, {
-            as: "CartItems",
-            foreignKey: "shopping_cart_id"
-        })
-
+        ShoppingCart.associate = function(models) {
+            ShoppingCart.belongsTo(models.Users, {
+                as: "User",
+                foreignKey: "user_id"
+            })
         ShoppingCart.belongsToMany(models.Products, {
-            through: 'cart_details',
+            through: models.CartDetails,
             as: 'products',
-            foreignKey: 'shopping_cart_id'
-        });
-
+            foreignKey: 'shopping_cart_id',
+            otherKey: 'product_id',
+            timestamps: false
+        })
     }
 
     return ShoppingCart;

@@ -22,7 +22,7 @@
                         <h2 class="register-h2">Mi Cuenta</h2>
                         <hr>
                     </div>
-                    <form id="updateForm" class="needs-validation" action="/userDetail/:id_method=PUT" method="POST"
+                    <form id="updateForm" class="needs-validation" action="/users/<%= userLoggedIn.id %>?_method=PUT" method="POST"
                         enctype="multipart/form-data" id="form" onsubmit="return validar();">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
@@ -84,7 +84,7 @@
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" id="validationImageAvatar"
-                                            name="image_avatar">
+                                            name="image_avatar" value="<%= userLoggedIn.image_avatar %>">
                                         <label class="custom-file-label" for="inputGroupFile02">Elegir archivo</label>
                                     </div>
                                     <div class="input-group-append">
@@ -94,6 +94,8 @@
                                 <span id="image_avatar_msg" class="span_errors"></span>
                             </div>
                         </div>
+
+                        <!--
 
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
@@ -115,6 +117,7 @@
                                 <span id="password_confirm_msg" class="span_errors"></span>
                             </div>
                         </div>
+
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <% errors.forEach(error => { %>
@@ -139,12 +142,34 @@
                                 <% }) %>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" target="" id="send">Aceptar</button>
-                        <button type="reset" class="btn btn-warning">Limpiar</button>
+                        -->
+                        <button type="submit" class="btn btn-primary" target="" id="send" data-toggle="modal" data-target="#exampleModalCenter">Aceptar</button>
+                        <button type="reset" class="btn btn-warning" id="reset">Limpiar</button>
+                        <div class="my-5 card border-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Cambiar Contraseña</div>
+                            <div class="card-body text-dark">
+                              <h5 class="card-title">Para cambiar su contraseña, por favor presione el boton debajo.</h5>
+                              <a class="btn btn-warning  btn-lg btn-block" href="/users/userDetail/<%=userLoggedIn.id%>/changePassword" role="button" id="change_password_id">Cambiar contraseña</a>
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            </div>
+                        </div>
                     </form>
+
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="text-center mt-5 mb-5">
+                                    <h2>SU USUARIO HA SIDO MODIFICADO CON EXITO!</h2>
+                                    <h4>En 5 segundos seras redirigido...</h4>
+                                    <img class= "check-ok mt-2" src="/images/check-ok.png" alt="">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br>
         </div>
     </main>
 

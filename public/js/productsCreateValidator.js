@@ -48,7 +48,6 @@ window.onload = function(){
     const errors = {
         name : '',
         description : '',
-        image : '',
         category : '',
         quantity : '',
         price : '',
