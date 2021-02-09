@@ -331,7 +331,17 @@ const controller = {
     },
 
     shop: function(req, res) {
-        let items;
+        db.ShoppingCarts.findOne({
+            where : { 
+                user_id : req.body.userId
+            }
+        })
+        .then((cart) => {res.send('la compra')}//res.redirect("/users/history")
+        )
+        .catch((e) => console.log(e))
+
+
+        /* let items;
         // busco los items agregados al carrito
         Item.findAll({
             where: {
@@ -367,11 +377,11 @@ const controller = {
         })
         // redirect
         .then(() => res.redirect("/users/history"))
-        .catch((e) => console.log(e))
+        .catch((e) => console.log(e)) */
     },
-/* 
+
     history: function(req, res, next) {
-        Cart.findAll({
+       /*  Cart.findAll({
             where: {
             userId: req.session.userId,
             },
@@ -385,17 +395,17 @@ const controller = {
             .then((carts) => {
             res.render("users/history", { carts })
             })
-            .catch((e) => console.log(e))
+            .catch((e) => console.log(e)) */
     },
- */
+
     showBuyDetail: function(req, res) {
-        Cart.findByPk(req.params.id, {
+       /*  Cart.findByPk(req.params.id, {
             include: {
             all: true,
             nested: true,
             paranoid: false,
             },
-        }).then((cart) => res.render("users/buyDetail", { cart }))
+        }).then((cart) => res.render("users/buyDetail", { cart })) */
     },
 }
 

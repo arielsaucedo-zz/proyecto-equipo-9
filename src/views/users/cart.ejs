@@ -60,7 +60,11 @@
                     <td><a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"><strong>Total $<%= ShoppingCart.total %></strong></td>
-                    <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>
+                    <td>
+                        <form action="/users/shop" method="POST"  style="display: inline-bock">
+                            <input type="hidden" name="userId" value="<%= locals.userId %>">
+                            <button type="submit" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></button>
+                         </form>
                     </td>
                 </tr>
             </tfoot>
