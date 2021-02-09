@@ -159,7 +159,6 @@ const controller = {
                 last_name: req.body.last_name,
                 user_name: req.body.user_name,
                 updated_at: dateTimeBD,
-                role_id: 1,
                 image_avatar: filenameVal
             }, 
             { 
