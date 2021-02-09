@@ -1,3 +1,77 @@
+## **<u>SPRINT - 7</u>**
+
+**<u>SEMANA 1</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Planificación sprint-7.																																			 				Control de validaciones del Backend.
+
+​	Nicolás: 
+​				Planificación sprint-7. 																																 				Comenzar validaciones del frontend – Product Edit.
+
+​	Daniel: 
+​				Planificación sprint-7.  																																	 
+
+​	 Ariel:                                                                                                                                                                                               				Planificación sprint-7. 																																		 				Control de validaciones del Backend.																														 				 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Problemas personales semana del 11/01/2021.
+	Nicolás:
+				Últimos días sin conexión a internet por problemas en la zona.
+	Daniel:                                                                                                                       														      				Ninguno. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Validacion del input para la carga de archivos.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Realizar las validaciones del frontEnd - Product Create.
+
+​	Nicolás:
+​                Realizar las validaciones del frontend – Product Edit. 																						 
+
+​	Daniel: 																																							         	    				Realizar las validaciones del frontend - userDetail.
+
+​    Ariel:                                                                                                                                                                                                 				Realizar las validaciones del frontEnd - Registro de usuarios. 																	 											 				
+
+**<u>SEMANA 2</u>**
+
+● Qué hizo en la semana
+
+​	Cristian: 
+​				Continuar con: Validaciones del frontEnd - Product Create y Registro de Usuarios.											 				 
+
+​	Nicolás:
+​                Terminar validaciones del frontend – Product Edit.                                                                                                                                                             	
+
+​	Daniel:                                                                                                                                                                                				Terminar las validaciones del frontend de userDetail.                                                                                                                                                      	
+
+​	Ariel:                                                                                                                                                                                                    				Validaciones en el Formulario de Contacto.																									 				Correciones a las validaciones de formulario de registro de usuarios.	                                                                    				Validaciones en el Formulario de Edicion de Usuarios.								 											 		 		 				
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Error de sintaxis que me llevó un rato largo encontrar. 																	 				
+
+​	Daniel:                                                                                                                                                                                    				Ninguno.                                                                                               	
+
+​	Ariel:																																				                                                   				Ninguno.
+
+● Qué va a la próxima semana.
+	Cristian:
+				Planificar sprint-8.																					
+
+​	Nicolás:
+​				Planificar sprint-8.                                                                                                                              		
+
+​	Daniel:                                                                                                                                                                                				Planificar sprint-8.
+
+​	Ariel:
+​				Planificar sprint-8.																																		 	 
+
+
+
 ## **<u>SPRINT - 6</u>**
 
 **<u>SEMANA 1</u>**

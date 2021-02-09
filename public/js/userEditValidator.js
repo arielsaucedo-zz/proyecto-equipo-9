@@ -17,13 +17,13 @@ window.onload = function () {
     let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
     let passwordConfirmationMsg = document.getElementById("password_confirm_msg");
 
-    let form = document.getElementById("registerForm"); 
+    let form = document.getElementById("updateForm"); 
 
     const errFirstName = "La longitud del nombre debe ser como mínimo de 3 letras."
     const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
     const errUserName = "El nombre de usuario debe ser un e-mail."
     const errImageAvatar = "El archivo debe ser de extension jpg, jpeg, png o gif."
-    const errPassword = "La contraseña debe contener entre 4 y 8 caracteres y debe incluir al menos un número."
+    const errPassword = "La contraseña debe contener mínimo 8 caracteres y debe incluir al menos un número."
     const errPasswordConfirm = "Las contraseñas deben ser iguales."
     const allowedExtensions = ["jpg", "jpeg", "png", "gif"]
 
@@ -210,7 +210,7 @@ window.onload = function () {
         }
     })
 
-   /*  form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
             console.log("no se envía");
             e.preventDefault()
@@ -272,6 +272,41 @@ window.onload = function () {
         } else {
             console.log('se puede enviar');
         }
-    }) */
+    })
 
 }
+
+
+
+
+/* validar = () => {
+    let nombre, apellido, email, password, expresion_user,expresion_password, confirm;
+    nombre = document.getElementById('validationTooltip01').value; 
+    apellido = document.getElementById('validationTooltip02').value;
+    userName = document.getElementById('validationTooltipUsernamePrepend').value;
+    password = document.getElementById('validationTooltip03').value;
+    confirm = document.getElementById('validationTooltip04').value;
+    expresion_user =  /@/;
+    expresion_password = /^(?=.*\d).{4,8}$/;
+    if(nombre.length < 3) {
+        document.getElementById('span_name').style.display = 'block';
+        return false;
+    }
+    else if(apellido.length < 3) {
+        document.getElementById('span_last_name').style.display = 'block';
+        return false;
+    }
+    else if(!expresion_user.test(userName)) {
+        document.getElementById('span_user_name').style.display = 'block';
+        return false;
+    }
+
+    else if(!expresion_password.test(password)) {
+    document.getElementById('span_password').style.display = 'block';
+    return false;
+    }
+    else if(confirm !== password) {
+        document.getElementById('span_confirm').style.display = 'block';
+        return false;
+        }
+} */

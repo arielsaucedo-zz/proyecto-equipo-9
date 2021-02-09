@@ -112,9 +112,10 @@ let productsController = {
     },
 
     update: function (req, res, next) {
+        console.log(req.files)
         let dateTimeBD = dateNow()
         let filenameVal = ''
-        if (req.files != undefined) {
+        if (req.files[0] != undefined) {
             filenameVal = req.files[0].filename
         }
         let errors = validationResult(req)

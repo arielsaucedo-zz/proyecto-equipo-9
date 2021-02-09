@@ -1,17 +1,10 @@
-const fs = require('fs')
-const path = require('path')
+let bcryptjs = require('bcryptjs')
+let db = require('../database/models')
+
 const {
     check,
     validationResult,
 } = require('express-validator')
-const usersFilePath = path.join(__dirname, '../data/users.json')
-const userDataFilePath = path.join(__dirname, '../data/user')
-let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'))
-let userData = require(userDataFilePath)
-let bcryptjs = require('bcryptjs')
-const productDataFilePath = path.join(__dirname, '../data/product')
-let productData = require(productDataFilePath)
-let db = require('../database/models')
 
 const controller = {
     login: function (req, res) {
@@ -99,7 +92,7 @@ const controller = {
             last_name: req.body.last_name,
             user_name: req.body.user_name,
             password: bcryptjs.hashSync(req.body.password_confirmation),
-            role_id: 1,
+            role_id: 2,
             image_avatar: filenameVal
         })
         .catch(function(error){
