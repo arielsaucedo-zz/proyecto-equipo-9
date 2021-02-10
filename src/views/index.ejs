@@ -67,6 +67,10 @@
                                     <div class="col-12 pl-0">
                                         <h2 class="original-price font-weight-light"><strike>$ <%= products[i].price %> </strike></h2> <!-- Original Price -->
                                     </div>
+                                <% } else { %>
+                                    <div class="col-12 pl-0">
+                                        &nbsp;
+                                    </div>
                                 <% } %>
                                 <h2>$<%= helpers.trunc(products[i].price - products[i].price * products[i].discount / 100) %></h2>
                                 <% if(products[i].discount > 0) { %>
@@ -100,6 +104,10 @@
                                 <% if(products[i].discount > 0) { %>
                                     <div class="col-12 pl-0">
                                         <h2 class="original-price font-weight-light"><strike>$ <%= products[i].price %> </strike></h2> <!-- Original Price -->
+                                    </div>
+                                <% } else { %>
+                                    <div class="col-12 pl-0">
+                                        <h2 class="original-price font-weight-light">        </h2> <!-- Original Price -->
                                     </div>
                                 <% } %>
                                 <h2>$<%= helpers.trunc(products[i].price - products[i].price * products[i].discount / 100) %></h2>
