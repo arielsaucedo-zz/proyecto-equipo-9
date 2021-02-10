@@ -35,7 +35,7 @@
                     <td data-th="Price"><%= item.price %></td>
                     <form id="editCartItem<%= item.CartDetails.id %>" action="/users/<%= item.CartDetails.id %>/editQtyItemCart?_method=PUT" method="POST">
                     <td data-th="Quantity">
-                        <input name="quantity" type="number" class="form-control text-center" value= '<%= item.CartDetails.quantity %>' >
+                        <input name="quantity" type="number" class="form-control text-center" value= '<%= item.CartDetails.quantity %>' min="1" >
                     </td>
                     <td data-th="Subtotal" class="text-center"><%= item.CartDetails.subtotal %></td>
                     <td class="actions" data-th="">

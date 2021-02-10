@@ -40,7 +40,7 @@
                         <form action="/users/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
                             <div class="ml-1">
                                 <label class="" for="inputDefault">Cantidad</label>
-                                <input class="form-control mb-2" type="text" name="product_quantity" id="product_quantity" value="1">
+                                <input class="form-control mb-2" type="number" name="product_quantity" id="product_quantity" value="1" min="1">
                                 <button type="submit" class="btn btn-success"><i class="fas fa-cart-arrow-down mr-2"></i> Enviar al carrito</button>
                             </div>
                         </form>
