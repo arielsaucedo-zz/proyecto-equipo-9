@@ -300,9 +300,12 @@ hr {
 }
 
 .img-product {
-  width: 255px;
   height: 314px;
   object-fit: contain;
+}
+
+#sin-descuento {
+  margin-top: -4px;
 }
 
 /*====== Change Password ======*/
