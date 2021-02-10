@@ -304,6 +304,10 @@ hr {
   object-fit: center;
 } */
 
+#sin-descuento {
+  margin-top: -4px;
+}
+
 /*====== Change Password ======*/
 .pass_show{position: relative} 
 
