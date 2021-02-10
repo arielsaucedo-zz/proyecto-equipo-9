@@ -40,6 +40,7 @@ app.use(function(req, res, next){
     res.locals.last_name = req.session.last_name
     res.locals.userId = req.session.userId
     res.locals.image_avatar = req.session.image_avatar
+    res.locals.role_id = req.session.role_id
   }
   db.Categories.findAll({
     include: ['products']

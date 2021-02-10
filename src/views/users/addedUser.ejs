@@ -4,30 +4,16 @@
     <%- include('../partials/head') %>
 
 <body>
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-            </div>
-            <div class="modal-body">
-                <div class="text-center mt-5 mb-5">
-                    <h2>SU USUARIO HA SIDO CREADO CON EXITO!</h2>
-                    <h4>En 5 segundos seras redirigido...</h4>
-                    <img class= "check-ok mt-2" src="/images/check-ok.png" alt="">
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <%- include('../partials/header') %>
 
-   <!--  <%- include('../partials/header') %>
     <div class="text-center mt-5 mb-5">
         <h2>SU USUARIO HA SIDO CREADO CON EXITO!</h2>
         <h4>En 5 segundos seras redirigido...</h4>
-        <img class= "check-ok mt-2" src="/images/check-ok.png" alt="">
+        <img class= "img-check-ok mt-2" src="/images/check-ok.gif" alt="">
     </div>
-    <%- include('../partials/footer') %> -->
+
+    <%- include('../partials/footer') %>
+
     <script src="/js/redirectTimerUser.js"></script>
 </body>
 

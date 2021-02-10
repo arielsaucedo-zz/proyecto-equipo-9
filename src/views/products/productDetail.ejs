@@ -45,7 +45,7 @@
                             </div>
                         </form>
                         <hr>
-
+                        <% if ( locals.role_id == 2 ) { %>
                         <form action="/products/<%= productDetail.id %>/edit" method="get" style="display: inline-flex">
                             <button type="submit" class="btn btn-warning"><i class="fas fa-edit mr-2"></i> Editar</button>
                         </form>
@@ -54,6 +54,7 @@
                             style="display: inline-flex">
                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i> Eliminar</button>
                         </form>
+                        <% } %>
                     </div>
                 </div>
                 <br>

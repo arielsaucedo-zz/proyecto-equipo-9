@@ -45,6 +45,7 @@ const controller = {
                     req.session.last_name = userLoggedIn.last_name
                     req.session.userId = userLoggedIn.id
                     req.session.image_avatar = userLoggedIn.image_avatar
+                    req.session.role_id = userLoggedIn.role_id
                     if (req.body.rememberMe) {
                         res.cookie('rememberMe', userLoggedIn.user_name, {
                             maxAge: 120 * 1000
@@ -110,14 +111,14 @@ const controller = {
             created_at: dateTimeBD,
             updated_at: dateTimeBD,
             password: bcryptjs.hashSync(req.body.password_confirmation),
-            role_id: 2,
+            role_id: 1,
             image_avatar: filenameVal
         })
         .catch(function(error){
             console.log(error)
             res.send('')
         })
-        res.send('')
+        res.render("users/addedUser")
     },
 
     show: function (req, res, next) {
