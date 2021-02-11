@@ -8,7 +8,7 @@ function userAuth(req, res, next) {
             }
         })
         .then((userLoggedIn) => {
-            if(userLoggedIn.role_id == 1 || userLoggedIn.role_id == 2){
+            if( userLoggedIn.role_id == 2){
                 next()
             } else {
                 return res.redirect('/')

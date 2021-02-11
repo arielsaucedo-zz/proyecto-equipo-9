@@ -6,6 +6,7 @@ const path = require('path')
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 const userAuth = require('../middlewares/userAuth')
+const userAuthAdmin = require('../middlewares/userAuthAdmin')
 
 // ************ Multer Require ************
 var multer  = require('multer')
@@ -42,7 +43,7 @@ var upload = multer({
 
 
 /*** localhost:3000/products/productCreate ***/
-router.get('/productCreate', userAuth,productsController.create);
+router.get('/productCreate', userAuthAdmin,productsController.create);
 /*** localhost:3000/products/ ***/
 router.post('/', upload.any(), [
     check('product_name')
@@ -73,7 +74,7 @@ router.get('/detail/:id', productsController.show);
 
 /*** localhost:3000/products/:id/edit ***/
 //http://localhost:3000/products/4/edit
-router.get('/:id/edit', userAuth, [
+router.get('/:id/edit', userAuthAdmin, [
     check('name')
     .isEmpty()
     .withMessage('Por favor, ingrese un título')
