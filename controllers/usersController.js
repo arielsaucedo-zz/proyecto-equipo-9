@@ -381,6 +381,7 @@ const controller = {
     },
 
     history: function(req, res, next) {
+        res.render("users/history")
        /*  Cart.findAll({
             where: {
             userId: req.session.userId,
