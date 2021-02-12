@@ -20,19 +20,36 @@ module.exports = {
     
     search: (req, res) => {
         let searchResults = []
-        searchResults = products.filter(function (productElement) {
-            if (productElement.name.includes(req.query.search) ||
-                productElement.detail.includes(req.query.search) ||
-                productElement.category.includes(req.query.search)) {
-                return true
-            } else {
-                return false
-            }
-        })
+        db.Products.findAll()
+        .then((producto) => {
+            
+            searchResults = producto.filter(function (productElement) {
 
-        res.render('results', {
-            products: searchResults
+                let buscado = req.query.search.toLowerCase();
+
+                let nombre = productElement.name.toLowerCase();
+
+                let description = productElement.description.toLowerCase();
+
+                if (nombre.includes(buscado) ||
+                    description.includes(buscado) 
+                //     || productElement.category.includes(req.query.search)
+                ) {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            res.render('results', {
+                products: searchResults
+            })
         })
+        .catch(function(error){
+            console.log(error)
+            res.send('')
+           
+        })
+        
     },
 
     aboutUs: function (req, res, next) {
