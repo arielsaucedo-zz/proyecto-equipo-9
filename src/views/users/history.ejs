@@ -8,66 +8,80 @@
    <%- include('../partials/header') %>
    <!-- /Header -->
 
-   <div class="container products-wrapper">
-      <div class="row">
-         <div class="col-12">
-            <h1 class="products-title">Carrito de compras</h1>
-         </div>
-      </div>
-      <div class="product-detail">
-         <div class="row">
-            <div class="col-12 col-lg-8 pt-4">
-               <% if(carts.length != 0){ %>
-               <% carts.forEach(cart => { %>
-               <a href="/users/buy-detail/<%= cart.id %>">
-                  <div class="col-12 mt-3">
-                     <section class="row">
-                        <h4 class="col-4"><%= new Date(cart.createdAt).toLocaleDateString() %> </h4>
-                        <section class="col-8 row info">
-                           <div class="col-6">
-                              <ul>
-                                 <% cart.items.forEach(item => { %>
-                                    <li style="font-size: 12px;">
-                                       <small>
-                                          <%= item.product.name %> x<%= item.quantity %>
-                                       </small>
-                                    </li>
-                                 <% }) %>
-                              </ul>
-                           </div>
-                           <div class="col-6">
-                              <p class="product-detail-price">
-                                 $<%= cart.total %>
-                              </p>
-                           </div>
-                        </section>
-                        <section class="col-3">
-                           
-                        </section>
-                     </section>
-                  </div>
-               </a>
-               <hr>
-               <% }); %>
-               
-               <% } else { %>
-               <div class="col-12">
-                  <h2 class="products-title" style="padding: 100px 0; color: tomato;">Aún no tienes compras</h2>
+   <main>
+      <div class="container">
+         <div class="card my-4 p-3 shadow-lg rounded border-0">
+            <div class="card-body">
+               <div class="card-title text-center mb-4">
+                   <h2 class="register-h2">Tus compras realizadas</h2>
                </div>
-               <% } %>
-            </div>
-            <div class="col-12 col-lg-4">
-               <article class="product-detail-info">
-                  <h2 class="product-detail-title">
-                     <%= locals.user.username %>
-                  </h2>
-                  <hr>
-                  
-               </article>
+               <div class="container">
+                  <% if(carts.length != 0){ %>
+                     <table id="orders" class="table table-hover table-condensed">
+                        <thead>
+                           <tr>
+                              <th style="width:20%">Fecha</th>
+                              <th style="width:50%">Productos</th>
+                              <th style="width:15%">Total</th>
+                              <th style="width:15%">Numero de Orden</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        <% carts.forEach(cart => { %>
+                           <% if(cart.order_number) { %>
+                           <tr>
+                              <td data-th="Fecha">
+                                 <div>
+                                    <h5 class=""><%= new Date(cart.updated_at).toLocaleDateString() %> </h5>
+                                 </div>
+                              </td>
+                              <td data-th="Productos">
+                                 <section class="row">
+                                    <div>
+                                       <ul>
+                                          <% cart.products.forEach(item => { %>
+                                             <li style="font-size: 12px;">
+                                                <h5>
+                                                   <%= item.name %> x <%= item.quantity %>
+                                                </h5>
+                                             </li>
+                                          <% }) %>
+                                       </ul>
+                                    </div>
+                                 </section>
+                              </td>
+                              <td data-th="Total">
+                                 <div>
+                                    <h5 class="">
+                                       $<%= cart.total %>
+                                    </h5>
+                                 </div>
+                              </td>
+                              <td data-th="Numero de orden">
+                                 <div>
+                                    <a href="/users/buy-detail/<%= cart.id %>"> 
+                                       <h4 class="">
+                                          <u>#<%= cart.order_number %></u>
+                                       </h4>
+                                    </a>
+                                 </div>
+                              </td>
+                           </tr>
+                           <% } %>
+                           <% }); %>
+                        </tbody>
+                     </table>
+                     <hr>
+                  <% } else { %>
+                     <div class="col-12">
+                        <h2 class="products-title" style="padding: 100px 0; color: tomato;">Aún no tienes compras</h2>
+                     </div>
+                  <% } %>
+               </div>
             </div>
          </div>
       </div>
-   </div>
+   </main>
 
    <!-- footer -->
    <%- include('../partials/footer') %>

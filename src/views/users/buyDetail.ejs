@@ -7,34 +7,42 @@
    <!-- Header -->
    <%- include('../partials/header') %>
    <!-- /Header -->
-
-   <div class="container products-wrapper">
-      <div class="row">
-         <div class="col-12">
-            <h1 class="products-title">Detalle de compra</h1>
-         </div>
-      </div>
-      <div class="product-detail">
-         <div class="row">
-            <div class="col-6 col-sm-12">
-               <article class="product-detail-info" style="font-size: 14px;">
-                  <h2 class="product-detail-title">
-                     <strong>Numero de orden: </strong><%= cart.orderNumber %>
-                  </h2>
-                  <hr class="mb-4">
-                  <strong>Total:</strong><p>$<%= cart.total %></p>
-                  <br>
-                  <strong>Productos:</strong>
-                  <ul>
-                     <% cart.items.forEach(item => { %>
-                     <li><p><%= item.product.name %> x<%= item.quantity %> - <strong><small><%= item.product.user.username %></small></strong></p></li>
-                     <% }) %>
-                  </ul>
-                  <br>
-                  <strong>Fecha de compra:</strong><p><%= new Date(cart.createdAt).toLocaleDateString()%></p>
-                  <hr>
-
-               </article>
+   <div class="container">
+      <div class="card my-4 p-3 shadow-lg rounded border-0">
+         <div class="card-body">
+            <div class="card-title text-center mb-4">
+                <h2 class="register-h2">Detalle de compra</h2>
+            </div>
+            <div class="product-detail">
+               <div class="row">
+                  <div class="col-6 col-sm-12">
+                     <article class="">
+                        <h2 class="">
+                           <% if(cart.order_number){ %>
+                              Numero de orden: </strong><%= cart.order_number %>
+                           <% } else { %>
+                              Carrito abierto</strong>
+                           <% } %>
+                        </h2>
+                        <hr class="mb-4">
+                        <strong>Total:</strong><p>$<%= cart.total %></p>
+                        <br>
+                        <strong>Productos:</strong>
+                        <ul>
+                           <% cart.products.forEach(item => { %>
+                           <li>
+                              <p><%= item.name %> x<%= item.quantity %> - <strong><small><%= cart.User.first_name + ' ' + cart.User.last_name %></small></strong></p>
+                              <div class="col-sm-2 hidden-xs"><img src="/images/products/<%= item.image %>" alt="..."
+                                 class="img-responsive" />
+                              </div>
+                           </li>
+                           <% }) %>
+                        </ul>
+                        <strong>Fecha de compra:</strong><p><%= new Date(cart.created_at).toLocaleDateString()%></p>
+                        <hr>
+                     </article>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
