@@ -28,7 +28,7 @@
                     </div>
                     <div class="card-body">
                         <p class="product-detail-price small">
-                            <span>$<%= productDetail.price %></span>
+                            <span>$<%= helpers.trunc(productDetail.price) %></span>
                             /
                             <b><%= productDetail.discount %>% OFF</b>
                         </p>
@@ -41,7 +41,7 @@
                             <div class="ml-1">
                                 <label class="" for="inputDefault">Cantidad</label>
                                 <input class="form-control mb-2" type="number" name="product_quantity" id="product_quantity" value="1" min="1">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-cart-arrow-down mr-2"></i> Enviar al carrito</button>
+                                <button type="submit" class="btn bg-cart"><i class="fas fa-cart-arrow-down mr-2"></i> Agregar al carrito</button>
                             </div>
                         </form>
                         <hr>

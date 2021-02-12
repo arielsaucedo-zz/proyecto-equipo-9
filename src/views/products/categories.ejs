@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<!--
-   <%- include('../partials/head', {title: 'Categorias', image: '', js: 'categories'}) %>
--->
 <%- include('../partials/head') %>
 
-<body>
+ <!-- Header -->
+ <%- include('../partials/header') %>
+ <!-- /Header -->
 
-   <!-- Header -->
-   <!-- /Header -->
-   
-   
-   <%- include('../partials/header') %>
+<body>
    <div class="container products-wrapper">
       <% if(products.length != 0){ %>
       <div class="row">
@@ -47,8 +42,50 @@
             <div class="col-8 row products-container pl-5">
  
                <% products.forEach(product => { %>
+                  <div class="col-md-6 mt-2">
+                     <div class="card">
+                         <div class="card-body">
+                             <div class="card-img-actions"> 
+                                 <img src="/images/products/<%= product.image %>" class="card-img img-fluid" width="96" height="350" alt=""> </div>
+                         </div>
+                         <div class="card-body bg-light text-center">
+                             <div class="mb-2">
+                                 <h4 class="font-weight-semibold mb-2"> <a href="/products/detail/<%= product.id %>" class="text-default mb-2"
+                                         data-abc="true"><%= product.name %></a> </h4>
+                             </div>
+                             <div>
+                                 <div class="d-flex justify-content-center">
+                                     <% if(product.discount > 0) { %>
+                                         <h4 class="discount-style mr-2"><%= product.discount %> % OFF</h4>
+                                     <% } %>
+                                     <% if(product.discount > 0) { %>
+                                         <h4 class="original-price font-weight-light ml-2"><strike>$ <%= helpers.trunc(product.price) %>
+                                             </strike></h4> <!-- Original Price -->
+                                     <% } else { %>
+                                     <div id="sin-descuento" class="col-12 mt-2 ">
+                                         &nbsp;
+                                     </div>
+                                     <% } %>
+                                 </div>
+                                 <h3>$<%= helpers.trunc(product.price - product.price * product.discount / 100) %>
+                                 </h3>
+                             </div>
+                             <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                     class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
+                                     class="fa fa-star star"></i></div>
+                             <div class="text-muted mb-3">34 reviews</div>
+                             <button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i> Agregar al carrito</button>
+                         </div>
+                     </div>
+                 </div>
+
+
+
+
+
+
 				
-                  <div class="col-12 col-sm-6 col-lg-4">
+                  <!-- <div class="col-12 col-sm-6 col-lg-4">
                      <section class="product-box">
                         <a href="/products/detail/<%= product.id %> ">
                            <figure class="product-box_image">
@@ -57,8 +94,8 @@
                            <article class="product-box_data">
                               <% if(product.discount > 0) { %>
                                  <div class="col-12 pl-0">
-                                    <h2 class="original-price font-weight-light"><strike>$ <%= product.price %> </strike></h2> <!-- Original Price -->
-                                 </div>
+                                    <h2 class="original-price font-weight-light"><strike>$ <%= product.price %> </strike></h2> -->
+                                <!--  </div>
                               <% } %>
                               <h2>$<%= helpers.trunc(product.price - product.price * product.discount / 100) %></h2>
                               <% if(product.discount > 0) { %>
@@ -69,7 +106,7 @@
                            </article>
                         </a>
                      </section>
-                  </div>
+                  </div> -->
 				<% }); %>
                
             </div>
