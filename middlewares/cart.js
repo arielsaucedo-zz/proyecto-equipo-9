@@ -5,6 +5,7 @@ module.exports = async (req, res, next) => {
       db.ShoppingCarts.findOne({
          where: {
             user_id: req.session.userId,
+            order_number: null,
          },
          include : [{
             model : db.Products,
