@@ -28,10 +28,12 @@
                     </div>
                     <div class="card-body">
                         <p class="product-detail-price small">
+                            <% if(productDetail.discount > 0){ %>
                             <span>$<%= productDetail.price %></span>
                             /
-                            <b><%= productDetail.discount %>% OFF</b>
-                        </p>
+                            <b><%= productDetail.discount %>
+                                OFF</b></p> 
+                                 <% } %>
 
                         <p class="product-detail-price small">
                             $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
