@@ -26,15 +26,15 @@
                             <%= productDetail.name %>
                         </h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body-detail">
                         <p class="product-detail-price small">
                             <% if(productDetail.discount > 0){ %>
-                            <span>$<%= productDetail.price %></span>
+                            <span>$<%= helpers.trunc(productDetail.price) %></span>
                             /
                             <b><%= productDetail.discount %>
                                 OFF</b></p> 
-                                 <% } %>
-
+                                 
+                                <% } %>
                         <p class="product-detail-price small">
                             $<%= (productDetail.price * (1 - (productDetail.discount /100))) %>
                         </p>
@@ -43,7 +43,7 @@
                             <div class="ml-1">
                                 <label class="" for="inputDefault">Cantidad</label>
                                 <input class="form-control mb-2" type="number" name="product_quantity" id="product_quantity" value="1" min="1">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-cart-arrow-down mr-2"></i> Enviar al carrito</button>
+                                <button type="submit" class="btn bg-cart"><i class="fas fa-cart-arrow-down mr-2"></i> Agregar al carrito</button>
                             </div>
                         </form>
                         <hr>
@@ -62,7 +62,7 @@
                 <br>
                 <div class="container">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body-detail">
                             <p class="lead"><%= productDetail.description %></p>
                         </div>
                     </div>

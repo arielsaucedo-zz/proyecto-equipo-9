@@ -1,10 +1,13 @@
 let bcryptjs = require('bcryptjs')
 let db = require('../database/models')
+let Sequelize = require('sequelize')
+const Op = Sequelize.Op;
 
 const {
     check,
     validationResult,
-} = require('express-validator')
+} = require('express-validator');
+const { sequelize } = require('../database/models');
 
 function dateNow() {
     let now = new Date()
@@ -229,6 +232,7 @@ const controller = {
         db.ShoppingCarts.findOne({
           where: {
             user_id: req.session.userId,
+            order_number: null,
           },
           include : [{
             model : db.Products,
@@ -251,7 +255,8 @@ const controller = {
             // Busco si existe un carrito para el usuario logueado.
             let shopCartToAdd = db.ShoppingCarts.findOne({
                 where : {
-                    user_id : req.session.userId
+                    user_id : req.session.userId,
+                    order_number: null,
                 }
             })
             Promise.all([productToAdd, shopCartToAdd])
@@ -331,82 +336,93 @@ const controller = {
     },
 
     shop: function(req, res) {
-        db.ShoppingCarts.findOne({
-            where : { 
-                user_id : req.body.userId
-            }
-        })
-        .then((cart) => {res.send('la compra')}//res.redirect("/users/history")
-        )
-        .catch((e) => console.log(e))
-
-
-        /* let items;
-        // busco los items agregados al carrito
-        Item.findAll({
-            where: {
-            userId: req.session.userId,
-            state: 1,
+        let lastCartFinished = db.ShoppingCarts.findAll({
+            where : {
+                user_id : req.session.userId,
+                order_number: {
+                    [Op.ne]: null
+                  }
             },
+            order: [['order_number', 'DESC']],
+            limit: 1,
         })
-        // cierro los items
-        .then((itemsSearched) => {
-        items = itemsSearched;
-        return Item.closeItems(req.session.userId);
+        let cartToFinish = db.ShoppingCarts.findOne({
+            where : {
+                user_id : req.session.userId,
+                order_number: null,
+            },
+            include : [{
+                model : db.Products,
+                as: "products",     
+                through : {
+                    attributes: ['id', 'quantity', 'subtotal', 'shopping_cart_id', 'product_id'],
+                }
+            }],
         })
-        // busco el ultimo carrito creado
-        .then(() => {
-        return Cart.findOne({
-            order: [["createdAt", "DESC"]],
-        });
-        })
-        // creo el nuevo carrito
-        .then((cart) => {
-        return Cart.create({
-            orderNumber: cart ? ++cart.orderNumber : 1000,
-            total: items.reduce(
-            (total, item) => (total = total + item.subTotal),
-            0
-            ),
-            userId: req.session.userId,
-        });
-        })
-        // les asigno el id del carrito nuevo a los items no asignados
-        .then((cart) => {
-        return Item.assignItems(req.session.userId, cart.id);
-        })
-        // redirect
-        .then(() => res.redirect("/users/history"))
-        .catch((e) => console.log(e)) */
+        Promise.all([lastCartFinished, cartToFinish])
+            .then(([lastCartFinished, cartToFinish]) => {
+                let total = 0
+                cartToFinish.products.forEach(item => {
+                    let aux = 0
+                    aux = parseFloat(item.CartDetails.subtotal)
+                    total = aux + total
+                })
+                let auxOrderNumber = parseFloat(lastCartFinished[0].order_number || 0)
+                let nextOrderNumber = auxOrderNumber + 1
+                cartToFinish.update({
+                    order_number : nextOrderNumber,
+                    total : total,
+                    updated_at : dateTimeBD,
+                })
+                .then((updatedCart) => {
+                    let dateTimeBD = dateNow()
+                    db.ShoppingCarts.create({
+                        created_at : dateTimeBD,
+                        updated_at : dateTimeBD,
+                        total: 0,
+                        user_id: req.session.userId,
+                        products: [],
+                    })
+                    .then(cart => {
+                            res.redirect('/users/history')
+                    })
+                    .catch((e) => console.log(e))
+                })
+                .catch((e) => console.log(e))
+            })
+            .catch((e) => console.log(e))
     },
 
     history: function(req, res, next) {
-        res.render("users/history")
-       /*  Cart.findAll({
-            where: {
-            userId: req.session.userId,
+        db.ShoppingCarts.findAll({
+            where : {
+                user_id : req.session.userId,
             },
-            include: {
-            all: true,
-            nested: true,
-            paranoid: false,
-            },
-            order: [["createdAt", "DESC"]],
+            include : [{
+                model : db.Products,
+                as: "products",     
+                through : {
+                    attributes: ['id', 'quantity', 'subtotal', 'shopping_cart_id', 'product_id'],
+                }
+            }],
         })
-            .then((carts) => {
-            res.render("users/history", { carts })
-            })
-            .catch((e) => console.log(e)) */
+        .then((carts) => {
+            res.render('users/history', { carts : carts })
+        })
+        .catch((e) => console.log(e))
     },
 
     showBuyDetail: function(req, res) {
-       /*  Cart.findByPk(req.params.id, {
+        db.ShoppingCarts.findByPk(req.params.id, {
             include: {
             all: true,
             nested: true,
             paranoid: false,
             },
-        }).then((cart) => res.render("users/buyDetail", { cart })) */
+        }).then((cart) => {
+            res.render("users/buyDetail", { cart })
+        }) 
+        .catch((e) => console.log(e))
     },
 }
 
