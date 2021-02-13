@@ -15,8 +15,9 @@ const helpersMiddleware = require('./middlewares/helpers')
 
 // ************ express() - (don't touch) ************
 const app = express()
-
+var cors = require('cors');
 // ************ Middlewares - (don't touch) ************
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public'))) // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }))
 app.use(logger('dev'))
