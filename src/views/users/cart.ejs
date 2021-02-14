@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <% ShoppingCart.products.forEach(item => { ShoppingCart.total = helpers.trunc(item.CartDetails.subtotal) + helpers.trunc(ShoppingCart.total) %>
+                    <% ShoppingCart.products.forEach(item => { ShoppingCart.total = (parseFloat(item.CartDetails.subtotal) + parseFloat(ShoppingCart.total)) %>
                         <tr>
                             <td data-th="Product">
                                 <div class="row">
@@ -60,12 +60,12 @@
                     </tbody>
                     <tfoot>
                         <tr class="visible-xs">
-                            <td class="text-center"><strong>Total $<%= ShoppingCart.total %></strong></td>
+                            <td class="text-center"><strong>Total $<%= helpers.trunc(ShoppingCart.total) %></strong></td>
                         </tr>
                         <tr>
                             <td><a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                             <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Total $<%= ShoppingCart.total %></strong></td>
+                            <td class="hidden-xs text-center"><strong>Total $<%= helpers.trunc(ShoppingCart.total) %></strong></td>
                             <td>
                                 <form action="/users/shop" method="POST"  style="display: inline-bock">
                                     <input type="hidden" name="userId" value="<%= locals.userId %>">

@@ -42,6 +42,47 @@
             <div class="col-8 row products-container pl-5">
  
                <% products.forEach(product => { %>
+
+                  <div class="col-12 col-sm-6 col-lg-4">
+                     <section class="product-box card">
+                         <a href="/products/detail/<%= product.id %>">
+                             <figure class="product-box_image">
+                                 <img class="img-product" src="/images/products/<%= product.image %>" alt="imagen de producto">
+                             </figure>
+                             <article class="product-box_data bg-light text-center d-flex justify-content-center"> 
+                                 <% if(product.discount > 0) { %>
+                                     <div class="col-12 pl-0">
+                                         <h2 class="original-price font-weight-light"><strike>$ <%= helpers.trunc(product.price) %> </strike></h2> <!-- Original Price -->
+                                     </div>
+                                 <% } else { %>
+                                     <div id="sin-descuento" class="col-12 pl-0 ">
+                                                 &nbsp;
+                                     </div>
+                                 <% } %> 
+                                 <% if(product.discount > 0) { %>
+                                     <span>
+                                         <%= product.discount %> % OFF 
+                                     </span>
+                                 <% } %>
+                                     <h2 class="ml-3">
+                                         $<%= helpers.trunc(product.price - product.price * product.discount / 100) %>
+                                     </h2>
+                                     <p>
+                                         <%= product.name %>
+                                     </p>
+                                     <i id="truck" class="fas fa-truck"></i>
+
+                                     <form class="m-2" action="/users/<%= product.id %>/addToCart" method="POST" style="display: inline-flex">
+                                         <div class="ml-1">
+                                             <button type="submit" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i> Agregar al carrito</button>
+                                         </div>
+                                     </form>
+                             </article>
+                         </a>
+                     </section>
+                 </div>
+
+                 <!--
                   <div class="col-md-6 mt-2">
                      <div class="card">
                          <div class="card-body">
@@ -60,7 +101,7 @@
                                      <% } %>
                                      <% if(product.discount > 0) { %>
                                          <h4 class="original-price font-weight-light ml-2"><strike>$ <%= helpers.trunc(product.price) %>
-                                             </strike></h4> <!-- Original Price -->
+                                             </strike></h4>
                                      <% } else { %>
                                      <div id="sin-descuento" class="col-12 mt-2 ">
                                          &nbsp;
@@ -78,7 +119,7 @@
                          </div>
                      </div>
                  </div>
-
+-->
 
 
 

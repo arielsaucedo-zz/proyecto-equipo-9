@@ -372,7 +372,10 @@ const controller = {
                     aux = parseFloat(item.CartDetails.subtotal)
                     total = aux + total
                 })
-                let auxOrderNumber = parseFloat(lastCartFinished[0].order_number || 0)
+                let auxOrderNumber = 0
+                if(lastCartFinished){
+                    auxOrderNumber = parseFloat(lastCartFinished[0].order_number || 0)
+                }
                 let nextOrderNumber = auxOrderNumber + 1
                 cartToFinish.update({
                     order_number : nextOrderNumber,

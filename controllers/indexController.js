@@ -1,6 +1,4 @@
 const path = require('path')
-const productDataFilePath = path.join(__dirname, '../data/product')
-let productData = require(productDataFilePath)
 let db = require('../database/models')
 
 const products = require('../data/products.json');
