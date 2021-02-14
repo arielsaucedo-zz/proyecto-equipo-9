@@ -24,7 +24,14 @@ module.exports = (req, res, next) => {
          // y le sumamos la parte decimal que hemos formateado
          let finalNum = entera +
             ((decimalFormated / Math.pow(10, posiciones)) * (isNeg ? -1 : 1))
-   
+         
+         let num = 0
+         num = finalNum
+         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+         num = num.split('').reverse().join('').replace(/^[\.]/,'');
+         
+         finalNum = num 
+
          return finalNum
       }
    }

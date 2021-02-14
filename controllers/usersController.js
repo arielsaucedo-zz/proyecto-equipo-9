@@ -264,10 +264,15 @@ const controller = {
                     //el metodo siguiente lo que hace es insertar los datos del producto seleccionado
                     //para ser agregado al carrito en la tabla pivot (cart_details) mediante la asociación
                     //con Productos.
+
+                    // Con este IF se carga cantidad cuando el addToCart es desde el index.
+                    if (!_body.product_quantity) {
+                        _body.product_quantity = 1
+                    }
                     if(shopCartToAdd){
                         shopCartToAdd.addProducts(productToAdd.id, {
                             through : { 
-                                quantity: _body.product_quantity, 
+                                quantity: _body.product_quantity,
                                 subtotal : _body.product_quantity * productToAdd.price ,
                             }
                         })

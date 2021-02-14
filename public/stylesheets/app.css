@@ -52,7 +52,7 @@ a {
 
 figure {
   margin: 0;
-  padding: 0 0 25px 0;
+  /* padding: 0 0 25px 0; */
 }
 
 img {
@@ -222,9 +222,9 @@ hr {
   display: block;
 }
 
-.product-box_image {
+/* .product-box_image {
   border-bottom: 1px solid var(--light-gray);
-}
+} */
 
 .product-box_data {
   padding: 15px;
@@ -238,13 +238,15 @@ hr {
   font-size: 1.5em;
   font-weight: 300;
   margin: 0;
+  font-weight: bold;
 }
 
 .product-box_data span {
-  font-size: 1em;
+  font-size: 1.4em;
   font-weight: 300;
-  color: var(--green);
+  color: rgb(240, 29, 29);
   margin: 0 0 0 10px;
+  font-weight: bold;
 }
 
 .product-box_data .original-price{
@@ -262,8 +264,8 @@ hr {
   overflow: hidden;
 }
 
-.product-box_data i {
-  color: var(--green);
+.product-box_data #truck {
+  color: var(--light-blue);
   font-size: 1.25em;
   width: 35px;
   height: 35px;
@@ -289,9 +291,9 @@ hr {
   margin-top: 15px;
 }
 
-.product-box:hover i {
+.product-box:hover #truck {
   transform: rotate(360deg);
-  box-shadow: 0 0 5px var(--green);
+  box-shadow: 0 0 5px var(--dark-blue);
 }
 
 /* .card-product {
@@ -398,6 +400,16 @@ hr {
 
 .small span {
   text-decoration: line-through;
+}
+
+.lbl-quantity,
+.input-qty,
+.card-body-detail p {
+  font-size: 1.5em;
+}
+
+.input-qty{
+  font-size: 1.3em;
 }
 
 .actions-list {

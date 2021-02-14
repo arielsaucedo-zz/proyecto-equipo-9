@@ -34,6 +34,15 @@ app.use(session(
 
 app.use(rememberMe)
 
+// ************ Template Engine - (don't touch) ************
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación de la carpeta de las Vistas
+
+// My middlewares
+//app.use(logMiddleware);
+app.use(cartMiddleware);
+app.use(helpersMiddleware);
+
 app.use(function(req, res, next){
   if(req.session.user != undefined){
     res.locals.user = req.session.user
@@ -55,17 +64,6 @@ app.use(function(req, res, next){
     res.send('')
   })
 })
-
-
-// ************ Template Engine - (don't touch) ************
-app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación de la carpeta de las Vistas
-
-// My middlewares
-//app.use(logMiddleware);
-app.use(cartMiddleware);
-app.use(helpersMiddleware);
-
 // ************ Route System require and use() ************
 const indexRouter = require('./routes/indexRouter')
 const usersRouter = require('./routes/usersRouter')
