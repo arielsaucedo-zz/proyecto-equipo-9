@@ -95,10 +95,10 @@ router.put('/:id', upload.any(), [
         .isInt( {min: 1})
         .withMessage('La cantidad no puede ser cero'),
     check('product_price')
-        .isInt( {min: 1})
+        .isFloat( {min: 1})
         .withMessage('El precio no puede ser cero'),
         check('product_discount')
-        .isInt( {min: 0, max: 100})
+        .isFloat( {min: 0, max: 100})
         .withMessage('El descuento no puede ser negativo ni mayor a 100'),
     ], productsController.update);
 

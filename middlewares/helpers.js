@@ -22,8 +22,8 @@ module.exports = (req, res, next) => {
          )
          // Sustraemos del número original la parte decimal
          // y le sumamos la parte decimal que hemos formateado
-         let finalNum = entera +
-            ((decimalFormated / Math.pow(10, posiciones)) * (isNeg ? -1 : 1))
+         /* let finalNum = entera +
+            ((decimalFormated / Math.pow(10, posiciones)) * (isNeg ? -1 : 1)) */
          
          let num = 0
          num = finalNum

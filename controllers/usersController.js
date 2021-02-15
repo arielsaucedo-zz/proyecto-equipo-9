@@ -117,11 +117,13 @@ const controller = {
             role_id: 1,
             image_avatar: filenameVal
         })
+        .then(function(resultado){
+            res.render("users/addedUser")
+        })
         .catch(function(error){
             console.log(error)
             res.send('')
         })
-        res.render("users/addedUser")
     },
 
     show: function (req, res, next) {
@@ -145,35 +147,54 @@ const controller = {
     },
 
     update: function (req, res, next) {
+        let filenameVal = ''
         let errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.render('users/userDetail', {
                 errors: errors.errors
             });
         }
-
-        let filenameVal = 'avatar-default.jpg'
-        if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
-            filenameVal = req.files[0].filename
-        }
-        let dateTimeBD = dateNow()
-        db.Users.update(
-            {
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                user_name: req.body.user_name,
-                updated_at: dateTimeBD,
-                image_avatar: filenameVal
-            }, 
-            { 
-                where : {id : req.params.id}
+        let user = {}
+        db.Users.findOne({
+            where : {
+                id : req.params.id
             }
-        )
+        })
+        .then((resultado) => {
+            user = resultado
+            filenameVal = user.image_avatar
+            if (req.files[0] != undefined && req.files[0] != filenameVal  ) {
+                filenameVal = req.files[0].filename
+            }
+            let dateTimeBD = dateNow()
+            db.Users.update(
+                {
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    user_name: req.body.user_name,
+                    updated_at: dateTimeBD,
+                    image_avatar: filenameVal
+                }, 
+                { 
+                    where : {id : req.params.id}
+                }
+            )
+            .then(function(resultado){
+                req.session.user = req.body.user_name
+                req.session.first_name = req.body.first_name
+                req.session.last_name = req.body.last_name
+                req.session.image_avatar = filenameVal
+                res.render("users/changeUser")
+            })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
+            })
+        })
         .catch(function(error){
             console.log(error)
             res.send('')
         })
-        res.send('')
     },
 
     showChangePassword: function(req, res, next) {

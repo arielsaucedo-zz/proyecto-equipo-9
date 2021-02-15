@@ -52,7 +52,7 @@
                                 <hr>
                                 <% if ( locals.role_id == 2 ) { %>
                                 <form action="/products/<%= productDetail.id %>/edit" method="get" style="display: inline-flex">
-                                    <button type="submit" class="btn btn-warning"><i class="fas fa-edit mr-2"></i> Editar</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-edit mr-2"></i> Editar</button>
                                 </form>
 
                                 <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST"

@@ -99,11 +99,13 @@ let productsController = {
                 category_id: req.body.product_category,
                 discount: req.body.product_discount,
             })
+            .then(function(resultado) {
+                res.render('products/addedProduct')
+            })
             .catch(function(error){
                 console.log(error)
                 res.send('')
             })
-            res.render('products/addedProduct')
         }
     },
 
@@ -143,13 +145,12 @@ let productsController = {
             },
             { where: { id: req.params.id } })
         .then((resultado) => {
-            res.redirect('..')
+            res.render('products/changeProduct')
         })
         .catch(function(error){
             console.log(error)
             res.send('')
         })
-        res.render('products/changeProduct')
     },
 
     destroy: function (req, res) {
