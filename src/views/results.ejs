@@ -42,7 +42,7 @@
 									</span>
 								<% } %>
 									<h2 class="ml-3">
-										$<%= helpers.trunc(products[i].price - products[i].price * products[i].discount / 100) %>
+										$<%= helpers.trunc((products[i].price - products[i].price * products[i].discount / 100).toFixed(2)) %>
 									</h2>
 									<p>
 										<%= products[i].name %>
@@ -58,61 +58,6 @@
 						</a>
 					</section>
 				</div>
-				<!--
-				<div class="col-md-4 mt-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-img-actions"> 
-                                <img src="/images/products/<%= products[i].image %>" class="card-img img-fluid" width="96" height="350" alt=""> </div>
-                        </div>
-                        <div class="card-body bg-light text-center">
-                            <div class="mb-2">
-                                <h4 class="font-weight-semibold mb-2"> <a href="/products/detail/<%= products[i].id %>" class="text-default mb-2"
-                                        data-abc="true"><%= products[i].name %></a> </h4>
-                            </div>
-                            <div>
-                                <div class="d-flex justify-content-center">
-                                    <% if(products[i].discount > 0) { %>
-                                        <h4 class="discount-style mr-2"><%= products[i].discount %> % OFF</h4>
-                                    <% } %>
-                                    <% if(products[i].discount > 0) { %>
-                                        <h4 class="original-price font-weight-light ml-2"><strike>$ <%= helpers.trunc(products[i].price) %>
-                                            </strike></h4> 
-                                    <% } else { %>
-                                    <div id="sin-descuento" class="col-12 mt-2 ">
-                                        &nbsp;
-                                    </div>
-                                    <% } %>
-                                </div>
-                                <h3>$<%= helpers.trunc(products[i].price - products[i].price * products[i].discount / 100) %>
-                                </h3>
-                            </div>
-                            <div> <i class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
-                                    class="fa fa-star star"></i> <i class="fa fa-star star"></i> <i
-                                    class="fa fa-star star"></i></div>
-                            <div class="text-muted mb-3">34 reviews</div>
-                            <button type="button" class="btn bg-cart"><i class="fas fa-cart-plus mr-2"></i> Agregar al carrito</button>
-                        </div>
-                    </div>
-                </div>
--->
-
-
-			<!-- <div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detail/<%= products[i].id %>">
-						<figure class="product-box_image">
-							<img class="img-product" src="/images/products/<%= products[i].image %>" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$ <%= products[i].price %></h2>
-							<span>DISCOUNT% OFF</span>
-							<p><%= products[i].name %></p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div> -->
 			<% } %>
 			<% } %>
 		</div>

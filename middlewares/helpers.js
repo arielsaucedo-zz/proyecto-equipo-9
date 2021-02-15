@@ -26,9 +26,10 @@ module.exports = (req, res, next) => {
             ((decimalFormated / Math.pow(10, posiciones)) * (isNeg ? -1 : 1)) */
          
          let num = 0
-         num = finalNum
-         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
-         num = num.split('').reverse().join('').replace(/^[\.]/,'');
+         num = x
+         num = num.toString().replace(/\./g,',') //12.6 => 12,6 -------   12000.98 => 12000,98
+         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.'); //89,000.21
+         num = num.split('').reverse().join('').replace(/^[\.]/,''); //12.000,98
          
          finalNum = num 
 

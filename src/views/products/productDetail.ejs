@@ -38,7 +38,7 @@
                                     <% } %>
                                 </p> 
                                 
-                                <p>Precio Final: <strong>$ <%= helpers.trunc(productDetail.price * (1 - (productDetail.discount /100))) %> </strong></p>
+                                <p>Precio Final: <strong>$ <%= helpers.trunc((productDetail.price * (1 - (productDetail.discount /100))).toFixed(2)) %> </strong></p>
                                 
                                 <form action="/users/<%= productDetail.id %>/addToCart" method="POST" style="display: inline-flex">
                                     <div class="ml-1">
