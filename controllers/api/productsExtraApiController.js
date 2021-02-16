@@ -1,60 +1,43 @@
 let db = require('../../database/models')
 
 const controller = {
-    showAll: function (req, res) {
-        const productsList = db.Products.findAll({
+    showAllExtra: function (req, res) {
+        db.Products.findAll({
             include: [{association: "Category", attributes: ["name"]}],
-            attributes: ['id', 'name', 'description']
+            attributes: ['id', 'name', 'description', 'created_at', 'updated_at', 'quantity', 'discount', 'image']
         })
-		const categoriesList = db.Categories.findAll({
-            include: [{association: "products"}]
-        });
-
-		Promise.all([productsList, categoriesList])
-			.then(function([productsList, categoriesList]){
-
+			.then(function(productsList){
             let allProducts = productsList
-            let allCategories = categoriesList
-            let arrayCategories = []
-               
+            
             for (let i= 0; i < allProducts.length; i++){
                 allProducts[i].setDataValue("detail", "/api/products/" + allProducts[i].id)
             }
 
-            allCategories.forEach(category => {
-                let objCategory = {
-                    name: category.name,
-                    productCount: category.products.length
-                }
-                arrayCategories.push(objCategory)
-            });
-
             let respuesta = {
                 meta: {
                     status: 200,
-                    count: allProducts.length,
-                    countByCategory: arrayCategories
+                    total: allProducts.length,
                 },
                 data: allProducts,
               }
             
             res.json(respuesta)
         })
-	    .catch(e => console.log(e))
+			.catch(e => console.log(e));
     },
-    
-    find: function (req, res) {
+
+    lastProductDB: function (req, res) {
         db.Products.findOne({
-                where: {
-                    id: req.params.id
-                },
+                order: [['created_at', 'DESC']],
+                limit: 1,
                 attributes: {exclude: ["CategoryId"]},
                 include: [{association: "Category", attributes: ["name"]}]
         })
         .then(function(resultado){
             let product = resultado
-            product.setDataValue("image", "http://localhost:3000/images/uploads_users/" + resultado.image)
-
+            console.log(product.created_at)
+            product.setDataValue("image", "http://localhost:3000/images/products/" + resultado.image)
+            product.setDataValue("detail", "/api/products/" + resultado.id)
             let respuesta = {
                 meta: {
                     status: 200,
