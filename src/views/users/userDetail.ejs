@@ -24,76 +24,90 @@
                     </div>
                     <form id="updateForm" class="needs-validation" action="/users/<%= userLoggedIn.id %>?_method=PUT" method="POST"
                         enctype="multipart/form-data" id="form" onsubmit="return validar();">
-                        <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                                <label for="validationTooltip01">Nombre</label>
-                                <input type="text" class="form-control firstName" id="validationFirstName"
-                                    placeholder="First name" name="first_name" value="<%= userLoggedIn.first_name %>"
-                                    required>
-                                
-                                <div class="valid-tooltip">
-                                    Looks good! 
-                                </div>
-                                <% errors.forEach(error => { %>
-                                <% if(error.param == "first_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                                <% } else { "" } %>
-                                <% }) %>
-                                <span id="first_name_msg" class="span_errors"></span>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationTooltip02">Apellido</label>
-                                <input type="text" class="form-control" id="validationLastName" placeholder="Last name"
-                                    name="last_name" value="<%= userLoggedIn.last_name %>" required>
-                                <div class="valid-tooltip">
-                                    Looks good!
-                                </div>
-                                <% errors.forEach(error => { %>
-                                <% if(error.param == "last_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                                <% } else { "" } %>
-                                <% }) %>
-                                <span id="last_name_msg" class="span_errors"></span>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationTooltipUsername">Nombre de usuario (e-mail)</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="validationUserName"
-                                        placeholder="Username" name="user_name"
-                                        aria-describedby="validationTooltipUsernamePrepend"
-                                        value="<%= userLoggedIn.user_name %>" required>
-                                    <div class="invalid-tooltip">
-                                        Please choose a unique and valid username.
-                                    </div>
-                                </div>
-                                <% errors.forEach(error => { %>
-                                <% if(error.param == "user_name") { %>
-                                <span class="span_errors">* <%= error.msg %></span>
-                                <% } else { "" } %>
-                                <% }) %>
-                                <span id="user_name_msg" class="span_errors"></span>
-                            </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="validationTooltipUsername">Imagen de perfil</label>
-                                <div class="input-group mb-3">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="validationImageAvatar"
-                                            name="image_avatar" value="<%= userLoggedIn.image_avatar %>">
-                                        <label class="custom-file-label" for="inputGroupFile02">Elegir archivo</label>
+                        <div class="form-row mb-4">
+
+                            <div class="form-row col-md-8">
+
+                                <div class="form-row col-md-12">
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationTooltip01">Nombre</label>
+                                        <input type="text" class="form-control firstName" id="validationFirstName"
+                                            placeholder="First name" name="first_name" value="<%= userLoggedIn.first_name %>"
+                                            required>
+                                        
+                                        <div class="valid-tooltip">
+                                            Looks good! 
+                                        </div>
+                                        <% errors.forEach(error => { %>
+                                        <% if(error.param == "first_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                        <% } else { "" } %>
+                                        <% }) %>
+                                        <span id="first_name_msg" class="span_errors"></span>
                                     </div>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">Upload</span>
+
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationTooltip02">Apellido</label>
+                                        <input type="text" class="form-control" id="validationLastName" placeholder="Last name"
+                                            name="last_name" value="<%= userLoggedIn.last_name %>" required>
+                                        <div class="valid-tooltip">
+                                            Looks good!
+                                        </div>
+                                        <% errors.forEach(error => { %>
+                                        <% if(error.param == "last_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                        <% } else { "" } %>
+                                        <% }) %>
+                                        <span id="last_name_msg" class="span_errors"></span>
                                     </div>
+                                    
                                 </div>
-                                <span id="image_avatar_msg" class="span_errors"></span>
-                            </div>
-                        </div>
+
+                                <div class="form-row col-md-12">
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="validationTooltipUsername">Nombre de usuario (e-mail)</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="validationUserName"
+                                                placeholder="Username" name="user_name"
+                                                aria-describedby="validationTooltipUsernamePrepend"
+                                                value="<%= userLoggedIn.user_name %>" required>
+                                            <div class="invalid-tooltip">
+                                                Please choose a unique and valid username.
+                                            </div>
+                                        </div>
+                                        <% errors.forEach(error => { %>
+                                        <% if(error.param == "user_name") { %>
+                                        <span class="span_errors">* <%= error.msg %></span>
+                                        <% } else { "" } %>
+                                        <% }) %>
+                                        <span id="user_name_msg" class="span_errors"></span>
+                                    </div>
+                                    
+                            
+                                    <div class="form-group col-md-6">
+                                        <label for="validationTooltipUsername">Imagen de perfil</label>
+                                        <div class="input-group mb-3">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="validationImageAvatar"
+                                                    name="image_avatar" value="<%= userLoggedIn.image_avatar %>">
+                                                <label class="custom-file-label" for="inputGroupFile02">Elegir archivo</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
+                                        <span id="image_avatar_msg" class="span_errors"></span>
+                                    </div>
+
+                                </div>
+
+                        
 
                         <!--
 
@@ -143,16 +157,26 @@
                             </div>
                         </div>
                         -->
+
+                            </div>
+
+                            <div class="form-row col-md-4">
+                                <div class="card border-dark">
+                                    <div class="card-header">Cambiar Contraseña</div>
+                                    <div class="card-body text-dark">
+                                    <h5 class="card-title">Para cambiar su contraseña, por favor presione el boton debajo.</h5>
+                                    <a class="btn btn-warning  btn-lg btn-block" href="/users/userDetail/<%=userLoggedIn.id%>/changePassword" role="button" id="change_password_id">Cambiar contraseña</a>
+                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
                         <button type="submit" class="btn btn-primary" id="send">Aceptar</button>
                         <button type="reset" class="btn btn-warning" id="reset">Limpiar</button>
-                        <div class="my-5 card border-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Cambiar Contraseña</div>
-                            <div class="card-body text-dark">
-                              <h5 class="card-title">Para cambiar su contraseña, por favor presione el boton debajo.</h5>
-                              <a class="btn btn-warning  btn-lg btn-block" href="/users/userDetail/<%=userLoggedIn.id%>/changePassword" role="button" id="change_password_id">Cambiar contraseña</a>
-                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                            </div>
-                        </div>
+
                     </form>
                 </div>
             </div>
