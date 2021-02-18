@@ -1,4 +1,6 @@
 let db = require('../../database/models')
+let Sequelize = require('sequelize')
+const Op = Sequelize.Op
 
 const controller = {
     showAllExtra: function (req, res) {
@@ -48,14 +50,14 @@ const controller = {
         })
         .catch(e => console.log(e))
     },
+
     soldProducts: function(req, res) {
         let soldProducts = db.CartDetails.findAll({
                     attributes: ['id', 'quantity', 'subtotal'],
                 })
 
-        let totalSales = db.ShoppingCarts.findAll({
+        let totalSales = db.ShoppingCarts.sum('total', { where: { order_number: { [Op.ne]: null } } })
 
-        })
         Promise.all([soldProducts, totalSales])
         .then(function([soldProducts, totalSales]){
             
@@ -63,12 +65,8 @@ const controller = {
             soldProducts.forEach(item => {
                 products = products + item.quantity
             })
-
-            let sales = 0
-            totalSales.forEach(item => {
-                sales = sales + item.total
-            })
             
+            let sales = totalSales
 
             let respuesta = {
                 meta: {
@@ -76,7 +74,7 @@ const controller = {
                 },
                 data: {
                     soldProductos: products,
-                    totalSales: totalSales,
+                    totalSales: sales,
                 }
             }
             res.json(respuesta)

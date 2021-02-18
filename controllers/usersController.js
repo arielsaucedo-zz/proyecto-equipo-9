@@ -2,7 +2,6 @@ let bcryptjs = require('bcryptjs')
 let db = require('../database/models')
 let Sequelize = require('sequelize')
 const Op = Sequelize.Op;
-let helpers = require('../middlewares/helpers')
 
 const {
     check,
