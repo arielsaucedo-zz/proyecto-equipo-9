@@ -387,6 +387,7 @@ const controller = {
         })
         Promise.all([lastCartFinished, cartToFinish])
             .then(([lastCartFinished, cartToFinish]) => {
+                let dateTimeBD = dateNow()
                 let total = 0
                 cartToFinish.products.forEach(item => {
                     let aux = 0

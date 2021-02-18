@@ -40,9 +40,9 @@
                                     <div>
                                        <ul>
                                           <% cart.products.forEach(item => { %>
-                                             <li style="font-size: 12px;">
-                                                <h5>
-                                                   <%= item.name %> x <%= item.quantity %>
+                                             <li>
+                                                <h5 class="text-justify">
+                                                   <%= item.name %> x <%= item.CartDetails.quantity %>
                                                 </h5>
                                              </li>
                                           <% }) %>
@@ -53,7 +53,7 @@
                               <td data-th="Total">
                                  <div>
                                     <h5 class="">
-                                       $<%= cart.total %>
+                                       $<%= helpers.trunc(cart.total) %>
                                     </h5>
                                  </div>
                               </td>
