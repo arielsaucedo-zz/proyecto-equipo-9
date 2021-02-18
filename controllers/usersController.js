@@ -387,6 +387,7 @@ const controller = {
         })
         Promise.all([lastCartFinished, cartToFinish])
             .then(([lastCartFinished, cartToFinish]) => {
+                let dateTimeBD = dateNow()
                 let total = 0
                 cartToFinish.products.forEach(item => {
                     let aux = 0
@@ -394,7 +395,7 @@ const controller = {
                     total = aux + total
                 })
                 let auxOrderNumber = 0
-                if(lastCartFinished){
+                if(lastCartFinished[0]){
                     auxOrderNumber = parseFloat(lastCartFinished[0].order_number || 0)
                 }
                 let nextOrderNumber = auxOrderNumber + 1
@@ -404,7 +405,6 @@ const controller = {
                     updated_at : dateTimeBD,
                 })
                 .then((updatedCart) => {
-                    let dateTimeBD = dateNow()
                     db.ShoppingCarts.create({
                         created_at : dateTimeBD,
                         updated_at : dateTimeBD,
