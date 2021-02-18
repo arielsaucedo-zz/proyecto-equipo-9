@@ -1,8 +1,6 @@
 const path = require('path')
 let db = require('../database/models')
 
-const products = require('../data/products.json');
-
 module.exports = {
 
     index: function (req, res, next) {

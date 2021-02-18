@@ -2,6 +2,7 @@ let bcryptjs = require('bcryptjs')
 let db = require('../database/models')
 let Sequelize = require('sequelize')
 const Op = Sequelize.Op;
+let helpers = require('../middlewares/helpers')
 
 const {
     check,
@@ -263,6 +264,11 @@ const controller = {
             }
             }],
         }).then((ShoppingCart) => {
+            let total = 0
+            ShoppingCart.products.forEach(element => {
+                total = parseFloat(element.CartDetails.subtotal) + total
+            });
+            ShoppingCart.total = parseFloat(total).toFixed(2)
             return res.render("users/cart", { ShoppingCart : ShoppingCart })
         });
     },
@@ -294,7 +300,7 @@ const controller = {
                         shopCartToAdd.addProducts(productToAdd.id, {
                             through : { 
                                 quantity: _body.product_quantity,
-                                subtotal : _body.product_quantity * productToAdd.price ,
+                                subtotal : _body.product_quantity * (productToAdd.price - (productToAdd.price * productToAdd.discount / 100)),
                             }
                         })
                         .then(resultado => {
@@ -314,7 +320,7 @@ const controller = {
                             cart.addProducts(productToAdd.id, {
                                 through : { 
                                     quantity: _body.product_quantity, 
-                                    subtotal : _body.product_quantity * productToAdd.price ,
+                                    subtotal : _body.product_quantity * (productToAdd.price - (productToAdd.price * productToAdd.discount / 100)),
                                 }
                             })
                             .then(resultado => {
@@ -349,7 +355,7 @@ const controller = {
         db.CartDetails.update(
             {
                 quantity: req.body.quantity,
-                subtotal : req.body.quantity * req.body.price,
+                subtotal : req.body.quantity * (req.body.price - (req.body.price * req.body.discount / 100)),
             }, 
             { 
                 where : {

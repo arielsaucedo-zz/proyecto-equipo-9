@@ -27,14 +27,14 @@
                         <hr class="mb-4">
                         <div class="d-flex justify-content-center">
                            <div class="mr-4">
-                              <strong>Total:</strong><h5>$<%= helpers.trunc(cart.total) %></h5>
+                              <h4><strong>Total:</strong> $<%= helpers.trunc(cart.total) %></h4>
                            </div>
                            <div class="ml-4">
-                              <strong>Fecha de compra:</strong><h5><%= new Date(cart.created_at).toLocaleDateString()%></h5>
+                              <h4><strong>Fecha de compra:</strong> <%= new Date(cart.created_at).toLocaleDateString()%></h4>
                            </div> 
                         </div>
                         <br>
-                        <strong>Productos:</strong>
+                        <h4><strong>Productos adquiridos:</strong></h4>
                         <div>
                            <% cart.products.forEach(item => { %>
                            <div class="d-flex flex-wrap mb-2 mt-4 justify-content-between align-content-center border border-primary lead">
@@ -45,7 +45,7 @@
                                  <h4><%= item.name %></h4> 
                               </div>
                               <div class="align-self-center p-3">
-                                 <p>Precio unitario: $<%= helpers.trunc(item.price) %> </p>
+                                 <p>Precio unitario: $<%= helpers.trunc((item.CartDetails.subtotal / item.CartDetails.quantity).toFixed(2)) %> </p>
                                  <p>Cantidad: <%= item.CartDetails.quantity %></p>
                               </div>
                            </div>
