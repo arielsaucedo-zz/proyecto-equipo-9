@@ -48,6 +48,42 @@ const controller = {
         })
         .catch(e => console.log(e))
     },
+    soldProducts: function(req, res) {
+        let soldProducts = db.CartDetails.findAll({
+                    attributes: ['id', 'quantity', 'subtotal'],
+                })
+
+        let totalSales = db.ShoppingCarts.findAll({
+
+        })
+        Promise.all([soldProducts, totalSales])
+        .then(function([soldProducts, totalSales]){
+            
+            let products = 0
+            soldProducts.forEach(item => {
+                products = products + item.quantity
+            })
+
+            let sales = 0
+            totalSales.forEach(item => {
+                sales = sales + item.total
+            })
+            
+
+            let respuesta = {
+                meta: {
+                    status: 200,
+                },
+                data: {
+                    soldProductos: products,
+                    totalSales: totalSales,
+                }
+            }
+            res.json(respuesta)
+        })
+        .catch(e => console.log(e))
+
+    }
 }
 
 module.exports = controller;
