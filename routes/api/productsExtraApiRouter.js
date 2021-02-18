@@ -5,5 +5,6 @@ const productsExtraApiController = require('../../controllers/api/productsExtraA
 
 router.get('/', productsExtraApiController.showAllExtra)
 router.get('/lastProductDB', productsExtraApiController.lastProductDB)
+router.get('/soldProducts', productsExtraApiController.soldProducts)
 
 module.exports = router;

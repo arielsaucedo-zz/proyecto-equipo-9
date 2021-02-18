@@ -14,31 +14,43 @@
                 <h2 class="register-h2">Detalle de compra</h2>
             </div>
             <div class="product-detail">
-               <div class="row">
+               <div class="d-flex flex-wrap">
                   <div class="col-6 col-sm-12">
                      <article class="">
-                        <h2 class="">
+                        <h3 class="">
                            <% if(cart.order_number){ %>
                               Numero de orden: </strong><%= cart.order_number %>
                            <% } else { %>
                               Carrito abierto</strong>
                            <% } %>
-                        </h2>
+                        </h3>
                         <hr class="mb-4">
-                        <strong>Total:</strong><p>$<%= cart.total %></p>
+                        <div class="d-flex justify-content-center">
+                           <div class="mr-4">
+                              <strong>Total:</strong><h5>$<%= helpers.trunc(cart.total) %></h5>
+                           </div>
+                           <div class="ml-4">
+                              <strong>Fecha de compra:</strong><h5><%= new Date(cart.created_at).toLocaleDateString()%></h5>
+                           </div> 
+                        </div>
                         <br>
                         <strong>Productos:</strong>
-                        <ul>
+                        <div>
                            <% cart.products.forEach(item => { %>
-                           <li>
-                              <p><%= item.name %> x<%= item.quantity %> - <strong><small><%= cart.User.first_name + ' ' + cart.User.last_name %></small></strong></p>
-                              <div class="col-sm-2 hidden-xs"><img src="/images/products/<%= item.image %>" alt="..."
-                                 class="img-responsive" />
+                           <div class="d-flex flex-wrap mb-2 mt-4 justify-content-between align-content-center border border-primary lead">
+                              <div class="col-sm-2 hidden-xs">
+                                 <img src="/images/products/<%= item.image %>" alt="..." class="img-responsive" />
                               </div>
-                           </li>
+                              <div class="align-self-center">
+                                 <h4><%= item.name %></h4> 
+                              </div>
+                              <div class="align-self-center p-3">
+                                 <p>Precio unitario: $<%= helpers.trunc(item.price) %> </p>
+                                 <p>Cantidad: <%= item.CartDetails.quantity %></p>
+                              </div>
+                           </div>
                            <% }) %>
-                        </ul>
-                        <strong>Fecha de compra:</strong><p><%= new Date(cart.created_at).toLocaleDateString()%></p>
+                        </div>
                         <hr>
                      </article>
                   </div>
