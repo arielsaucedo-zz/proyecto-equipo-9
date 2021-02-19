@@ -432,6 +432,9 @@ const controller = {
             where : {
                 user_id : req.session.userId,
             },
+            order: [
+                ['id', 'DESC'],
+            ],
             include : [{
                 model : db.Products,
                 as: "products",     

@@ -44,7 +44,9 @@ const controller = {
                 meta: {
                     status: 200,
                 },
-                data: product,
+                data: [
+                    product,
+                ] 
               }
             res.json(respuesta)
         })

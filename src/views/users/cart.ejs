@@ -49,10 +49,10 @@
                             </td>
                             <td data-th="Subtotal" class="text-center"><%= helpers.trunc(item.CartDetails.subtotal) %></td>
                             <td class="actions" data-th="">
-                                <div class="actions row justify-content-around">
+                                <div class="actions justify-content-around">
                                         <input type="hidden" name="price" value="<%= item.price %>">
                                         <input type="hidden" name="discount" value="<%= item.discount %>">
-                                        <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                        <button type="submit" class="btn btn-info btn-sm mb-2"><i class="fa fa-refresh"></i></button>
                                     </form>
                                     <form id="deleteCartItem<%= item.CartDetails.id %>" action="/users/deleteFromCart/<%= item.CartDetails.id %>" method="POST">
                                         <input type="hidden" name="userId" value="<%= ShoppingCart.user_id %>">
@@ -64,17 +64,17 @@
                         <%  } ) %>
                     </tbody>
                     <tfoot>
-                        <tr class="visible-xs">
+                        <!-- <tr class="visible-xs">
                             <td class="text-center"><strong>Total $<%= helpers.trunc(ShoppingCart.total) %></strong></td>
-                        </tr>
+                        </tr> -->
                         <tr>
-                            <td><a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                            <td><a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Seguir Comprando</a></td>
                             <td colspan="2" class="hidden-xs"></td>
                             <td class="hidden-xs text-center"><strong>Total $<%= helpers.trunc(ShoppingCart.total) %></strong></td>
                             <td>
                                 <form action="/users/shop" method="POST"  style="display: inline-bock">
                                     <input type="hidden" name="userId" value="<%= locals.userId %>">
-                                    <button type="submit" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></button>
+                                    <td><button type="submit" class="btn btn-success "> Confirmar Pedido <i class="fa fa-angle-right"></i></button></td>
                                  </form>
                             </td>
                         </tr>
