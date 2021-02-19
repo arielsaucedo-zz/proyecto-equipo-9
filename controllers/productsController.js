@@ -110,7 +110,7 @@ let productsController = {
     },
 
     edit: function (req, res, next) {
-        let allCategories = db.Products.findAll()
+        let allCategories = db.Categories.findAll()
         let oneProduct = db.Products.findByPk(req.params.id)
         Promise.all([allCategories, oneProduct])
         .then(function([allCategories, oneProduct]){
@@ -124,7 +124,7 @@ let productsController = {
 
     update: function (req, res, next) {
         let filenameVal = req.body.file
-        let allCategories = db.Products.findAll()
+        let allCategories = db.Categories.findAll()
         let oneProduct = db.Products.findByPk(req.params.id)
         if (req.files[0] != undefined) {
             filenameVal = req.files[0].filename
