@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    let i = 4
+    let i = 2
 
     let cuentaRegresiva = setInterval(function(){
         document.querySelector("h4").innerHTML ="En " + i + " segundos seras redirigido..."

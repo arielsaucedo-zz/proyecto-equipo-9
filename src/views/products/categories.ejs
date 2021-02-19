@@ -8,21 +8,26 @@
  <!-- /Header -->
 
 <body>
-   <div class="container products-wrapper">
+   <div class="container-fluid products-wrapper">
       <% if(products.length != 0){ %>
       <div class="row">
          <div class="col-12">
-            <h1 class="products-title text-right"><%= title %></h1>
+            <h1 class="products-title text-center"><%= title %></h1>
          </div>
+      
+      
+      <hr>
       </div>
       <div class="product-detail">
          <div class="row">
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-3">
                <article class="product-detail-info">
                   <a href="/products/categories">
                      <h2 class="product-detail-title categories" style="font-size: 20px; cursor: pointer;" id="allProducts">
-                        Todos los productos
+                        Todas las categorías
+                        
                      </h2>
+                     
                   </a>
                   <hr>
                   <% if (categories.length > 0) { %>
@@ -43,7 +48,7 @@
  
                <% products.forEach(product => { %>
 
-                  <div class="col-12 col-sm-6 col-lg-6">
+                  <div class="col-12 col-sm-6 col-lg-4">
                      <section class="product-box card">
                          <a href="/products/detail/<%= product.id %>">
                              <figure class="product-box_image">
@@ -89,7 +94,9 @@
       <% } else { %>
       <div class="col-12">
          <h2 class="products-title" style="padding: 100px 0; color: tomato;">Todavía no hay productos para catalogar.</h2>
+         
       </div>
+      <hr>
       <% } %>
    </div>
 
