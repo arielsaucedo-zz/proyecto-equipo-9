@@ -81,6 +81,28 @@ const controller = {
         })
         .catch(e => console.log(e))
 
+    },
+    lastFiveSales: function (req, res, next){
+        db.sequelize.query(`select product_id, count(*) * cartI.quantity as Sold_Quantity, prod.name, prod.description, prod.price, prod.created_at
+            from shopping_carts as cartH inner JOIN cart_details as cartI ON cartI.shopping_cart_id = cartH.id 
+            inner join products as prod on cartI.product_id = prod.id
+            where order_number is not null
+            group by product_id
+            order by Sold_Quantity desc
+            limit 5`, 
+            { type: db.sequelize.QueryTypes.SELECT})  
+        .then(query => {
+            let respuesta = {
+                meta: {
+                    status: 200,
+                },
+                data: {
+                    products: query
+                }
+            }
+            res.json(respuesta)
+        })
+        .catch(e => console.log(e))
     }
 }
 
