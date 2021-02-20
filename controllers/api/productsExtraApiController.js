@@ -37,16 +37,15 @@ const controller = {
         })
         .then(function(resultado){
             let product = resultado
-            console.log(product.created_at)
             product.setDataValue("image", "http://localhost:3000/images/products/" + resultado.image)
             product.setDataValue("detail", "/api/products/" + resultado.id)
             let respuesta = {
                 meta: {
                     status: 200,
                 },
-                data: [
+                data: {
                     product,
-                ] 
+                }
               }
             res.json(respuesta)
         })
