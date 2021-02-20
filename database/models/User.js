@@ -24,12 +24,12 @@ module.exports = (sequelize, DataTypes) => {
         image_avatar: {
             type: DataTypes.STRING
         },
-        /* created_at: {
+        created_at: {
             type: DataTypes.DATE
         },
         updated_at: {
             type: DataTypes.DATE
-        }, */
+        },
         role_id:{
             allowNull: false,
             type: DataTypes.INTEGER
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let config = {
         tableName: "users",
-        timestamps: true,
+        timestamps: false,
         underscored: true
     }
 
