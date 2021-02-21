@@ -128,6 +128,7 @@ window.onload = function ()  {
         if (validator.equals(password_confirmation.value, password_new.value)) {
             delete errors.password_confirmation
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
+            setValidationResult(password_new, "password_new", "password_new", "OK", passwordNewMsg, "")
         } else {
             errors.password_confirmation = errPasswordConfirmation
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "NOK", passwordConfirmationMsg, errPasswordConfirmation)

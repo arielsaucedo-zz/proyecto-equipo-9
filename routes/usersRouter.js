@@ -90,17 +90,6 @@ router.put('/:id', upload.any(),
     check('user_name')
         .isEmail()
         .withMessage('Por favor, ingrese una dirección de correo electrónico válida'),
-/*     check('password_initial')
-        .isLength( {min: 8})
-        .withMessage('La contraseña debe contener al menos 8 caracteres')
-        .custom((value,{req, loc, path}) => {
-            if (value !== req.body.password_confirmation) {
-                throw new Error('Las contraseñas no coinciden, por favor corrija.');
-            } else {
-                return value;
-            }
-        }) 
-*/
 ], usersController.update)
 
 router.get('/userDetail/:id/changePassword', userAuth, usersController.showChangePassword);
