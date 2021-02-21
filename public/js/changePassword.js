@@ -68,7 +68,7 @@ window.onload = function ()  {
             delete errors.password_old
             setValidationResult(password_old, "password_old", "Password_old", "OK", passwordOldMsg, "")
         } else {
-            errors.password_old = errPasswordNew
+            errors.password_old = errPasswordOld
             setValidationResult(password_old, "password_old", "Password_old", "NOK", passwordOldMsg, errPasswordOld)
         }
     })
@@ -78,8 +78,18 @@ window.onload = function ()  {
             delete errors.password_old
             setValidationResult(password_old, "password_old", "Password_old", "OK", passwordOldMsg, "")
         } else {
-            errors.password_old = errPasswordNew
+            errors.password_old = errPasswordOld
             setValidationResult(password_old, "password_old", "Password_old", "NOK", passwordOldMsg, errPasswordOld)
+        }
+    })
+
+    password_new.addEventListener("keyup", function () {
+        if (validator.equals(password_new.value, password_confirmation.value)) {
+            delete errors.password_new
+            setValidationResult(password_new, "password_new", "Password_new", "OK", passwordNewMsg, "")
+        } else {
+            errors.password_new = errPasswordOld
+            setValidationResult(password_new, "password_new", "Password_new", "NOK", passwordNewMsg, errPasswordNew)
         }
     })
 
