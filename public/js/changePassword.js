@@ -48,7 +48,6 @@ window.onload = function ()  {
         if (status === "OK") {
             element.classList.remove("border-nok")
             element.classList.add("border-ok")
-            console.log(element.keyName);
             if (elementMsg.classList) {
                 elementMsg.classList.remove("span_errors")
                 elementMsg.innerHTML = ""
@@ -117,7 +116,9 @@ window.onload = function ()  {
     password_confirmation.addEventListener("keyup", function () {
         if (validator.equals(password_confirmation.value, password_new.value)) {
             delete errors.password_confirmation
+            delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
+            setValidationResult(password_new, "password_new", "password_new", "OK", passwordNewMsg, "")
         } else {
             errors.password_confirmation = errPasswordConfirmation
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "NOK", passwordConfirmationMsg, errPasswordConfirmation)
@@ -139,7 +140,9 @@ window.onload = function ()  {
     password_confirmation.addEventListener("change", function () {
         if (validator.equals(password_confirmation.value, password_new.value)) {
             delete errors.password_confirmation
+            delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
+            setValidationResult(password_new, "password_new", "password_new", "OK", passwordNewMsg, "")
         } else {
             errors.password_confirmation = errPasswordConfirmation
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "NOK", passwordConfirmationMsg, errPasswordConfirmation)
