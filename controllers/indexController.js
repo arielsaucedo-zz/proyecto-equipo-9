@@ -29,7 +29,6 @@ module.exports = {
 
                 if (nombre.includes(buscado) ||
                     description.includes(buscado) 
-                //     || productElement.category.includes(req.query.search)
                 ) {
                     return true
                 } else {

@@ -6,13 +6,6 @@
 <body>
 
     <%- include('../partials/header') %>
-  <!--   <style>
-        span {
-            display: none;
-            font-size: 12px;
-            color: red;
-            }
-      </style> -->
 
     <main>
         <div class="container">
@@ -106,58 +99,6 @@
                                     </div>
 
                                 </div>
-
-                        
-
-                        <!--
-
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label for="validationTooltip03">Contraseña</label>
-                                <input type="password" class="form-control" id="validationPassword"
-                                    placeholder="Elegí tu nueva contraseña" name="password_initial" required>
-                                <div class="invalid-tooltip">
-                                    Please provide a valid password.
-                                </div>
-                                <span id="password_msg" class="span_errors"></span>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="validationTooltip04">Confirmacion de contraseña</label>
-                                <input type="password" class="form-control" id="validationPasswordConfirmation"
-                                    placeholder="Confirmá tu nueva contraseña" name="password_confirmation" required>
-                                <div class="invalid-tooltip">
-                                    
-                                </div>
-                                <span id="password_confirm_msg" class="span_errors"></span>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <% errors.forEach(error => { %>
-                                <% if(error.param == "password_initial") { %>
-                                <div class="">
-                                    <span class="span_errors">
-                                        * <%= error.msg %>
-                                    </span>
-                                </div>
-                                <% } else { "" } %>
-                                <% }) %>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <% errors.forEach(error => { %>
-                                <% if(error.param == "password_confirmation") { %>
-                                <div class="">
-                                    <span class="span_errors">
-                                        * <%= error.msg %>
-                                    </span>
-                                </div>
-                                <% } else { "" } %>
-                                <% }) %>
-                            </div>
-                        </div>
-                        -->
-
                             </div>
 
                             <div class="form-row col-md-4">
@@ -166,7 +107,6 @@
                                     <div class="card-body text-dark">
                                     <h5 class="card-title">Para cambiar su contraseña, por favor presione el boton debajo.</h5>
                                     <a class="btn btn-warning  btn-lg btn-block" href="/users/userDetail/<%=userLoggedIn.id%>/changePassword" role="button" id="change_password_id">Cambiar contraseña</a>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
                                     </div>
                                 </div>
                             </div>

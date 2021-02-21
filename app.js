@@ -39,7 +39,6 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'src', 'views')) // Define la ubicación de la carpeta de las Vistas
 
 // My middlewares
-//app.use(logMiddleware);
 app.use(cartMiddleware);
 app.use(helpersMiddleware);
 

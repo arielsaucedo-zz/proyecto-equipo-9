@@ -11,20 +11,12 @@ window.onload = function () {
     let imageAvatar = document.getElementById("validationImageAvatar");
     let imageAvatarMsg = document.getElementById("image_avatar_msg");
 
-/*     let password = document.getElementById("validationPassword");
-    let passwordMsg = document.getElementById("password_msg");
-
-    let passwordConfirmation = document.getElementById("validationPasswordConfirmation");
-    let passwordConfirmationMsg = document.getElementById("password_confirm_msg"); */
-
     let form = document.getElementById("updateForm"); 
 
     const errFirstName = "La longitud del nombre debe ser como mínimo de 3 letras."
     const errLastName = "La longitud de la descripción debe ser como mínimo de  letras."
     const errUserName = "El nombre de usuario debe ser un e-mail."
     const errImageAvatar = "El archivo debe ser de extension jpg, jpeg, png o gif."
-/*     const errPassword = "La contraseña debe contener mínimo 8 caracteres y debe incluir al menos un número."
-    const errPasswordConfirm = "Las contraseñas deben ser iguales." */
     const allowedExtensions = ["jpg", "jpeg", "png", "gif"]
 
     function getFileExtension(filename) {
@@ -35,9 +27,6 @@ window.onload = function () {
         first_name: "",
         last_name: "",
         user_name: "",
-     /*    image_avatar: "", */
-/*         password: "",
-        password_confirm: "", */
     }
 
     const errors = {}
@@ -150,60 +139,6 @@ window.onload = function () {
             }
         }
     })
-/* 
-    password.addEventListener("keyup", function () {
-        if (/^(?=.*\d).{8,20}$/.test(password.value)) {
-            delete errors.password
-            setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
-        } else {
-            errors.password = errPassword
-            setValidationResult(password, "password", "Password", "NOK", passwordMsg, errPassword)
-        }
-    })
-
-    password.addEventListener("blur", function () {
-        if (/^(?=.*\d).{8,20}$/.test(password.value)) {
-            delete errors.password
-            setValidationResult(password, "password", "Password", "OK", passwordMsg, "")
-        } else {
-            errors.password = errPassword
-            setValidationResult(password, "password", "Password", "NOK", passwordMsg, errPassword)
-        }
-    })
-
-    passwordConfirmation.addEventListener("keyup", function () {
-        if (validator.equals(passwordConfirmation.value, password.value)) {
-            delete errors.password_confirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
-            console.log("OK");
-        } else {
-            errors.password_confirm = errPasswordConfirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
-            console.log("NOK");
-        }
-    })
-
-    passwordConfirmation.addEventListener("blur", function () {
-        if (validator.equals(passwordConfirmation.value, password.value)) {
-            delete errors.password_confirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
-        } else {
-            errors.password_confirm = errPasswordConfirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
-        }
-    })
-
-    passwordConfirmation.addEventListener("change", function () {
-        if (validator.equals(passwordConfirmation.value, password.value)) {
-            delete errors.password_confirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "OK", passwordConfirmationMsg, "")
-        } else {
-            errors.password_confirm = errPasswordConfirm
-            setValidationResult(passwordConfirmation, "password_confirm", "Password_Confirm", "NOK", passwordConfirmationMsg, errPasswordConfirm)
-        }
-    }) 
-    
-*/
 
     form.addEventListener("submit", function (e) {
         if (Object.keys(errors).length > 0) {
@@ -244,24 +179,6 @@ window.onload = function () {
                             imageAvatarMsg.innerHTML = errImageAvatar
                         }
                         break;
-/*                     case "password":
-                        password.classList.remove("border-ok")
-                        password.classList.add("border-nok")
-                        if (passwordMsg.classList) {
-                            passwordMsg.classList.add('span_errors')
-                            passwordMsg.innerHTML = errPassword
-                        }
-                        break;
-                    case "password_confirm":
-                        passwordConfirmation.classList.remove("border-ok")
-                        passwordConfirmation.classList.add("border-nok")
-                        if (passwordConfirmationMsg.classList) {
-                            passwordConfirmationMsg.classList.add('span_errors')
-                            passwordConfirmationMsg.innerHTML = errPasswordConfirm
-                        }
-                        break;
-                    default:
-                        break; */
                 }
             }
         } else {
