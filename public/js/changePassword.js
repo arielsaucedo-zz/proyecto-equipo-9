@@ -127,6 +127,7 @@ window.onload = function ()  {
     password_confirmation.addEventListener("blur", function () {
         if (validator.equals(password_confirmation.value, password_new.value)) {
             delete errors.password_confirmation
+            delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
             setValidationResult(password_new, "password_new", "password_new", "OK", passwordNewMsg, "")
         } else {

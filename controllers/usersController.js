@@ -219,7 +219,6 @@ const controller = {
 
     updateChangePassword: function(req, res, next) {
         let errors = validationResult(req)
-        console.log(errors);
         db.Users.findOne({
             where: {
                 id: req.params.id
