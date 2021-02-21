@@ -84,7 +84,7 @@ window.onload = function ()  {
     })
 
     password_new.addEventListener("keyup", function () {
-        if (validator.equals(password_new.value, password_confirmation.value)) {
+        if (validator.equals(password_new.value, password_confirmation.value) && (/^(?=.*\d).{8,20}$/.test(password_new.value))) {
             delete errors.password_new
             setValidationResult(password_new, "password_new", "Password_new", "OK", passwordNewMsg, "")
         } else {
@@ -94,7 +94,7 @@ window.onload = function ()  {
     })
 
     password_new.addEventListener("keyup", function () {
-        if (validator.equals(password_new.value, password_confirmation.value)) {
+        if (validator.equals(password_new.value, password_confirmation.value) && (/^(?=.*\d).{8,20}$/.test(password_new.value))) {
             delete errors.password_new
             setValidationResult(password_new, "password_new", "Password_new", "OK", passwordNewMsg, "")
         } else {
@@ -104,7 +104,7 @@ window.onload = function ()  {
     })
 
     password_new.addEventListener("blur", function () {
-        if (validator.equals(password_new.value, password_confirmation.value)) {
+        if (validator.equals(password_new.value, password_confirmation.value) && (/^(?=.*\d).{8,20}$/.test(password_new.value))) {
             delete errors.password_new
             setValidationResult(password_new, "password_new", "Password_new", "OK", passwordNewMsg, "")
         } else {
@@ -114,7 +114,7 @@ window.onload = function ()  {
     })
 
     password_new.addEventListener("change", function () {
-        if (validator.equals(password_new.value, password_confirmation.value)) {
+        if (validator.equals(password_new.value, password_confirmation.value) && (/^(?=.*\d).{8,20}$/.test(password_new.value))) {
             delete errors.password_new
             setValidationResult(password_new, "password_new", "Password_new", "OK", passwordNewMsg, "")
         } else {
