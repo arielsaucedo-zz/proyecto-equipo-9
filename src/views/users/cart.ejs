@@ -17,12 +17,12 @@
                 <table id="cart" class="table table-hover table-condensed">
                     <thead>
                         <tr>
-                            <th style="width:50%">Producto</th>
+                            <th style="width:45%">Producto</th>
                             <th style="width:12%">Precio de Lista</th>
                             <th style="width:3%">Descuento</th>
                             <th style="width:10%">Precio Final</th>
                             <th style="width:8%">Cantidad</th>
-                            <th style="width:12%" class="text-center">Subtotal</th>
+                            <th style="width:17%" class="text-center">Subtotal</th>
                             <th style="width:10%"></th>
                         </tr>
                     </thead>
@@ -31,12 +31,11 @@
                         <tr>
                             <td data-th="Product">
                                 <div class="row">
-                                    <div class="col-sm-2 hidden-xs"><img src="/images/products/<%= item.image %>" alt="..."
+                                    <div class="col-sm-4 hidden-xs"><img src="/images/products/<%= item.image %>" alt="..."
                                             class="img-responsive" />
                                     </div>
-                                    <div class="col-sm-10">
-                                        <h4 class="nomargin"><%= item.name %></h4>
-                                        <p><%= item.description %></p>
+                                    <div class="col-sm-8 col align-self-center">
+                                        <h5 class="nomargin"><%= item.name %></h5>
                                     </div>
                                 </div>
                             </td>
@@ -52,11 +51,17 @@
                                 <div class="actions justify-content-around">
                                         <input type="hidden" name="price" value="<%= item.price %>">
                                         <input type="hidden" name="discount" value="<%= item.discount %>">
-                                        <button type="submit" class="btn btn-info btn-sm mb-2"><i class="fa fa-refresh"></i></button>
+                                        <div class="d-flex">
+                                            <button id="btn-refresh" type="submit" class="btn btn-info btn-sm mb-2"><i class="fa fa-refresh"></i></button>
+                                            <label for="btn-refresh" class="ml-3 text-info">Actualizar cantidad</label>
+                                        </div>
                                     </form>
                                     <form id="deleteCartItem<%= item.CartDetails.id %>" action="/users/deleteFromCart/<%= item.CartDetails.id %>" method="POST">
                                         <input type="hidden" name="userId" value="<%= ShoppingCart.user_id %>">
-                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                                        <div class="d-flex">
+                                            <button id="btn-trash" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                                            <label for="btn-trash" class="ml-3 text-danger">Eliminar producto</label>
+                                        </div>
                                     </form>
                                 </div>
                             </td>
@@ -65,13 +70,17 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Seguir Comprando</a></td>
+                            <td>
+                                <a href="/products/categories" class="btn btn-warning"><i class="fa fa-angle-left"></i> Seguir Comprando</a>
+                            </td>
                             <td colspan="2" class="hidden-xs"></td>
                             <td class="hidden-xs text-center"><strong>Total $<%= helpers.trunc(ShoppingCart.total) %></strong></td>
                             <td>
                                 <form action="/users/shop" method="POST"  style="display: inline-bock">
                                     <input type="hidden" name="userId" value="<%= locals.userId %>">
-                                    <td><button type="submit" class="btn btn-success "> Confirmar Pedido <i class="fa fa-angle-right"></i></button></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success "> Confirmar Pedido <i class="fa fa-angle-right"></i></button>
+                                    </td>
                                  </form>
                             </td>
                         </tr>

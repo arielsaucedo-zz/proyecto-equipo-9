@@ -4,14 +4,23 @@ let db = require('../database/models')
 module.exports = {
 
     index: function (req, res, next) {
-        db.Products.findAll()
-        .then((resultado) => {
-            res.render('index', { products: resultado })
+        let lastProducts = db.Products.findAll({
+            order: [['created_at', 'DESC']],
+            limit: 4,
         })
-        .catch(function(error){
-            console.log(error)
-            res.send('')
+        // Busco si existe un carrito para el usuario logueado.
+        let cheaperProducts = db.Products.findAll({
+            order: [['discount', 'DESC'], ['created_at', 'DESC']],
+            limit: 4,
         })
+        Promise.all([lastProducts, cheaperProducts])
+            .then(([lastProducts, cheaperProducts]) => {
+                res.render('index', { lastProducts : lastProducts, cheaperProducts : cheaperProducts })
+            })
+            .catch(function(error){
+                console.log(error)
+                res.send('')
+            })
     },
     
     search: (req, res) => {

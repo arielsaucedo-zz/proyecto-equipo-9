@@ -9,7 +9,7 @@ window.onload = function ()  {
     
     $(document).on('click','.pass_show .ptxt', function(){ 
     
-    $(this).text($(this).text() == "Show" ? "Hide" : "Show"); 
+    $(this).text($(this).text() == "Mostrar" ? "Ocultar" : "Mostrar"); 
     
     $(this).prev().attr('type', function(index, attr){return attr == 'password' ? 'text' : 'password'; }); 
     
@@ -30,8 +30,8 @@ window.onload = function ()  {
     let passwordConfirmationMsg = document.getElementById("password_confirmation_msg");
 
     const errPasswordOld = "La contraseña actual es incorrecta. Por favor, verifique y reingrese."
-    const errPasswordNew = "Las nueva contraseña y su confirmación deben ser iguales." 
-    const errPasswordConfirmation = "La confirmación de la constraseña debe ser igual a la nueva contraseña." 
+    const errPasswordNew = "Las contraseñas nueva y su confirmación deben ser iguales. Además valide que el formato sea de 8 a 20 caracteres con al menos un digito numérico." 
+    const errPasswordConfirmation = "Las contraseñas nueva y su confirmación deben ser iguales. Además valide que el formato sea de 8 a 20 caracteres con al menos un digito numérico." 
 
     const user = {
         password_old: "",
@@ -124,7 +124,7 @@ window.onload = function ()  {
     }) 
     /** */
     password_confirmation.addEventListener("keyup", function () {
-        if (validator.equals(password_confirmation.value, password_new.value)) {
+        if (validator.equals(password_confirmation.value, password_new.value) && (/^(?=.*\d).{8,20}$/.test(password_confirmation.value))) {
             delete errors.password_confirmation
             delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
@@ -136,7 +136,7 @@ window.onload = function ()  {
     })
 
     password_confirmation.addEventListener("blur", function () {
-        if (validator.equals(password_confirmation.value, password_new.value)) {
+        if (validator.equals(password_confirmation.value, password_new.value) && (/^(?=.*\d).{8,20}$/.test(password_confirmation.value))) {
             delete errors.password_confirmation
             delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
@@ -148,7 +148,7 @@ window.onload = function ()  {
     })
 
     password_confirmation.addEventListener("change", function () {
-        if (validator.equals(password_confirmation.value, password_new.value)) {
+        if (validator.equals(password_confirmation.value, password_new.value) && (/^(?=.*\d).{8,20}$/.test(password_confirmation.value))) {
             delete errors.password_confirmation
             delete errors.password_new
             setValidationResult(password_confirmation, "password_confirmation", "Password_Confirmation", "OK", passwordConfirmationMsg, "")
