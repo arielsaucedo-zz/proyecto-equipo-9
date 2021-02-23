@@ -161,8 +161,13 @@ let productsController = {
             res.redirect('/')
         })
         .catch(function(error){
+            error = {
+                message: 'Error al eliminar producto. El producto posee compras o carritos en curso.',
+                status: 500,
+                stack: ''
+            }
             console.log(error)
-            res.send('')
+            res.render('error', {error : error})
         })
     },
 }
