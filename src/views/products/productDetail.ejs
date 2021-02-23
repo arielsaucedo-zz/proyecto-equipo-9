@@ -50,7 +50,7 @@
                                     <button type="submit" class="btn btn-primary"><i class="fas fa-edit mr-2"></i> Editar</button>
                                 </form>
 
-                                <form action="/products/delete/<%= productDetail.id %>?_method=DELETE" method="POST"
+                                <form action="/products/<%= productDetail.id %>/delete?_method=DELETE" method="POST"
                                     style="display: inline-flex">
                                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt mr-2"></i> Eliminar</button>
                                 </form>

@@ -153,15 +153,12 @@ let productsController = {
         })
     },
 
-    destroy: function (req, res) {
-        db.Products.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
+    destroy: function (req, res, next) {
+        db.Products.destroy({ where: { id: req.params.id } })
         .then((resultado) => {
+            console.log(req.params.id);
             console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-            res.redirect('/')
+            res.render('/')
         })
         .catch(function(error){
             console.log(error)
