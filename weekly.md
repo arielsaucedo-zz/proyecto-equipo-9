@@ -1,3 +1,179 @@
+## **<u>SPRINT - 8</u>**
+
+**<u>SEMANA 1</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Planificación sprint-8.																																			
+
+​	Nicolás: 
+​				Planificación sprint-8. 																																 				Completar base de datos con información.
+
+​	Daniel: 
+​				Planificación sprint-8.  																																	 
+
+​	 Ariel:                                                                                                                                                                                               				Planificación sprint-8.																														 				 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Poco tiempo para avanzar.
+	Nicolás:
+				Ninguno.
+	Daniel:                                                                                                                       														      				Ninguno. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Ninguno.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Resolver errores existentes en Sitio:                                                                                                                           						- No mostrar porcentaje si producto no tiene descuento.                                                                                             						- Arreglar funcionamiento de MULTER. Users y Products.
+
+​	Nicolás:
+​                Endpoint Usuarios por ID. 																						 
+
+​	Daniel: 																																							         	    				Organizar API de products/id.
+
+​    Ariel:                                                                                                                                                                                                 				Resolver errores existentes en Sitio:                                                                                                         				        - Imagen de avatar de usuario en el header al loguearse.                                                                                                                                  						- Setear imagenes por defecto para la creacion de usuarios (avatar) y productos.                                                   						- Setear las vistas para acceso segun rol (guest, user y admin).                                                                               						- Arreglar funcionamiento de MULTER. Users y Products.																	 											 				
+
+**<u>SEMANA 2</u>**
+
+● Qué hizo en la semana
+
+​	Cristian: 
+​				Generación de vista CAMBIO DE PASSWORD.													                                                              				API Productos.																											                                                         				Desarrollar Funcionalidad Carrito de compras.											 				 
+
+​	Nicolás:
+​                Endpoint Usuarios por ID.	                                                                                                                                              				Emprolijar vista "Nosotros".                                                                                                                                                             
+
+​	Daniel:                                                                                                                                                                                				De vacaciones sin pc.                                                                                                                                                      	
+
+​	Ariel:                                                                                                                                                                                                 				Resolver errores existentes en Sitio.								 											 		 		 				
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Poco tiempo para avanzar considerablemente y problemas con sequelize (en carrito).
+	Nicolás:
+				Ninguno. 																	 				
+
+​	Daniel:                                                                                                                                                                                    				N/A.                                                                                               	
+
+​	Ariel:																																				                                                   				Falta de tiempo para avanzar en las tareas.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Finalizar Desarrollo Funcionalidad Carrito de compras. (Ver subtareas en TRELLO para más detalle).			
+
+​	Nicolás:
+​				Modificar 'Búsqueda' para que apunte a la DB.                                                                                                                              
+
+​	Daniel:                                                                                                                                                                                				N/A.
+
+​	Ariel:
+​				API Usuarios.																																						     				Dashboard en React.
+
+**<u>SEMANA 3</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Continuar Desarrollo Funcionalidad Carrito de compras. (Ver subtareas en TRELLO para más detalle).
+
+​	Nicolás: 
+​				Modificar 'Búsqueda' para que apunte a la db. 																		                                 				Detalles de funcionalidad del sitio.
+
+​	Daniel: 
+​				De vacaciones sin pc.  																																	 
+
+​	 Ariel:                                                                                                                                                                                               				API Usuarios. 																																		 				 				APIs adicionales para volcar datos al Dashboard.																														 				 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Ninguno.
+	Daniel:                                                                                                                       														      				N/A. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Ninguno.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Comenzar con el Dashboard de React.
+
+​	Nicolás:
+​                N/A. 																						 
+
+​	Daniel: 																																							         	    				N/A.
+
+​    Ariel:                                                                                                                                                                                                 				Comenzar con el Dashboard de React.
+
+**<u>SEMANA 4</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Pruebas y corrección de defectos.																												 				Dashboard React.		                                                                                                                                                        				Analizar que tareas podemos bajar.
+
+​	Nicolás: 
+​				Comienzo de ÚltimoProducto y ÚltimoUsuario en dashboard. 																			  				Detalles en vistas del sitio.
+
+​	Daniel: 
+​				N/A.  																																	 
+
+​	 Ariel:                                                                                                                                                                                               				Dashboard de React. 	                                                                                                                                                      				Generacion de APIS para tarjeta de Ultimo Producto y Ultimo Usuario creado									 				 				Correccion de errores en la pagina.																														 				 
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Por cuestiones de tiempo se acota alcance quitando tareas extras.
+	Nicolás:
+				React me llevó bastante tiempo de repaso.
+	Daniel:                                                                                                                       														      				Falta de tiempo. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Por cuestiones de tiempo se acota alcance quitando tareas extras.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Finalizacion del proyecto y testeo de Dashboard y pagina web.
+
+​	Nicolás:
+​                N/A. 																						 
+
+​	Daniel: 																																							         	    				N/A.
+
+​    Ariel:                                                                                                                                                                                                 				Finalizacion del proyecto y testeo de Dashboard y pagina web.
+
+**<u>SEMANA 5</u>**
+
+● Qué hizo en la semana
+	Cristian: 
+				Preparación de data para demo 23/2.																												
+
+​	Nicolás: 
+​				Preparación de data para demo 23/2. 																	
+
+​	Daniel: 
+​				Preparación de data para demo 23/2.  																											 
+
+​	 Ariel:                                                                                                                                                                                               				Preparación de data para demo 23/2. 																																		 			
+
+● Si se encontró con algún impedimento
+	Cristian: 
+				Ninguno.
+	Nicolás:
+				Ninguno.
+	Daniel:                                                                                                                       														      				Ninguno. 				                    	
+
+​	Ariel:                                                                                                                                                                                                				Ninguno.
+
+● Qué va a hacer la próxima semana.
+	Cristian:
+				Fin del proyecto.
+
+​	Nicolás:
+​                Fin del proyecto. 																						 
+
+​	Daniel: 																																							         	    				Fin del proyecto.
+
+​    Ariel:                                                                                                                                                                                                 				Fin del proyecto.
+
+
+
 ## **<u>SPRINT - 7</u>**
 
 **<u>SEMANA 1</u>**

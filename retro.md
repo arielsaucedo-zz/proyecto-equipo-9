@@ -1,3 +1,19 @@
+## RETROSPECTIVA - SPRINT 8
+
+- **<u>Comenzar a hacer:</u>** Seguimiento diario del avance de cada parte dividida para asegurar un progreso parejo entre los integrantes del equipo.
+
+- **<u>Hacer más:</u>** HACKATON. Continuar avanzando las tareas por mas que hayan dudas (empezar una nueva hasta evacuar las dudas).
+
+- **<u>Continuar haciendo:</u>** Division de tareas para repartirlas entre los diferentes integrantes del equipo.
+
+- **<u>Hacer menos:</u>** Postergar sincronizaciones GIT. Todo lo desarrollado debe quedar impactado en el repositorio remoto (GITHUB) funcionando o no. Es una forma de seguimiento.
+
+- **<u>Dejar de hacer:</u>** Esperar a los ultimos momentos para completar lo referente a lo solicitado en el sprint.
+
+  ***NOTA: Debido a motivos de tiempos, hemos acotado el desarrollo bajando tareas. Login con redes sociales y administración de roles (Como WA, se puede modificar por DB).***
+
+  
+
 ## RETROSPECTIVA - SPRINT 7
 
 - **<u>Comenzar a hacer:</u>** Seguimiento diario del avance de cada parte dividida para asegurar un progreso parejo entre los integrantes del equipo.
