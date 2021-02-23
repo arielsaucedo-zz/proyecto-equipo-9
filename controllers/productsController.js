@@ -158,7 +158,7 @@ let productsController = {
         .then((resultado) => {
             console.log(req.params.id);
             console.log('El producto ' + req.params.id + ' fue eliminado exitosamente!')
-            res.render('/')
+            res.redirect('/')
         })
         .catch(function(error){
             console.log(error)
