@@ -49,8 +49,13 @@ let productsController = {
             res.render('products/productDetail', { productDetail: resultado })
         })
         .catch(function(error){
+            error = {
+                message: 'Error al cargar información del producto. Reintente la operación mas tarde o contacte a su administrador.',
+                status: 500,
+                stack: 'Products - Show'
+            }
             console.log(error)
-            res.send('')
+            res.render('error', {error : error})
         })
     },
 
@@ -63,8 +68,13 @@ let productsController = {
                 });
             })
             .catch(function (error) {
+                error = {
+                    message: 'Error al cargar información de categorías del producto. Reintente la operación mas tarde o contacte a su administrador.',
+                    status: 500,
+                    stack: 'Product - Create'
+                }
                 console.log(error)
-                res.send('')
+                res.render('error', {error : error})
             })
     },
 
@@ -79,8 +89,13 @@ let productsController = {
                     })
                 })
                 .catch(function (error) {
+                    error = {
+                        message: 'Error al cargar información de categorías del producto. Reintente la operación mas tarde o contacte a su administrador.',
+                        status: 500,
+                        stack: 'Product - Store - Find Categories'
+                    }
                     console.log(error)
-                    res.send('')
+                    res.render('error', {error : error})
                 })
         } else {
             let dateTimeBD = dateNow()
@@ -103,8 +118,13 @@ let productsController = {
                 res.render('products/addedProduct')
             })
             .catch(function(error){
+                error = {
+                    message: 'Error al cargar producto en el catálogo. Reintente la operación mas tarde o contacte a su administrador.',
+                    status: 500,
+                    stack: 'Product - Store - Create'
+                }
                 console.log(error)
-                res.send('')
+                res.render('error', {error : error})
             })
         }
     },
@@ -117,8 +137,13 @@ let productsController = {
             res.render('products/productEdit', { allCategories : allCategories, productEdit: oneProduct , errors : [] })
         })
         .catch(function(error){
+            error = {
+                message: 'Error al cargar información del producto. Reintente la operación mas tarde o contacte a su administrador.',
+                status: 500,
+                stack: 'Product - Edit'
+            }
             console.log(error)
-            res.send('')
+            res.render('error', {error : error})
         })
     },
 
@@ -148,8 +173,13 @@ let productsController = {
             res.render('products/changeProduct')
         })
         .catch(function(error){
+            error = {
+                message: 'Error al actualizar producto. Reintente la operación mas tarde o contacte a su administrador.',
+                status: 500,
+                stack: 'Product - Update'
+            }
             console.log(error)
-            res.send('')
+            res.render('error', {error : error})
         })
     },
 
@@ -164,7 +194,7 @@ let productsController = {
             error = {
                 message: 'Error al eliminar producto. El producto posee compras o carritos en curso.',
                 status: 500,
-                stack: ''
+                stack: 'Product - Destroy'
             }
             console.log(error)
             res.render('error', {error : error})
